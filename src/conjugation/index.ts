@@ -1,0 +1,7 @@
+export { NotAVerbError, conjugate, conjugateAll, nonFinite } from './engine'
+export type { NonFiniteForms } from './engine'
+export { differenceSpan } from './diff'
+export { conjugationOf, stemOf } from './endings'
+export { MODELS, REGULAR_MODELS, VERB_MODELS, modelFor } from './models'
+export type { Model } from './models'
+export * from './types'

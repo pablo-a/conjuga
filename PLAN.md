@@ -80,10 +80,34 @@ sait dire « cette forme suit le modèle `pensar`, diphtongaison `e→ie` sur la
 l'UI peut surligner le segment irrégulier en couleur. C'est exactement ce dont on a besoin pour
 apprendre les patrons plutôt que 108 000 formes isolées.
 
-Le dataset complet est quand même **généré au build** — mais uniquement comme _golden file_ de test,
-comparé forme par forme au paquet `spanish-verbs` (Apache-2.0) utilisé en `devDependency` comme
-oracle indépendant. Toute divergence casse la CI. On a ainsi la légèreté du moteur avec la
-garantie d'exactitude d'une table.
+### Vérification : ce qui était prévu, et ce qui a réellement marché
+
+Le plan initial prévoyait de comparer chaque forme au paquet `spanish-verbs` (Apache-2.0), utilisé
+comme oracle indépendant. **Cette piste a été abandonnée après mesure.** Sur 88 verbes testés, il
+divergeait sur 60, et l'examen manuel a montré que l'erreur était presque toujours de son côté :
+
+| Ce que dit `spanish-verbs`            | Forme correcte                           | Nature de l'erreur                                 |
+| ------------------------------------- | ---------------------------------------- | -------------------------------------------------- |
+| `cuentaría`, `vuelvería`, `duermiría` | `contaría`, `volvería`, `dormiría`       | diphtongue le conditionnel, ce qui n'arrive jamais |
+| `andé`, `conducí`, `traí`             | `anduve`, `conduje`, `traje`             | ignore les prétérits forts                         |
+| `cogo`, `construo`, `adquiro`, `cabo` | `cojo`, `construyo`, `adquiero`, `quepo` | traite les irréguliers comme réguliers             |
+| `tengamos` pour `hacer`               | `hagamos`                                | renvoie les formes d'un autre verbe                |
+
+Le paquet a 336 téléchargements par semaine ; sa fiabilité ne justifiait pas d'en faire un filet de
+sécurité. **Il a été retiré des dépendances.**
+
+La vérification repose donc sur deux dispositifs complémentaires :
+
+1. **Tables écrites à la main**, une par famille de modèles, non dérivées d'aucun code. C'est la
+   garantie que la forme est la bonne _pour cette case_. C'est le dispositif principal.
+2. **Contrôle lexical** contre `an-array-of-spanish-words` (MIT, 636 000 mots) : toute forme
+   produite doit être un mot espagnol attesté. À ce jour, 6 148 formes vérifiées, une seule absente
+   (`habed`, impératif de `haber`, morphologiquement correct mais inusité).
+
+Le contrôle lexical ne prouve pas qu'une forme est à sa place — `hablo` est un mot valide même
+posé à la place de `hablé` — et la liste étant dépourvue d'accents, il ne voit pas les erreurs
+d'accentuation. Mais il attrape exactement le risque de la phase 2 : une mauvaise affectation de
+modèle sur l'un des 1000 verbes produit presque toujours un mot qui n'existe pas.
 
 ### Structure du dépôt
 
@@ -155,10 +179,10 @@ apprentissage de patron.
 
 ### Validation
 
-- Un test par modèle, sur toutes les cellules, avec formes de référence écrites à la main.
-- Un test de propriété : pour les 1000 verbes × tous les temps × toutes les personnes,
-  la sortie du moteur doit être **identique** à celle de `spanish-verbs`. Toute divergence est
-  investiguée manuellement (l'oracle peut se tromper), puis figée dans le golden file.
+- Un test par famille de modèles, sur toutes les cellules, avec formes de référence écrites à la main.
+- Un contrôle lexical sur l'intégralité des formes produites (voir §3).
+- Toute forme absente du lexique doit être justifiée à la main dans une liste explicite avant
+  d'être acceptée : le test refuse de passer sur une simple assertion de bonne foi.
 
 ## 5. Les données : les 1000 verbes
 
@@ -306,13 +330,13 @@ de référence hors ligne, avant même le premier exercice.
 
 ## 11. Risques et points à trancher
 
-| Risque                                                                                   | Mitigation                                                                                         |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Exactitude de la conjugaison — une app qui enseigne une forme fausse est pire qu'inutile | Double source : moteur maison + oracle indépendant, divergence = CI rouge                          |
-| Qualité des traductions FR automatiques                                                  | Relecture manuelle des 300 verbes les plus fréquents ; les suivants sont marqués « non relu »      |
-| Volume de rédaction du contenu théorique                                                 | 8 fiches pour le scope A2, rédigées en phase 4, pas avant                                          |
-| Licences des données                                                                     | Fréquence et Wiktionnaire en CC-BY-SA, Tatoeba en CC-BY : attribution dans un fichier `CREDITS.md` |
-| Sur-ingénierie du SRS                                                                    | On part de FSRS avec ses paramètres par défaut, sans optimisation personnalisée                    |
+| Risque                                                                                   | Mitigation                                                                                                                                                                                                                            |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Exactitude de la conjugaison — une app qui enseigne une forme fausse est pire qu'inutile | Tables écrites à la main par famille, plus contrôle lexical sur toutes les formes produites (§3). L'oracle de conjugaison initialement prévu a été mesuré puis abandonné : il était moins fiable que le moteur qu'il devait vérifier. |
+| Qualité des traductions FR automatiques                                                  | Relecture manuelle des 300 verbes les plus fréquents ; les suivants sont marqués « non relu »                                                                                                                                         |
+| Volume de rédaction du contenu théorique                                                 | 8 fiches pour le scope A2, rédigées en phase 4, pas avant                                                                                                                                                                             |
+| Licences des données                                                                     | Fréquence et Wiktionnaire en CC-BY-SA, Tatoeba en CC-BY : attribution dans un fichier `CREDITS.md`                                                                                                                                    |
+| Sur-ingénierie du SRS                                                                    | On part de FSRS avec ses paramètres par défaut, sans optimisation personnalisée                                                                                                                                                       |
 
 **Tranché :**
 

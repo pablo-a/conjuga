@@ -49,3 +49,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Sortie de compilations ponctuelles hors du build Vite
+dist-test/

@@ -5,9 +5,17 @@ Il est mis à jour au fur et à mesure de l'intégration de chaque source.
 
 ## Vérification de la conjugaison
 
-- **[spanish-verbs](https://github.com/RosaeNLG/rosaenlg)** — Apache-2.0.
-  Utilisé **uniquement en développement**, comme oracle indépendant : la CI compare forme par
-  forme la sortie de notre moteur à la sienne. Aucun code de ce paquet n'est embarqué dans l'app.
+- **[an-array-of-spanish-words](https://github.com/words/an-array-of-spanish-words)** — MIT.
+  Liste de 636 000 mots espagnols. Utilisée **uniquement en développement** : la CI vérifie que
+  chaque forme produite par le moteur est un mot attesté. Aucun code ni donnée de ce paquet n'est
+  embarqué dans l'app.
+
+### Piste écartée
+
+- **[spanish-verbs](https://github.com/RosaeNLG/rosaenlg)** — Apache-2.0. Envisagé comme oracle de
+  conjugaison, puis retiré : sur 88 verbes testés il divergeait sur 60, et l'erreur était presque
+  toujours de son côté (conditionnel diphtongué, prétérits forts ignorés, formes d'un verbe
+  renvoyées pour un autre). Voir PLAN.md §3.
 
 ## À intégrer
 
