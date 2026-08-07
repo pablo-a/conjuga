@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+/* Le thème sombre est piloté par la classe `dark` sur <html>, pas par la media query,
+   pour que le réglage de l'app puisse forcer clair ou sombre. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Palette : ardoise neutre + un accent ambre pour les actions et la série en cours.
+     Le vert et le rouge sont réservés à la correction des exercices — ils ne doivent
+     jamais servir de couleur décorative, sinon le retour de correction perd sa force. */
+  --color-accent-50: oklch(0.98 0.02 85);
+  --color-accent-100: oklch(0.95 0.05 85);
+  --color-accent-300: oklch(0.85 0.12 80);
+  --color-accent-500: oklch(0.72 0.16 65);
+  --color-accent-600: oklch(0.64 0.16 55);
+  --color-accent-700: oklch(0.54 0.14 50);
+
+  /* Couleur dédiée au surlignage du segment irrégulier d'une forme conjuguée. */
+  --color-irregular: oklch(0.72 0.16 300);
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  @apply dark:bg-slate-950 dark:text-slate-100;
+  /* Encoches et barres système sur mobile en mode standalone. */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+}
+
+/* Les réponses des exercices sont tapées en espagnol : jamais d'autocorrection. */
+input[type='text'] {
+  autocapitalize: none;
+}
