@@ -51,7 +51,12 @@ jobs:
           # la racine du domaine et la page resterait blanche.
           # Déduit du dépôt plutôt qu'écrit en dur : un renommage suit tout seul.
           VITE_BASE: /${{ github.event.repository.name }}/
-      - uses: actions/upload-pages-artifact@v3
+      # Les trois actions Pages sont montées ensemble : à leurs versions
+      # précédentes elles tournaient toutes sur Node 20, que les runners GitHub
+      # ne fournissent plus et forcent déjà sur Node 24. Seule celle-ci était
+      # signalée — parce qu'elle expose `upload-artifact` — mais les deux autres
+      # arrivaient à la même échéance sans le dire.
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -70,6 +75,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
