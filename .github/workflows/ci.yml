@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Permet de republier sans nouveau commit, après un changement de réglage Pages.
+  workflow_dispatch:
+
+# Un site statique n'a qu'un état final : si plusieurs pushes s'enchaînent, seul
+# le dernier mérite d'être publié.
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   check:
@@ -20,3 +28,42 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+
+  # Le déploiement dépend de `check` : rien n'est publié qui n'ait passé la suite
+  # complète. C'est la raison pour laquelle les deux vivent dans le même workflow
+  # — `needs` ne traverse pas les fichiers.
+  build-pages:
+    needs: check
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          # Le site est servi sous https://<compte>.github.io/<dépôt>/. Sans cette
+          # base, les assets, le manifeste et le service worker pointeraient vers
+          # la racine du domaine et la page resterait blanche.
+          # Déduit du dépôt plutôt qu'écrit en dur : un renommage suit tout seul.
+          VITE_BASE: /${{ github.event.repository.name }}/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy-pages:
+    needs: build-pages
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - id: deployment
+        uses: actions/deploy-pages@v4

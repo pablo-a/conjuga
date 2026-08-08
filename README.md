@@ -33,6 +33,12 @@ npm run dev
 Le service worker est désactivé en développement (`devOptions.enabled: false`) : pour vérifier
 le comportement hors ligne, utiliser `npm run build && npm run preview`.
 
+## Déploiement
+
+Chaque push sur `main` publie sur GitHub Pages, après la suite de vérifications. Le site est
+servi sous `/<dépôt>/`, ce que le build ne peut pas deviner : pour reproduire le déploiement
+réel en local, `VITE_BASE=/conjuga/ npm run build && npm run preview`.
+
 ## Structure
 
 Voir [PLAN.md](PLAN.md) §3. Le cœur du projet est `src/conjugation/`, un module pur sans

@@ -43,6 +43,26 @@ Un seul cas : ajouter `-t 'tener'` (filtre sur le nom du `describe`/`it`).
 La CI (`.github/workflows/ci.yml`) enchaîne `format:check`, `lint`, `typecheck`, `test`,
 `build` — dans cet ordre. Faire tourner la même séquence localement avant de pousser.
 
+### Déploiement
+
+Le même workflow publie sur GitHub Pages après le job `check`, et seulement sur `main` :
+`needs` ne traverse pas les fichiers, c'est pourquoi vérification et déploiement cohabitent
+dans `ci.yml` plutôt que dans deux workflows qui se déclencheraient en parallèle — un build
+cassé pourrait alors être publié.
+
+Deux points sans lesquels le site reste blanc, et qui ne se voient pas en développement :
+
+- **`VITE_BASE`** vaut `/<dépôt>/` en CI (déduit de `github.event.repository.name`). Sans
+  lui, assets, manifeste et service worker pointent vers la racine du domaine. Pour
+  reproduire le vrai déploiement en local : `VITE_BASE=/conjuga/ npm run build && npm run preview`.
+- **`404.html`** est une copie de l'`index.html` construit, produite par le plugin
+  `conjuga:404-fallback` (`vite.config.ts`). GitHub Pages ne réécrit rien vers `index.html` :
+  sans ce doublon, recharger `/conjuga/conjugueur?v=tener` renverrait la 404 de GitHub. Le
+  fichier est copié **après** le build et **avant** VitePWA, pour que Workbox le précache.
+
+Côté interface GitHub, la source des Pages doit être réglée sur « GitHub Actions » — ça ne
+se fait pas depuis le dépôt.
+
 `vitest.config.ts` est volontairement séparé de `vite.config.ts` : les tests n'ont besoin
 ni du service worker ni de Tailwind. Toute modification d'alias doit être répercutée dans
 les deux fichiers **et** dans `tsconfig.app.json` (`paths`).
