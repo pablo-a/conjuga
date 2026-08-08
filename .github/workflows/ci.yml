@@ -7,10 +7,11 @@ on:
   # Permet de republier sans nouveau commit, après un changement de réglage Pages.
   workflow_dispatch:
 
-# Un site statique n'a qu'un état final : si plusieurs pushes s'enchaînent, seul
-# le dernier mérite d'être publié.
+# Groupé par référence, jamais globalement : deux pull requests doivent pouvoir
+# être vérifiées en même temps. Seul un nouveau push sur la *même* branche rend
+# la vérification précédente caduque.
 concurrency:
-  group: pages
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -60,6 +61,11 @@ jobs:
     permissions:
       pages: write
       id-token: write
+    # GitHub n'accepte qu'un déploiement Pages à la fois. On ne l'interrompt pas
+    # en cours de route : une publication à moitié faite serait pire que tardive.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
