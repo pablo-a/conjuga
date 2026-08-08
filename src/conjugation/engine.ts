@@ -1,4 +1,4 @@
-import { accentLastVowel } from './accents'
+import { accentFinalSyllable, accentLastVowel, isMonosyllable } from './accents'
 import { differenceSpan } from './diff'
 import {
   ENDINGS,
@@ -13,7 +13,7 @@ import {
   vosotrosImperative,
 } from './endings'
 import type { EndingSet, EndingTableId } from './endings'
-import { DEFAULT_REASONS, MODELS, REGULAR_MODELS, modelFor } from './models'
+import { DEFAULT_REASONS, MODELS, REGULAR_MODELS, fixedForm, resolveDerivation } from './models'
 import type { Model, Slot, StemContext } from './models'
 import { joinWithOrthography } from './orthography'
 import { COMPOUND_AUXILIARY, PERSONS, isCompoundTense } from './types'
@@ -22,19 +22,28 @@ import type { Irregularity, MaybeForm, Person, SimpleTense, Tense } from './type
 export class NotAVerbError extends Error {
   constructor(word: string) {
     super(
-      `« ${word} » n'est pas un infinitif conjugable : attendu une terminaison -ar, -er ou -ir.`,
+      `« ${word} » n’est pas un infinitif conjugable : attendu une terminaison -ar, -er ou -ir.`,
     )
     this.name = 'NotAVerbError'
   }
 }
 
-function contextOf(infinitive: string): StemContext {
+/**
+ * Ce qu'il faut savoir d'un verbe avant de le conjuguer : son radical, son
+ * modèle, et le préfixe qui l'éloigne du verbe de base de ce modèle.
+ */
+function setup(infinitive: string): { ctx: StemContext; model: Model } {
   const conjugation = conjugationOf(infinitive)
   // `ir` est le seul verbe espagnol réduit à sa terminaison : son radical est vide.
   if (!conjugation || (infinitive.length < 3 && infinitive !== 'ir')) {
     throw new NotAVerbError(infinitive)
   }
-  return { infinitive, stem: stemOf(infinitive), conjugation, orthography: true }
+  const { modelId, prefix } = resolveDerivation(infinitive)
+  const model = (modelId ? MODELS[modelId] : undefined) ?? REGULAR_MODELS[conjugation]
+  return {
+    ctx: { infinitive, stem: stemOf(infinitive), conjugation, orthography: true, prefix },
+    model,
+  }
 }
 
 /**
@@ -63,10 +72,13 @@ function join(ctx: StemContext, trace: Trace, stem: string, ending: string): str
   return value
 }
 
-function override(model: Model, key: string, trace: Trace): string | undefined {
+function override(ctx: StemContext, model: Model, key: string, trace: Trace): string | undefined {
   const value = model.forms?.[key]
-  if (value !== undefined) trace.slots.add('forms')
-  return value
+  if (value === undefined) return undefined
+  trace.slots.add('forms')
+  // Écrite pour le verbe de base — `hizo`, `dio` —, la forme doit être rendue au
+  // dérivé qui la reprend : `deshizo`.
+  return fixedForm(ctx, value)
 }
 
 function endingFor(table: EndingTableId, ctx: StemContext, person: Person): string {
@@ -87,7 +99,7 @@ function presentStem(ctx: StemContext, model: Model, person: Person, trace: Trac
 }
 
 function presentForm(ctx: StemContext, model: Model, person: Person, trace: Trace): string {
-  const forced = override(model, `indicativo.presente:${person}`, trace)
+  const forced = override(ctx, model, `indicativo.presente:${person}`, trace)
   if (forced !== undefined) return forced
 
   if (person === 'yo' && model.yo) {
@@ -127,7 +139,7 @@ function subjunctivePresentForm(
   person: Person,
   trace: Trace,
 ): string {
-  const forced = override(model, `subjuntivo.presente:${person}`, trace)
+  const forced = override(ctx, model, `subjuntivo.presente:${person}`, trace)
   if (forced !== undefined) return forced
 
   const stem = subjunctiveStem(ctx, model, person, trace)
@@ -135,7 +147,7 @@ function subjunctivePresentForm(
 }
 
 function preteriteForm(ctx: StemContext, model: Model, person: Person, trace: Trace): string {
-  const forced = override(model, `indicativo.indefinido:${person}`, trace)
+  const forced = override(ctx, model, `indicativo.indefinido:${person}`, trace)
   if (forced !== undefined) return forced
 
   if (model.strongPreterite) {
@@ -144,7 +156,9 @@ function preteriteForm(ctx: StemContext, model: Model, person: Person, trace: Tr
     // Un radical en -j absorbe le i de la seule terminaison `-ieron` : `dijeron`,
     // mais `dijiste` et `dijimos` gardent le leur.
     const ending = STRONG_PRETERITE_ENDINGS[PERSON_INDEX[person]]
-    return stem + (stem.endsWith('j') && ending === 'ieron' ? 'eron' : ending)
+    const absorbed = stem.endsWith('j') && ending === 'ieron' ? 'eron' : ending
+    // Les adaptations graphiques valent aussi ici : `hic` + `o` s'écrit `hizo`.
+    return join(ctx, trace, stem, absorbed)
   }
 
   const third = person === 'el' || person === 'ellos'
@@ -181,7 +195,7 @@ function futureBase(ctx: StemContext, model: Model, trace: Trace): string {
 }
 
 function imperfectForm(ctx: StemContext, model: Model, person: Person, trace: Trace): string {
-  const forced = override(model, `indicativo.imperfecto:${person}`, trace)
+  const forced = override(ctx, model, `indicativo.imperfecto:${person}`, trace)
   if (forced !== undefined) return forced
 
   if (model.imperfectStem) trace.slots.add('imperfect')
@@ -202,7 +216,7 @@ function affirmativeImperative(
 ): string | null {
   if (person === 'yo') return null
 
-  const forced = override(model, `imperativo.afirmativo:${person}`, trace)
+  const forced = override(ctx, model, `imperativo.afirmativo:${person}`, trace)
   if (forced !== undefined) return forced
 
   if (person === 'tu') {
@@ -265,8 +279,7 @@ function buildSimple(
 }
 
 /** Contexte et modèle de `haber`, auxiliaire de tous les temps composés. */
-const HABER_CONTEXT = contextOf('haber')
-const HABER_MODEL = MODELS.haber!
+const { ctx: HABER_CONTEXT, model: HABER_MODEL } = setup('haber')
 
 function auxiliaryFor(
   tense: (typeof COMPOUND_AUXILIARY)[keyof typeof COMPOUND_AUXILIARY],
@@ -374,14 +387,57 @@ function locate(
   return [index, index + segment.length]
 }
 
-/** Conjugue une cellule. Renvoie `null` si la cellule n'existe pas (yo à l'impératif). */
+/**
+ * Marque l'accent tonique d'un dérivé quand le verbe de base finit sur un
+ * monosyllabe.
+ *
+ * Préfixer ne déplace pas l'accent : `ves` et `prevés` se prononcent de la même
+ * façon. Mais un monosyllabe n'écrit jamais son accent, faute d'ambiguïté à
+ * lever, tandis que le mot plus long qu'il forme une fois préfixé se lirait par
+ * défaut sur l'avant-dernière syllabe. L'accent écrit ne fait donc qu'y rétablir
+ * la prononciation d'origine : `ves` → `prevés`, `ten` → `obtén`, `rio` → `sonrió`.
+ *
+ * La question ne se pose que face au verbe de base : `vemos` n'est pas un
+ * monosyllabe, et `prevemos` n'a rien à marquer.
+ */
+function accentIfBaseIsMonosyllable(
+  ctx: StemContext,
+  model: Model,
+  tense: Tense,
+  person: Person,
+  value: string,
+): string {
+  if (ctx.prefix === '') return value
+
+  const base = ctx.infinitive.slice(ctx.prefix.length)
+  const baseCtx: StemContext = { ...ctx, infinitive: base, stem: stemOf(base), prefix: '' }
+  const baseValue = buildAny(baseCtx, model, tense, person, newTrace())
+  if (baseValue === null || !isMonosyllable(baseValue)) return value
+
+  // Le dérivé doit être exactement le préfixe suivi de la forme de base. Quand un
+  // modèle en décide autrement — `decir` fait `di`, mais ses dérivés refont leur
+  // impératif sur `dice` —, la syllabe finale n'est plus celle du monosyllabe et
+  // il n'y a rien à marquer : `contradice`, et non `*contradicé`.
+  return ctx.prefix + baseValue === value ? accentFinalSyllable(value) : value
+}
+
+/**
+ * Conjugue une cellule. Renvoie `null` quand la cellule n'existe pas : personne
+ * impossible (`yo` à l'impératif) ou verbe défectif (`llover` hors troisième
+ * personne du singulier).
+ */
 export function conjugate(infinitive: string, tense: Tense, person: Person): MaybeForm {
-  const ctx = contextOf(infinitive)
-  const model = modelFor(infinitive, ctx.conjugation)
+  const { ctx, model } = setup(infinitive)
+
+  // La défectivité se juge sur la cellule demandée, pas sur les formes que le
+  // moteur dérive en interne : le subjonctif imparfait de `soler` existe, alors
+  // même qu'il se construit sur un prétérit que `soler` n'emploie pas.
+  if (model.defective?.(tense, person)) return null
 
   const trace = newTrace()
-  const value = buildAny(ctx, model, tense, person, trace)
-  if (value === null) return null
+  const built = buildAny(ctx, model, tense, person, trace)
+  if (built === null) return null
+  const value = accentIfBaseIsMonosyllable(ctx, model, tense, person, built)
 
   // La référence régulière est produite par le même moteur, avec le modèle régulier
   // du groupe et sans adaptation graphique : toute divergence est donc imputable
@@ -411,8 +467,7 @@ export interface NonFiniteForms {
 
 /** Infinitif, gérondif et participe passé. */
 export function nonFinite(infinitive: string): NonFiniteForms {
-  const ctx = contextOf(infinitive)
-  const model = modelFor(infinitive, ctx.conjugation)
+  const { ctx, model } = setup(infinitive)
   const trace = newTrace()
   return {
     infinitivo: infinitive,

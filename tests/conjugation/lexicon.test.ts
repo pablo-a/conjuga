@@ -43,6 +43,10 @@ const ATTESTED_BUT_ABSENT = new Set([
   // Impératif de vosotros de `haber`, morphologiquement régulier mais inusité :
   // `haber` ne s'emploie plus qu'en auxiliaire, où l'impératif n'a pas de sens.
   'habed',
+  // Impératif de vosotros de `arrepentir`, verbe essentiellement pronominal :
+  // on dit `arrepentíos`, la forme pronominale perdant son -d devant -os. La
+  // forme nue est correctement construite, mais ne s'emploie jamais seule.
+  'arrepentid',
 ])
 
 const REGULAR_SAMPLE = [
