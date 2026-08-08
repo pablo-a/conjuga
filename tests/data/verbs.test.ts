@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import lemmas from '@/data/lemmas.json'
 import verbs from '@/data/verbs.json'
 import { conjugate, nonFinite, resolveModelId } from '@/conjugation'
 import { SIMPLE_TENSES, PERSONS } from '@/conjugation/types'
@@ -100,5 +101,17 @@ describe('src/data/verbs.json', () => {
     const essential = ['ser', 'estar', 'tener', 'haber', 'ir', 'hacer', 'poder', 'decir', 'ver']
     const top = new Set(list.slice(0, 15).map((verb) => verb.es))
     for (const verb of essential) expect(top.has(verb), verb).toBe(true)
+  })
+})
+
+describe('src/data/lemmas.json', () => {
+  /*
+   * Les deux fichiers sortent de la même exécution de `npm run data:verbs`, mais
+   * seul `lemmas.json` est embarqué : c'est lui qui fixe l'ordre dans lequel le
+   * curriculum ouvre les cartes. Régénérer l'un sans l'autre ferait travailler
+   * l'apprenant sur un classement qui ne correspond plus à rien.
+   */
+  it('reprend exactement les verbes de verbs.json, dans le même ordre', () => {
+    expect(lemmas).toEqual(list.map((verb) => verb.es))
   })
 })

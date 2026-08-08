@@ -1,4 +1,4 @@
-import verbs from '@/data/verbs.json'
+import lemmas from '@/data/lemmas.json'
 import type { Tense } from '@/conjugation'
 import { conjugate } from '@/conjugation'
 import { PERSONS } from '@/conjugation/types'
@@ -25,17 +25,15 @@ export function parseCardId(id: CardId): { lemma: string; tense: Tense } {
   return { lemma: id.slice(0, separator), tense: id.slice(separator + 1) as Tense }
 }
 
-interface VerbRecord {
-  es: string
-  fr: string[]
-  rank: number
-  model: string | null
-}
-
-const LIST = verbs as VerbRecord[]
-
-/** Les `count` verbes les plus fréquents, dans l'ordre du classement. */
-const topVerbs = (count: number): string[] => LIST.slice(0, count).map((verb) => verb.es)
+/**
+ * Les `count` verbes les plus fréquents, dans l'ordre du classement.
+ *
+ * `lemmas.json` ne porte que les infinitifs, quand `verbs.json` porte aussi les
+ * gloses : le curriculum n'a besoin que de l'ordre, et embarquer 110 Ko de
+ * définitions non relues pour en tirer un classement serait payer cher un
+ * contenu qu'on ne veut pas encore afficher.
+ */
+const topVerbs = (count: number): string[] => lemmas.slice(0, count)
 
 /**
  * Les temps du scope A2, dans l'ordre où le curriculum les introduit.

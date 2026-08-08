@@ -1,6 +1,7 @@
 /**
  * Construit `src/data/verbs.json` : les verbes espagnols les plus fréquents, avec
- * leur modèle de conjugaison et leurs traductions françaises.
+ * leur modèle de conjugaison et leurs traductions françaises. Et `lemmas.json`,
+ * qui n'en garde que les infinitifs — c'est lui, et lui seul, que l'app embarque.
  *
  * Usage : npm run data:verbs
  *
@@ -41,6 +42,16 @@ const WIKTIONARY = resolve(ROOT, 'data/wiktionary/es-verbs.json')
 const NON_VERBS = resolve(ROOT, 'data/wiktionary/es-non-verbs.json')
 const OUTPUT = resolve(ROOT, 'src/data/verbs.json')
 const REVIEW = resolve(ROOT, 'data/verbs-review.md')
+
+/**
+ * Les mêmes verbes, réduits à leur infinitif et au même ordre.
+ *
+ * C'est le seul des deux fichiers que le navigateur télécharge. Le curriculum n'a
+ * besoin que du classement pour savoir quelles cartes ouvrir, alors que
+ * `verbs.json` porte surtout des gloses — 110 Ko contre 10 Ko, et des définitions
+ * non relues que rien ne devrait afficher tant qu'elles n'ont pas été corrigées.
+ */
+const LEMMAS = resolve(ROOT, 'src/data/lemmas.json')
 
 /** Nombre de verbes retenus. PLAN.md §1 : les 1000 les plus fréquents. */
 const KEEP = 1000
@@ -243,6 +254,15 @@ function main() {
   }))
 
   writeFileSync(OUTPUT, `${JSON.stringify(verbs, null, 1)}\n`, 'utf8')
+  writeFileSync(
+    LEMMAS,
+    `${JSON.stringify(
+      verbs.map((verb) => verb.es),
+      null,
+      1,
+    )}\n`,
+    'utf8',
+  )
   writeFileSync(REVIEW, reviewReport(kept, candidates.length, skipped), 'utf8')
 
   const flagged = kept.filter(isBorrowed)
@@ -251,6 +271,7 @@ function main() {
   console.log(`Avec modèle explicite : ${verbs.filter((verb) => verb.model !== null).length}`)
   console.log(`À relire (homographes) : ${flagged.length}`)
   console.log(`Écrit dans          : ${OUTPUT}`)
+  console.log(`                      ${LEMMAS}`)
   console.log(`                      ${REVIEW}`)
 }
 
