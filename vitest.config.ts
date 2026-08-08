@@ -13,8 +13,9 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     include: ['tests/**/*.test.ts', 'src/**/*.test.ts'],
+    setupFiles: ['tests/setup.ts'],
     coverage: {
-      include: ['src/conjugation/**', 'src/srs/**', 'src/exercises/**'],
+      include: ['src/conjugation/**', 'src/srs/**', 'src/exercises/**', 'src/db/**'],
     },
   },
 })

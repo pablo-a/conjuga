@@ -1,5 +1,7 @@
 import Dexie, { type EntityTable } from 'dexie'
 
+import type { CardState } from '@/srs/scheduler'
+
 /**
  * Persistance locale. Aucun serveur : toute la progression vit dans IndexedDB,
  * et l'export/import JSON est le seul mécanisme de sauvegarde.
@@ -15,8 +17,12 @@ export interface Card {
   lemma: string
   /** Identifiant de temps, ex. `indicativo.presente`. */
   tense: string
-  /** État sérialisé de ts-fsrs. */
-  fsrs: unknown
+  /**
+   * État FSRS de la carte. Il est rangé tel quel : `ts-fsrs` n'expose que des
+   * nombres et des `Date`, que le clonage structuré d'IndexedDB sait déjà porter,
+   * et le sérialiser à la main ferait deux formats à maintenir au lieu d'un.
+   */
+  fsrs: CardState
   /** Prochaine échéance, dénormalisée pour pouvoir l'indexer. */
   due: Date
   /** Nombre de révisions et d'échecs, pour les statistiques. */

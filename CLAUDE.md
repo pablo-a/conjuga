@@ -17,12 +17,16 @@ quand une décision change.
 commit, noms de routes. Les identifiants du domaine restent en anglais (`lemma`, `tense`,
 `person`, `card`) ou en espagnol pour les temps (`indicativo.indefinido`).
 
-Phases livrées : 0 (socle PWA), 1 (moteur de conjugaison), et la moitié de la 2 —
-**l'écran Conjugueur fonctionne** sur les ~218 verbes au modèle explicite, plus tout verbe
-régulier. Il reste à bâtir `src/data/verbs.json` (les 1000 verbes avec rang de fréquence et
-traductions FR), qui demande une liste de fréquence externe.
+Phases livrées : 0 (socle PWA), 1 (moteur de conjugaison), 2 (les 1000 verbes et l'écran
+Conjugueur) et 3 — **la boucle quotidienne existe** : l'écran Pratique compose une session,
+corrige, explique et range la progression dans IndexedDB.
 
-Les vues autres que `HomeView` et `ConjugatorView` sont des placeholders « À construire ».
+Reste à faire sur les données : **relire les traductions**. Les gloses de `verbs.json`
+viennent du Wiktionnaire, ce sont des définitions et non des équivalents ; elles ne sont
+pas encore embarquées (voir « La chaîne de données »).
+
+`HomeView`, `TheoryView`, `StatsView` et `SettingsView` sont des placeholders
+« À construire ».
 
 ## Commandes
 
@@ -183,7 +187,7 @@ pour un bundler, que `tsconfig.node.json` en `nodenext` refuserait.
 | Commande                  | Effet                                                                     |
 | ------------------------- | ------------------------------------------------------------------------- |
 | `npm run data:wiktionary` | 257 Mo de JSONL kaikki.org → `data/wiktionary/*.json` (940 Ko versionnés) |
-| `npm run data:verbs`      | fréquence + Wiktionnaire + moteur → `src/data/verbs.json` + rapport       |
+| `npm run data:verbs`      | fréquence + Wiktionnaire + moteur → `verbs.json`, `lemmas.json`, rapport  |
 
 ### Comment les verbes sont classés
 
@@ -205,12 +209,22 @@ sans elles, `unir` sortait au rang 6 et `nadar` au rang 23 :
 
 Ce que le script ne tranche pas, il le **signale** dans `data/verbs-review.md` : homographes
 survivants et gloses trop longues pour servir d'équivalent. Les gloses du Wiktionnaire sont
-des définitions, pas des traductions — d'où `reviewed: false` sur chaque entrée jusqu'à
-relecture humaine, et le fait que `verbs.json` n'est **pas encore livré au navigateur**.
+des définitions, pas des traductions — d'où `reviewed` sur chaque entrée, et le fait que
+`verbs.json` n'est **pas livré au navigateur**.
 
-`tests/data/verbs.test.ts` garde l'intégrité du fichier généré. Le test qui compte vérifie que
-chaque `model` correspond encore à `resolveModelId` : enrichir `VERB_MODELS` sans régénérer
-la liste ferait désigner un modèle périmé. Le correctif est toujours `npm run data:verbs`.
+### Deux fichiers, un seul embarqué
+
+`verbs.json` (110 Ko) reste au dépôt ; l'app importe `lemmas.json` (12 Ko), la même liste
+réduite aux infinitifs. Le curriculum n'a besoin que de l'**ordre** pour savoir quelles
+cartes ouvrir, et embarquer les gloses reviendrait à quadrupler le paquet de l'écran
+Pratique pour y expédier des définitions qu'on ne veut justement pas encore afficher.
+Les deux sortent de la même exécution ; un test vérifie qu'ils n'ont pas divergé.
+
+`tests/data/verbs.test.ts` garde l'intégrité des fichiers générés. Le test qui compte vérifie
+que chaque `model` correspond encore à `resolveModelId` : enrichir `VERB_MODELS` sans
+régénérer la liste ferait désigner un modèle périmé. Le correctif est `npm run data:verbs` —
+en sachant qu'il **réécrit `reviewed` à `false`** sur toutes les entrées, et efface donc la
+relecture humaine déjà faite.
 
 ## L'écran Conjugueur
 
@@ -230,6 +244,67 @@ conséquence directe de la décision « règles plutôt que table ».
 - La recherche vit dans l'URL (`/conjugueur?v=tener`) : un tableau se partage et se recharge.
 - Une case vide est **annoncée** (`forme inexistante`), jamais laissée vide : c'est une
   information pédagogique, pas une absence de réponse.
+
+## La boucle quotidienne : l'écran Pratique
+
+Une chaîne à quatre étages, chacun ignorant celui du dessus. Ce cloisonnement est ce qui
+permet de tester les règles d'apprentissage sans monter d'interface ni ouvrir de base.
+
+| Étage                    | Rôle                                                    | Dépendances      |
+| ------------------------ | ------------------------------------------------------- | ---------------- |
+| `srs/`, `exercises/`     | Quoi poser, comment corriger, quand une carte est close | pur              |
+| `db/repository.ts`       | Le seul module qui écrit dans IndexedDB                 | Dexie            |
+| `stores/session.ts`      | Enchaîne, chronomètre, range                            | Pinia + les deux |
+| `views/PracticeView.vue` | Pose la question, montre la correction                  | le magasin       |
+
+**Le magasin ne décide de rien.** Il appelle `planSession`, `questionsFor`, `grade`,
+`rateReview` et `saveReview` dans cet ordre. Une règle d'apprentissage écrite dans
+`stores/session.ts` est au mauvais endroit — elle appartient à un module pur, où elle est
+testable.
+
+### `exercises/session.ts` — quand une carte est close
+
+Les questions d'une même carte se suivent, parce que `questionsFor` les produit carte par
+carte : un changement de carte marque donc la fin de la précédente. C'est ce moment qui
+déclenche la note FSRS **et l'écriture**. La progression est ainsi rangée au fil de la
+session, et fermer l'onglet au milieu ne perd que la carte en cours — une session de vingt
+minutes interrompue par un appel ne doit pas s'effacer.
+
+### `db/repository.ts` — l'écriture, en un seul endroit
+
+`saveReview` écrit la carte, ses réponses et l'agrégat `(modèle, temps)` dans **une seule
+transaction**. Une carte repoussée dont les réponses n'auraient pas été écrites ferait
+disparaître une faiblesse sans laisser de trace, et l'app proposerait la théorie d'un patron
+que l'apprenant maîtrise.
+
+Deux règles de comptage, opposées par nature :
+
+- **La faute d'accent ne compte pas comme un échec du patron.** L'apprenant a appliqué la
+  règle et manqué la syllabe tonique ; la compter gonflerait le taux d'échec des modèles les
+  plus accentués et enverrait vers la mauvaise fiche.
+- **Elle compte comme une personne à revoir.** `weakPersons` ne regarde que la **dernière**
+  réponse connue de chaque couple (carte, personne) : une personne ratée puis retrouvée
+  trois fois n'est plus une faiblesse, et la traiter comme telle condamnerait le tirage à
+  repasser éternellement sur les mêmes cases.
+
+### Ce que l'écran doit à l'apprenant
+
+- **La forme est toujours réaffichée, même quand la réponse est juste** : c'est là que le
+  segment irrégulier se voit (`VerbForm`, partagé avec le Conjugueur) et que la règle
+  s'apprend. Une bonne réponse devinée n'enseigne rien sans son explication.
+- **Le verdict est une phrase, pas une couleur.** « Presque — c'est l'accent tonique » dit
+  ce que le vert et le rouge ne disent pas, et reste lisible pour tout le monde.
+- **La barre `á é í ó ú ü ñ`** n'est pas un confort : la correction note l'accent, et sur un
+  téléphone l'apprenant qui doit rester appuyé sur `a` finit par écrire `hablo` en pensant
+  `habló`.
+- **Une session vide est un message**, pas un écran blanc : c'est l'état normal d'un
+  apprenant à jour. De même, un stockage indisponible interrompt la session au lieu de poser
+  des questions dont le résultat serait jeté.
+
+`tests/practice.test.ts` monte l'écran sur la vraie chaîne — magasin, moteur, IndexedDB via
+`fake-indexeddb` — parce que c'est l'assemblage qu'il faut vérifier ; chaque pièce est déjà
+testée seule. Le hasard y est neutralisé (`() => 0`), ce qui rend la session prévisible :
+dix nouvelles cartes en tête du curriculum, et `ser` à la deuxième personne en ouverture.
 
 ## Politique de vérification (non négociable)
 

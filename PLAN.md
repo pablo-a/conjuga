@@ -320,30 +320,47 @@ notification locale optionnelle de rappel quotidien.
 
 Chaque phase est livrable et testable indépendamment.
 
-| Phase              | Contenu                                                                    | Résultat visible                                                                                   |
-| ------------------ | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **0 — Fondations** | Vite + Vue + TS + Tailwind/Nuxt UI, PWA, Dexie, ESLint/Prettier/Vitest, CI | App vide installable et offline                                                                    |
-| **1 — Moteur**     | `src/conjugation/*` en TDD, tous les modèles, vérification contre l'oracle | Tests verts sur 108 000 formes                                                                     |
-| **2 — Données**    | Liste des 1000 verbes, modèles assignés, traductions FR des 300 premiers   | **Écran Conjugueur fonctionnel** : n'importe quel verbe, tableau complet, irrégularités surlignées |
-
-La phase 2 est **livrée**. L'écran Conjugueur conjugue n'importe quel infinitif avec le
-segment irrégulier surligné et sa règle ; il ne dépend d'aucun jeu de données, bénéfice direct
-du moteur de règles. `src/data/verbs.json` contient les 1000 verbes les plus fréquents avec
-leur modèle et leurs traductions.
-
-Reste à faire avant de s'appuyer dessus : **relire les traductions**. Les gloses viennent du
-Wiktionnaire, ce sont des définitions et non des équivalents ; chaque entrée porte
-`reviewed: false` et le fichier n'est pas encore livré au navigateur. `data/verbs-review.md`
-liste les points à trancher.
-
-| **3 — Drill + SRS** | Cartes, FSRS, sélecteur, curriculum, exercice drill, persistance | La boucle d'apprentissage quotidienne existe |
-| **4 — Théorie** | Fiches Markdown des temps A2, indicateurs de maîtrise, liens vers drills | Le « pourquoi » derrière le drill |
-| **5 — Reconnaissance** | QCM à distracteurs intelligents, exercice inverse | Sessions variées, format mobile |
-| **6 — Traduction FR→ES** | Patrons de phrases, exercice cloze, exercice indefinido/imperfecto | Le point faible n°1 est travaillé |
-| **7 — Finition** | Stats, séries, TTS, export/import, rappels, accessibilité, Lighthouse | Version quotidiennement utilisable |
+| Phase                    | Contenu                                                                    | Résultat visible                                                                                   |
+| ------------------------ | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **0 — Fondations**       | Vite + Vue + TS + Tailwind/Nuxt UI, PWA, Dexie, ESLint/Prettier/Vitest, CI | App vide installable et offline                                                                    |
+| **1 — Moteur**           | `src/conjugation/*` en TDD, tous les modèles, vérification contre l'oracle | Tests verts sur 108 000 formes                                                                     |
+| **2 — Données**          | Liste des 1000 verbes, modèles assignés, traductions FR des 300 premiers   | **Écran Conjugueur fonctionnel** : n'importe quel verbe, tableau complet, irrégularités surlignées |
+| **3 — Drill + SRS**      | Cartes, FSRS, sélecteur, curriculum, exercice drill, persistance           | **La boucle d'apprentissage quotidienne existe**                                                   |
+| **4 — Théorie**          | Fiches Markdown des temps A2, indicateurs de maîtrise, liens vers drills   | Le « pourquoi » derrière le drill                                                                  |
+| **5 — Reconnaissance**   | QCM à distracteurs intelligents, exercice inverse                          | Sessions variées, format mobile                                                                    |
+| **6 — Traduction FR→ES** | Patrons de phrases, exercice cloze, exercice indefinido/imperfecto         | Le point faible n°1 est travaillé                                                                  |
+| **7 — Finition**         | Stats, séries, TTS, export/import, rappels, accessibilité, Lighthouse      | Version quotidiennement utilisable                                                                 |
 
 Le jalon important est la **phase 2** : dès qu'elle est finie, l'app est déjà utile comme conjugueur
 de référence hors ligne, avant même le premier exercice.
+
+### Ce qui est livré
+
+**Phase 2.** L'écran Conjugueur conjugue n'importe quel infinitif avec le segment irrégulier
+surligné et sa règle ; il ne dépend d'aucun jeu de données, bénéfice direct du moteur de règles.
+`src/data/verbs.json` contient les 1000 verbes les plus fréquents avec leur modèle et leurs
+traductions.
+
+Reste à faire avant de s'appuyer dessus : **relire les traductions**. Les gloses viennent du
+Wiktionnaire, ce sont des définitions et non des équivalents ; `data/verbs-review.md` liste les
+points à trancher. En attendant, l'app n'embarque que `src/data/lemmas.json` — la même liste
+réduite aux infinitifs, qui suffit au curriculum et laisse les gloses au dépôt.
+
+**Phase 3.** L'écran Pratique compose la session du jour, la corrige et la range dans IndexedDB
+carte par carte. La chaîne est cloisonnée : les règles d'apprentissage vivent dans des modules
+purs (`src/srs/`, `src/exercises/`), `src/db/repository.ts` est le seul module qui écrit, et
+`src/stores/session.ts` ne fait qu'enchaîner. Voir CLAUDE.md pour le détail.
+
+Deux écarts assumés par rapport à ce plan :
+
+- une note `hard` s'ajoute aux trois prévues en §6, pour la faute d'accent seul — su, mais
+  fragile. La compter comme un échec complet ramènerait sans cesse des cartes acquises ;
+- une même faute d'accent **ne compte pas** dans les erreurs du patron `(modèle, temps)`, mais
+  **compte** comme une personne à revoir. Les deux mesures répondent à des questions
+  différentes : « faut-il relire la fiche ? » et « faut-il reposer cette case ? ».
+
+Il manque encore l'écran d'accueil (cartes dues, série en cours, bouton « Réviser ») : la
+session se lance aujourd'hui depuis l'onglet **Pratique**.
 
 ## 11. Risques et points à trancher
 
