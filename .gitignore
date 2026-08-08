@@ -52,3 +52,6 @@ pnpm-debug.log*
 
 # Sortie de compilations ponctuelles hors du build Vite
 dist-test/
+
+# Réglages locaux de l’agent, propres à chaque poste
+.claude/
