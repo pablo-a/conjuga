@@ -5,9 +5,10 @@ import type { CardId, Progress } from '@/srs/curriculum'
 import { applyReview, newCardState } from '@/srs/scheduler'
 import type { Grade } from '@/srs/scheduler'
 import type { DeckEntry } from '@/srs/selector'
+import { dayKey } from '@/srs/streak'
 
 import { db } from './index'
-import type { Answer } from './index'
+import type { Answer, StudyDay } from './index'
 
 /**
  * Ce que l'application demande à la persistance — et rien d'autre.
@@ -126,7 +127,7 @@ export async function saveReview(review: ReviewToSave): Promise<void> {
    */
   const errors = review.answers.filter((answer) => !answer.correct && !answer.accentOnly).length
 
-  await db.transaction('rw', db.cards, db.answers, db.patternStats, async () => {
+  await db.transaction('rw', db.cards, db.answers, db.patternStats, db.days, async () => {
     const existing = await db.cards.get(review.card)
     const before = existing?.fsrs ?? newCardState(review.at)
     const { state, due } = applyReview(before, review.grade, review.at)
@@ -157,5 +158,29 @@ export async function saveReview(review: ReviewToSave): Promise<void> {
       attempts: (stat?.attempts ?? 0) + review.answers.length,
       errors: (stat?.errors ?? 0) + errors,
     })
+
+    /*
+     * La série se marque ici et pas à l'ouverture de la session : ce qui compte
+     * comme un jour travaillé, c'est une carte réellement révisée. Ouvrir l'app,
+     * lire la question et fermer l'onglet ne fait pas une journée.
+     */
+    const key = dayKey(review.at)
+    const day = await db.days.get(key)
+    await db.days.put({
+      id: key,
+      cards: (day?.cards ?? 0) + 1,
+      answers: (day?.answers ?? 0) + review.answers.length,
+    })
   })
+}
+
+/**
+ * Les jours travaillés, du plus ancien au plus récent.
+ *
+ * Rendus en entier plutôt que filtrés : la table porte une ligne par jour, donc
+ * une année d'assiduité tient en 365 enregistrements, et la série comme le
+ * total du jour se lisent d'une seule passe.
+ */
+export async function loadStudyDays(): Promise<StudyDay[]> {
+  return db.days.orderBy('id').toArray()
 }

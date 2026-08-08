@@ -1,9 +1,10 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { db } from '@/db'
-import { loadSnapshot, saveReview, weakPersons } from '@/db/repository'
+import { loadSnapshot, loadStudyDays, saveReview, weakPersons } from '@/db/repository'
 import type { AnswerDraft } from '@/db/repository'
 import { cardId } from '@/srs/curriculum'
+import { dayKey } from '@/srs/streak'
 
 /**
  * La persistance est testée contre une vraie IndexedDB (`fake-indexeddb`), pas
@@ -158,5 +159,43 @@ describe('weakPersons', () => {
 
   it('ne rend rien quand on ne demande aucune carte', async () => {
     expect((await weakPersons([])).size).toBe(0)
+  })
+})
+
+describe('jours travaillés', () => {
+  /* Le jour est déduit de l'instant en heure locale : le calculer ici plutôt que
+     de l'écrire en dur garde le test juste quel que soit le fuseau. */
+  const DAY = dayKey(AT)
+  const NEXT = new Date(AT.getTime() + 86_400_000)
+
+  it('ne marque aucun jour tant que rien n’a été révisé', async () => {
+    expect(await loadStudyDays()).toEqual([])
+  })
+
+  it('marque le jour de la révision, avec ce qu’il a coûté', async () => {
+    await saveReview({
+      card: PENSAR,
+      grade: 'good',
+      at: AT,
+      answers: [answer(), answer({ person: 'nosotros' })],
+    })
+
+    expect(await loadStudyDays()).toEqual([{ id: DAY, cards: 1, answers: 2 }])
+  })
+
+  it('cumule les cartes d’une même journée', async () => {
+    // L'écriture a lieu carte par carte : une session de quarante cartes appelle
+    // `saveReview` quarante fois, et ne fait pourtant qu'une journée.
+    await saveReview({ card: PENSAR, grade: 'good', at: AT, answers: [answer()] })
+    await saveReview({ card: HABLAR, grade: 'good', at: AT, answers: [answer(), answer()] })
+
+    expect(await loadStudyDays()).toEqual([{ id: DAY, cards: 2, answers: 3 }])
+  })
+
+  it('rend les journées dans l’ordre chronologique', async () => {
+    await saveReview({ card: PENSAR, grade: 'good', at: NEXT, answers: [answer()] })
+    await saveReview({ card: HABLAR, grade: 'good', at: AT, answers: [answer()] })
+
+    expect((await loadStudyDays()).map((day) => day.id)).toEqual([DAY, dayKey(NEXT)])
   })
 })

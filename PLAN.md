@@ -359,8 +359,14 @@ Deux écarts assumés par rapport à ce plan :
   **compte** comme une personne à revoir. Les deux mesures répondent à des questions
   différentes : « faut-il relire la fiche ? » et « faut-il reposer cette case ? ».
 
-Il manque encore l'écran d'accueil (cartes dues, série en cours, bouton « Réviser ») : la
-session se lance aujourd'hui depuis l'onglet **Pratique**.
+L'écran d'accueil ferme la boucle : il annonce la session du jour, la série en cours et
+l'avancement du niveau, et mène à la Pratique. Il compose son décompte avec le même
+`planSession` que la session elle-même — ce qu'il promet est donc exactement ce qui sera
+posé. La série s'appuie sur une table `days` alimentée par `saveReview` (voir CLAUDE.md).
+
+La « suggestion ciblée sur la faiblesse du moment » prévue en §9 attend la phase 4 :
+`patternStats` est écrit depuis la phase 3 mais n'a encore nulle part où renvoyer, faute de
+fiches de théorie.
 
 ## 11. Risques et points à trancher
 

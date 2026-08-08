@@ -18,15 +18,14 @@ commit, noms de routes. Les identifiants du domaine restent en anglais (`lemma`,
 `person`, `card`) ou en espagnol pour les temps (`indicativo.indefinido`).
 
 Phases livrées : 0 (socle PWA), 1 (moteur de conjugaison), 2 (les 1000 verbes et l'écran
-Conjugueur) et 3 — **la boucle quotidienne existe** : l'écran Pratique compose une session,
-corrige, explique et range la progression dans IndexedDB.
+Conjugueur) et 3 — **la boucle quotidienne existe** : l'accueil dit ce qui attend, l'écran
+Pratique compose la session, corrige, explique et range la progression dans IndexedDB.
 
 Reste à faire sur les données : **relire les traductions**. Les gloses de `verbs.json`
 viennent du Wiktionnaire, ce sont des définitions et non des équivalents ; elles ne sont
 pas encore embarquées (voir « La chaîne de données »).
 
-`HomeView`, `TheoryView`, `StatsView` et `SettingsView` sont des placeholders
-« À construire ».
+`TheoryView`, `StatsView` et `SettingsView` sont des placeholders « À construire ».
 
 ## Commandes
 
@@ -305,6 +304,42 @@ Deux règles de comptage, opposées par nature :
 `fake-indexeddb` — parce que c'est l'assemblage qu'il faut vérifier ; chaque pièce est déjà
 testée seule. Le hasard y est neutralisé (`() => 0`), ce qui rend la session prévisible :
 dix nouvelles cartes en tête du curriculum, et `ser` à la deuxième personne en ouverture.
+
+## L'écran d'accueil
+
+C'est lui qui transforme l'app en habitude : sans un endroit qui dise « il y a quelque
+chose à faire aujourd'hui », la session ne se lance que si l'on y pense. Même cloisonnement
+que la Pratique — `stores/overview.ts` lit et enchaîne, il ne décide de rien.
+
+**Il compose la même session que la Pratique lancera**, par le même `planSession`. Compter
+les cartes dues autrement — une requête d'index sur les échéances, qui serait moins chère —
+donnerait un nombre qui n'est pas celui qu'on va poser : l'accueil promettrait 60 cartes là
+où la session en pose 48, et la promesse est justement ce qui fait revenir. C'est aussi
+pourquoi `remaining` est affiché : le budget de vingt minutes est un plafond, et taire les
+cartes échues qui débordent laisserait croire qu'une session éponge tout un retard.
+
+### La série (`srs/streak.ts` et la table `days`)
+
+La série est la seule mesure de l'app qui récompense l'assiduité plutôt que la performance,
+et c'est délibéré : à vingt minutes par jour, la régularité pèse plus lourd qu'un score.
+
+- **Le jour est civil et local**, jamais UTC (`dayKey`). Une session commencée à 0 h 30 à
+  Paris tombe la veille en UTC et casserait la série de quelqu'un qui a pourtant révisé deux
+  jours de suite. C'est le calendrier de l'apprenant qui fait foi.
+- **Ne pas avoir encore révisé aujourd'hui ne rompt pas la série** : la journée n'est pas
+  finie, et afficher zéro le matin punirait quelqu'un qui n'a rien fait de mal. C'est le
+  lendemain sans session qui la rompt.
+- **`days` est un agrégat, pas un cache.** L'accueil se lit à chaque ouverture de l'app ;
+  recalculer la série depuis le journal des réponses ferait de la requête la plus fréquente
+  la plus coûteuse — une année de sessions pèse ~40 000 réponses pour 365 jours. La table
+  est écrite par `saveReview`, **dans sa transaction**, donc un jour marqué correspond
+  toujours à une carte réellement révisée : ouvrir l'app et fermer l'onglet ne fait pas une
+  journée. La version 2 du schéma la reconstruit depuis les réponses existantes, pour qu'une
+  base déjà remplie ne perde pas sa série à la migration.
+
+`tests/home.test.ts` monte l'écran sur la vraie chaîne, comme celui de la Pratique. Seul
+`Date` y est simulé (`vi.useFakeTimers({ toFake: ['Date'] })`) : la série est une propriété
+du calendrier, donc le test doit choisir le jour, mais figer les minuteries bloquerait Dexie.
 
 ## Politique de vérification (non négociable)
 
