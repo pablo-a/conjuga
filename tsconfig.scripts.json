@@ -1,0 +1,39 @@
+{
+  /*
+   * Projet à part pour `scripts/`, distinct de `tsconfig.node.json`.
+   *
+   * Ces scripts importent le moteur de conjugaison — c'est tout leur intérêt :
+   * classer les verbes suppose de savoir les conjuguer. Or `src/` est écrit pour
+   * un bundler et n'écrit pas les extensions dans ses imports relatifs, ce que
+   * `module: nodenext` refuse. On décrit donc ici la résolution que tsx applique
+   * réellement, plutôt que de parsemer le moteur d'extensions dont Vite n'a que
+   * faire.
+   *
+   * La rigueur reste celle de `tsconfig.app.json` : un script qui produit des
+   * données livrées mérite le même filet que le code qui les affiche.
+   */
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.scripts.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023"],
+    "types": ["node"],
+    "skipLibCheck": true,
+
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "resolveJsonModule": true,
+    "noEmit": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "include": ["scripts/**/*.ts"]
+}

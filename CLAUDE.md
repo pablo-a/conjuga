@@ -174,6 +174,44 @@ ce sont des règles, pas des exceptions, et elles sont présentées comme telles
 s'appliquent que si la consonne **vient de l'infinitif** (`inheritedFromInfinitive`) — sans
 cette garde, le `g` ajouté par `tener` (`teng-`) donnerait `tenja`.
 
+## La chaîne de données (`scripts/`)
+
+Deux scripts, exécutés à la main et rarement, jamais pendant le build de l'app. Ils sont
+typés par `tsconfig.scripts.json` — projet distinct parce qu'ils importent le moteur, écrit
+pour un bundler, que `tsconfig.node.json` en `nodenext` refuserait.
+
+| Commande                  | Effet                                                                     |
+| ------------------------- | ------------------------------------------------------------------------- |
+| `npm run data:wiktionary` | 257 Mo de JSONL kaikki.org → `data/wiktionary/*.json` (940 Ko versionnés) |
+| `npm run data:verbs`      | fréquence + Wiktionnaire + moteur → `src/data/verbs.json` + rapport       |
+
+### Comment les verbes sont classés
+
+La liste de fréquence ne connaît que des **formes** : `es` y est au rang 8 sans rien qui le
+rattache à `ser`. Filtrer les mots en `-ar`/`-er`/`-ir` donnerait le rang de l'infinitif,
+qui n'a aucun rapport avec celui du verbe — `ser` ne s'emploie presque jamais à l'infinitif.
+
+On procède donc à l'envers, et c'est un usage du moteur qu'aucune table figée n'aurait
+permis : pour chaque verbe connu du Wiktionnaire, le moteur génère le paradigme complet et
+l'on somme les occurrences de ses formes. Deux corrections rendent le résultat exploitable —
+sans elles, `unir` sortait au rang 6 et `nadar` au rang 23 :
+
+1. **Les formes qui existent hors du verbe ne comptent pour personne.** Entre `nada` « rien »
+   et `nada` « il nage », le corpus ne dit rien, et le mot non verbal l'emporte trop souvent
+   pour qu'on parie dessus. D'où la liste `es-non-verbs.json`.
+2. **Une forme disputée entre deux verbes revient au plus établi**, mesuré sur sa masse
+   exclusive. `podría` est le conditionnel de `poder` et l'imparfait de `podrir` ; `siento`
+   est `sentir` et `sentar`. Le corpus n'a qu'un jeton, il faut trancher.
+
+Ce que le script ne tranche pas, il le **signale** dans `data/verbs-review.md` : homographes
+survivants et gloses trop longues pour servir d'équivalent. Les gloses du Wiktionnaire sont
+des définitions, pas des traductions — d'où `reviewed: false` sur chaque entrée jusqu'à
+relecture humaine, et le fait que `verbs.json` n'est **pas encore livré au navigateur**.
+
+`tests/data/verbs.test.ts` garde l'intégrité du fichier généré. Le test qui compte vérifie que
+chaque `model` correspond encore à `resolveModelId` : enrichir `VERB_MODELS` sans régénérer
+la liste ferait désigner un modèle périmé. Le correctif est toujours `npm run data:verbs`.
+
 ## L'écran Conjugueur
 
 `ConjugatorView` ne consulte aucune base : elle conjugue à la demande, ce qui est la

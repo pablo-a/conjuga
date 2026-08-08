@@ -1,0 +1,10450 @@
+[
+ {
+  "es": "ser",
+  "fr": [
+   "Être, utilisé pour une caractéristique essentielle et non pour un état, que ce dernier soit passager (état d'âme,...) ou durable (mort,...).\nConjugaison à l’indicatif présent, pour mémoire (le vos et le os sont le « tu » et le « vous » régionaux en Argentine et en Uruguay) :\nyo soy ; tú eres , vos sos ; él / ella / usted es ; nosotros / nosotras somos ; vosotros / vosotras sois, os son ; ellos / ellas / ustedes son.",
+   "Être, auxiliaire pour la forme passive. Note d’usage : L’espagnol répugne à l’usage de la voix passive qu’il utilise nettement moins qu’en français."
+  ],
+  "rank": 1,
+  "model": "ser",
+  "frequency": 12005387,
+  "reviewed": false
+ },
+ {
+  "es": "estar",
+  "fr": [
+   "Être, pour qualifier un état, qu’il soit éphémère, durable ou permanent.",
+   "Être (se situer, se trouver).",
+   "(estar + gérondif) être en train de",
+   "estarse : Rester."
+  ],
+  "rank": 2,
+  "model": "estar",
+  "frequency": 7284478,
+  "reviewed": false
+ },
+ {
+  "es": "tener",
+  "fr": [
+   "Avoir, posséder.",
+   "Tenir, maintenir.",
+   "Contenir.",
+   "(tener que + infinitif) Devoir (verbe qui indique la nécessité ou l’obligation de faire quelque chose)."
+  ],
+  "rank": 3,
+  "model": "tener",
+  "frequency": 4631802,
+  "reviewed": false
+ },
+ {
+  "es": "haber",
+  "fr": [
+   "Y avoir.",
+   "Arrêter (un délinquant).",
+   "Avoir.",
+   "Être (avec les verbes intransitifs de mouvement)."
+  ],
+  "rank": 4,
+  "model": "haber",
+  "frequency": 4142336,
+  "reviewed": false
+ },
+ {
+  "es": "ir",
+  "fr": [
+   "Aller, se déplacer jusqu'à un endroit.",
+   "(ir a) Aller (utilisé comme semi-auxiliaire)."
+  ],
+  "rank": 5,
+  "model": "ir",
+  "frequency": 3615690,
+  "reviewed": false
+ },
+ {
+  "es": "poder",
+  "fr": [
+   "Pouvoir."
+  ],
+  "rank": 6,
+  "model": "poder",
+  "frequency": 3589365,
+  "reviewed": false
+ },
+ {
+  "es": "hacer",
+  "fr": [
+   "Faire."
+  ],
+  "rank": 7,
+  "model": "hacer",
+  "frequency": 3026806,
+  "reviewed": false
+ },
+ {
+  "es": "querer",
+  "fr": [
+   "Vouloir.",
+   "Aimer (une personne, aimer d’amour)."
+  ],
+  "rank": 8,
+  "model": "querer",
+  "frequency": 2425254,
+  "reviewed": false
+ },
+ {
+  "es": "decir",
+  "fr": [
+   "(transitif) Dire.",
+   "(transitif) Affirmer, soutenir.",
+   "(intransitif) Se dit du jeu, de l’année, de la récolte, etc. : être ou ne pas être favorable.",
+   "(intransitif) (transitif) Commencer."
+  ],
+  "rank": 9,
+  "model": "decir",
+  "frequency": 2310898,
+  "reviewed": false
+ },
+ {
+  "es": "saber",
+  "fr": [
+   "Savoir."
+  ],
+  "rank": 10,
+  "model": "saber",
+  "frequency": 1697535,
+  "reviewed": false
+ },
+ {
+  "es": "ver",
+  "fr": [
+   "Voir."
+  ],
+  "rank": 11,
+  "model": "ver",
+  "frequency": 1557166,
+  "reviewed": false
+ },
+ {
+  "es": "creer",
+  "fr": [
+   "Croire."
+  ],
+  "rank": 12,
+  "model": null,
+  "frequency": 1277853,
+  "reviewed": false
+ },
+ {
+  "es": "deber",
+  "fr": [
+   "ou Devoir.",
+   "Se devoir."
+  ],
+  "rank": 13,
+  "model": null,
+  "frequency": 1182383,
+  "reviewed": false
+ },
+ {
+  "es": "sentir",
+  "fr": [
+   "Sentir (dans le sens de ressentir, éprouver physiquement ou psychologiquement).",
+   "Entendre.",
+   "Être désolé."
+  ],
+  "rank": 14,
+  "model": "sentir",
+  "frequency": 795083,
+  "reviewed": false
+ },
+ {
+  "es": "hablar",
+  "fr": [
+   "Parler."
+  ],
+  "rank": 15,
+  "model": null,
+  "frequency": 761949,
+  "reviewed": false
+ },
+ {
+  "es": "pensar",
+  "fr": [
+   "Penser"
+  ],
+  "rank": 16,
+  "model": "pensar",
+  "frequency": 704193,
+  "reviewed": false
+ },
+ {
+  "es": "dejar",
+  "fr": [
+   "Laisser.",
+   "Arrêter (utilisé comme verbe périphrastique pour arrêter ou se déshabituer d'une action)."
+  ],
+  "rank": 17,
+  "model": null,
+  "frequency": 677007,
+  "reviewed": false
+ },
+ {
+  "es": "necesitar",
+  "fr": [
+   "Nécessiter, avoir besoin de."
+  ],
+  "rank": 18,
+  "model": null,
+  "frequency": 672988,
+  "reviewed": false
+ },
+ {
+  "es": "dar",
+  "fr": [
+   "Donner.",
+   "Mettre."
+  ],
+  "rank": 19,
+  "model": "dar",
+  "frequency": 652764,
+  "reviewed": false
+ },
+ {
+  "es": "venir",
+  "fr": [
+   "Venir."
+  ],
+  "rank": 20,
+  "model": "venir",
+  "frequency": 624944,
+  "reviewed": false
+ },
+ {
+  "es": "mirar",
+  "fr": [
+   "Regarder.",
+   "Avoir pour but, viser."
+  ],
+  "rank": 21,
+  "model": null,
+  "frequency": 594079,
+  "reviewed": false
+ },
+ {
+  "es": "pasar",
+  "fr": [
+   "Passer.",
+   "Laisser passer, se passer, ne pas accorder d’importance (avec la préposition de).",
+   "Passer (parlant du temps, d’un évènement).",
+   "Donner, passer (de main à main, ou parfois au sens figuré)."
+  ],
+  "rank": 22,
+  "model": null,
+  "frequency": 563630,
+  "reviewed": false
+ },
+ {
+  "es": "parecer",
+  "fr": [
+   "Paraître, sembler.",
+   "Se ressembler."
+  ],
+  "rank": 23,
+  "model": "conocer",
+  "frequency": 529549,
+  "reviewed": false
+ },
+ {
+  "es": "volver",
+  "fr": [
+   "Retourner, revenir.",
+   "(volver a) Refaire."
+  ],
+  "rank": 24,
+  "model": "volver",
+  "frequency": 515082,
+  "reviewed": false
+ },
+ {
+  "es": "gustar",
+  "fr": [
+   "Plaire."
+  ],
+  "rank": 25,
+  "model": null,
+  "frequency": 508751,
+  "reviewed": false
+ },
+ {
+  "es": "encontrar",
+  "fr": [
+   "Trouver, rencontrer.",
+   "Se trouver.",
+   "Rencontrer (quelqu'un)."
+  ],
+  "rank": 26,
+  "model": "contar",
+  "frequency": 496572,
+  "reviewed": false
+ },
+ {
+  "es": "esperar",
+  "fr": [
+   "Espérer, souhaiter.",
+   "Attendre."
+  ],
+  "rank": 27,
+  "model": null,
+  "frequency": 486701,
+  "reviewed": false
+ },
+ {
+  "es": "llevar",
+  "fr": [
+   "Porter, avoir sur soi.",
+   "Amener, apporter.",
+   "llevarse : Emporter, prendre avec soi pour aller dans un autre endroit.",
+   "S’entendre (bien ou mal, avec quelqu’un)."
+  ],
+  "rank": 28,
+  "model": null,
+  "frequency": 460701,
+  "reviewed": false
+ },
+ {
+  "es": "llegar",
+  "fr": [
+   "Arriver."
+  ],
+  "rank": 29,
+  "model": null,
+  "frequency": 449800,
+  "reviewed": false
+ },
+ {
+  "es": "salir",
+  "fr": [
+   "Sortir.",
+   "Paraître."
+  ],
+  "rank": 30,
+  "model": "salir",
+  "frequency": 440678,
+  "reviewed": false
+ },
+ {
+  "es": "oír",
+  "fr": [
+   "Entendre, ouïr."
+  ],
+  "rank": 31,
+  "model": "oir",
+  "frequency": 411859,
+  "reviewed": false
+ },
+ {
+  "es": "seguir",
+  "fr": [
+   "Suivre.",
+   "Continuer, rester.",
+   "(seguir + gérondif) Continuer à faire"
+  ],
+  "rank": 32,
+  "model": "pedir",
+  "frequency": 400995,
+  "reviewed": false
+ },
+ {
+  "es": "conocer",
+  "fr": [
+   "Connaître.",
+   "Rencontrer (une personne)."
+  ],
+  "rank": 33,
+  "model": "conocer",
+  "frequency": 376336,
+  "reviewed": false
+ },
+ {
+  "es": "llamar",
+  "fr": [
+   "Appeler, héler.",
+   "Attirer.",
+   "Nommer.",
+   "Frapper, sonner à la porte, à la fenêtre."
+  ],
+  "rank": 34,
+  "model": null,
+  "frequency": 368732,
+  "reviewed": false
+ },
+ {
+  "es": "entender",
+  "fr": [
+   "Comprendre."
+  ],
+  "rank": 35,
+  "model": "pensar",
+  "frequency": 363876,
+  "reviewed": false
+ },
+ {
+  "es": "poner",
+  "fr": [
+   "Poser, placer, mettre.",
+   "Pondre."
+  ],
+  "rank": 36,
+  "model": "poner",
+  "frequency": 358732,
+  "reviewed": false
+ },
+ {
+  "es": "tomar",
+  "fr": [
+   "Prendre, saisir.",
+   "Prendre, manger, boire.",
+   "Prendre un moyen de transport.",
+   "Prendre, acquérir."
+  ],
+  "rank": 37,
+  "model": null,
+  "frequency": 336916,
+  "reviewed": false
+ },
+ {
+  "es": "matar",
+  "fr": [
+   "Tuer, abattre, rectifier."
+  ],
+  "rank": 38,
+  "model": null,
+  "frequency": 298078,
+  "reviewed": false
+ },
+ {
+  "es": "morir",
+  "fr": [
+   "Mourir."
+  ],
+  "rank": 39,
+  "model": "morir",
+  "frequency": 292804,
+  "reviewed": false
+ },
+ {
+  "es": "trabajar",
+  "fr": [
+   "Travailler, bosser."
+  ],
+  "rank": 40,
+  "model": null,
+  "frequency": 290978,
+  "reviewed": false
+ },
+ {
+  "es": "acabar",
+  "fr": [
+   "Achever, finir, terminer.",
+   "Consommer.",
+   "Casser pour une machine.",
+   "Finir, se terminer"
+  ],
+  "rank": 41,
+  "model": null,
+  "frequency": 284175,
+  "reviewed": false
+ },
+ {
+  "es": "vivir",
+  "fr": [
+   "Vivre."
+  ],
+  "rank": 42,
+  "model": null,
+  "frequency": 255341,
+  "reviewed": false
+ },
+ {
+  "es": "importar",
+  "fr": [
+   "Être important, importer, tirer à conséquence."
+  ],
+  "rank": 43,
+  "model": null,
+  "frequency": 253915,
+  "reviewed": false
+ },
+ {
+  "es": "empezar",
+  "fr": [
+   "Commencer."
+  ],
+  "rank": 44,
+  "model": "pensar",
+  "frequency": 247052,
+  "reviewed": false
+ },
+ {
+  "es": "quedar",
+  "fr": [
+   "Rester.",
+   "rester, demeurer"
+  ],
+  "rank": 45,
+  "model": null,
+  "frequency": 246506,
+  "reviewed": false
+ },
+ {
+  "es": "buscar",
+  "fr": [
+   "Chercher.",
+   "Agacer."
+  ],
+  "rank": 46,
+  "model": null,
+  "frequency": 239592,
+  "reviewed": false
+ },
+ {
+  "es": "entrar",
+  "fr": [
+   "Entrer."
+  ],
+  "rank": 47,
+  "model": null,
+  "frequency": 234582,
+  "reviewed": false
+ },
+ {
+  "es": "perder",
+  "fr": [
+   "Perdre."
+  ],
+  "rank": 48,
+  "model": "pensar",
+  "frequency": 227732,
+  "reviewed": false
+ },
+ {
+  "es": "intentar",
+  "fr": [
+   "Essayer."
+  ],
+  "rank": 49,
+  "model": null,
+  "frequency": 220964,
+  "reviewed": false
+ },
+ {
+  "es": "suponer",
+  "fr": [
+   "Supposer, deviner."
+  ],
+  "rank": 50,
+  "model": "poner",
+  "frequency": 220469,
+  "reviewed": false
+ },
+ {
+  "es": "terminar",
+  "fr": [
+   "Terminer.",
+   "Finir."
+  ],
+  "rank": 51,
+  "model": null,
+  "frequency": 217076,
+  "reviewed": false
+ },
+ {
+  "es": "escuchar",
+  "fr": [
+   "Écouter."
+  ],
+  "rank": 52,
+  "model": null,
+  "frequency": 210854,
+  "reviewed": false
+ },
+ {
+  "es": "usar",
+  "fr": [
+   "Utiliser."
+  ],
+  "rank": 53,
+  "model": null,
+  "frequency": 205902,
+  "reviewed": false
+ },
+ {
+  "es": "traer",
+  "fr": [
+   "Apporter."
+  ],
+  "rank": 54,
+  "model": "traer",
+  "frequency": 202523,
+  "reviewed": false
+ },
+ {
+  "es": "pedir",
+  "fr": [
+   "Demander (un service, un objet), solliciter, commander, passer commande."
+  ],
+  "rank": 55,
+  "model": "pedir",
+  "frequency": 197482,
+  "reviewed": false
+ },
+ {
+  "es": "conseguir",
+  "fr": [
+   "Parvenir, réussir à, obtenir."
+  ],
+  "rank": 56,
+  "model": "pedir",
+  "frequency": 192776,
+  "reviewed": false
+ },
+ {
+  "es": "ayudar",
+  "fr": [
+   "Aider, assister, secourir."
+  ],
+  "rank": 57,
+  "model": null,
+  "frequency": 191618,
+  "reviewed": false
+ },
+ {
+  "es": "comer",
+  "fr": [
+   "Manger."
+  ],
+  "rank": 58,
+  "model": null,
+  "frequency": 191458,
+  "reviewed": false
+ },
+ {
+  "es": "cambiar",
+  "fr": [
+   "Changer."
+  ],
+  "rank": 59,
+  "model": null,
+  "frequency": 185047,
+  "reviewed": false
+ },
+ {
+  "es": "preocupar",
+  "fr": [
+   "Préoccuper.",
+   "Se soucier, s’inquiéter."
+  ],
+  "rank": 60,
+  "model": null,
+  "frequency": 183006,
+  "reviewed": false
+ },
+ {
+  "es": "recordar",
+  "fr": [
+   "Retenir, se rappeler, se souvenir de."
+  ],
+  "rank": 61,
+  "model": "contar",
+  "frequency": 180722,
+  "reviewed": false
+ },
+ {
+  "es": "tratar",
+  "fr": [
+   "Traiter.",
+   "Essayer.",
+   "Soigner.",
+   "s'agir"
+  ],
+  "rank": 62,
+  "model": null,
+  "frequency": 169114,
+  "reviewed": false
+ },
+ {
+  "es": "preguntar",
+  "fr": [
+   "Demander."
+  ],
+  "rank": 63,
+  "model": null,
+  "frequency": 167523,
+  "reviewed": false
+ },
+ {
+  "es": "dormir",
+  "fr": [
+   "Dormir.",
+   "Endormir.",
+   "S’endormir."
+  ],
+  "rank": 64,
+  "model": "dormir",
+  "frequency": 166347,
+  "reviewed": false
+ },
+ {
+  "es": "significar",
+  "fr": [
+   "Signifier."
+  ],
+  "rank": 65,
+  "model": null,
+  "frequency": 151944,
+  "reviewed": false
+ },
+ {
+  "es": "jugar",
+  "fr": [
+   "(intransitif) Jouer.",
+   "(intransitif) Se moquer.",
+   "(intransitif) Aller [bien] ensemble.",
+   "(Costa Rica ; seulement au prétérit ; intransitif) Finaliser, terminer."
+  ],
+  "rank": 66,
+  "model": "jugar",
+  "frequency": 150801,
+  "reviewed": false
+ },
+ {
+  "es": "suceder",
+  "fr": [
+   "Succéder.",
+   "(Seulement à la 3ᵉ personne du singulier et du pluriel) se passer"
+  ],
+  "rank": 67,
+  "model": null,
+  "frequency": 146411,
+  "reviewed": false
+ },
+ {
+  "es": "sacar",
+  "fr": [
+   "Tirer, obtenir, sortir."
+  ],
+  "rank": 68,
+  "model": null,
+  "frequency": 140101,
+  "reviewed": false
+ },
+ {
+  "es": "ocurrir",
+  "fr": [
+   "Se passer, arriver, avoir lieu."
+  ],
+  "rank": 69,
+  "model": null,
+  "frequency": 139218,
+  "reviewed": false
+ },
+ {
+  "es": "regresar",
+  "fr": [
+   "Reculer, aller en arrière.",
+   "Rendre une chose empruntée."
+  ],
+  "rank": 70,
+  "model": null,
+  "frequency": 135434,
+  "reviewed": false
+ },
+ {
+  "es": "leer",
+  "fr": [
+   "Lire."
+  ],
+  "rank": 71,
+  "model": null,
+  "frequency": 130781,
+  "reviewed": false
+ },
+ {
+  "es": "ganar",
+  "fr": [
+   "Gagner."
+  ],
+  "rank": 72,
+  "model": null,
+  "frequency": 129287,
+  "reviewed": false
+ },
+ {
+  "es": "funcionar",
+  "fr": [
+   "Fonctionner, marcher."
+  ],
+  "rank": 73,
+  "model": null,
+  "frequency": 126961,
+  "reviewed": false
+ },
+ {
+  "es": "enviar",
+  "fr": [
+   "Envoyer, adresser."
+  ],
+  "rank": 74,
+  "model": "enviar",
+  "frequency": 126422,
+  "reviewed": false
+ },
+ {
+  "es": "pagar",
+  "fr": [
+   "Payer."
+  ],
+  "rank": 75,
+  "model": null,
+  "frequency": 124928,
+  "reviewed": false
+ },
+ {
+  "es": "comprar",
+  "fr": [
+   "Acheter, acquérir."
+  ],
+  "rank": 76,
+  "model": null,
+  "frequency": 124714,
+  "reviewed": false
+ },
+ {
+  "es": "olvidar",
+  "fr": [
+   "Oublier."
+  ],
+  "rank": 77,
+  "model": null,
+  "frequency": 123732,
+  "reviewed": false
+ },
+ {
+  "es": "mantener",
+  "fr": [
+   "Maintenir.",
+   "Nourrir, alimenter.",
+   "Entretenir, subvenir aux besoins de quelqu’un.",
+   "Se nourrir."
+  ],
+  "rank": 78,
+  "model": "tener",
+  "frequency": 119803,
+  "reviewed": false
+ },
+ {
+  "es": "tocar",
+  "fr": [
+   "Toucher.",
+   "Jouer d’un instrument de musique.",
+   "Toucher, concerner.",
+   "Retoucher, reprendre, améliorer."
+  ],
+  "rank": 79,
+  "model": null,
+  "frequency": 118758,
+  "reviewed": false
+ },
+ {
+  "es": "recibir",
+  "fr": [
+   "Recevoir."
+  ],
+  "rank": 80,
+  "model": null,
+  "frequency": 118172,
+  "reviewed": false
+ },
+ {
+  "es": "abrir",
+  "fr": [
+   "Ouvrir",
+   "Écarter."
+  ],
+  "rank": 81,
+  "model": "abrir",
+  "frequency": 116848,
+  "reviewed": false
+ },
+ {
+  "es": "correr",
+  "fr": [
+   "Courir."
+  ],
+  "rank": 82,
+  "model": null,
+  "frequency": 112894,
+  "reviewed": false
+ },
+ {
+  "es": "unir",
+  "fr": [
+   "Unir, accoupler.",
+   "Joindre, accoupler."
+  ],
+  "rank": 83,
+  "model": null,
+  "frequency": 112416,
+  "reviewed": false
+ },
+ {
+  "es": "caer",
+  "fr": [
+   "Tomber.",
+   "Tomber, pendre.",
+   "Tomber, se déplacer de haut en bas sous l’effet de la force de gravité."
+  ],
+  "rank": 84,
+  "model": "caer",
+  "frequency": 110878,
+  "reviewed": false
+ },
+ {
+  "es": "beber",
+  "fr": [
+   "Boire."
+  ],
+  "rank": 85,
+  "model": null,
+  "frequency": 108630,
+  "reviewed": false
+ },
+ {
+  "es": "acercar",
+  "fr": [
+   "Approcher, rapprocher.",
+   "S'approcher."
+  ],
+  "rank": 86,
+  "model": null,
+  "frequency": 108074,
+  "reviewed": false
+ },
+ {
+  "es": "contar",
+  "fr": [
+   "Compter, calculer.",
+   "Conter, raconter."
+  ],
+  "rank": 87,
+  "model": "contar",
+  "frequency": 106313,
+  "reviewed": false
+ },
+ {
+  "es": "comenzar",
+  "fr": [
+   "Commencer."
+  ],
+  "rank": 88,
+  "model": "pensar",
+  "frequency": 106033,
+  "reviewed": false
+ },
+ {
+  "es": "encantar",
+  "fr": [
+   "Enchanter, ravir.",
+   "Plaire beaucoup (à quelqu’un) (même structure que gustar)."
+  ],
+  "rank": 89,
+  "model": null,
+  "frequency": 104646,
+  "reviewed": false
+ },
+ {
+  "es": "echar",
+  "fr": [
+   "Jeter, lancer.",
+   "Rejeter, exclure, renvoyer."
+  ],
+  "rank": 90,
+  "model": null,
+  "frequency": 104543,
+  "reviewed": false
+ },
+ {
+  "es": "escribir",
+  "fr": [
+   "Écrire."
+  ],
+  "rank": 91,
+  "model": "escribir",
+  "frequency": 103778,
+  "reviewed": false
+ },
+ {
+  "es": "disparar",
+  "fr": [
+   "Tirer."
+  ],
+  "rank": 92,
+  "model": null,
+  "frequency": 99005,
+  "reviewed": false
+ },
+ {
+  "es": "sonar",
+  "fr": [
+   "Sonner, tinter.",
+   "Résonner, sonner."
+  ],
+  "rank": 93,
+  "model": "contar",
+  "frequency": 95873,
+  "reviewed": false
+ },
+ {
+  "es": "subir",
+  "fr": [
+   "Monter.",
+   "Téléverser, uploader."
+  ],
+  "rank": 94,
+  "model": null,
+  "frequency": 94854,
+  "reviewed": false
+ },
+ {
+  "es": "robar",
+  "fr": [
+   "Dérober, voler, ravir"
+  ],
+  "rank": 95,
+  "model": null,
+  "frequency": 93934,
+  "reviewed": false
+ },
+ {
+  "es": "vetar",
+  "fr": [
+   "mettre son veto à, opposer son véto à"
+  ],
+  "rank": 96,
+  "model": null,
+  "frequency": 93782,
+  "reviewed": false
+ },
+ {
+  "es": "prometer",
+  "fr": [
+   "Assurer, promettre."
+  ],
+  "rank": 97,
+  "model": null,
+  "frequency": 91179,
+  "reviewed": false
+ },
+ {
+  "es": "aprender",
+  "fr": [
+   "Apprendre."
+  ],
+  "rank": 98,
+  "model": null,
+  "frequency": 85633,
+  "reviewed": false
+ },
+ {
+  "es": "mover",
+  "fr": [
+   "Mouvoir.",
+   "Bouger.",
+   "Déplacer.",
+   "bouger."
+  ],
+  "rank": 99,
+  "model": "contar",
+  "frequency": 85549,
+  "reviewed": false
+ },
+ {
+  "es": "coger",
+  "fr": [
+   "Prendre.",
+   "Cueillir (une plante, une fleur).",
+   "Baiser, faire l’amour."
+  ],
+  "rank": 100,
+  "model": null,
+  "frequency": 85184,
+  "reviewed": false
+ },
+ {
+  "es": "andar",
+  "fr": [
+   "Aller, marcher."
+  ],
+  "rank": 101,
+  "model": "andar",
+  "frequency": 82704,
+  "reviewed": false
+ },
+ {
+  "es": "aceptar",
+  "fr": [
+   "Accepter.",
+   "Accepter un effet de commerce."
+  ],
+  "rank": 102,
+  "model": null,
+  "frequency": 82317,
+  "reviewed": false
+ },
+ {
+  "es": "vender",
+  "fr": [
+   "Vendre."
+  ],
+  "rank": 103,
+  "model": null,
+  "frequency": 81752,
+  "reviewed": false
+ },
+ {
+  "es": "permitir",
+  "fr": [
+   "Permettre."
+  ],
+  "rank": 104,
+  "model": null,
+  "frequency": 81099,
+  "reviewed": false
+ },
+ {
+  "es": "mentir",
+  "fr": [
+   "Mentir."
+  ],
+  "rank": 105,
+  "model": "sentir",
+  "frequency": 79308,
+  "reviewed": false
+ },
+ {
+  "es": "desear",
+  "fr": [
+   "Désirer."
+  ],
+  "rank": 106,
+  "model": null,
+  "frequency": 78800,
+  "reviewed": false
+ },
+ {
+  "es": "preparar",
+  "fr": [
+   "Préparer, apprêter."
+  ],
+  "rank": 107,
+  "model": null,
+  "frequency": 77907,
+  "reviewed": false
+ },
+ {
+  "es": "disculpar",
+  "fr": [
+   "Disculper, pardonner."
+  ],
+  "rank": 108,
+  "model": null,
+  "frequency": 76832,
+  "reviewed": false
+ },
+ {
+  "es": "perdonar",
+  "fr": [
+   "Excuser, pardonner."
+  ],
+  "rank": 109,
+  "model": null,
+  "frequency": 75763,
+  "reviewed": false
+ },
+ {
+  "es": "escapar",
+  "fr": [
+   "S'échapper, échapper.",
+   "Omettre."
+  ],
+  "rank": 110,
+  "model": null,
+  "frequency": 74712,
+  "reviewed": false
+ },
+ {
+  "es": "decidir",
+  "fr": [
+   "Décider."
+  ],
+  "rank": 111,
+  "model": null,
+  "frequency": 74665,
+  "reviewed": false
+ },
+ {
+  "es": "servir",
+  "fr": [
+   "Servir, être utile."
+  ],
+  "rank": 112,
+  "model": "pedir",
+  "frequency": 74599,
+  "reviewed": false
+ },
+ {
+  "es": "cerrar",
+  "fr": [
+   "Fermer.",
+   "S'Achever."
+  ],
+  "rank": 113,
+  "model": "pensar",
+  "frequency": 74490,
+  "reviewed": false
+ },
+ {
+  "es": "mandar",
+  "fr": [
+   "Mander, envoyer, adresser.",
+   "Commander, enjoindre, ordonner, sommer."
+  ],
+  "rank": 114,
+  "model": null,
+  "frequency": 74001,
+  "reviewed": false
+ },
+ {
+  "es": "romper",
+  "fr": [
+   "Briser, rompre, casser, déchirer.",
+   "Se briser."
+  ],
+  "rank": 115,
+  "model": "romper",
+  "frequency": 73449,
+  "reviewed": false
+ },
+ {
+  "es": "parar",
+  "fr": [
+   "Arrêter, cesser.",
+   "S’arrêter."
+  ],
+  "rank": 116,
+  "model": null,
+  "frequency": 73430,
+  "reviewed": false
+ },
+ {
+  "es": "imaginar",
+  "fr": [
+   "Imaginer."
+  ],
+  "rank": 117,
+  "model": null,
+  "frequency": 73114,
+  "reviewed": false
+ },
+ {
+  "es": "meter",
+  "fr": [
+   "Mettre, poser, appliquer."
+  ],
+  "rank": 118,
+  "model": null,
+  "frequency": 72971,
+  "reviewed": false
+ },
+ {
+  "es": "partir",
+  "fr": [
+   "Découper, répartir, partager (couper en deux morceaux, ou plus).",
+   "partirse : être mort de rire, plié de rire, plié en deux.",
+   "Partir, s’en aller."
+  ],
+  "rank": 119,
+  "model": null,
+  "frequency": 72895,
+  "reviewed": false
+ },
+ {
+  "es": "referir",
+  "fr": [
+   "Rapporter, référer."
+  ],
+  "rank": 120,
+  "model": "sentir",
+  "frequency": 71913,
+  "reviewed": false
+ },
+ {
+  "es": "arreglar",
+  "fr": [
+   "Refaire, remédier, restaurer, réparer.",
+   "Arranger, disposer, accommoder."
+  ],
+  "rank": 121,
+  "model": null,
+  "frequency": 71776,
+  "reviewed": false
+ },
+ {
+  "es": "salvar",
+  "fr": [
+   "Sauver."
+  ],
+  "rank": 122,
+  "model": null,
+  "frequency": 71682,
+  "reviewed": false
+ },
+ {
+  "es": "armar",
+  "fr": [
+   "Bander, raidir, remonter, serrer, tendre.",
+   "Armer."
+  ],
+  "rank": 123,
+  "model": null,
+  "frequency": 71630,
+  "reviewed": false
+ },
+ {
+  "es": "elegir",
+  "fr": [
+   "Élire.",
+   "Choisir, adopter, désigner, opter."
+  ],
+  "rank": 124,
+  "model": "pedir",
+  "frequency": 67698,
+  "reviewed": false
+ },
+ {
+  "es": "temer",
+  "fr": [
+   "Craindre, redouter."
+  ],
+  "rank": 125,
+  "model": null,
+  "frequency": 67063,
+  "reviewed": false
+ },
+ {
+  "es": "convertir",
+  "fr": [
+   "Convertir.",
+   "Se changer (en quelque chose d'autre)."
+  ],
+  "rank": 126,
+  "model": "sentir",
+  "frequency": 66759,
+  "reviewed": false
+ },
+ {
+  "es": "equivocar",
+  "fr": [
+   "Se tromper, se méprendre."
+  ],
+  "rank": 127,
+  "model": null,
+  "frequency": 65939,
+  "reviewed": false
+ },
+ {
+  "es": "bajar",
+  "fr": [
+   "Descendre."
+  ],
+  "rank": 128,
+  "model": null,
+  "frequency": 65313,
+  "reviewed": false
+ },
+ {
+  "es": "detener",
+  "fr": [
+   "Arrêter, détenir.",
+   "S'arrêter."
+  ],
+  "rank": 129,
+  "model": "tener",
+  "frequency": 65031,
+  "reviewed": false
+ },
+ {
+  "es": "llorar",
+  "fr": [
+   "Pleurer."
+  ],
+  "rank": 130,
+  "model": null,
+  "frequency": 64996,
+  "reviewed": false
+ },
+ {
+  "es": "existir",
+  "fr": [
+   "Exister."
+  ],
+  "rank": 131,
+  "model": null,
+  "frequency": 64506,
+  "reviewed": false
+ },
+ {
+  "es": "cuidar",
+  "fr": [
+   "Soigner, prendre soin."
+  ],
+  "rank": 132,
+  "model": null,
+  "frequency": 64478,
+  "reviewed": false
+ },
+ {
+  "es": "aparecer",
+  "fr": [
+   "Apparaître."
+  ],
+  "rank": 133,
+  "model": "conocer",
+  "frequency": 63862,
+  "reviewed": false
+ },
+ {
+  "es": "lograr",
+  "fr": [
+   "Réussir, parvenir.",
+   "Remporter, obtenir."
+  ],
+  "rank": 134,
+  "model": null,
+  "frequency": 63045,
+  "reviewed": false
+ },
+ {
+  "es": "descubrir",
+  "fr": [
+   "Découvrir."
+  ],
+  "rank": 135,
+  "model": "cubrir",
+  "frequency": 61929,
+  "reviewed": false
+ },
+ {
+  "es": "volar",
+  "fr": [
+   "Voler dans l'air."
+  ],
+  "rank": 136,
+  "model": "contar",
+  "frequency": 61538,
+  "reviewed": false
+ },
+ {
+  "es": "enseñar",
+  "fr": [
+   "Enseigner, apprendre.",
+   "Montrer.",
+   "Signaler."
+  ],
+  "rank": 137,
+  "model": null,
+  "frequency": 61237,
+  "reviewed": false
+ },
+ {
+  "es": "marchar",
+  "fr": [
+   "Marcher."
+  ],
+  "rank": 138,
+  "model": null,
+  "frequency": 60988,
+  "reviewed": false
+ },
+ {
+  "es": "tirar",
+  "fr": [
+   "Tirer.",
+   "Jeter, projeter."
+  ],
+  "rank": 139,
+  "model": null,
+  "frequency": 60988,
+  "reviewed": false
+ },
+ {
+  "es": "probar",
+  "fr": [
+   "Essayer, goûter.",
+   "Éprouver.",
+   "Mettre à l’épreuve.",
+   "Voir si."
+  ],
+  "rank": 140,
+  "model": "contar",
+  "frequency": 60708,
+  "reviewed": false
+ },
+ {
+  "es": "bailar",
+  "fr": [
+   "Danser."
+  ],
+  "rank": 141,
+  "model": null,
+  "frequency": 60659,
+  "reviewed": false
+ },
+ {
+  "es": "caminar",
+  "fr": [
+   "Marcher, cheminer."
+  ],
+  "rank": 142,
+  "model": null,
+  "frequency": 60347,
+  "reviewed": false
+ },
+ {
+  "es": "casar",
+  "fr": [
+   "Marier.",
+   "Faire correspondre, coïncider.",
+   "Casser un jugement."
+  ],
+  "rank": 143,
+  "model": null,
+  "frequency": 59562,
+  "reviewed": false
+ },
+ {
+  "es": "cantar",
+  "fr": [
+   "Chanter."
+  ],
+  "rank": 144,
+  "model": null,
+  "frequency": 59503,
+  "reviewed": false
+ },
+ {
+  "es": "soler",
+  "fr": [
+   "Avoir l’habitude de."
+  ],
+  "rank": 145,
+  "model": "soler",
+  "frequency": 59122,
+  "reviewed": false
+ },
+ {
+  "es": "presentar",
+  "fr": [
+   "Présenter.",
+   "Se présenter, s’introduire."
+  ],
+  "rank": 146,
+  "model": null,
+  "frequency": 58701,
+  "reviewed": false
+ },
+ {
+  "es": "continuar",
+  "fr": [
+   "Continuer."
+  ],
+  "rank": 147,
+  "model": "actuar",
+  "frequency": 58700,
+  "reviewed": false
+ },
+ {
+  "es": "negociar",
+  "fr": [
+   "Négocier.",
+   "Réparer."
+  ],
+  "rank": 148,
+  "model": null,
+  "frequency": 58605,
+  "reviewed": false
+ },
+ {
+  "es": "mostrar",
+  "fr": [
+   "Montrer."
+  ],
+  "rank": 149,
+  "model": "contar",
+  "frequency": 57983,
+  "reviewed": false
+ },
+ {
+  "es": "golpear",
+  "fr": [
+   "Frapper, heurter."
+  ],
+  "rank": 150,
+  "model": null,
+  "frequency": 57518,
+  "reviewed": false
+ },
+ {
+  "es": "conducir",
+  "fr": [
+   "Conduire."
+  ],
+  "rank": 151,
+  "model": "conducir",
+  "frequency": 57316,
+  "reviewed": false
+ },
+ {
+  "es": "preferir",
+  "fr": [
+   "Aimer mieux, préférer."
+  ],
+  "rank": 152,
+  "model": "sentir",
+  "frequency": 56939,
+  "reviewed": false
+ },
+ {
+  "es": "amar",
+  "fr": [
+   "Aimer (d’amour)."
+  ],
+  "rank": 153,
+  "model": null,
+  "frequency": 56425,
+  "reviewed": false
+ },
+ {
+  "es": "responder",
+  "fr": [
+   "Répondre."
+  ],
+  "rank": 154,
+  "model": null,
+  "frequency": 56114,
+  "reviewed": false
+ },
+ {
+  "es": "luchar",
+  "fr": [
+   "Se battre, se bagarrer.",
+   "Lutter, batailler, combattre."
+  ],
+  "rank": 155,
+  "model": null,
+  "frequency": 54451,
+  "reviewed": false
+ },
+ {
+  "es": "invitar",
+  "fr": [
+   "Inviter."
+  ],
+  "rank": 156,
+  "model": null,
+  "frequency": 54219,
+  "reviewed": false
+ },
+ {
+  "es": "merecer",
+  "fr": [
+   "Mériter."
+  ],
+  "rank": 157,
+  "model": "conocer",
+  "frequency": 53737,
+  "reviewed": false
+ },
+ {
+  "es": "joder",
+  "fr": [
+   "Faire l’amour : baiser, niquer, foutre.",
+   "Importuner, souvent par plaisanterie : enquiquiner, faire chier, emmerder, les casser.",
+   "Casser, détruire : péter, niquer, foutre en l’air.",
+   "Plaisanter, faire marcher : déconner, se foutre de la gueule."
+  ],
+  "rank": 158,
+  "model": null,
+  "frequency": 53716,
+  "reviewed": false
+ },
+ {
+  "es": "explicar",
+  "fr": [
+   "Expliquer."
+  ],
+  "rank": 159,
+  "model": null,
+  "frequency": 53693,
+  "reviewed": false
+ },
+ {
+  "es": "quitar",
+  "fr": [
+   "Quitter, enlever, ôter."
+  ],
+  "rank": 160,
+  "model": null,
+  "frequency": 53637,
+  "reviewed": false
+ },
+ {
+  "es": "desaparecer",
+  "fr": [
+   "Disparaître."
+  ],
+  "rank": 161,
+  "model": "conocer",
+  "frequency": 53628,
+  "reviewed": false
+ },
+ {
+  "es": "actuar",
+  "fr": [
+   "Agir.",
+   "Jouer."
+  ],
+  "rank": 162,
+  "model": "actuar",
+  "frequency": 53157,
+  "reviewed": false
+ },
+ {
+  "es": "obtener",
+  "fr": [
+   "Obtenir."
+  ],
+  "rank": 163,
+  "model": "tener",
+  "frequency": 52196,
+  "reviewed": false
+ },
+ {
+  "es": "jurar",
+  "fr": [
+   "Jurer.",
+   "Prêter serment."
+  ],
+  "rank": 164,
+  "model": null,
+  "frequency": 52002,
+  "reviewed": false
+ },
+ {
+  "es": "atrapar",
+  "fr": [
+   "Attraper, capturer, saisir.",
+   "Piéger."
+  ],
+  "rank": 165,
+  "model": null,
+  "frequency": 51928,
+  "reviewed": false
+ },
+ {
+  "es": "crecer",
+  "fr": [
+   "Grandir, croître."
+  ],
+  "rank": 166,
+  "model": "conocer",
+  "frequency": 51152,
+  "reviewed": false
+ },
+ {
+  "es": "levantar",
+  "fr": [
+   "Lever, soulever, élever."
+  ],
+  "rank": 167,
+  "model": null,
+  "frequency": 50551,
+  "reviewed": false
+ },
+ {
+  "es": "comprender",
+  "fr": [
+   "Comprendre."
+  ],
+  "rank": 168,
+  "model": null,
+  "frequency": 49315,
+  "reviewed": false
+ },
+ {
+  "es": "gritar",
+  "fr": [
+   "Hurler, crier."
+  ],
+  "rank": 169,
+  "model": null,
+  "frequency": 49128,
+  "reviewed": false
+ },
+ {
+  "es": "nacer",
+  "fr": [
+   "Naître."
+  ],
+  "rank": 170,
+  "model": "conocer",
+  "frequency": 48484,
+  "reviewed": false
+ },
+ {
+  "es": "confiar",
+  "fr": [
+   "Confier, se fier à.",
+   "Faire confiance."
+  ],
+  "rank": 171,
+  "model": null,
+  "frequency": 48482,
+  "reviewed": false
+ },
+ {
+  "es": "apostar",
+  "fr": [
+   "Parier."
+  ],
+  "rank": 172,
+  "model": "contar",
+  "frequency": 48315,
+  "reviewed": false
+ },
+ {
+  "es": "pelear",
+  "fr": [
+   "Se battre, combattre."
+  ],
+  "rank": 173,
+  "model": null,
+  "frequency": 47951,
+  "reviewed": false
+ },
+ {
+  "es": "placer",
+  "fr": [
+   "Plaire."
+  ],
+  "rank": 174,
+  "model": "conocer",
+  "frequency": 47481,
+  "reviewed": false
+ },
+ {
+  "es": "odiar",
+  "fr": [
+   "Haïr."
+  ],
+  "rank": 175,
+  "model": null,
+  "frequency": 46873,
+  "reviewed": false
+ },
+ {
+  "es": "considerar",
+  "fr": [
+   "Considérer."
+  ],
+  "rank": 176,
+  "model": null,
+  "frequency": 46804,
+  "reviewed": false
+ },
+ {
+  "es": "bromear",
+  "fr": [
+   "Plaisanter."
+  ],
+  "rank": 177,
+  "model": null,
+  "frequency": 46643,
+  "reviewed": false
+ },
+ {
+  "es": "atacar",
+  "fr": [
+   "Attaquer, assaillir, agresser."
+  ],
+  "rank": 178,
+  "model": null,
+  "frequency": 46335,
+  "reviewed": false
+ },
+ {
+  "es": "sufrir",
+  "fr": [
+   "Souffrir, sentir physiquement un mal, une douleur, causée par une maladie, une gêne.",
+   "Souffrir moralement.",
+   "Subir quelque chose avec résignation.",
+   "Supporter, résister."
+  ],
+  "rank": 179,
+  "model": null,
+  "frequency": 45903,
+  "reviewed": false
+ },
+ {
+  "es": "destruir",
+  "fr": [
+   "Détruire."
+  ],
+  "rank": 180,
+  "model": "construir",
+  "frequency": 45815,
+  "reviewed": false
+ },
+ {
+  "es": "disfrutar",
+  "fr": [
+   "profiter de."
+  ],
+  "rank": 181,
+  "model": null,
+  "frequency": 45525,
+  "reviewed": false
+ },
+ {
+  "es": "interesar",
+  "fr": [
+   "Intéresser.",
+   "Être intéressant.",
+   "S'intéresser."
+  ],
+  "rank": 182,
+  "model": null,
+  "frequency": 45159,
+  "reviewed": false
+ },
+ {
+  "es": "averiguar",
+  "fr": [
+   "S’informer, arriver à comprendre, établir, rechercher, chercher à savoir, découvrir."
+  ],
+  "rank": 183,
+  "model": null,
+  "frequency": 45022,
+  "reviewed": false
+ },
+ {
+  "es": "resultar",
+  "fr": [
+   "Résulter, aboutir."
+  ],
+  "rank": 184,
+  "model": null,
+  "frequency": 44956,
+  "reviewed": false
+ },
+ {
+  "es": "doler",
+  "fr": [
+   "Faire mal.",
+   "Se plaindre."
+  ],
+  "rank": 185,
+  "model": "contar",
+  "frequency": 44781,
+  "reviewed": false
+ },
+ {
+  "es": "sentar",
+  "fr": [
+   "Asseoir.",
+   "Siéger."
+  ],
+  "rank": 186,
+  "model": "pensar",
+  "frequency": 43866,
+  "reviewed": false
+ },
+ {
+  "es": "cortar",
+  "fr": [
+   "Couper, tailler, trancher.",
+   "Couper avec des ciseaux, découper, tondre."
+  ],
+  "rank": 187,
+  "model": null,
+  "frequency": 43669,
+  "reviewed": false
+ },
+ {
+  "es": "molestar",
+  "fr": [
+   "Ennuyer, gêner."
+  ],
+  "rank": 188,
+  "model": null,
+  "frequency": 43596,
+  "reviewed": false
+ },
+ {
+  "es": "recoger",
+  "fr": [
+   "Ramasser, collectionner, rassembler, recueillir.",
+   "Prendre, passer prendre."
+  ],
+  "rank": 189,
+  "model": null,
+  "frequency": 43433,
+  "reviewed": false
+ },
+ {
+  "es": "esconder",
+  "fr": [
+   "Cacher."
+  ],
+  "rank": 190,
+  "model": null,
+  "frequency": 42949,
+  "reviewed": false
+ },
+ {
+  "es": "reír",
+  "fr": [
+   "Rire."
+  ],
+  "rank": 191,
+  "model": "reir",
+  "frequency": 42864,
+  "reviewed": false
+ },
+ {
+  "es": "huir",
+  "fr": [
+   "Fuir."
+  ],
+  "rank": 192,
+  "model": "construir",
+  "frequency": 42726,
+  "reviewed": false
+ },
+ {
+  "es": "dirigir",
+  "fr": [
+   "Diriger",
+   "S'adresser."
+  ],
+  "rank": 193,
+  "model": null,
+  "frequency": 42478,
+  "reviewed": false
+ },
+ {
+  "es": "revisar",
+  "fr": [
+   "Vérifier, surveiller.",
+   "Reviser."
+  ],
+  "rank": 194,
+  "model": null,
+  "frequency": 42404,
+  "reviewed": false
+ },
+ {
+  "es": "proteger",
+  "fr": [
+   "Protéger."
+  ],
+  "rank": 195,
+  "model": null,
+  "frequency": 42363,
+  "reviewed": false
+ },
+ {
+  "es": "ofrecer",
+  "fr": [
+   "Offrir."
+  ],
+  "rank": 196,
+  "model": "conocer",
+  "frequency": 42349,
+  "reviewed": false
+ },
+ {
+  "es": "notar",
+  "fr": [
+   "Noter.",
+   "Apercevoir, remarquer."
+  ],
+  "rank": 197,
+  "model": null,
+  "frequency": 42270,
+  "reviewed": false
+ },
+ {
+  "es": "despertar",
+  "fr": [
+   "Réveiller."
+  ],
+  "rank": 198,
+  "model": "pensar",
+  "frequency": 42215,
+  "reviewed": false
+ },
+ {
+  "es": "reconocer",
+  "fr": [
+   "Reconnaître."
+  ],
+  "rank": 199,
+  "model": "conocer",
+  "frequency": 42157,
+  "reviewed": false
+ },
+ {
+  "es": "cenar",
+  "fr": [
+   "Dîner, manger le repas du soir."
+  ],
+  "rank": 200,
+  "model": null,
+  "frequency": 41925,
+  "reviewed": false
+ },
+ {
+  "es": "crear",
+  "fr": [
+   "Créer."
+  ],
+  "rank": 201,
+  "model": null,
+  "frequency": 41629,
+  "reviewed": false
+ },
+ {
+  "es": "construir",
+  "fr": [
+   "Construire."
+  ],
+  "rank": 202,
+  "model": "construir",
+  "frequency": 41358,
+  "reviewed": false
+ },
+ {
+  "es": "asegurar",
+  "fr": [
+   "Assurer, certifier, garantir.",
+   "Affirmer, assurer."
+  ],
+  "rank": 203,
+  "model": null,
+  "frequency": 41301,
+  "reviewed": false
+ },
+ {
+  "es": "recuperar",
+  "fr": [
+   "Récupérer."
+  ],
+  "rank": 204,
+  "model": null,
+  "frequency": 40694,
+  "reviewed": false
+ },
+ {
+  "es": "acordar",
+  "fr": [
+   "S’accorder, s’harmoniser, être d’accord.",
+   "Se souvenir."
+  ],
+  "rank": 205,
+  "model": "contar",
+  "frequency": 40657,
+  "reviewed": false
+ },
+ {
+  "es": "respirar",
+  "fr": [
+   "Respirer."
+  ],
+  "rank": 206,
+  "model": null,
+  "frequency": 40526,
+  "reviewed": false
+ },
+ {
+  "es": "evitar",
+  "fr": [
+   "Éviter."
+  ],
+  "rank": 207,
+  "model": null,
+  "frequency": 40522,
+  "reviewed": false
+ },
+ {
+  "es": "oler",
+  "fr": [
+   "Sentir (action qui résulte de l’utilisation de son odorat).",
+   "Répandre une odeur."
+  ],
+  "rank": 208,
+  "model": "oler",
+  "frequency": 39736,
+  "reviewed": false
+ },
+ {
+  "es": "saltar",
+  "fr": [
+   "Sauter."
+  ],
+  "rank": 209,
+  "model": null,
+  "frequency": 39615,
+  "reviewed": false
+ },
+ {
+  "es": "manejar",
+  "fr": [
+   "Manier.",
+   "Conduire les affaires, manager."
+  ],
+  "rank": 210,
+  "model": null,
+  "frequency": 39364,
+  "reviewed": false
+ },
+ {
+  "es": "asesinar",
+  "fr": [
+   "Assassiner."
+  ],
+  "rank": 211,
+  "model": null,
+  "frequency": 39103,
+  "reviewed": false
+ },
+ {
+  "es": "arruinar",
+  "fr": [
+   "Ruiner."
+  ],
+  "rank": 212,
+  "model": null,
+  "frequency": 38795,
+  "reviewed": false
+ },
+ {
+  "es": "descansar",
+  "fr": [
+   "Se reposer."
+  ],
+  "rank": 213,
+  "model": null,
+  "frequency": 38370,
+  "reviewed": false
+ },
+ {
+  "es": "utilizar",
+  "fr": [
+   "Utiliser."
+  ],
+  "rank": 214,
+  "model": null,
+  "frequency": 38082,
+  "reviewed": false
+ },
+ {
+  "es": "planear",
+  "fr": [
+   "Élaborer un plan, planifier."
+  ],
+  "rank": 215,
+  "model": null,
+  "frequency": 37869,
+  "reviewed": false
+ },
+ {
+  "es": "asustar",
+  "fr": [
+   "Effrayer."
+  ],
+  "rank": 216,
+  "model": null,
+  "frequency": 37722,
+  "reviewed": false
+ },
+ {
+  "es": "abandonar",
+  "fr": [
+   "Abandonner."
+  ],
+  "rank": 217,
+  "model": null,
+  "frequency": 37517,
+  "reviewed": false
+ },
+ {
+  "es": "devolver",
+  "fr": [
+   "Rendre, remettre.",
+   "Vomir, gerber."
+  ],
+  "rank": 218,
+  "model": "volver",
+  "frequency": 37476,
+  "reviewed": false
+ },
+ {
+  "es": "guardar",
+  "fr": [
+   "Garder."
+  ],
+  "rank": 219,
+  "model": null,
+  "frequency": 37367,
+  "reviewed": false
+ },
+ {
+  "es": "resolver",
+  "fr": [
+   "Résoudre.",
+   "Décider."
+  ],
+  "rank": 220,
+  "model": "volver",
+  "frequency": 37272,
+  "reviewed": false
+ },
+ {
+  "es": "agradecer",
+  "fr": [
+   "Remercier."
+  ],
+  "rank": 221,
+  "model": "conocer",
+  "frequency": 36602,
+  "reviewed": false
+ },
+ {
+  "es": "cumplir",
+  "fr": [
+   "Achever, combler."
+  ],
+  "rank": 222,
+  "model": null,
+  "frequency": 36509,
+  "reviewed": false
+ },
+ {
+  "es": "estudiar",
+  "fr": [
+   "Étudier."
+  ],
+  "rank": 223,
+  "model": null,
+  "frequency": 36403,
+  "reviewed": false
+ },
+ {
+  "es": "engañar",
+  "fr": [
+   "Tricher, tromper."
+  ],
+  "rank": 224,
+  "model": null,
+  "frequency": 36392,
+  "reviewed": false
+ },
+ {
+  "es": "informar",
+  "fr": [
+   "Informer."
+  ],
+  "rank": 225,
+  "model": null,
+  "frequency": 35785,
+  "reviewed": false
+ },
+ {
+  "es": "pesar",
+  "fr": [
+   "Peser, être lourd.",
+   "Peser, mesurer le poids."
+  ],
+  "rank": 226,
+  "model": null,
+  "frequency": 35750,
+  "reviewed": false
+ },
+ {
+  "es": "entregar",
+  "fr": [
+   "Remettre, livrer.",
+   "Confier.",
+   "Se livrer, se rendre."
+  ],
+  "rank": 227,
+  "model": null,
+  "frequency": 35535,
+  "reviewed": false
+ },
+ {
+  "es": "discutir",
+  "fr": [
+   "Discuter, débattre, contester."
+  ],
+  "rank": 228,
+  "model": null,
+  "frequency": 35491,
+  "reviewed": false
+ },
+ {
+  "es": "enterar",
+  "fr": [
+   "Informer, donner à connaître.",
+   "pronominal Apprendre, s’informer, se rendre compte."
+  ],
+  "rank": 229,
+  "model": null,
+  "frequency": 35481,
+  "reviewed": false
+ },
+ {
+  "es": "contestar",
+  "fr": [
+   "Répondre."
+  ],
+  "rank": 230,
+  "model": null,
+  "frequency": 35382,
+  "reviewed": false
+ },
+ {
+  "es": "encargar",
+  "fr": [
+   "Charger, confier une tâche ou une responsabilité."
+  ],
+  "rank": 231,
+  "model": null,
+  "frequency": 35115,
+  "reviewed": false
+ },
+ {
+  "es": "quemar",
+  "fr": [
+   "Brûler.",
+   "Brader.",
+   "Discréditer, décrédibiliser, griller."
+  ],
+  "rank": 232,
+  "model": null,
+  "frequency": 35107,
+  "reviewed": false
+ },
+ {
+  "es": "limpiar",
+  "fr": [
+   "Nettoyer, récurer."
+  ],
+  "rank": 233,
+  "model": null,
+  "frequency": 35049,
+  "reviewed": false
+ },
+ {
+  "es": "viajar",
+  "fr": [
+   "Voyager."
+  ],
+  "rank": 234,
+  "model": null,
+  "frequency": 34751,
+  "reviewed": false
+ },
+ {
+  "es": "ordenar",
+  "fr": [
+   "Ordonner, commander, enjoindre, sommer."
+  ],
+  "rank": 235,
+  "model": null,
+  "frequency": 34750,
+  "reviewed": false
+ },
+ {
+  "es": "compartir",
+  "fr": [
+   "Partager, mettre en commun."
+  ],
+  "rank": 236,
+  "model": null,
+  "frequency": 34665,
+  "reviewed": false
+ },
+ {
+  "es": "pertenecer",
+  "fr": [
+   "Appartenir."
+  ],
+  "rank": 237,
+  "model": "conocer",
+  "frequency": 34021,
+  "reviewed": false
+ },
+ {
+  "es": "firmar",
+  "fr": [
+   "Signer."
+  ],
+  "rank": 238,
+  "model": null,
+  "frequency": 33954,
+  "reviewed": false
+ },
+ {
+  "es": "controlar",
+  "fr": [
+   "Contrôler, surveiller, vérifier."
+  ],
+  "rank": 239,
+  "model": null,
+  "frequency": 33608,
+  "reviewed": false
+ },
+ {
+  "es": "ocupar",
+  "fr": [
+   "Occuper."
+  ],
+  "rank": 240,
+  "model": null,
+  "frequency": 32723,
+  "reviewed": false
+ },
+ {
+  "es": "investigar",
+  "fr": [
+   "Investiguer, enquêter."
+  ],
+  "rank": 241,
+  "model": null,
+  "frequency": 32682,
+  "reviewed": false
+ },
+ {
+  "es": "depender",
+  "fr": [
+   "Dépendre."
+  ],
+  "rank": 242,
+  "model": null,
+  "frequency": 32427,
+  "reviewed": false
+ },
+ {
+  "es": "tragar",
+  "fr": [
+   "Avaler.",
+   "Avaler des sornettes, être crédule.",
+   "Boire, absorber un liquide, en parlant de la terre qui boit l’eau.",
+   "Manger goulument, bouffer."
+  ],
+  "rank": 243,
+  "model": null,
+  "frequency": 32139,
+  "reviewed": false
+ },
+ {
+  "es": "cometer",
+  "fr": [
+   "Commettre.",
+   "Transmettre."
+  ],
+  "rank": 244,
+  "model": null,
+  "frequency": 32099,
+  "reviewed": false
+ },
+ {
+  "es": "fallar",
+  "fr": [
+   "Faillir, échouer."
+  ],
+  "rank": 245,
+  "model": null,
+  "frequency": 31332,
+  "reviewed": false
+ },
+ {
+  "es": "fumar",
+  "fr": [
+   "Fumer."
+  ],
+  "rank": 246,
+  "model": null,
+  "frequency": 31051,
+  "reviewed": false
+ },
+ {
+  "es": "agarrar",
+  "fr": [
+   "Agripper, saisir."
+  ],
+  "rank": 247,
+  "model": null,
+  "frequency": 31042,
+  "reviewed": false
+ },
+ {
+  "es": "prestar",
+  "fr": [
+   "Prêter.",
+   "Rendre (un service)."
+  ],
+  "rank": 248,
+  "model": null,
+  "frequency": 31020,
+  "reviewed": false
+ },
+ {
+  "es": "demostrar",
+  "fr": [
+   "Démontrer."
+  ],
+  "rank": 249,
+  "model": "contar",
+  "frequency": 30815,
+  "reviewed": false
+ },
+ {
+  "es": "aguantar",
+  "fr": [
+   "Supporter (aguantarse).",
+   "Tenir.",
+   "Se positionner pour attendre la charge du taureau."
+  ],
+  "rank": 250,
+  "model": null,
+  "frequency": 30497,
+  "reviewed": false
+ },
+ {
+  "es": "negar",
+  "fr": [
+   "Nier, refuser."
+  ],
+  "rank": 251,
+  "model": "pensar",
+  "frequency": 30096,
+  "reviewed": false
+ },
+ {
+  "es": "sugerir",
+  "fr": [
+   "Suggérer."
+  ],
+  "rank": 252,
+  "model": "sentir",
+  "frequency": 29861,
+  "reviewed": false
+ },
+ {
+  "es": "causar",
+  "fr": [
+   "Causer."
+  ],
+  "rank": 253,
+  "model": null,
+  "frequency": 29700,
+  "reviewed": false
+ },
+ {
+  "es": "pegar",
+  "fr": [
+   "Coller.",
+   "Joindre, fixer.",
+   "Battre, frapper, heurter.",
+   "Envoyer un coup précis."
+  ],
+  "rank": 254,
+  "model": null,
+  "frequency": 29332,
+  "reviewed": false
+ },
+ {
+  "es": "tardar",
+  "fr": [
+   "Tarder."
+  ],
+  "rank": 255,
+  "model": null,
+  "frequency": 29231,
+  "reviewed": false
+ },
+ {
+  "es": "sorprender",
+  "fr": [
+   "Surprendre.",
+   "Frapper, heurter."
+  ],
+  "rank": 256,
+  "model": null,
+  "frequency": 29138,
+  "reviewed": false
+ },
+ {
+  "es": "girar",
+  "fr": [
+   "Virer.",
+   "Retourner, tourner."
+  ],
+  "rank": 257,
+  "model": null,
+  "frequency": 28984,
+  "reviewed": false
+ },
+ {
+  "es": "hallar",
+  "fr": [
+   "Trouver quelque chose ou quelqu’un, en le cherchant ou par hasard.",
+   "Découvrir quelque chose qui était jusque là inconnu.",
+   "Découvrir la vérité.",
+   "Rencontrer quelqu’un."
+  ],
+  "rank": 258,
+  "model": null,
+  "frequency": 28893,
+  "reviewed": false
+ },
+ {
+  "es": "permanecer",
+  "fr": [
+   "Rester."
+  ],
+  "rank": 259,
+  "model": "conocer",
+  "frequency": 28727,
+  "reviewed": false
+ },
+ {
+  "es": "soñar",
+  "fr": [
+   "Rêver, songer."
+  ],
+  "rank": 260,
+  "model": "contar",
+  "frequency": 28722,
+  "reviewed": false
+ },
+ {
+  "es": "lanzar",
+  "fr": [
+   "Lancer.",
+   "Lancer une idée, une mode.",
+   "Répandre une idée, proférer, faire la promotion.",
+   "Jeter."
+  ],
+  "rank": 261,
+  "model": null,
+  "frequency": 28657,
+  "reviewed": false
+ },
+ {
+  "es": "cruzar",
+  "fr": [
+   "Croiser, passer.",
+   "Traverser."
+  ],
+  "rank": 262,
+  "model": null,
+  "frequency": 28604,
+  "reviewed": false
+ },
+ {
+  "es": "mencionar",
+  "fr": [
+   "Mentionner."
+  ],
+  "rank": 263,
+  "model": null,
+  "frequency": 28373,
+  "reviewed": false
+ },
+ {
+  "es": "besar",
+  "fr": [
+   "Embrasser, baiser."
+  ],
+  "rank": 264,
+  "model": null,
+  "frequency": 27949,
+  "reviewed": false
+ },
+ {
+  "es": "almorzar",
+  "fr": [
+   "Déjeuner",
+   "Prendre un repas léger durant la matinée (almuerzo).",
+   "Prendre quelque chose à manger durant la matinée."
+  ],
+  "rank": 265,
+  "model": "contar",
+  "frequency": 27775,
+  "reviewed": false
+ },
+ {
+  "es": "curar",
+  "fr": [
+   "Assainir.",
+   "Guérir, soigner."
+  ],
+  "rank": 266,
+  "model": null,
+  "frequency": 27378,
+  "reviewed": false
+ },
+ {
+  "es": "contratar",
+  "fr": [
+   "Contracter."
+  ],
+  "rank": 267,
+  "model": null,
+  "frequency": 27289,
+  "reviewed": false
+ },
+ {
+  "es": "adivinar",
+  "fr": [
+   "Deviner."
+  ],
+  "rank": 268,
+  "model": null,
+  "frequency": 27257,
+  "reviewed": false
+ },
+ {
+  "es": "enojar",
+  "fr": [
+   "Fâcher, ennuyer, énerver."
+  ],
+  "rank": 269,
+  "model": null,
+  "frequency": 27247,
+  "reviewed": false
+ },
+ {
+  "es": "arrestar",
+  "fr": [
+   "Arrêter dans le sens de mettre en prison."
+  ],
+  "rank": 270,
+  "model": null,
+  "frequency": 27208,
+  "reviewed": false
+ },
+ {
+  "es": "parir",
+  "fr": [
+   "Mettre au monde.",
+   "Mettre bas (animaux).",
+   "Pondre."
+  ],
+  "rank": 271,
+  "model": null,
+  "frequency": 27088,
+  "reviewed": false
+ },
+ {
+  "es": "admitir",
+  "fr": [
+   "Admettre.",
+   "Permettre.",
+   "Accepter."
+  ],
+  "rank": 272,
+  "model": null,
+  "frequency": 27032,
+  "reviewed": false
+ },
+ {
+  "es": "atrever",
+  "fr": [
+   "Oser, être audacieux."
+  ],
+  "rank": 273,
+  "model": null,
+  "frequency": 26992,
+  "reviewed": false
+ },
+ {
+  "es": "soportar",
+  "fr": [
+   "Supporter."
+  ],
+  "rank": 274,
+  "model": null,
+  "frequency": 26430,
+  "reviewed": false
+ },
+ {
+  "es": "dudar",
+  "fr": [
+   "Douter."
+  ],
+  "rank": 275,
+  "model": null,
+  "frequency": 26241,
+  "reviewed": false
+ },
+ {
+  "es": "vigilar",
+  "fr": [
+   "Observer.",
+   "Surveiller."
+  ],
+  "rank": 276,
+  "model": null,
+  "frequency": 25995,
+  "reviewed": false
+ },
+ {
+  "es": "cubrir",
+  "fr": [
+   "Couvrir."
+  ],
+  "rank": 277,
+  "model": "cubrir",
+  "frequency": 25982,
+  "reviewed": false
+ },
+ {
+  "es": "convencer",
+  "fr": [
+   "Convaincre."
+  ],
+  "rank": 278,
+  "model": null,
+  "frequency": 25981,
+  "reviewed": false
+ },
+ {
+  "es": "alcanzar",
+  "fr": [
+   "Atteindre, attraper.",
+   "Suffire, être assez."
+  ],
+  "rank": 279,
+  "model": null,
+  "frequency": 25926,
+  "reviewed": false
+ },
+ {
+  "es": "acompañar",
+  "fr": [
+   "Accompagner"
+  ],
+  "rank": 280,
+  "model": null,
+  "frequency": 25868,
+  "reviewed": false
+ },
+ {
+  "es": "lastimar",
+  "fr": [
+   "Causer du tort.",
+   "Compatir, avoir pitié."
+  ],
+  "rank": 281,
+  "model": null,
+  "frequency": 25826,
+  "reviewed": false
+ },
+ {
+  "es": "mejorar",
+  "fr": [
+   "Améliorer."
+  ],
+  "rank": 282,
+  "model": null,
+  "frequency": 25656,
+  "reviewed": false
+ },
+ {
+  "es": "acostar",
+  "fr": [
+   "Accoster, arrimer.",
+   "Étendre, coucher.",
+   "Coucher avec quelqu’un, avoir des relations sexuelles avec une personne.",
+   "(acostarse) Se coucher."
+  ],
+  "rank": 283,
+  "model": "contar",
+  "frequency": 25265,
+  "reviewed": false
+ },
+ {
+  "es": "apagar",
+  "fr": [
+   "Éteindre"
+  ],
+  "rank": 284,
+  "model": null,
+  "frequency": 25165,
+  "reviewed": false
+ },
+ {
+  "es": "observar",
+  "fr": [
+   "Observer, regarder."
+  ],
+  "rank": 285,
+  "model": null,
+  "frequency": 25131,
+  "reviewed": false
+ },
+ {
+  "es": "colgar",
+  "fr": [
+   "Accrocher, pendre, suspendre, percher."
+  ],
+  "rank": 286,
+  "model": "contar",
+  "frequency": 25044,
+  "reviewed": false
+ },
+ {
+  "es": "avanzar",
+  "fr": [
+   "Avancer.",
+   "Dépasser.",
+   "Oser, risquer, aventurer.",
+   "Continuer, maintenir, reconduire."
+  ],
+  "rank": 287,
+  "model": null,
+  "frequency": 25007,
+  "reviewed": false
+ },
+ {
+  "es": "repetir",
+  "fr": [
+   "Répéter.",
+   "Redire."
+  ],
+  "rank": 288,
+  "model": "pedir",
+  "frequency": 24807,
+  "reviewed": false
+ },
+ {
+  "es": "charlar",
+  "fr": [
+   "Bavarder, discuter, parler."
+  ],
+  "rank": 289,
+  "model": null,
+  "frequency": 24601,
+  "reviewed": false
+ },
+ {
+  "es": "faltar",
+  "fr": [
+   "Manquer."
+  ],
+  "rank": 290,
+  "model": null,
+  "frequency": 24178,
+  "reviewed": false
+ },
+ {
+  "es": "marcar",
+  "fr": [
+   "Marquer.",
+   "Marquer, indiquer.",
+   "Composer un numéro de téléphone, numéroter."
+  ],
+  "rank": 291,
+  "model": null,
+  "frequency": 23949,
+  "reviewed": false
+ },
+ {
+  "es": "renunciar",
+  "fr": [
+   "Renoncer."
+  ],
+  "rank": 292,
+  "model": null,
+  "frequency": 23686,
+  "reviewed": false
+ },
+ {
+  "es": "retirar",
+  "fr": [
+   "Retirer."
+  ],
+  "rank": 293,
+  "model": null,
+  "frequency": 23471,
+  "reviewed": false
+ },
+ {
+  "es": "enfrentar",
+  "fr": [
+   "Affronter."
+  ],
+  "rank": 294,
+  "model": null,
+  "frequency": 23409,
+  "reviewed": false
+ },
+ {
+  "es": "costar",
+  "fr": [
+   "Coûter.",
+   "Causer des difficultés, être difficile."
+  ],
+  "rank": 295,
+  "model": "contar",
+  "frequency": 23314,
+  "reviewed": false
+ },
+ {
+  "es": "visitar",
+  "fr": [
+   "Visiter, rendre visite."
+  ],
+  "rank": 296,
+  "model": null,
+  "frequency": 23285,
+  "reviewed": false
+ },
+ {
+  "es": "fingir",
+  "fr": [
+   "Feindre.",
+   "Agir comme si quelque chose n’ai lieu."
+  ],
+  "rank": 297,
+  "model": null,
+  "frequency": 23251,
+  "reviewed": false
+ },
+ {
+  "es": "valer",
+  "fr": [
+   "Valoir."
+  ],
+  "rank": 298,
+  "model": "valer",
+  "frequency": 23060,
+  "reviewed": false
+ },
+ {
+  "es": "perseguir",
+  "fr": [
+   "Poursuivre, pourchasser."
+  ],
+  "rank": 299,
+  "model": "pedir",
+  "frequency": 23057,
+  "reviewed": false
+ },
+ {
+  "es": "comprobar",
+  "fr": [
+   "Vérifier, constater."
+  ],
+  "rank": 300,
+  "model": "contar",
+  "frequency": 23043,
+  "reviewed": false
+ },
+ {
+  "es": "escoger",
+  "fr": [
+   "Choisir, adopter, désigner, opter."
+  ],
+  "rank": 301,
+  "model": null,
+  "frequency": 22930,
+  "reviewed": false
+ },
+ {
+  "es": "celebrar",
+  "fr": [
+   "Fêter.",
+   "Célébrer."
+  ],
+  "rank": 302,
+  "model": null,
+  "frequency": 22771,
+  "reviewed": false
+ },
+ {
+  "es": "enfadar",
+  "fr": [
+   "Fâcher, mettre en colère."
+  ],
+  "rank": 303,
+  "model": null,
+  "frequency": 22644,
+  "reviewed": false
+ },
+ {
+  "es": "sonreír",
+  "fr": [
+   "Sourire."
+  ],
+  "rank": 304,
+  "model": "reir",
+  "frequency": 22174,
+  "reviewed": false
+ },
+ {
+  "es": "ofertar",
+  "fr": [
+   "Offrir, faire une offre."
+  ],
+  "rank": 305,
+  "model": null,
+  "frequency": 22087,
+  "reviewed": false
+ },
+ {
+  "es": "adorar",
+  "fr": [
+   "Adorer."
+  ],
+  "rank": 306,
+  "model": null,
+  "frequency": 21966,
+  "reviewed": false
+ },
+ {
+  "es": "alejar",
+  "fr": [
+   "Éloigner, écarter."
+  ],
+  "rank": 307,
+  "model": null,
+  "frequency": 21879,
+  "reviewed": false
+ },
+ {
+  "es": "apuntar",
+  "fr": [
+   "Noter, prendre des notes, recopier.",
+   "Viser, cibler."
+  ],
+  "rank": 308,
+  "model": null,
+  "frequency": 21845,
+  "reviewed": false
+ },
+ {
+  "es": "divertir",
+  "fr": [
+   "Distraire, divertir.",
+   "Amuser."
+  ],
+  "rank": 309,
+  "model": "sentir",
+  "frequency": 21592,
+  "reviewed": false
+ },
+ {
+  "es": "superar",
+  "fr": [
+   "Surpasser, surmonter, vaincre, abattre.",
+   "Dominer, dépasser, maitriser, surmonter."
+  ],
+  "rank": 310,
+  "model": null,
+  "frequency": 21563,
+  "reviewed": false
+ },
+ {
+  "es": "formar",
+  "fr": [
+   "Former."
+  ],
+  "rank": 311,
+  "model": null,
+  "frequency": 21295,
+  "reviewed": false
+ },
+ {
+  "es": "grabar",
+  "fr": [
+   "Graver.",
+   "Enregistrer, filmer."
+  ],
+  "rank": 312,
+  "model": null,
+  "frequency": 21217,
+  "reviewed": false
+ },
+ {
+  "es": "inventar",
+  "fr": [
+   "Inventer."
+  ],
+  "rank": 313,
+  "model": null,
+  "frequency": 21035,
+  "reviewed": false
+ },
+ {
+  "es": "apreciar",
+  "fr": [
+   "Aimer, apprécier, estimer.",
+   "Apprécier, estimer, taxer, évaluer.",
+   "Critiquer, reprendre."
+  ],
+  "rank": 314,
+  "model": null,
+  "frequency": 20997,
+  "reviewed": false
+ },
+ {
+  "es": "mudar",
+  "fr": [
+   "S’altérer, changer, muer."
+  ],
+  "rank": 315,
+  "model": null,
+  "frequency": 20814,
+  "reviewed": false
+ },
+ {
+  "es": "asumir",
+  "fr": [
+   "Assumer.",
+   "Supposer."
+  ],
+  "rank": 316,
+  "model": null,
+  "frequency": 20786,
+  "reviewed": false
+ },
+ {
+  "es": "incluir",
+  "fr": [
+   "Inclure, contenir, renfermer."
+  ],
+  "rank": 317,
+  "model": "construir",
+  "frequency": 20778,
+  "reviewed": false
+ },
+ {
+  "es": "sujetar",
+  "fr": [
+   "Faire subir, soumettre (à)."
+  ],
+  "rank": 318,
+  "model": null,
+  "frequency": 20519,
+  "reviewed": false
+ },
+ {
+  "es": "encender",
+  "fr": [
+   "Allumer."
+  ],
+  "rank": 319,
+  "model": "pensar",
+  "frequency": 20462,
+  "reviewed": false
+ },
+ {
+  "es": "afectar",
+  "fr": [
+   "Affecter."
+  ],
+  "rank": 320,
+  "model": null,
+  "frequency": 20363,
+  "reviewed": false
+ },
+ {
+  "es": "despedir",
+  "fr": [
+   "Raccompagner quelqu’un et lui faire ses adieux.",
+   "Licencier, renvoyer."
+  ],
+  "rank": 321,
+  "model": "pedir",
+  "frequency": 20063,
+  "reviewed": false
+ },
+ {
+  "es": "callar",
+  "fr": [
+   "Taire.",
+   "Se taire. (voir callarse)"
+  ],
+  "rank": 322,
+  "model": null,
+  "frequency": 19895,
+  "reviewed": false
+ },
+ {
+  "es": "encerrar",
+  "fr": [
+   "Enfermer, renfermer."
+  ],
+  "rank": 323,
+  "model": "pensar",
+  "frequency": 19738,
+  "reviewed": false
+ },
+ {
+  "es": "explotar",
+  "fr": [
+   "Exploiter.",
+   "Exploser."
+  ],
+  "rank": 324,
+  "model": null,
+  "frequency": 19722,
+  "reviewed": false
+ },
+ {
+  "es": "liberar",
+  "fr": [
+   "Libérer."
+  ],
+  "rank": 325,
+  "model": null,
+  "frequency": 19664,
+  "reviewed": false
+ },
+ {
+  "es": "cocinar",
+  "fr": [
+   "Cuisiner."
+  ],
+  "rank": 326,
+  "model": null,
+  "frequency": 19584,
+  "reviewed": false
+ },
+ {
+  "es": "durar",
+  "fr": [
+   "Durer."
+  ],
+  "rank": 327,
+  "model": null,
+  "frequency": 19570,
+  "reviewed": false
+ },
+ {
+  "es": "confirmar",
+  "fr": [
+   "Confirmer."
+  ],
+  "rank": 328,
+  "model": null,
+  "frequency": 19537,
+  "reviewed": false
+ },
+ {
+  "es": "avisar",
+  "fr": [
+   "Prévenir, avertir."
+  ],
+  "rank": 329,
+  "model": null,
+  "frequency": 19413,
+  "reviewed": false
+ },
+ {
+  "es": "insistir",
+  "fr": [
+   "Insister."
+  ],
+  "rank": 330,
+  "model": null,
+  "frequency": 18918,
+  "reviewed": false
+ },
+ {
+  "es": "votar",
+  "fr": [
+   "Voter.",
+   "Élire."
+  ],
+  "rank": 331,
+  "model": null,
+  "frequency": 18896,
+  "reviewed": false
+ },
+ {
+  "es": "empujar",
+  "fr": [
+   "Pousser, appuyer."
+  ],
+  "rank": 332,
+  "model": null,
+  "frequency": 18839,
+  "reviewed": false
+ },
+ {
+  "es": "representar",
+  "fr": [
+   "Offrir, présenter.",
+   "Représenter."
+  ],
+  "rank": 333,
+  "model": null,
+  "frequency": 18703,
+  "reviewed": false
+ },
+ {
+  "es": "defender",
+  "fr": [
+   "Défendre."
+  ],
+  "rank": 334,
+  "model": "pensar",
+  "frequency": 18542,
+  "reviewed": false
+ },
+ {
+  "es": "colocar",
+  "fr": [
+   "Placer, ranger.",
+   "Enivrer, défoncer.",
+   "(pronominal) S’enivrer, se défoncer."
+  ],
+  "rank": 335,
+  "model": null,
+  "frequency": 18493,
+  "reviewed": false
+ },
+ {
+  "es": "organizar",
+  "fr": [
+   "Organiser."
+  ],
+  "rank": 336,
+  "model": null,
+  "frequency": 18365,
+  "reviewed": false
+ },
+ {
+  "es": "separar",
+  "fr": [
+   "Séparer."
+  ],
+  "rank": 337,
+  "model": null,
+  "frequency": 18351,
+  "reviewed": false
+ },
+ {
+  "es": "rendir",
+  "fr": [
+   "Rendre, redonner.",
+   "pronominal Se rendre."
+  ],
+  "rank": 338,
+  "model": "pedir",
+  "frequency": 18283,
+  "reviewed": false
+ },
+ {
+  "es": "rezar",
+  "fr": [
+   "Prier."
+  ],
+  "rank": 339,
+  "model": null,
+  "frequency": 18204,
+  "reviewed": false
+ },
+ {
+  "es": "arrancar",
+  "fr": [
+   "Arracher, ôter du sol.",
+   "Déchirer, retirer.",
+   "Retrancher, ôter.",
+   "Démarrer."
+  ],
+  "rank": 340,
+  "model": null,
+  "frequency": 18167,
+  "reviewed": false
+ },
+ {
+  "es": "soltar",
+  "fr": [
+   "Lâcher.",
+   "Relâcher."
+  ],
+  "rank": 341,
+  "model": "contar",
+  "frequency": 18094,
+  "reviewed": false
+ },
+ {
+  "es": "gastar",
+  "fr": [
+   "User, consommer.",
+   "Dépenser, consommer, user, détériorer."
+  ],
+  "rank": 342,
+  "model": null,
+  "frequency": 18049,
+  "reviewed": false
+ },
+ {
+  "es": "obligar",
+  "fr": [
+   "Obliger."
+  ],
+  "rank": 343,
+  "model": null,
+  "frequency": 18043,
+  "reviewed": false
+ },
+ {
+  "es": "rechazar",
+  "fr": [
+   "Refuser, rejeter."
+  ],
+  "rank": 344,
+  "model": null,
+  "frequency": 18011,
+  "reviewed": false
+ },
+ {
+  "es": "lucir",
+  "fr": [
+   "Luire, briller.",
+   "Paraitre, avoir l'air."
+  ],
+  "rank": 345,
+  "model": "conocer",
+  "frequency": 17801,
+  "reviewed": false
+ },
+ {
+  "es": "montar",
+  "fr": [
+   "Monter."
+  ],
+  "rank": 346,
+  "model": null,
+  "frequency": 17732,
+  "reviewed": false
+ },
+ {
+  "es": "enterrar",
+  "fr": [
+   "Enterrer.",
+   "Assister à des funérailles.",
+   "Enterrer, cacher.",
+   "Oublier."
+  ],
+  "rank": 347,
+  "model": "pensar",
+  "frequency": 17664,
+  "reviewed": false
+ },
+ {
+  "es": "culpar",
+  "fr": [
+   "Culpabiliser, accuser."
+  ],
+  "rank": 348,
+  "model": null,
+  "frequency": 17602,
+  "reviewed": false
+ },
+ {
+  "es": "militar",
+  "fr": [
+   "Guerroyer, faire la guerre, être militaire.",
+   "Militer."
+  ],
+  "rank": 349,
+  "model": null,
+  "frequency": 17570,
+  "reviewed": false
+ },
+ {
+  "es": "extrañar",
+  "fr": [
+   "Étonner.",
+   "Regretter.",
+   "Arrêter de communiquer avec quelqu'un, ou d'être en relation avec.",
+   "Exiler."
+  ],
+  "rank": 350,
+  "model": null,
+  "frequency": 17535,
+  "reviewed": false
+ },
+ {
+  "es": "atender",
+  "fr": [
+   "S’occuper (de), prendre soin de, entretenir."
+  ],
+  "rank": 351,
+  "model": "pensar",
+  "frequency": 17455,
+  "reviewed": false
+ },
+ {
+  "es": "apoyar",
+  "fr": [
+   "Appuyer."
+  ],
+  "rank": 352,
+  "model": null,
+  "frequency": 17407,
+  "reviewed": false
+ },
+ {
+  "es": "llenar",
+  "fr": [
+   "Remplir."
+  ],
+  "rank": 353,
+  "model": null,
+  "frequency": 17360,
+  "reviewed": false
+ },
+ {
+  "es": "ocultar",
+  "fr": [
+   "Occulter, cacher."
+  ],
+  "rank": 354,
+  "model": null,
+  "frequency": 17334,
+  "reviewed": false
+ },
+ {
+  "es": "practicar",
+  "fr": [
+   "Pratiquer."
+  ],
+  "rank": 355,
+  "model": null,
+  "frequency": 17274,
+  "reviewed": false
+ },
+ {
+  "es": "realizar",
+  "fr": [
+   "Réaliser."
+  ],
+  "rank": 356,
+  "model": null,
+  "frequency": 17268,
+  "reviewed": false
+ },
+ {
+  "es": "declarar",
+  "fr": [
+   "Déclarer."
+  ],
+  "rank": 357,
+  "model": null,
+  "frequency": 17195,
+  "reviewed": false
+ },
+ {
+  "es": "excusar",
+  "fr": [
+   "Excuser, pardonner."
+  ],
+  "rank": 358,
+  "model": null,
+  "frequency": 17125,
+  "reviewed": false
+ },
+ {
+  "es": "cargar",
+  "fr": [
+   "Charger.",
+   "Prendre la tête (ennuyer, importuner).",
+   "Facturer, rajouter sur une facture.",
+   "Affaler."
+  ],
+  "rank": 359,
+  "model": null,
+  "frequency": 17076,
+  "reviewed": false
+ },
+ {
+  "es": "advertir",
+  "fr": [
+   "Avertir, prévenir.",
+   "Remarquer."
+  ],
+  "rank": 360,
+  "model": "sentir",
+  "frequency": 16923,
+  "reviewed": false
+ },
+ {
+  "es": "identificar",
+  "fr": [
+   "Identifier, situer."
+  ],
+  "rank": 361,
+  "model": null,
+  "frequency": 16869,
+  "reviewed": false
+ },
+ {
+  "es": "dedicar",
+  "fr": [
+   "Consacrer, dédier.",
+   "Se consacrer."
+  ],
+  "rank": 362,
+  "model": null,
+  "frequency": 16839,
+  "reviewed": false
+ },
+ {
+  "es": "indicar",
+  "fr": [
+   "Indiquer, désigner, montrer."
+  ],
+  "rank": 363,
+  "model": null,
+  "frequency": 16693,
+  "reviewed": false
+ },
+ {
+  "es": "pescar",
+  "fr": [
+   "Pêcher."
+  ],
+  "rank": 364,
+  "model": null,
+  "frequency": 16477,
+  "reviewed": false
+ },
+ {
+  "es": "eliminar",
+  "fr": [
+   "Éliminer, exterminer, supprimer."
+  ],
+  "rank": 365,
+  "model": null,
+  "frequency": 16397,
+  "reviewed": false
+ },
+ {
+  "es": "apestar",
+  "fr": [
+   "Transmettre la peste.",
+   "Corrompre, vicier, puer."
+  ],
+  "rank": 366,
+  "model": null,
+  "frequency": 16393,
+  "reviewed": false
+ },
+ {
+  "es": "opinar",
+  "fr": [
+   "Penser que, être d’avis.",
+   "Opiner."
+  ],
+  "rank": 367,
+  "model": null,
+  "frequency": 16338,
+  "reviewed": false
+ },
+ {
+  "es": "traicionar",
+  "fr": [
+   "Trahir."
+  ],
+  "rank": 368,
+  "model": null,
+  "frequency": 16299,
+  "reviewed": false
+ },
+ {
+  "es": "involucrar",
+  "fr": [
+   "Impliquer (quelqu’un dans quelque chose), faire participer."
+  ],
+  "rank": 369,
+  "model": null,
+  "frequency": 16276,
+  "reviewed": false
+ },
+ {
+  "es": "confesar",
+  "fr": [
+   "Avouer, confesser, se confier."
+  ],
+  "rank": 370,
+  "model": "pensar",
+  "frequency": 16261,
+  "reviewed": false
+ },
+ {
+  "es": "conectar",
+  "fr": [
+   "Connecter."
+  ],
+  "rank": 371,
+  "model": null,
+  "frequency": 16128,
+  "reviewed": false
+ },
+ {
+  "es": "interrumpir",
+  "fr": [
+   "Interrompre."
+  ],
+  "rank": 372,
+  "model": null,
+  "frequency": 15936,
+  "reviewed": false
+ },
+ {
+  "es": "cancelar",
+  "fr": [
+   "Annuler, supprimer, abroger.",
+   "Payer, régler."
+  ],
+  "rank": 373,
+  "model": null,
+  "frequency": 15863,
+  "reviewed": false
+ },
+ {
+  "es": "cagar",
+  "fr": [
+   "Chier (déféquer).",
+   "Foirer, chier (rater).",
+   "Avoir la pétoche, se chier dessus (avoir peur).",
+   "Conchier, emmerder, se branler, se balancer, se contrefoutre (mépriser, ne pas être intéressé)."
+  ],
+  "rank": 374,
+  "model": null,
+  "frequency": 15848,
+  "reviewed": false
+ },
+ {
+  "es": "entrenar",
+  "fr": [
+   "Entraîner."
+  ],
+  "rank": 375,
+  "model": null,
+  "frequency": 15767,
+  "reviewed": false
+ },
+ {
+  "es": "brillar",
+  "fr": [
+   "Briller."
+  ],
+  "rank": 376,
+  "model": null,
+  "frequency": 15734,
+  "reviewed": false
+ },
+ {
+  "es": "registrar",
+  "fr": [
+   "Enregistrer."
+  ],
+  "rank": 377,
+  "model": null,
+  "frequency": 15493,
+  "reviewed": false
+ },
+ {
+  "es": "saludar",
+  "fr": [
+   "Saluer, accueillir."
+  ],
+  "rank": 378,
+  "model": null,
+  "frequency": 15273,
+  "reviewed": false
+ },
+ {
+  "es": "nadar",
+  "fr": [
+   "Nager."
+  ],
+  "rank": 379,
+  "model": null,
+  "frequency": 15270,
+  "reviewed": false
+ },
+ {
+  "es": "proponer",
+  "fr": [
+   "Proposer."
+  ],
+  "rank": 380,
+  "model": "poner",
+  "frequency": 15122,
+  "reviewed": false
+ },
+ {
+  "es": "filmar",
+  "fr": [
+   "Filmer."
+  ],
+  "rank": 381,
+  "model": null,
+  "frequency": 14957,
+  "reviewed": false
+ },
+ {
+  "es": "acusar",
+  "fr": [
+   "Accuser."
+  ],
+  "rank": 382,
+  "model": null,
+  "frequency": 14905,
+  "reviewed": false
+ },
+ {
+  "es": "morder",
+  "fr": [
+   "Mordre"
+  ],
+  "rank": 383,
+  "model": "contar",
+  "frequency": 14884,
+  "reviewed": false
+ },
+ {
+  "es": "producir",
+  "fr": [
+   "Produire.",
+   "Mettre en place, faire."
+  ],
+  "rank": 384,
+  "model": "conducir",
+  "frequency": 14863,
+  "reviewed": false
+ },
+ {
+  "es": "atravesar",
+  "fr": [
+   "Traverser, parcourir, surmonter, abattre."
+  ],
+  "rank": 385,
+  "model": "pensar",
+  "frequency": 14715,
+  "reviewed": false
+ },
+ {
+  "es": "apretar",
+  "fr": [
+   "Serrer, pincer."
+  ],
+  "rank": 386,
+  "model": "pensar",
+  "frequency": 14689,
+  "reviewed": false
+ },
+ {
+  "es": "arriesgar",
+  "fr": [
+   "Risquer."
+  ],
+  "rank": 387,
+  "model": null,
+  "frequency": 14689,
+  "reviewed": false
+ },
+ {
+  "es": "lavar",
+  "fr": [
+   "Laver."
+  ],
+  "rank": 388,
+  "model": null,
+  "frequency": 14525,
+  "reviewed": false
+ },
+ {
+  "es": "requerir",
+  "fr": [
+   "Requérir."
+  ],
+  "rank": 389,
+  "model": "sentir",
+  "frequency": 14475,
+  "reviewed": false
+ },
+ {
+  "es": "resistir",
+  "fr": [
+   "Résister."
+  ],
+  "rank": 390,
+  "model": null,
+  "frequency": 14471,
+  "reviewed": false
+ },
+ {
+  "es": "atraer",
+  "fr": [
+   "Attirer, attraire.",
+   "Attirer, solliciter, appâter.",
+   "Ravir, allécher."
+  ],
+  "rank": 391,
+  "model": "traer",
+  "frequency": 14440,
+  "reviewed": false
+ },
+ {
+  "es": "aumentar",
+  "fr": [
+   "Augmenter.",
+   "Multiplier."
+  ],
+  "rank": 392,
+  "model": null,
+  "frequency": 14440,
+  "reviewed": false
+ },
+ {
+  "es": "aprovechar",
+  "fr": [
+   "Profiter de, faire bon usage de.",
+   "Servir, être utile."
+  ],
+  "rank": 393,
+  "model": null,
+  "frequency": 14351,
+  "reviewed": false
+ },
+ {
+  "es": "violar",
+  "fr": [
+   "Violer."
+  ],
+  "rank": 394,
+  "model": null,
+  "frequency": 14348,
+  "reviewed": false
+ },
+ {
+  "es": "recompensar",
+  "fr": [
+   "Récompenser."
+  ],
+  "rank": 395,
+  "model": null,
+  "frequency": 14346,
+  "reviewed": false
+ },
+ {
+  "es": "alimentar",
+  "fr": [
+   "Alimenter, nourrir."
+  ],
+  "rank": 396,
+  "model": null,
+  "frequency": 14338,
+  "reviewed": false
+ },
+ {
+  "es": "acostumbrar",
+  "fr": [
+   "Avoir coutume, accoutumer, avoir l’habitude de, être habitué à.",
+   "S’habituer, s'accoutumer."
+  ],
+  "rank": 397,
+  "model": null,
+  "frequency": 14277,
+  "reviewed": false
+ },
+ {
+  "es": "contactar",
+  "fr": [
+   "Contacter."
+  ],
+  "rank": 398,
+  "model": null,
+  "frequency": 14173,
+  "reviewed": false
+ },
+ {
+  "es": "publicar",
+  "fr": [
+   "Publier."
+  ],
+  "rank": 399,
+  "model": null,
+  "frequency": 14163,
+  "reviewed": false
+ },
+ {
+  "es": "provocar",
+  "fr": [
+   "Provoquer."
+  ],
+  "rank": 400,
+  "model": null,
+  "frequency": 14064,
+  "reviewed": false
+ },
+ {
+  "es": "sostener",
+  "fr": [
+   "Soutenir."
+  ],
+  "rank": 401,
+  "model": "tener",
+  "frequency": 14046,
+  "reviewed": false
+ },
+ {
+  "es": "enamorar",
+  "fr": [
+   "Enamourer, rendre amoureux, séduire.",
+   "enamorarse : tomber amoureux."
+  ],
+  "rank": 402,
+  "model": null,
+  "frequency": 14030,
+  "reviewed": false
+ },
+ {
+  "es": "suicidar",
+  "fr": [
+   "Suicider."
+  ],
+  "rank": 403,
+  "model": null,
+  "frequency": 13906,
+  "reviewed": false
+ },
+ {
+  "es": "juzgar",
+  "fr": [
+   "Juger."
+  ],
+  "rank": 404,
+  "model": null,
+  "frequency": 13858,
+  "reviewed": false
+ },
+ {
+  "es": "pillar",
+  "fr": [
+   "Piller, ravir.",
+   "Attraper, choper."
+  ],
+  "rank": 405,
+  "model": null,
+  "frequency": 13805,
+  "reviewed": false
+ },
+ {
+  "es": "iniciar",
+  "fr": [
+   "Commencer, prendre l’initiative de.",
+   "Initier."
+  ],
+  "rank": 406,
+  "model": null,
+  "frequency": 13567,
+  "reviewed": false
+ },
+ {
+  "es": "presionar",
+  "fr": [
+   "Presser, faire pression sur."
+  ],
+  "rank": 407,
+  "model": null,
+  "frequency": 13548,
+  "reviewed": false
+ },
+ {
+  "es": "aprobar",
+  "fr": [
+   "Approuver.",
+   "Réussir."
+  ],
+  "rank": 408,
+  "model": "contar",
+  "frequency": 13486,
+  "reviewed": false
+ },
+ {
+  "es": "ignorar",
+  "fr": [
+   "Ignorer."
+  ],
+  "rank": 409,
+  "model": null,
+  "frequency": 13476,
+  "reviewed": false
+ },
+ {
+  "es": "revelar",
+  "fr": [
+   "Révéler."
+  ],
+  "rank": 410,
+  "model": null,
+  "frequency": 13420,
+  "reviewed": false
+ },
+ {
+  "es": "ofender",
+  "fr": [
+   "Offenser."
+  ],
+  "rank": 411,
+  "model": null,
+  "frequency": 13410,
+  "reviewed": false
+ },
+ {
+  "es": "despejar",
+  "fr": [
+   "Dégager, nettoyer, vider."
+  ],
+  "rank": 412,
+  "model": null,
+  "frequency": 13391,
+  "reviewed": false
+ },
+ {
+  "es": "participar",
+  "fr": [
+   "Participer."
+  ],
+  "rank": 413,
+  "model": null,
+  "frequency": 13270,
+  "reviewed": false
+ },
+ {
+  "es": "arrastrar",
+  "fr": [
+   "Traîner."
+  ],
+  "rank": 414,
+  "model": null,
+  "frequency": 13149,
+  "reviewed": false
+ },
+ {
+  "es": "establecer",
+  "fr": [
+   "Établir."
+  ],
+  "rank": 415,
+  "model": "conocer",
+  "frequency": 13143,
+  "reviewed": false
+ },
+ {
+  "es": "agradar",
+  "fr": [
+   "Plaire."
+  ],
+  "rank": 416,
+  "model": null,
+  "frequency": 13138,
+  "reviewed": false
+ },
+ {
+  "es": "amenazar",
+  "fr": [
+   "Menacer."
+  ],
+  "rank": 417,
+  "model": null,
+  "frequency": 13004,
+  "reviewed": false
+ },
+ {
+  "es": "sospechar",
+  "fr": [
+   "Soupçonner, suspecter."
+  ],
+  "rank": 418,
+  "model": null,
+  "frequency": 12948,
+  "reviewed": false
+ },
+ {
+  "es": "destrozar",
+  "fr": [
+   "Détruire, démolir, ravager, abîmer.",
+   "Défaire."
+  ],
+  "rank": 419,
+  "model": null,
+  "frequency": 12930,
+  "reviewed": false
+ },
+ {
+  "es": "respetar",
+  "fr": [
+   "Respecter."
+  ],
+  "rank": 420,
+  "model": null,
+  "frequency": 12892,
+  "reviewed": false
+ },
+ {
+  "es": "secuestrar",
+  "fr": [
+   "Séquestrer.",
+   "Arrêter"
+  ],
+  "rank": 421,
+  "model": null,
+  "frequency": 12762,
+  "reviewed": false
+ },
+ {
+  "es": "solicitar",
+  "fr": [
+   "Solliciter, plaider."
+  ],
+  "rank": 422,
+  "model": null,
+  "frequency": 12750,
+  "reviewed": false
+ },
+ {
+  "es": "balar",
+  "fr": [
+   "Bêler."
+  ],
+  "rank": 423,
+  "model": null,
+  "frequency": 12646,
+  "reviewed": false
+ },
+ {
+  "es": "cobrar",
+  "fr": [
+   "Récupérer, recouvrer, collecter."
+  ],
+  "rank": 424,
+  "model": null,
+  "frequency": 12646,
+  "reviewed": false
+ },
+ {
+  "es": "sangrar",
+  "fr": [
+   "Saigner."
+  ],
+  "rank": 425,
+  "model": null,
+  "frequency": 12628,
+  "reviewed": false
+ },
+ {
+  "es": "quejar",
+  "fr": [
+   "Clamer, porter plainte, se plaindre."
+  ],
+  "rank": 426,
+  "model": null,
+  "frequency": 12600,
+  "reviewed": false
+ },
+ {
+  "es": "retroceder",
+  "fr": [
+   "Reculer."
+  ],
+  "rank": 427,
+  "model": null,
+  "frequency": 12553,
+  "reviewed": false
+ },
+ {
+  "es": "impedir",
+  "fr": [
+   "Empêcher."
+  ],
+  "rank": 428,
+  "model": "pedir",
+  "frequency": 12443,
+  "reviewed": false
+ },
+ {
+  "es": "llover",
+  "fr": [
+   "ou (Personnel) Pleuvoir."
+  ],
+  "rank": 429,
+  "model": "llover",
+  "frequency": 12420,
+  "reviewed": false
+ },
+ {
+  "es": "atar",
+  "fr": [
+   "Attacher, nouer, relier."
+  ],
+  "rank": 430,
+  "model": null,
+  "frequency": 12414,
+  "reviewed": false
+ },
+ {
+  "es": "arrepentir",
+  "fr": [
+   "(Utilisé uniquement dans arrepentirse) Repentir."
+  ],
+  "rank": 431,
+  "model": "sentir",
+  "frequency": 12346,
+  "reviewed": false
+ },
+ {
+  "es": "pintar",
+  "fr": [
+   "Peindre."
+  ],
+  "rank": 432,
+  "model": null,
+  "frequency": 12312,
+  "reviewed": false
+ },
+ {
+  "es": "vomitar",
+  "fr": [
+   "Vomir, rendre gorge"
+  ],
+  "rank": 433,
+  "model": null,
+  "frequency": 12281,
+  "reviewed": false
+ },
+ {
+  "es": "reducir",
+  "fr": [
+   "Réduire."
+  ],
+  "rank": 434,
+  "model": "conducir",
+  "frequency": 12149,
+  "reviewed": false
+ },
+ {
+  "es": "describir",
+  "fr": [
+   "Décrire."
+  ],
+  "rank": 435,
+  "model": "escribir",
+  "frequency": 12045,
+  "reviewed": false
+ },
+ {
+  "es": "bendecir",
+  "fr": [
+   "Bénir."
+  ],
+  "rank": 436,
+  "model": "bendecir",
+  "frequency": 11993,
+  "reviewed": false
+ },
+ {
+  "es": "capturar",
+  "fr": [
+   "Capturer, saisir."
+  ],
+  "rank": 437,
+  "model": null,
+  "frequency": 11989,
+  "reviewed": false
+ },
+ {
+  "es": "condenar",
+  "fr": [
+   "Condamner."
+  ],
+  "rank": 438,
+  "model": null,
+  "frequency": 11969,
+  "reviewed": false
+ },
+ {
+  "es": "poseer",
+  "fr": [
+   "Posséder."
+  ],
+  "rank": 439,
+  "model": null,
+  "frequency": 11935,
+  "reviewed": false
+ },
+ {
+  "es": "cazar",
+  "fr": [
+   "Chasser, chercher ou suivre des oiseaux, fauves, ou d'autres sortes d'animaux pour les attraper ou les tuer.",
+   "Dénicher, dégoter, trouver quelque chose à trouver ou bien sans que l'on s'y attende.",
+   "Comprendre quelque chose rapidement.",
+   "Manipuler quelqu'un, diriger la volonté de quelqu'un en utilisant la flatterie ou la tromperie."
+  ],
+  "rank": 440,
+  "model": null,
+  "frequency": 11806,
+  "reviewed": false
+ },
+ {
+  "es": "criar",
+  "fr": [
+   "Créer, produire.",
+   "Élever, éduquer des enfants.",
+   "Élever des animaux."
+  ],
+  "rank": 441,
+  "model": null,
+  "frequency": 11767,
+  "reviewed": false
+ },
+ {
+  "es": "aterrizar",
+  "fr": [
+   "Atterrir, s'abattre.",
+   "Aborder."
+  ],
+  "rank": 442,
+  "model": null,
+  "frequency": 11738,
+  "reviewed": false
+ },
+ {
+  "es": "contener",
+  "fr": [
+   "Contenir."
+  ],
+  "rank": 443,
+  "model": "tener",
+  "frequency": 11665,
+  "reviewed": false
+ },
+ {
+  "es": "vencer",
+  "fr": [
+   "Vaincre, faire qu'un ennemi se rende."
+  ],
+  "rank": 444,
+  "model": null,
+  "frequency": 11663,
+  "reviewed": false
+ },
+ {
+  "es": "arrojar",
+  "fr": [
+   "Lancer, jeter, balancer.",
+   "Émettre.",
+   "Projeter."
+  ],
+  "rank": 445,
+  "model": null,
+  "frequency": 11546,
+  "reviewed": false
+ },
+ {
+  "es": "amanecer",
+  "fr": [
+   "Lever, commencer à faire jour.",
+   "Éveiller.",
+   "Rester éveillé toute la nuit."
+  ],
+  "rank": 446,
+  "model": "conocer",
+  "frequency": 11538,
+  "reviewed": false
+ },
+ {
+  "es": "arder",
+  "fr": [
+   "Brûler."
+  ],
+  "rank": 447,
+  "model": null,
+  "frequency": 11523,
+  "reviewed": false
+ },
+ {
+  "es": "vestir",
+  "fr": [
+   "Habiller, revêtir, vêtir."
+  ],
+  "rank": 448,
+  "model": "pedir",
+  "frequency": 11475,
+  "reviewed": false
+ },
+ {
+  "es": "ahorrar",
+  "fr": [
+   "Économiser, épargner."
+  ],
+  "rank": 449,
+  "model": null,
+  "frequency": 11329,
+  "reviewed": false
+ },
+ {
+  "es": "deshacer",
+  "fr": [
+   "Défaire."
+  ],
+  "rank": 450,
+  "model": "hacer",
+  "frequency": 11308,
+  "reviewed": false
+ },
+ {
+  "es": "castigar",
+  "fr": [
+   "Punir."
+  ],
+  "rank": 451,
+  "model": null,
+  "frequency": 11295,
+  "reviewed": false
+ },
+ {
+  "es": "aclarar",
+  "fr": [
+   "Éclaircir.",
+   "Rincer.",
+   "Désépaissir.",
+   "(pronominal) S’expliquer, donner des explications claires, mieux intelligibles, faire une déclaration."
+  ],
+  "rank": 452,
+  "model": null,
+  "frequency": 11119,
+  "reviewed": false
+ },
+ {
+  "es": "regalar",
+  "fr": [
+   "Régaler.",
+   "Faire cadeau, offrir."
+  ],
+  "rank": 453,
+  "model": null,
+  "frequency": 11018,
+  "reviewed": false
+ },
+ {
+  "es": "encajar",
+  "fr": [
+   "Encaisser.",
+   "Ajuster étroitement.",
+   "Faire aller, faire rentrer."
+  ],
+  "rank": 454,
+  "model": null,
+  "frequency": 10995,
+  "reviewed": false
+ },
+ {
+  "es": "denunciar",
+  "fr": [
+   "Dénoncer."
+  ],
+  "rank": 455,
+  "model": null,
+  "frequency": 10854,
+  "reviewed": false
+ },
+ {
+  "es": "patrullar",
+  "fr": [
+   "Patrouiller, mener une patrouille."
+  ],
+  "rank": 456,
+  "model": null,
+  "frequency": 10842,
+  "reviewed": false
+ },
+ {
+  "es": "calmar",
+  "fr": [
+   "Calmer."
+  ],
+  "rank": 457,
+  "model": null,
+  "frequency": 10752,
+  "reviewed": false
+ },
+ {
+  "es": "rastrear",
+  "fr": [
+   "Pister, traquer, suivre à la trace."
+  ],
+  "rank": 458,
+  "model": null,
+  "frequency": 10741,
+  "reviewed": false
+ },
+ {
+  "es": "surgir",
+  "fr": [
+   "Surgir."
+  ],
+  "rank": 459,
+  "model": null,
+  "frequency": 10460,
+  "reviewed": false
+ },
+ {
+  "es": "apetecer",
+  "fr": [
+   "Avoir envie.",
+   "Bien vouloir."
+  ],
+  "rank": 460,
+  "model": "conocer",
+  "frequency": 10431,
+  "reviewed": false
+ },
+ {
+  "es": "herir",
+  "fr": [
+   "Blesser."
+  ],
+  "rank": 461,
+  "model": "sentir",
+  "frequency": 10380,
+  "reviewed": false
+ },
+ {
+  "es": "coincidir",
+  "fr": [
+   "Coïncider.",
+   "Être d'accord ou se mettre d'accord sur quelque chose."
+  ],
+  "rank": 462,
+  "model": null,
+  "frequency": 10314,
+  "reviewed": false
+ },
+ {
+  "es": "tender",
+  "fr": [
+   "Tendre.",
+   "Tendre vers, avoir pour but, viser."
+  ],
+  "rank": 463,
+  "model": "pensar",
+  "frequency": 10300,
+  "reviewed": false
+ },
+ {
+  "es": "garantizar",
+  "fr": [
+   "Garantir."
+  ],
+  "rank": 464,
+  "model": null,
+  "frequency": 10228,
+  "reviewed": false
+ },
+ {
+  "es": "admirar",
+  "fr": [
+   "Étonner.",
+   "Admirer."
+  ],
+  "rank": 465,
+  "model": null,
+  "frequency": 10161,
+  "reviewed": false
+ },
+ {
+  "es": "alquilar",
+  "fr": [
+   "Louer, donner en location."
+  ],
+  "rank": 466,
+  "model": null,
+  "frequency": 10153,
+  "reviewed": false
+ },
+ {
+  "es": "pasear",
+  "fr": [
+   "Promener.",
+   "Se promener."
+  ],
+  "rank": 467,
+  "model": null,
+  "frequency": 10134,
+  "reviewed": false
+ },
+ {
+  "es": "borrar",
+  "fr": [
+   "Effacer, barrer, gommer."
+  ],
+  "rank": 468,
+  "model": null,
+  "frequency": 10125,
+  "reviewed": false
+ },
+ {
+  "es": "ultimar",
+  "fr": [
+   "Conclure.",
+   "Terminer, achever."
+  ],
+  "rank": 469,
+  "model": null,
+  "frequency": 10115,
+  "reviewed": false
+ },
+ {
+  "es": "expresar",
+  "fr": [
+   "Exprimer."
+  ],
+  "rank": 470,
+  "model": null,
+  "frequency": 10071,
+  "reviewed": false
+ },
+ {
+  "es": "anunciar",
+  "fr": [
+   "Annoncer, introduire, publier."
+  ],
+  "rank": 471,
+  "model": null,
+  "frequency": 10034,
+  "reviewed": false
+ },
+ {
+  "es": "desgraciar",
+  "fr": [
+   "Abimer, rendre disgracieux.",
+   "Défigurer."
+  ],
+  "rank": 472,
+  "model": null,
+  "frequency": 10015,
+  "reviewed": false
+ },
+ {
+  "es": "comportar",
+  "fr": [
+   "Impliquer."
+  ],
+  "rank": 473,
+  "model": null,
+  "frequency": 9931,
+  "reviewed": false
+ },
+ {
+  "es": "comparar",
+  "fr": [
+   "Comparer."
+  ],
+  "rank": 474,
+  "model": null,
+  "frequency": 9914,
+  "reviewed": false
+ },
+ {
+  "es": "ahogar",
+  "fr": [
+   "Étouffer",
+   "Noyer."
+  ],
+  "rank": 475,
+  "model": null,
+  "frequency": 9908,
+  "reviewed": false
+ },
+ {
+  "es": "recomendar",
+  "fr": [
+   "Recommander."
+  ],
+  "rank": 476,
+  "model": "pensar",
+  "frequency": 9881,
+  "reviewed": false
+ },
+ {
+  "es": "experimentar",
+  "fr": [
+   "Expérimenter, apprendre par l’expérience, subir, éprouver."
+  ],
+  "rank": 477,
+  "model": null,
+  "frequency": 9866,
+  "reviewed": false
+ },
+ {
+  "es": "hundir",
+  "fr": [
+   "Enfoncer.",
+   "Couler.",
+   "S’enfoncer."
+  ],
+  "rank": 478,
+  "model": null,
+  "frequency": 9858,
+  "reviewed": false
+ },
+ {
+  "es": "asistir",
+  "fr": [
+   "Assister (dans les deux sens d’être présent ou d’aider)."
+  ],
+  "rank": 479,
+  "model": null,
+  "frequency": 9851,
+  "reviewed": false
+ },
+ {
+  "es": "conservar",
+  "fr": [
+   "Conserver, maintenir, retenir."
+  ],
+  "rank": 480,
+  "model": null,
+  "frequency": 9766,
+  "reviewed": false
+ },
+ {
+  "es": "exagerar",
+  "fr": [
+   "Exagérer."
+  ],
+  "rank": 481,
+  "model": null,
+  "frequency": 9757,
+  "reviewed": false
+ },
+ {
+  "es": "localizar",
+  "fr": [
+   "Localiser."
+  ],
+  "rank": 482,
+  "model": null,
+  "frequency": 9747,
+  "reviewed": false
+ },
+ {
+  "es": "lamentar",
+  "fr": [
+   "lamenter, déplorer",
+   "regretter"
+  ],
+  "rank": 483,
+  "model": null,
+  "frequency": 9708,
+  "reviewed": false
+ },
+ {
+  "es": "portar",
+  "fr": [
+   "Amener, apporter, emmener.",
+   "pronominal (portarse) Se comporter."
+  ],
+  "rank": 484,
+  "model": null,
+  "frequency": 9678,
+  "reviewed": false
+ },
+ {
+  "es": "bruzar",
+  "fr": [
+   "Brosser."
+  ],
+  "rank": 485,
+  "model": null,
+  "frequency": 9633,
+  "reviewed": false
+ },
+ {
+  "es": "examinar",
+  "fr": [
+   "Examiner."
+  ],
+  "rank": 486,
+  "model": null,
+  "frequency": 9600,
+  "reviewed": false
+ },
+ {
+  "es": "bloquear",
+  "fr": [
+   "Bloquer."
+  ],
+  "rank": 487,
+  "model": null,
+  "frequency": 9521,
+  "reviewed": false
+ },
+ {
+  "es": "retrasar",
+  "fr": [
+   "Reporter, remettre à plus tard."
+  ],
+  "rank": 488,
+  "model": null,
+  "frequency": 9520,
+  "reviewed": false
+ },
+ {
+  "es": "lidiar",
+  "fr": [
+   "Lutter, combattre."
+  ],
+  "rank": 489,
+  "model": null,
+  "frequency": 9473,
+  "reviewed": false
+ },
+ {
+  "es": "expulsar",
+  "fr": [
+   "Expulser, rejeter par intolérance."
+  ],
+  "rank": 490,
+  "model": null,
+  "frequency": 9462,
+  "reviewed": false
+ },
+ {
+  "es": "estropear",
+  "fr": [
+   "Ravager, ruiner.",
+   "Abaisser, abîmer.",
+   "Endommager, estropier."
+  ],
+  "rank": 491,
+  "model": null,
+  "frequency": 9438,
+  "reviewed": false
+ },
+ {
+  "es": "cansar",
+  "fr": [
+   "Fatiguer, lasser."
+  ],
+  "rank": 492,
+  "model": null,
+  "frequency": 9374,
+  "reviewed": false
+ },
+ {
+  "es": "basar",
+  "fr": [
+   "Baser."
+  ],
+  "rank": 493,
+  "model": null,
+  "frequency": 9347,
+  "reviewed": false
+ },
+ {
+  "es": "solucionar",
+  "fr": [
+   "Résoudre, solutionner."
+  ],
+  "rank": 494,
+  "model": null,
+  "frequency": 9313,
+  "reviewed": false
+ },
+ {
+  "es": "confundir",
+  "fr": [
+   "Confondre."
+  ],
+  "rank": 495,
+  "model": null,
+  "frequency": 9196,
+  "reviewed": false
+ },
+ {
+  "es": "comunicar",
+  "fr": [
+   "Communiquer, aboucher."
+  ],
+  "rank": 496,
+  "model": null,
+  "frequency": 9178,
+  "reviewed": false
+ },
+ {
+  "es": "determinar",
+  "fr": [
+   "Déterminer."
+  ],
+  "rank": 497,
+  "model": null,
+  "frequency": 9111,
+  "reviewed": false
+ },
+ {
+  "es": "fracasar",
+  "fr": [
+   "échouer, faillir.",
+   "fracasser."
+  ],
+  "rank": 498,
+  "model": null,
+  "frequency": 9088,
+  "reviewed": false
+ },
+ {
+  "es": "chocar",
+  "fr": [
+   "Choquer, heurter, percuter."
+  ],
+  "rank": 499,
+  "model": null,
+  "frequency": 9085,
+  "reviewed": false
+ },
+ {
+  "es": "nombrar",
+  "fr": [
+   "Nommer."
+  ],
+  "rank": 500,
+  "model": null,
+  "frequency": 8998,
+  "reviewed": false
+ },
+ {
+  "es": "burlar",
+  "fr": [
+   "Bafouer, abuser.",
+   "Tricher, tromper."
+  ],
+  "rank": 501,
+  "model": null,
+  "frequency": 8995,
+  "reviewed": false
+ },
+ {
+  "es": "sobrar",
+  "fr": [
+   "Rester, être de reste, être superflu, non nécessaire, être de trop."
+  ],
+  "rank": 502,
+  "model": null,
+  "frequency": 8980,
+  "reviewed": false
+ },
+ {
+  "es": "desarrollar",
+  "fr": [
+   "Expliquer.",
+   "Développer.",
+   "Évoluer.",
+   "Se développer."
+  ],
+  "rank": 503,
+  "model": null,
+  "frequency": 8975,
+  "reviewed": false
+ },
+ {
+  "es": "acceder",
+  "fr": [
+   "Accepter.",
+   "Avoir accès (à une fonction, à un logement)."
+  ],
+  "rank": 504,
+  "model": null,
+  "frequency": 8974,
+  "reviewed": false
+ },
+ {
+  "es": "reservar",
+  "fr": [
+   "Réserver."
+  ],
+  "rank": 505,
+  "model": null,
+  "frequency": 8843,
+  "reviewed": false
+ },
+ {
+  "es": "follar",
+  "fr": [
+   "Baiser, foutre."
+  ],
+  "rank": 506,
+  "model": null,
+  "frequency": 8784,
+  "reviewed": false
+ },
+ {
+  "es": "añadir",
+  "fr": [
+   "Ajouter quelque chose à autre chose, accroître.",
+   "Augmenter, grossir."
+  ],
+  "rank": 507,
+  "model": null,
+  "frequency": 8755,
+  "reviewed": false
+ },
+ {
+  "es": "reaccionar",
+  "fr": [
+   "Réagir."
+  ],
+  "rank": 508,
+  "model": null,
+  "frequency": 8755,
+  "reviewed": false
+ },
+ {
+  "es": "juntar",
+  "fr": [
+   "Joindre, assembler, accoupler."
+  ],
+  "rank": 509,
+  "model": null,
+  "frequency": 8744,
+  "reviewed": false
+ },
+ {
+  "es": "forzar",
+  "fr": [
+   "Forcer."
+  ],
+  "rank": 510,
+  "model": "contar",
+  "frequency": 8730,
+  "reviewed": false
+ },
+ {
+  "es": "empeorar",
+  "fr": [
+   "Empirer."
+  ],
+  "rank": 511,
+  "model": null,
+  "frequency": 8701,
+  "reviewed": false
+ },
+ {
+  "es": "exigir",
+  "fr": [
+   "Exiger, demander.",
+   "Être exigeant."
+  ],
+  "rank": 512,
+  "model": null,
+  "frequency": 8674,
+  "reviewed": false
+ },
+ {
+  "es": "anotar",
+  "fr": [
+   "Annoter, enregistrer.",
+   "Noter."
+  ],
+  "rank": 513,
+  "model": null,
+  "frequency": 8651,
+  "reviewed": false
+ },
+ {
+  "es": "rodar",
+  "fr": [
+   "Rouler.",
+   "Errer.",
+   "Dégringoler.",
+   "Traîner."
+  ],
+  "rank": 514,
+  "model": "contar",
+  "frequency": 8642,
+  "reviewed": false
+ },
+ {
+  "es": "ejecutar",
+  "fr": [
+   "Exécuter."
+  ],
+  "rank": 515,
+  "model": null,
+  "frequency": 8574,
+  "reviewed": false
+ },
+ {
+  "es": "desayunar",
+  "fr": [
+   "Prendre son petit déjeuner."
+  ],
+  "rank": 516,
+  "model": null,
+  "frequency": 8504,
+  "reviewed": false
+ },
+ {
+  "es": "dibujar",
+  "fr": [
+   "Dessiner."
+  ],
+  "rank": 517,
+  "model": null,
+  "frequency": 8496,
+  "reviewed": false
+ },
+ {
+  "es": "avergonzar",
+  "fr": [
+   "Faire honte."
+  ],
+  "rank": 518,
+  "model": "contar",
+  "frequency": 8492,
+  "reviewed": false
+ },
+ {
+  "es": "relacionar",
+  "fr": [
+   "Lier, mettre en relation."
+  ],
+  "rank": 519,
+  "model": null,
+  "frequency": 8465,
+  "reviewed": false
+ },
+ {
+  "es": "interpretar",
+  "fr": [
+   "Interpréter."
+  ],
+  "rank": 520,
+  "model": null,
+  "frequency": 8411,
+  "reviewed": false
+ },
+ {
+  "es": "extender",
+  "fr": [
+   "Étendre."
+  ],
+  "rank": 521,
+  "model": "pensar",
+  "frequency": 8397,
+  "reviewed": false
+ },
+ {
+  "es": "detectar",
+  "fr": [
+   "Détecter."
+  ],
+  "rank": 522,
+  "model": null,
+  "frequency": 8366,
+  "reviewed": false
+ },
+ {
+  "es": "medir",
+  "fr": [
+   "Mesurer."
+  ],
+  "rank": 523,
+  "model": "pedir",
+  "frequency": 8358,
+  "reviewed": false
+ },
+ {
+  "es": "analizar",
+  "fr": [
+   "Analyser."
+  ],
+  "rank": 524,
+  "model": null,
+  "frequency": 8332,
+  "reviewed": false
+ },
+ {
+  "es": "enloquecer",
+  "fr": [
+   "Affoler."
+  ],
+  "rank": 525,
+  "model": "conocer",
+  "frequency": 8325,
+  "reviewed": false
+ },
+ {
+  "es": "pisar",
+  "fr": [
+   "Marcher, mettre le pied sur."
+  ],
+  "rank": 526,
+  "model": null,
+  "frequency": 8322,
+  "reviewed": false
+ },
+ {
+  "es": "batir",
+  "fr": [
+   "Battre quelque chose.",
+   "Battre un adversaire."
+  ],
+  "rank": 527,
+  "model": null,
+  "frequency": 8319,
+  "reviewed": false
+ },
+ {
+  "es": "dominar",
+  "fr": [
+   "Dominer."
+  ],
+  "rank": 528,
+  "model": null,
+  "frequency": 8312,
+  "reviewed": false
+ },
+ {
+  "es": "interrogar",
+  "fr": [
+   "Interroger."
+  ],
+  "rank": 529,
+  "model": null,
+  "frequency": 8294,
+  "reviewed": false
+ },
+ {
+  "es": "obedecer",
+  "fr": [
+   "Obéir."
+  ],
+  "rank": 530,
+  "model": "conocer",
+  "frequency": 8261,
+  "reviewed": false
+ },
+ {
+  "es": "traducir",
+  "fr": [
+   "Traduire."
+  ],
+  "rank": 531,
+  "model": "conducir",
+  "frequency": 8202,
+  "reviewed": false
+ },
+ {
+  "es": "doblar",
+  "fr": [
+   "Doubler.",
+   "Plier.",
+   "Multiplier."
+  ],
+  "rank": 532,
+  "model": null,
+  "frequency": 8199,
+  "reviewed": false
+ },
+ {
+  "es": "brindar",
+  "fr": [
+   "Porter un toast, trinquer.",
+   "Offrir."
+  ],
+  "rank": 533,
+  "model": null,
+  "frequency": 8163,
+  "reviewed": false
+ },
+ {
+  "es": "conceder",
+  "fr": [
+   "Concéder."
+  ],
+  "rank": 534,
+  "model": null,
+  "frequency": 8047,
+  "reviewed": false
+ },
+ {
+  "es": "alterar",
+  "fr": [
+   "Altérer."
+  ],
+  "rank": 535,
+  "model": null,
+  "frequency": 8043,
+  "reviewed": false
+ },
+ {
+  "es": "mear",
+  "fr": [
+   "Pisser."
+  ],
+  "rank": 536,
+  "model": null,
+  "frequency": 8025,
+  "reviewed": false
+ },
+ {
+  "es": "dividir",
+  "fr": [
+   "Diviser, débiter, partager."
+  ],
+  "rank": 537,
+  "model": null,
+  "frequency": 8016,
+  "reviewed": false
+ },
+ {
+  "es": "aguardar",
+  "fr": [
+   "Attendre.",
+   "Croire, espérer quelque chose.",
+   "Accorder un délai à quelqu’un, en particulier pour régler une dette.",
+   "Arriver (en parlant d'un événement dans le futur)."
+  ],
+  "rank": 538,
+  "model": null,
+  "frequency": 8004,
+  "reviewed": false
+ },
+ {
+  "es": "pretender",
+  "fr": [
+   "Prétendre."
+  ],
+  "rank": 539,
+  "model": "pensar",
+  "frequency": 7980,
+  "reviewed": false
+ },
+ {
+  "es": "cavar",
+  "fr": [
+   "Creuser."
+  ],
+  "rank": 540,
+  "model": null,
+  "frequency": 7957,
+  "reviewed": false
+ },
+ {
+  "es": "verificar",
+  "fr": [
+   "Vérifier."
+  ],
+  "rank": 541,
+  "model": null,
+  "frequency": 7933,
+  "reviewed": false
+ },
+ {
+  "es": "invertir",
+  "fr": [
+   "Inverser, intervertir.",
+   "Investir."
+  ],
+  "rank": 542,
+  "model": "sentir",
+  "frequency": 7931,
+  "reviewed": false
+ },
+ {
+  "es": "diseñar",
+  "fr": [
+   "Dessiner, concevoir, élaborer un dessein, un plan, un projet."
+  ],
+  "rank": 543,
+  "model": null,
+  "frequency": 7910,
+  "reviewed": false
+ },
+ {
+  "es": "sacrificar",
+  "fr": [
+   "Sacrifier."
+  ],
+  "rank": 544,
+  "model": null,
+  "frequency": 7874,
+  "reviewed": false
+ },
+ {
+  "es": "congelar",
+  "fr": [
+   "Congeler."
+  ],
+  "rank": 545,
+  "model": null,
+  "frequency": 7873,
+  "reviewed": false
+ },
+ {
+  "es": "suplicar",
+  "fr": [
+   "Supplier implorer, solliciter."
+  ],
+  "rank": 546,
+  "model": null,
+  "frequency": 7849,
+  "reviewed": false
+ },
+ {
+  "es": "proceder",
+  "fr": [
+   "Procéder.",
+   "Provenir."
+  ],
+  "rank": 547,
+  "model": null,
+  "frequency": 7834,
+  "reviewed": false
+ },
+ {
+  "es": "estallar",
+  "fr": [
+   "Éclater, exploser."
+  ],
+  "rank": 548,
+  "model": null,
+  "frequency": 7791,
+  "reviewed": false
+ },
+ {
+  "es": "acudir",
+  "fr": [
+   "Aller à, accompagner.",
+   "Aider, appuyer.",
+   "Produire, donner (un résultat, un fruit).",
+   "Recourir, faire appel à quelqu'un."
+  ],
+  "rank": 549,
+  "model": null,
+  "frequency": 7780,
+  "reviewed": false
+ },
+ {
+  "es": "rogar",
+  "fr": [
+   "Prier, demander."
+  ],
+  "rank": 550,
+  "model": "contar",
+  "frequency": 7660,
+  "reviewed": false
+ },
+ {
+  "es": "implicar",
+  "fr": [
+   "Impliquer."
+  ],
+  "rank": 551,
+  "model": null,
+  "frequency": 7640,
+  "reviewed": false
+ },
+ {
+  "es": "despegar",
+  "fr": [
+   "Décoller."
+  ],
+  "rank": 552,
+  "model": null,
+  "frequency": 7605,
+  "reviewed": false
+ },
+ {
+  "es": "activar",
+  "fr": [
+   "Activer."
+  ],
+  "rank": 553,
+  "model": null,
+  "frequency": 7574,
+  "reviewed": false
+ },
+ {
+  "es": "aplastar",
+  "fr": [
+   "Aplatir, écacher (technique), écraser."
+  ],
+  "rank": 554,
+  "model": null,
+  "frequency": 7567,
+  "reviewed": false
+ },
+ {
+  "es": "derribar",
+  "fr": [
+   "Renverser, écrouler, démolir."
+  ],
+  "rank": 555,
+  "model": null,
+  "frequency": 7536,
+  "reviewed": false
+ },
+ {
+  "es": "reparar",
+  "fr": [
+   "Refaire, remédier, restaurer, réparer.",
+   "Rapiécer."
+  ],
+  "rank": 556,
+  "model": null,
+  "frequency": 7484,
+  "reviewed": false
+ },
+ {
+  "es": "abrazar",
+  "fr": [
+   "Embrasser, prendre dans ses bras."
+  ],
+  "rank": 557,
+  "model": null,
+  "frequency": 7440,
+  "reviewed": false
+ },
+ {
+  "es": "sudar",
+  "fr": [
+   "Suer.",
+   "s'en ficher, ne pas s'intéresser"
+  ],
+  "rank": 558,
+  "model": null,
+  "frequency": 7398,
+  "reviewed": false
+ },
+ {
+  "es": "transformar",
+  "fr": [
+   "Transformer."
+  ],
+  "rank": 559,
+  "model": null,
+  "frequency": 7396,
+  "reviewed": false
+ },
+ {
+  "es": "fijar",
+  "fr": [
+   "Fixer.",
+   "Faire attention à, remarquer, regarder."
+  ],
+  "rank": 560,
+  "model": null,
+  "frequency": 7353,
+  "reviewed": false
+ },
+ {
+  "es": "hechizar",
+  "fr": [
+   "Ensorceler."
+  ],
+  "rank": 561,
+  "model": null,
+  "frequency": 7280,
+  "reviewed": false
+ },
+ {
+  "es": "mezclar",
+  "fr": [
+   "Mélanger.",
+   "Se mêler."
+  ],
+  "rank": 562,
+  "model": null,
+  "frequency": 7217,
+  "reviewed": false
+ },
+ {
+  "es": "animar",
+  "fr": [
+   "Encourager.",
+   "Réconforter.",
+   "Animer."
+  ],
+  "rank": 563,
+  "model": null,
+  "frequency": 7205,
+  "reviewed": false
+ },
+ {
+  "es": "plantar",
+  "fr": [
+   "Planter."
+  ],
+  "rank": 564,
+  "model": null,
+  "frequency": 7187,
+  "reviewed": false
+ },
+ {
+  "es": "competir",
+  "fr": [
+   "Concourir.",
+   "Concurrencer, se faire concurrence."
+  ],
+  "rank": 565,
+  "model": "pedir",
+  "frequency": 7161,
+  "reviewed": false
+ },
+ {
+  "es": "apartar",
+  "fr": [
+   "Mettre à part, séparer.",
+   "Se séparer, se quitter.",
+   "Écarter, éloigner, mettre à l’écart.",
+   "S'éloigner, s’écarter."
+  ],
+  "rank": 566,
+  "model": null,
+  "frequency": 7083,
+  "reviewed": false
+ },
+ {
+  "es": "retener",
+  "fr": [
+   "Retenir."
+  ],
+  "rank": 567,
+  "model": "tener",
+  "frequency": 7080,
+  "reviewed": false
+ },
+ {
+  "es": "exponer",
+  "fr": [
+   "Exposer, indiquer."
+  ],
+  "rank": 568,
+  "model": "poner",
+  "frequency": 7034,
+  "reviewed": false
+ },
+ {
+  "es": "rescatar",
+  "fr": [
+   "Sauver, rescaper."
+  ],
+  "rank": 569,
+  "model": null,
+  "frequency": 7023,
+  "reviewed": false
+ },
+ {
+  "es": "desperdiciar",
+  "fr": [
+   "Gaspiller.",
+   "Perdre."
+  ],
+  "rank": 570,
+  "model": null,
+  "frequency": 6972,
+  "reviewed": false
+ },
+ {
+  "es": "guiar",
+  "fr": [
+   "Guider, régler."
+  ],
+  "rank": 571,
+  "model": "enviar",
+  "frequency": 6954,
+  "reviewed": false
+ },
+ {
+  "es": "desmayar",
+  "fr": [
+   "Évanouir.",
+   "Faner."
+  ],
+  "rank": 572,
+  "model": null,
+  "frequency": 6933,
+  "reviewed": false
+ },
+ {
+  "es": "inspirar",
+  "fr": [
+   "Inspirer."
+  ],
+  "rank": 573,
+  "model": null,
+  "frequency": 6922,
+  "reviewed": false
+ },
+ {
+  "es": "caber",
+  "fr": [
+   "Pouvoir être contenu, pouvoir entrer, dans quelque chose.",
+   "Occuper de la place.",
+   "Être le propre d’une personne ou d’une position.",
+   "Être admissible ou possible."
+  ],
+  "rank": 574,
+  "model": "caber",
+  "frequency": 6858,
+  "reviewed": false
+ },
+ {
+  "es": "tallar",
+  "fr": [
+   "Tailler, couper.",
+   "Travailler un matériau.",
+   "Estimer la taille de quelque chose.",
+   "Apprécier, évaluer."
+  ],
+  "rank": 575,
+  "model": null,
+  "frequency": 6849,
+  "reviewed": false
+ },
+ {
+  "es": "calentar",
+  "fr": [
+   "Chauffer.",
+   "Chauffer, exciter."
+  ],
+  "rank": 576,
+  "model": "pensar",
+  "frequency": 6828,
+  "reviewed": false
+ },
+ {
+  "es": "agotar",
+  "fr": [
+   "Épuiser.",
+   "Tarir."
+  ],
+  "rank": 577,
+  "model": null,
+  "frequency": 6826,
+  "reviewed": false
+ },
+ {
+  "es": "adoptar",
+  "fr": [
+   "Adopter."
+  ],
+  "rank": 578,
+  "model": null,
+  "frequency": 6823,
+  "reviewed": false
+ },
+ {
+  "es": "tramar",
+  "fr": [
+   "Tramer."
+  ],
+  "rank": 579,
+  "model": null,
+  "frequency": 6782,
+  "reviewed": false
+ },
+ {
+  "es": "derramar",
+  "fr": [
+   "Verser, déverser, diffuser."
+  ],
+  "rank": 580,
+  "model": null,
+  "frequency": 6776,
+  "reviewed": false
+ },
+ {
+  "es": "apuñalar",
+  "fr": [
+   "Poignarder."
+  ],
+  "rank": 581,
+  "model": null,
+  "frequency": 6745,
+  "reviewed": false
+ },
+ {
+  "es": "completar",
+  "fr": [
+   "Compléter."
+  ],
+  "rank": 582,
+  "model": null,
+  "frequency": 6724,
+  "reviewed": false
+ },
+ {
+  "es": "desfilar",
+  "fr": [
+   "Parader.",
+   "Défiler."
+  ],
+  "rank": 583,
+  "model": null,
+  "frequency": 6719,
+  "reviewed": false
+ },
+ {
+  "es": "transmitir",
+  "fr": [
+   "Transmettre."
+  ],
+  "rank": 584,
+  "model": null,
+  "frequency": 6716,
+  "reviewed": false
+ },
+ {
+  "es": "fabricar",
+  "fr": [
+   "Fabriquer."
+  ],
+  "rank": 585,
+  "model": null,
+  "frequency": 6679,
+  "reviewed": false
+ },
+ {
+  "es": "insultar",
+  "fr": [
+   "Insulter."
+  ],
+  "rank": 586,
+  "model": null,
+  "frequency": 6666,
+  "reviewed": false
+ },
+ {
+  "es": "afirmar",
+  "fr": [
+   "Affirmer, assurer, certifier, garantir."
+  ],
+  "rank": 587,
+  "model": null,
+  "frequency": 6649,
+  "reviewed": false
+ },
+ {
+  "es": "latir",
+  "fr": [
+   "Aboyer.",
+   "Battre (en parlant du cœur)."
+  ],
+  "rank": 588,
+  "model": null,
+  "frequency": 6632,
+  "reviewed": false
+ },
+ {
+  "es": "suspender",
+  "fr": [
+   "Suspendre.",
+   "Lever, soulever, élever."
+  ],
+  "rank": 589,
+  "model": null,
+  "frequency": 6585,
+  "reviewed": false
+ },
+ {
+  "es": "señalar",
+  "fr": [
+   "Signaler.",
+   "Indiquer.",
+   "Remarquer."
+  ],
+  "rank": 590,
+  "model": null,
+  "frequency": 6546,
+  "reviewed": false
+ },
+ {
+  "es": "copiar",
+  "fr": [
+   "Copier."
+  ],
+  "rank": 591,
+  "model": null,
+  "frequency": 6535,
+  "reviewed": false
+ },
+ {
+  "es": "consumir",
+  "fr": [
+   "Consommer, consumer."
+  ],
+  "rank": 592,
+  "model": null,
+  "frequency": 6528,
+  "reviewed": false
+ },
+ {
+  "es": "clavar",
+  "fr": [
+   "Clouer."
+  ],
+  "rank": 593,
+  "model": null,
+  "frequency": 6511,
+  "reviewed": false
+ },
+ {
+  "es": "corresponder",
+  "fr": [
+   "Correspondre."
+  ],
+  "rank": 594,
+  "model": null,
+  "frequency": 6480,
+  "reviewed": false
+ },
+ {
+  "es": "relajar",
+  "fr": [
+   "Décontracter.",
+   "Relâcher."
+  ],
+  "rank": 595,
+  "model": null,
+  "frequency": 6473,
+  "reviewed": false
+ },
+ {
+  "es": "drogar",
+  "fr": [
+   "Droguer.",
+   "Administrer une drogue."
+  ],
+  "rank": 596,
+  "model": null,
+  "frequency": 6444,
+  "reviewed": false
+ },
+ {
+  "es": "convenir",
+  "fr": [
+   "Convenir."
+  ],
+  "rank": 597,
+  "model": "venir",
+  "frequency": 6430,
+  "reviewed": false
+ },
+ {
+  "es": "protestar",
+  "fr": [
+   "Protester."
+  ],
+  "rank": 598,
+  "model": null,
+  "frequency": 6394,
+  "reviewed": false
+ },
+ {
+  "es": "reclamar",
+  "fr": [
+   "Réclamer."
+  ],
+  "rank": 599,
+  "model": null,
+  "frequency": 6366,
+  "reviewed": false
+ },
+ {
+  "es": "acelerar",
+  "fr": [
+   "Accélérer."
+  ],
+  "rank": 600,
+  "model": null,
+  "frequency": 6327,
+  "reviewed": false
+ },
+ {
+  "es": "consolar",
+  "fr": [
+   "Consoler."
+  ],
+  "rank": 601,
+  "model": "contar",
+  "frequency": 6294,
+  "reviewed": false
+ },
+ {
+  "es": "fastidiar",
+  "fr": [
+   "Ennuyer, embêter, exaspérer."
+  ],
+  "rank": 602,
+  "model": null,
+  "frequency": 6290,
+  "reviewed": false
+ },
+ {
+  "es": "instalar",
+  "fr": [
+   "Installer."
+  ],
+  "rank": 603,
+  "model": null,
+  "frequency": 6289,
+  "reviewed": false
+ },
+ {
+  "es": "aburrir",
+  "fr": [
+   "Ennuyer."
+  ],
+  "rank": 604,
+  "model": null,
+  "frequency": 6256,
+  "reviewed": false
+ },
+ {
+  "es": "normar",
+  "fr": [
+   "Normer."
+  ],
+  "rank": 605,
+  "model": null,
+  "frequency": 6252,
+  "reviewed": false
+ },
+ {
+  "es": "soplar",
+  "fr": [
+   "Souffler.",
+   "Gonfler.",
+   "Suggérer",
+   "Dénoncer"
+  ],
+  "rank": 606,
+  "model": null,
+  "frequency": 6245,
+  "reviewed": false
+ },
+ {
+  "es": "flotar",
+  "fr": [
+   "Flotter."
+  ],
+  "rank": 607,
+  "model": null,
+  "frequency": 6210,
+  "reviewed": false
+ },
+ {
+  "es": "mentar",
+  "fr": [
+   "Mentionner."
+  ],
+  "rank": 608,
+  "model": null,
+  "frequency": 6169,
+  "reviewed": false
+ },
+ {
+  "es": "largar",
+  "fr": [
+   "Larguer.",
+   "Prendre le large."
+  ],
+  "rank": 609,
+  "model": null,
+  "frequency": 6152,
+  "reviewed": false
+ },
+ {
+  "es": "envenenar",
+  "fr": [
+   "Envenimer, empoisonner."
+  ],
+  "rank": 610,
+  "model": null,
+  "frequency": 6095,
+  "reviewed": false
+ },
+ {
+  "es": "reemplazar",
+  "fr": [
+   "Remplacer."
+  ],
+  "rank": 611,
+  "model": null,
+  "frequency": 6071,
+  "reviewed": false
+ },
+ {
+  "es": "aplicar",
+  "fr": [
+   "Appliquer."
+  ],
+  "rank": 612,
+  "model": null,
+  "frequency": 6053,
+  "reviewed": false
+ },
+ {
+  "es": "aconsejar",
+  "fr": [
+   "Conseiller."
+  ],
+  "rank": 613,
+  "model": null,
+  "frequency": 6046,
+  "reviewed": false
+ },
+ {
+  "es": "atropellar",
+  "fr": [
+   "Passer par dessus avec violence.",
+   "Pousser violemment.",
+   "Un véhicule, renverser, écraser.",
+   "Choquer, brusquer, brutaliser, heurter, outrager."
+  ],
+  "rank": 614,
+  "model": null,
+  "frequency": 6031,
+  "reviewed": false
+ },
+ {
+  "es": "conversar",
+  "fr": [
+   "Converser."
+  ],
+  "rank": 615,
+  "model": null,
+  "frequency": 5991,
+  "reviewed": false
+ },
+ {
+  "es": "prender",
+  "fr": [
+   "Saisir.",
+   "Arrêter.",
+   "Allumer.",
+   "Prendre"
+  ],
+  "rank": 616,
+  "model": null,
+  "frequency": 5909,
+  "reviewed": false
+ },
+ {
+  "es": "transferir",
+  "fr": [
+   "Transférer.",
+   "Reporter, transporter."
+  ],
+  "rank": 617,
+  "model": "sentir",
+  "frequency": 5879,
+  "reviewed": false
+ },
+ {
+  "es": "excitar",
+  "fr": [
+   "Exciter."
+  ],
+  "rank": 618,
+  "model": null,
+  "frequency": 5873,
+  "reviewed": false
+ },
+ {
+  "es": "calcular",
+  "fr": [
+   "Calculer, compter."
+  ],
+  "rank": 619,
+  "model": null,
+  "frequency": 5833,
+  "reviewed": false
+ },
+ {
+  "es": "ajustar",
+  "fr": [
+   "Ajuster, adapter, accommoder.",
+   "pronominal : Contracter, s'engager."
+  ],
+  "rank": 620,
+  "model": null,
+  "frequency": 5827,
+  "reviewed": false
+ },
+ {
+  "es": "captar",
+  "fr": [
+   "Capter."
+  ],
+  "rank": 621,
+  "model": null,
+  "frequency": 5793,
+  "reviewed": false
+ },
+ {
+  "es": "orinar",
+  "fr": [
+   "Uriner."
+  ],
+  "rank": 622,
+  "model": null,
+  "frequency": 5757,
+  "reviewed": false
+ },
+ {
+  "es": "ceder",
+  "fr": [
+   "Céder."
+  ],
+  "rank": 623,
+  "model": null,
+  "frequency": 5737,
+  "reviewed": false
+ },
+ {
+  "es": "prohibir",
+  "fr": [
+   "Interdire."
+  ],
+  "rank": 624,
+  "model": "enviar",
+  "frequency": 5726,
+  "reviewed": false
+ },
+ {
+  "es": "arar",
+  "fr": [
+   "Labourer."
+  ],
+  "rank": 625,
+  "model": null,
+  "frequency": 5715,
+  "reviewed": false
+ },
+ {
+  "es": "escupir",
+  "fr": [
+   "Cracher."
+  ],
+  "rank": 626,
+  "model": null,
+  "frequency": 5703,
+  "reviewed": false
+ },
+ {
+  "es": "dañar",
+  "fr": [
+   "Abîmer, détériorer."
+  ],
+  "rank": 627,
+  "model": null,
+  "frequency": 5632,
+  "reviewed": false
+ },
+ {
+  "es": "esforzar",
+  "fr": [
+   "S’efforcer."
+  ],
+  "rank": 628,
+  "model": "contar",
+  "frequency": 5592,
+  "reviewed": false
+ },
+ {
+  "es": "reclutar",
+  "fr": [
+   "Recruter."
+  ],
+  "rank": 629,
+  "model": null,
+  "frequency": 5588,
+  "reviewed": false
+ },
+ {
+  "es": "cooperar",
+  "fr": [
+   "Coopérer."
+  ],
+  "rank": 630,
+  "model": null,
+  "frequency": 5582,
+  "reviewed": false
+ },
+ {
+  "es": "navegar",
+  "fr": [
+   "Naviguer."
+  ],
+  "rank": 631,
+  "model": null,
+  "frequency": 5579,
+  "reviewed": false
+ },
+ {
+  "es": "librar",
+  "fr": [
+   "Sauver.",
+   "Mener (un combat, une guerre)."
+  ],
+  "rank": 632,
+  "model": null,
+  "frequency": 5562,
+  "reviewed": false
+ },
+ {
+  "es": "agregar",
+  "fr": [
+   "Agréger, adjoindre, ajouter."
+  ],
+  "rank": 633,
+  "model": null,
+  "frequency": 5555,
+  "reviewed": false
+ },
+ {
+  "es": "trasladar",
+  "fr": [
+   "Déplacer, transporter, transférer, reporter."
+  ],
+  "rank": 634,
+  "model": null,
+  "frequency": 5555,
+  "reviewed": false
+ },
+ {
+  "es": "recorrer",
+  "fr": [
+   "Parcourir."
+  ],
+  "rank": 635,
+  "model": null,
+  "frequency": 5553,
+  "reviewed": false
+ },
+ {
+  "es": "enfermar",
+  "fr": [
+   "Tomber malade."
+  ],
+  "rank": 636,
+  "model": null,
+  "frequency": 5489,
+  "reviewed": false
+ },
+ {
+  "es": "ingresar",
+  "fr": [
+   "Accueillir, intégrer, faire entrer, admettre, encaisser."
+  ],
+  "rank": 637,
+  "model": null,
+  "frequency": 5444,
+  "reviewed": false
+ },
+ {
+  "es": "descuidar",
+  "fr": [
+   "Dédaigner, négliger, ne pas prendre soin de."
+  ],
+  "rank": 638,
+  "model": null,
+  "frequency": 5430,
+  "reviewed": false
+ },
+ {
+  "es": "detestar",
+  "fr": [
+   "Détester."
+  ],
+  "rank": 639,
+  "model": null,
+  "frequency": 5429,
+  "reviewed": false
+ },
+ {
+  "es": "decepcionar",
+  "fr": [
+   "Désappointer.",
+   "Décevoir."
+  ],
+  "rank": 640,
+  "model": null,
+  "frequency": 5382,
+  "reviewed": false
+ },
+ {
+  "es": "bastar",
+  "fr": [
+   "Suffire."
+  ],
+  "rank": 641,
+  "model": null,
+  "frequency": 5375,
+  "reviewed": false
+ },
+ {
+  "es": "explorar",
+  "fr": [
+   "Explorer."
+  ],
+  "rank": 642,
+  "model": null,
+  "frequency": 5314,
+  "reviewed": false
+ },
+ {
+  "es": "comprometer",
+  "fr": [
+   "Engager, compromettre."
+  ],
+  "rank": 643,
+  "model": null,
+  "frequency": 5306,
+  "reviewed": false
+ },
+ {
+  "es": "manipular",
+  "fr": [
+   "Manipuler.",
+   "Manier."
+  ],
+  "rank": 644,
+  "model": null,
+  "frequency": 5303,
+  "reviewed": false
+ },
+ {
+  "es": "tolerar",
+  "fr": [
+   "Tolérer."
+  ],
+  "rank": 645,
+  "model": null,
+  "frequency": 5301,
+  "reviewed": false
+ },
+ {
+  "es": "invadir",
+  "fr": [
+   "Envahir."
+  ],
+  "rank": 646,
+  "model": null,
+  "frequency": 5290,
+  "reviewed": false
+ },
+ {
+  "es": "asignar",
+  "fr": [
+   "Assigner."
+  ],
+  "rank": 647,
+  "model": null,
+  "frequency": 5264,
+  "reviewed": false
+ },
+ {
+  "es": "espiar",
+  "fr": [
+   "Épier, espionner."
+  ],
+  "rank": 648,
+  "model": null,
+  "frequency": 5262,
+  "reviewed": false
+ },
+ {
+  "es": "complacer",
+  "fr": [
+   "Plaire, complaire."
+  ],
+  "rank": 649,
+  "model": "conocer",
+  "frequency": 5219,
+  "reviewed": false
+ },
+ {
+  "es": "estacionar",
+  "fr": [
+   "Garer, stationner."
+  ],
+  "rank": 650,
+  "model": null,
+  "frequency": 5210,
+  "reviewed": false
+ },
+ {
+  "es": "halar",
+  "fr": [
+   "Haler."
+  ],
+  "rank": 651,
+  "model": null,
+  "frequency": 5172,
+  "reviewed": false
+ },
+ {
+  "es": "pervertir",
+  "fr": [
+   "Pervertir."
+  ],
+  "rank": 652,
+  "model": null,
+  "frequency": 5169,
+  "reviewed": false
+ },
+ {
+  "es": "ensayar",
+  "fr": [
+   "Essayer, tester, goûter, étrenner, répéter, s’entrainer."
+  ],
+  "rank": 653,
+  "model": null,
+  "frequency": 5132,
+  "reviewed": false
+ },
+ {
+  "es": "tumbar",
+  "fr": [
+   "Tomber, faire tomber."
+  ],
+  "rank": 654,
+  "model": null,
+  "frequency": 5118,
+  "reviewed": false
+ },
+ {
+  "es": "repartir",
+  "fr": [
+   "Diviser, débiter, partager."
+  ],
+  "rank": 655,
+  "model": null,
+  "frequency": 5117,
+  "reviewed": false
+ },
+ {
+  "es": "linear",
+  "fr": [
+   "Ligner, tracer des lignes."
+  ],
+  "rank": 656,
+  "model": null,
+  "frequency": 5107,
+  "reviewed": false
+ },
+ {
+  "es": "circular",
+  "fr": [
+   "Circuler."
+  ],
+  "rank": 657,
+  "model": null,
+  "frequency": 5096,
+  "reviewed": false
+ },
+ {
+  "es": "abusar",
+  "fr": [
+   "Abuser."
+  ],
+  "rank": 658,
+  "model": null,
+  "frequency": 5056,
+  "reviewed": false
+ },
+ {
+  "es": "intimidar",
+  "fr": [
+   "Intimider."
+  ],
+  "rank": 659,
+  "model": null,
+  "frequency": 5033,
+  "reviewed": false
+ },
+ {
+  "es": "tensar",
+  "fr": [
+   "Tendre, raidir, remonter (horloge), armer (fusil)."
+  ],
+  "rank": 660,
+  "model": null,
+  "frequency": 5015,
+  "reviewed": false
+ },
+ {
+  "es": "gobernar",
+  "fr": [
+   "Gouverner, régner, surveiller."
+  ],
+  "rank": 661,
+  "model": "pensar",
+  "frequency": 5004,
+  "reviewed": false
+ },
+ {
+  "es": "encubrir",
+  "fr": [
+   "Couvrir, cacher, occulter."
+  ],
+  "rank": 662,
+  "model": "cubrir",
+  "frequency": 4968,
+  "reviewed": false
+ },
+ {
+  "es": "combatir",
+  "fr": [
+   "Combattre, se battre."
+  ],
+  "rank": 663,
+  "model": null,
+  "frequency": 4947,
+  "reviewed": false
+ },
+ {
+  "es": "generar",
+  "fr": [
+   "Générer."
+  ],
+  "rank": 664,
+  "model": null,
+  "frequency": 4946,
+  "reviewed": false
+ },
+ {
+  "es": "talar",
+  "fr": [
+   "Tailler, couper un arbre."
+  ],
+  "rank": 665,
+  "model": null,
+  "frequency": 4926,
+  "reviewed": false
+ },
+ {
+  "es": "comentar",
+  "fr": [
+   "Commenter."
+  ],
+  "rank": 666,
+  "model": null,
+  "frequency": 4897,
+  "reviewed": false
+ },
+ {
+  "es": "componer",
+  "fr": [
+   "Composer."
+  ],
+  "rank": 667,
+  "model": "poner",
+  "frequency": 4872,
+  "reviewed": false
+ },
+ {
+  "es": "aliviar",
+  "fr": [
+   "Soulager, alléger"
+  ],
+  "rank": 668,
+  "model": null,
+  "frequency": 4849,
+  "reviewed": false
+ },
+ {
+  "es": "cuestionar",
+  "fr": [
+   "Questionner, mettre en cause."
+  ],
+  "rank": 669,
+  "model": null,
+  "frequency": 4837,
+  "reviewed": false
+ },
+ {
+  "es": "distraer",
+  "fr": [
+   "Distraire."
+  ],
+  "rank": 670,
+  "model": "traer",
+  "frequency": 4825,
+  "reviewed": false
+ },
+ {
+  "es": "temblar",
+  "fr": [
+   "Trembler."
+  ],
+  "rank": 671,
+  "model": "pensar",
+  "frequency": 4811,
+  "reviewed": false
+ },
+ {
+  "es": "honrar",
+  "fr": [
+   "Honorer.",
+   "Porter un grand respect à quelqu’un.",
+   "Exalter, récompenser un mérite.",
+   "Utilisé comme formule de courtoisie afin de provoquer l’adhésion de l’assistance à propos de quelqu’un."
+  ],
+  "rank": 672,
+  "model": null,
+  "frequency": 4806,
+  "reviewed": false
+ },
+ {
+  "es": "estimar",
+  "fr": [
+   "Croire",
+   "Estimer",
+   "Apprécier"
+  ],
+  "rank": 673,
+  "model": null,
+  "frequency": 4801,
+  "reviewed": false
+ },
+ {
+  "es": "conquistar",
+  "fr": [
+   "Conquérir."
+  ],
+  "rank": 674,
+  "model": null,
+  "frequency": 4786,
+  "reviewed": false
+ },
+ {
+  "es": "atascar",
+  "fr": [
+   "Obstruer, boucher, bourrer, provoquer un empilement de choses qui se suivent dans un processus normal."
+  ],
+  "rank": 675,
+  "model": null,
+  "frequency": 4774,
+  "reviewed": false
+ },
+ {
+  "es": "oponer",
+  "fr": [
+   "Opposer."
+  ],
+  "rank": 676,
+  "model": "poner",
+  "frequency": 4761,
+  "reviewed": false
+ },
+ {
+  "es": "chupar",
+  "fr": [
+   "Sucer, aspirer un liquide avec les lèvres",
+   "Sucer, tailler une pipe.",
+   "Picoler, biberonner."
+  ],
+  "rank": 677,
+  "model": null,
+  "frequency": 4747,
+  "reviewed": false
+ },
+ {
+  "es": "citar",
+  "fr": [
+   "Citer."
+  ],
+  "rank": 678,
+  "model": null,
+  "frequency": 4736,
+  "reviewed": false
+ },
+ {
+  "es": "ascender",
+  "fr": [
+   "Monter."
+  ],
+  "rank": 679,
+  "model": "pensar",
+  "frequency": 4701,
+  "reviewed": false
+ },
+ {
+  "es": "divorciar",
+  "fr": [
+   "Divorcer.",
+   "divorciarse : Divorcer."
+  ],
+  "rank": 680,
+  "model": null,
+  "frequency": 4648,
+  "reviewed": false
+ },
+ {
+  "es": "transportar",
+  "fr": [
+   "Reporter, transporter."
+  ],
+  "rank": 681,
+  "model": null,
+  "frequency": 4628,
+  "reviewed": false
+ },
+ {
+  "es": "entretener",
+  "fr": [
+   "Amuser."
+  ],
+  "rank": 682,
+  "model": "tener",
+  "frequency": 4603,
+  "reviewed": false
+ },
+ {
+  "es": "definir",
+  "fr": [
+   "Définir."
+  ],
+  "rank": 683,
+  "model": null,
+  "frequency": 4563,
+  "reviewed": false
+ },
+ {
+  "es": "reventar",
+  "fr": [
+   "Crever, éclater, exploser.",
+   "Crever, épuiser."
+  ],
+  "rank": 684,
+  "model": "pensar",
+  "frequency": 4521,
+  "reviewed": false
+ },
+ {
+  "es": "liar",
+  "fr": [
+   "Lier, ficeler.",
+   "Tromper, embrouiller.",
+   "Emballer, envelopper."
+  ],
+  "rank": 685,
+  "model": null,
+  "frequency": 4507,
+  "reviewed": false
+ },
+ {
+  "es": "graduar",
+  "fr": [
+   "Graduer.",
+   "Passer un examen.",
+   "Obtenir un diplôme."
+  ],
+  "rank": 686,
+  "model": null,
+  "frequency": 4499,
+  "reviewed": false
+ },
+ {
+  "es": "adelantar",
+  "fr": [
+   "Avancer, aller de l’avant.",
+   "Dépasser, passer devant, à l’avant."
+  ],
+  "rank": 687,
+  "model": null,
+  "frequency": 4497,
+  "reviewed": false
+ },
+ {
+  "es": "criticar",
+  "fr": [
+   "Critiquer, reprendre."
+  ],
+  "rank": 688,
+  "model": null,
+  "frequency": 4495,
+  "reviewed": false
+ },
+ {
+  "es": "cultivar",
+  "fr": [
+   "Cultiver."
+  ],
+  "rank": 689,
+  "model": null,
+  "frequency": 4494,
+  "reviewed": false
+ },
+ {
+  "es": "procesar",
+  "fr": [
+   "Procéder, traiter.",
+   "Poursuivre."
+  ],
+  "rank": 690,
+  "model": null,
+  "frequency": 4488,
+  "reviewed": false
+ },
+ {
+  "es": "conformar",
+  "fr": [
+   "Conformer.",
+   "(pronominal : conformarse) Se faire à l’idée, faire avec, prendre en compte, se contenter."
+  ],
+  "rank": 691,
+  "model": null,
+  "frequency": 4487,
+  "reviewed": false
+ },
+ {
+  "es": "descargar",
+  "fr": [
+   "Décharger, acquitter.",
+   "Télécharger."
+  ],
+  "rank": 692,
+  "model": null,
+  "frequency": 4486,
+  "reviewed": false
+ },
+ {
+  "es": "susurrar",
+  "fr": [
+   "Chuchoter, susurrer."
+  ],
+  "rank": 693,
+  "model": null,
+  "frequency": 4475,
+  "reviewed": false
+ },
+ {
+  "es": "heredar",
+  "fr": [
+   "Hériter."
+  ],
+  "rank": 694,
+  "model": null,
+  "frequency": 4474,
+  "reviewed": false
+ },
+ {
+  "es": "vaciar",
+  "fr": [
+   "Vider."
+  ],
+  "rank": 695,
+  "model": null,
+  "frequency": 4436,
+  "reviewed": false
+ },
+ {
+  "es": "justificar",
+  "fr": [
+   "Justifier."
+  ],
+  "rank": 696,
+  "model": null,
+  "frequency": 4417,
+  "reviewed": false
+ },
+ {
+  "es": "introducir",
+  "fr": [
+   "Introduire."
+  ],
+  "rank": 697,
+  "model": "conducir",
+  "frequency": 4411,
+  "reviewed": false
+ },
+ {
+  "es": "deprimir",
+  "fr": [
+   "Déprimer, abattre."
+  ],
+  "rank": 698,
+  "model": null,
+  "frequency": 4390,
+  "reviewed": false
+ },
+ {
+  "es": "corregir",
+  "fr": [
+   "Corriger, rectifier, redresser."
+  ],
+  "rank": 699,
+  "model": "pedir",
+  "frequency": 4384,
+  "reviewed": false
+ },
+ {
+  "es": "descartar",
+  "fr": [
+   "Écarter, rejeter, exclure."
+  ],
+  "rank": 700,
+  "model": null,
+  "frequency": 4379,
+  "reviewed": false
+ },
+ {
+  "es": "descender",
+  "fr": [
+   "Descendre."
+  ],
+  "rank": 701,
+  "model": "pensar",
+  "frequency": 4360,
+  "reviewed": false
+ },
+ {
+  "es": "iluminar",
+  "fr": [
+   "Illuminer."
+  ],
+  "rank": 702,
+  "model": null,
+  "frequency": 4357,
+  "reviewed": false
+ },
+ {
+  "es": "acosar",
+  "fr": [
+   "Harceler, poursuivre sans relâche."
+  ],
+  "rank": 703,
+  "model": null,
+  "frequency": 4354,
+  "reviewed": false
+ },
+ {
+  "es": "compensar",
+  "fr": [
+   "Compenser."
+  ],
+  "rank": 704,
+  "model": null,
+  "frequency": 4338,
+  "reviewed": false
+ },
+ {
+  "es": "abordar",
+  "fr": [
+   "Aborder.",
+   "Accoster un navire."
+  ],
+  "rank": 705,
+  "model": null,
+  "frequency": 4336,
+  "reviewed": false
+ },
+ {
+  "es": "escalar",
+  "fr": [
+   "Escalader."
+  ],
+  "rank": 706,
+  "model": null,
+  "frequency": 4321,
+  "reviewed": false
+ },
+ {
+  "es": "fluir",
+  "fr": [
+   "Couler."
+  ],
+  "rank": 707,
+  "model": "construir",
+  "frequency": 4312,
+  "reviewed": false
+ },
+ {
+  "es": "programar",
+  "fr": [
+   "Programmer"
+  ],
+  "rank": 708,
+  "model": null,
+  "frequency": 4293,
+  "reviewed": false
+ },
+ {
+  "es": "estrellar",
+  "fr": [
+   "Briser violemment en une multitude de petits morceaux.",
+   "pronominal (estrellarse) : S’écraser."
+  ],
+  "rank": 709,
+  "model": null,
+  "frequency": 4291,
+  "reviewed": false
+ },
+ {
+  "es": "envejecer",
+  "fr": [
+   "transitif : vieillir, envieillir, rendre vieux",
+   "intransitif : vieillir, s’envieillir, devenir vieux",
+   "intransitif : durer, subsister"
+  ],
+  "rank": 710,
+  "model": "conocer",
+  "frequency": 4286,
+  "reviewed": false
+ },
+ {
+  "es": "limitar",
+  "fr": [
+   "Limiter."
+  ],
+  "rank": 711,
+  "model": null,
+  "frequency": 4261,
+  "reviewed": false
+ },
+ {
+  "es": "predecir",
+  "fr": [
+   "Prédire."
+  ],
+  "rank": 712,
+  "model": "decir",
+  "frequency": 4252,
+  "reviewed": false
+ },
+ {
+  "es": "elevar",
+  "fr": [
+   "Lever, soulever, élever."
+  ],
+  "rank": 713,
+  "model": null,
+  "frequency": 4209,
+  "reviewed": false
+ },
+ {
+  "es": "concordar",
+  "fr": [
+   "Mettre d’accord, faire concorder.",
+   "Coïncider.",
+   "Concorder."
+  ],
+  "rank": 714,
+  "model": "contar",
+  "frequency": 4183,
+  "reviewed": false
+ },
+ {
+  "es": "asaltar",
+  "fr": [
+   "Assaillir, attaquer, Donner l'assaut à."
+  ],
+  "rank": 715,
+  "model": null,
+  "frequency": 4177,
+  "reviewed": false
+ },
+ {
+  "es": "felicitar",
+  "fr": [
+   "Féliciter."
+  ],
+  "rank": 716,
+  "model": null,
+  "frequency": 4176,
+  "reviewed": false
+ },
+ {
+  "es": "intervenir",
+  "fr": [
+   "Intervenir."
+  ],
+  "rank": 717,
+  "model": "venir",
+  "frequency": 4170,
+  "reviewed": false
+ },
+ {
+  "es": "disminuir",
+  "fr": [
+   "Diminuer, réduire, abaisser."
+  ],
+  "rank": 718,
+  "model": "construir",
+  "frequency": 4143,
+  "reviewed": false
+ },
+ {
+  "es": "tropezar",
+  "fr": [
+   "Trébucher, broncher.",
+   "Rentrer dans, percuter."
+  ],
+  "rank": 719,
+  "model": "pensar",
+  "frequency": 4131,
+  "reviewed": false
+ },
+ {
+  "es": "intercambiar",
+  "fr": [
+   "Échanger, interchanger."
+  ],
+  "rank": 720,
+  "model": null,
+  "frequency": 4093,
+  "reviewed": false
+ },
+ {
+  "es": "ejercitar",
+  "fr": [
+   "Exercer."
+  ],
+  "rank": 721,
+  "model": null,
+  "frequency": 4046,
+  "reviewed": false
+ },
+ {
+  "es": "valorar",
+  "fr": [
+   "Valoriser."
+  ],
+  "rank": 722,
+  "model": null,
+  "frequency": 4045,
+  "reviewed": false
+ },
+ {
+  "es": "percibir",
+  "fr": [
+   "Percevoir."
+  ],
+  "rank": 723,
+  "model": null,
+  "frequency": 4029,
+  "reviewed": false
+ },
+ {
+  "es": "sacudir",
+  "fr": [
+   "Secouer.",
+   "Ébranler.",
+   "Balancer.",
+   "Agiter, débattre, troubler, émouvoir."
+  ],
+  "rank": 724,
+  "model": null,
+  "frequency": 4025,
+  "reviewed": false
+ },
+ {
+  "es": "concentrar",
+  "fr": [
+   "Concentrer."
+  ],
+  "rank": 725,
+  "model": null,
+  "frequency": 4013,
+  "reviewed": false
+ },
+ {
+  "es": "acertar",
+  "fr": [
+   "Atteindre (une cible), réussir.",
+   "Deviner."
+  ],
+  "rank": 726,
+  "model": "pensar",
+  "frequency": 4009,
+  "reviewed": false
+ },
+ {
+  "es": "fallecer",
+  "fr": [
+   "Mourir."
+  ],
+  "rank": 727,
+  "model": "conocer",
+  "frequency": 4000,
+  "reviewed": false
+ },
+ {
+  "es": "consultar",
+  "fr": [
+   "Consulter.",
+   "Vérifier (date)."
+  ],
+  "rank": 728,
+  "model": null,
+  "frequency": 3999,
+  "reviewed": false
+ },
+ {
+  "es": "donar",
+  "fr": [
+   "faire don, faire une donation."
+  ],
+  "rank": 729,
+  "model": null,
+  "frequency": 3999,
+  "reviewed": false
+ },
+ {
+  "es": "disponer",
+  "fr": [
+   "Disposer.",
+   "Être sur le point de, être prêt à, presque à commencer de, en parlant d’une action imminente."
+  ],
+  "rank": 730,
+  "model": "poner",
+  "frequency": 3959,
+  "reviewed": false
+ },
+ {
+  "es": "frenar",
+  "fr": [
+   "Freiner."
+  ],
+  "rank": 731,
+  "model": null,
+  "frequency": 3942,
+  "reviewed": false
+ },
+ {
+  "es": "emborrachar",
+  "fr": [
+   "Enivrer."
+  ],
+  "rank": 732,
+  "model": null,
+  "frequency": 3941,
+  "reviewed": false
+ },
+ {
+  "es": "picar",
+  "fr": [
+   "Piquer.",
+   "Démanger.",
+   "Hacher."
+  ],
+  "rank": 733,
+  "model": null,
+  "frequency": 3937,
+  "reviewed": false
+ },
+ {
+  "es": "extraer",
+  "fr": [
+   "Extraire."
+  ],
+  "rank": 734,
+  "model": "traer",
+  "frequency": 3936,
+  "reviewed": false
+ },
+ {
+  "es": "hervir",
+  "fr": [
+   "Bouillir."
+  ],
+  "rank": 735,
+  "model": "sentir",
+  "frequency": 3936,
+  "reviewed": false
+ },
+ {
+  "es": "aventurar",
+  "fr": [
+   "Aventurer."
+  ],
+  "rank": 736,
+  "model": null,
+  "frequency": 3911,
+  "reviewed": false
+ },
+ {
+  "es": "sellar",
+  "fr": [
+   "Sceller."
+  ],
+  "rank": 737,
+  "model": null,
+  "frequency": 3885,
+  "reviewed": false
+ },
+ {
+  "es": "freír",
+  "fr": [
+   "Frire."
+  ],
+  "rank": 738,
+  "model": "freir",
+  "frequency": 3859,
+  "reviewed": false
+ },
+ {
+  "es": "infectar",
+  "fr": [
+   "Infecter."
+  ],
+  "rank": 739,
+  "model": null,
+  "frequency": 3817,
+  "reviewed": false
+ },
+ {
+  "es": "quebrar",
+  "fr": [
+   "Briser, rompre, casser.",
+   "Faire faillite."
+  ],
+  "rank": 740,
+  "model": "pensar",
+  "frequency": 3817,
+  "reviewed": false
+ },
+ {
+  "es": "pronunciar",
+  "fr": [
+   "Prononcer."
+  ],
+  "rank": 741,
+  "model": null,
+  "frequency": 3794,
+  "reviewed": false
+ },
+ {
+  "es": "estirar",
+  "fr": [
+   "Étirer, étendre, allonger."
+  ],
+  "rank": 742,
+  "model": null,
+  "frequency": 3765,
+  "reviewed": false
+ },
+ {
+  "es": "desafiar",
+  "fr": [
+   "Défier."
+  ],
+  "rank": 743,
+  "model": null,
+  "frequency": 3761,
+  "reviewed": false
+ },
+ {
+  "es": "entrevistar",
+  "fr": [
+   "Interviewer.",
+   "S’entretenir, se concerter."
+  ],
+  "rank": 744,
+  "model": null,
+  "frequency": 3735,
+  "reviewed": false
+ },
+ {
+  "es": "destinar",
+  "fr": [
+   "Destiner."
+  ],
+  "rank": 745,
+  "model": null,
+  "frequency": 3733,
+  "reviewed": false
+ },
+ {
+  "es": "derretir",
+  "fr": [
+   "Fondre.",
+   "Fondre sous l’effet d’un amour ardent.",
+   "User, consommer, dilapider.",
+   "Piocher, écarter des cartes inutiles."
+  ],
+  "rank": 746,
+  "model": "pedir",
+  "frequency": 3716,
+  "reviewed": false
+ },
+ {
+  "es": "posar",
+  "fr": [
+   "Poser, prendre une pose (pour une photo, etc.)."
+  ],
+  "rank": 747,
+  "model": null,
+  "frequency": 3706,
+  "reviewed": false
+ },
+ {
+  "es": "rondar",
+  "fr": [
+   "Tourner autour.",
+   "Tourner autour de façon menaçante, menacer.",
+   "Tourner autour, montrer un intérêt galant."
+  ],
+  "rank": 748,
+  "model": null,
+  "frequency": 3704,
+  "reviewed": false
+ },
+ {
+  "es": "vengar",
+  "fr": [
+   "Venger."
+  ],
+  "rank": 749,
+  "model": null,
+  "frequency": 3689,
+  "reviewed": false
+ },
+ {
+  "es": "yacer",
+  "fr": [
+   "Gésir."
+  ],
+  "rank": 750,
+  "model": "conocer",
+  "frequency": 3689,
+  "reviewed": false
+ },
+ {
+  "es": "concernir",
+  "fr": [
+   "Concerner."
+  ],
+  "rank": 751,
+  "model": "concernir",
+  "frequency": 3680,
+  "reviewed": false
+ },
+ {
+  "es": "liderar",
+  "fr": [
+   "Mener, conduire, agir en meneur (de)."
+  ],
+  "rank": 752,
+  "model": null,
+  "frequency": 3652,
+  "reviewed": false
+ },
+ {
+  "es": "suspirar",
+  "fr": [
+   "Soupirer."
+  ],
+  "rank": 753,
+  "model": null,
+  "frequency": 3652,
+  "reviewed": false
+ },
+ {
+  "es": "constar",
+  "fr": [
+   "Consister.",
+   "Être constaté, constant, concret, réel."
+  ],
+  "rank": 754,
+  "model": null,
+  "frequency": 3647,
+  "reviewed": false
+ },
+ {
+  "es": "incendiar",
+  "fr": [
+   "Incendier."
+  ],
+  "rank": 755,
+  "model": null,
+  "frequency": 3631,
+  "reviewed": false
+ },
+ {
+  "es": "delatar",
+  "fr": [
+   "Dénoncer, pratiquer la délation, révéler."
+  ],
+  "rank": 756,
+  "model": null,
+  "frequency": 3629,
+  "reviewed": false
+ },
+ {
+  "es": "torturar",
+  "fr": [
+   "Torturer.",
+   "Tourmenter."
+  ],
+  "rank": 757,
+  "model": null,
+  "frequency": 3610,
+  "reviewed": false
+ },
+ {
+  "es": "repasar",
+  "fr": [
+   "Repasser, passer de nouveau.",
+   "Réviser, étudier, se remémorer."
+  ],
+  "rank": 758,
+  "model": null,
+  "frequency": 3607,
+  "reviewed": false
+ },
+ {
+  "es": "orar",
+  "fr": [
+   "Prier."
+  ],
+  "rank": 759,
+  "model": null,
+  "frequency": 3603,
+  "reviewed": false
+ },
+ {
+  "es": "bañar",
+  "fr": [
+   "Baigner."
+  ],
+  "rank": 760,
+  "model": null,
+  "frequency": 3596,
+  "reviewed": false
+ },
+ {
+  "es": "anular",
+  "fr": [
+   "Annuler, supprimer, abroger.",
+   "Barrer, biffer, rayer, supprimer."
+  ],
+  "rank": 761,
+  "model": null,
+  "frequency": 3568,
+  "reviewed": false
+ },
+ {
+  "es": "inclinar",
+  "fr": [
+   "Incliner."
+  ],
+  "rank": 762,
+  "model": null,
+  "frequency": 3568,
+  "reviewed": false
+ },
+ {
+  "es": "lamer",
+  "fr": [
+   "Lécher."
+  ],
+  "rank": 763,
+  "model": null,
+  "frequency": 3553,
+  "reviewed": false
+ },
+ {
+  "es": "evacuar",
+  "fr": [
+   "Évacuer, vider."
+  ],
+  "rank": 764,
+  "model": null,
+  "frequency": 3535,
+  "reviewed": false
+ },
+ {
+  "es": "coser",
+  "fr": [
+   "Coudre.",
+   "Blesser de façon répétée avec une arme blanche ou à feu."
+  ],
+  "rank": 765,
+  "model": null,
+  "frequency": 3532,
+  "reviewed": false
+ },
+ {
+  "es": "mojar",
+  "fr": [
+   "Mouiller, tremper.",
+   "Poignarder."
+  ],
+  "rank": 766,
+  "model": null,
+  "frequency": 3504,
+  "reviewed": false
+ },
+ {
+  "es": "inquietar",
+  "fr": [
+   "Inquiéter."
+  ],
+  "rank": 767,
+  "model": null,
+  "frequency": 3490,
+  "reviewed": false
+ },
+ {
+  "es": "distinguir",
+  "fr": [
+   "Apercevoir.",
+   "Distinguer, dégager, identifier, reconnaître."
+  ],
+  "rank": 768,
+  "model": null,
+  "frequency": 3479,
+  "reviewed": false
+ },
+ {
+  "es": "maldecir",
+  "fr": [
+   "Maudire."
+  ],
+  "rank": 769,
+  "model": "bendecir",
+  "frequency": 3478,
+  "reviewed": false
+ },
+ {
+  "es": "desconectar",
+  "fr": [
+   "Déconnecter."
+  ],
+  "rank": 770,
+  "model": null,
+  "frequency": 3434,
+  "reviewed": false
+ },
+ {
+  "es": "reformar",
+  "fr": [
+   "Reformer.",
+   "Rénover."
+  ],
+  "rank": 771,
+  "model": null,
+  "frequency": 3430,
+  "reviewed": false
+ },
+ {
+  "es": "enganchar",
+  "fr": [
+   "Accrocher."
+  ],
+  "rank": 772,
+  "model": null,
+  "frequency": 3405,
+  "reviewed": false
+ },
+ {
+  "es": "secar",
+  "fr": [
+   "Sécher."
+  ],
+  "rank": 773,
+  "model": null,
+  "frequency": 3375,
+  "reviewed": false
+ },
+ {
+  "es": "almacenar",
+  "fr": [
+   "Stocker."
+  ],
+  "rank": 774,
+  "model": null,
+  "frequency": 3300,
+  "reviewed": false
+ },
+ {
+  "es": "agitar",
+  "fr": [
+   "Agiter, brandir, troubler."
+  ],
+  "rank": 775,
+  "model": null,
+  "frequency": 3294,
+  "reviewed": false
+ },
+ {
+  "es": "cabrear",
+  "fr": [
+   "Parquer les chèvres.",
+   "Se fâcher, se mettre en colère."
+  ],
+  "rank": 776,
+  "model": null,
+  "frequency": 3293,
+  "reviewed": false
+ },
+ {
+  "es": "fichar",
+  "fr": [
+   "Ficher."
+  ],
+  "rank": 777,
+  "model": null,
+  "frequency": 3293,
+  "reviewed": false
+ },
+ {
+  "es": "humillar",
+  "fr": [
+   "Humilier."
+  ],
+  "rank": 778,
+  "model": null,
+  "frequency": 3290,
+  "reviewed": false
+ },
+ {
+  "es": "desviar",
+  "fr": [
+   "Dévier, détourner."
+  ],
+  "rank": 779,
+  "model": null,
+  "frequency": 3283,
+  "reviewed": false
+ },
+ {
+  "es": "reflejar",
+  "fr": [
+   "Refléter, renvoyer, réfléchir."
+  ],
+  "rank": 780,
+  "model": null,
+  "frequency": 3275,
+  "reviewed": false
+ },
+ {
+  "es": "pacer",
+  "fr": [
+   "Paître.",
+   "Faire paître."
+  ],
+  "rank": 781,
+  "model": null,
+  "frequency": 3271,
+  "reviewed": false
+ },
+ {
+  "es": "presumir",
+  "fr": [
+   "Présumer.",
+   "Être prétentieux, se croire important."
+  ],
+  "rank": 782,
+  "model": null,
+  "frequency": 3259,
+  "reviewed": false
+ },
+ {
+  "es": "aparcar",
+  "fr": [
+   "Se garer, stationner son véhicule."
+  ],
+  "rank": 783,
+  "model": null,
+  "frequency": 3240,
+  "reviewed": false
+ },
+ {
+  "es": "prevenir",
+  "fr": [
+   "Prévenir."
+  ],
+  "rank": 784,
+  "model": "venir",
+  "frequency": 3203,
+  "reviewed": false
+ },
+ {
+  "es": "triunfar",
+  "fr": [
+   "Triompher."
+  ],
+  "rank": 785,
+  "model": null,
+  "frequency": 3196,
+  "reviewed": false
+ },
+ {
+  "es": "seducir",
+  "fr": [
+   "Séduire."
+  ],
+  "rank": 786,
+  "model": "conducir",
+  "frequency": 3159,
+  "reviewed": false
+ },
+ {
+  "es": "redar",
+  "fr": [
+   "Lancer le filet de pêche."
+  ],
+  "rank": 787,
+  "model": null,
+  "frequency": 3145,
+  "reviewed": false
+ },
+ {
+  "es": "molar",
+  "fr": [
+   "Plaire, kiffer, botter."
+  ],
+  "rank": 788,
+  "model": null,
+  "frequency": 3141,
+  "reviewed": false
+ },
+ {
+  "es": "reconstruir",
+  "fr": [
+   "Reconstruire."
+  ],
+  "rank": 789,
+  "model": "construir",
+  "frequency": 3125,
+  "reviewed": false
+ },
+ {
+  "es": "afeitar",
+  "fr": [
+   "Raser.",
+   "Se raser."
+  ],
+  "rank": 790,
+  "model": null,
+  "frequency": 3121,
+  "reviewed": false
+ },
+ {
+  "es": "resbalar",
+  "fr": [
+   "Glisser."
+  ],
+  "rank": 791,
+  "model": null,
+  "frequency": 3112,
+  "reviewed": false
+ },
+ {
+  "es": "consistir",
+  "fr": [
+   "Consister."
+  ],
+  "rank": 792,
+  "model": null,
+  "frequency": 3111,
+  "reviewed": false
+ },
+ {
+  "es": "evolucionar",
+  "fr": [
+   "Évoluer."
+  ],
+  "rank": 793,
+  "model": null,
+  "frequency": 3108,
+  "reviewed": false
+ },
+ {
+  "es": "acampar",
+  "fr": [
+   "Camper."
+  ],
+  "rank": 794,
+  "model": null,
+  "frequency": 3100,
+  "reviewed": false
+ },
+ {
+  "es": "acechar",
+  "fr": [
+   "Épier, guetter, bouliter.",
+   "Comploter."
+  ],
+  "rank": 795,
+  "model": null,
+  "frequency": 3098,
+  "reviewed": false
+ },
+ {
+  "es": "absorber",
+  "fr": [
+   "Absorber."
+  ],
+  "rank": 796,
+  "model": null,
+  "frequency": 3084,
+  "reviewed": false
+ },
+ {
+  "es": "concluir",
+  "fr": [
+   "Conclure, déduire."
+  ],
+  "rank": 797,
+  "model": "construir",
+  "frequency": 3075,
+  "reviewed": false
+ },
+ {
+  "es": "pelar",
+  "fr": [
+   "Peler, éplucher.",
+   "Effacer en grattant, gratter.",
+   "Dépouiller."
+  ],
+  "rank": 798,
+  "model": null,
+  "frequency": 3074,
+  "reviewed": false
+ },
+ {
+  "es": "interferir",
+  "fr": [
+   "Interférer."
+  ],
+  "rank": 799,
+  "model": null,
+  "frequency": 3055,
+  "reviewed": false
+ },
+ {
+  "es": "envolver",
+  "fr": [
+   "Enrouler.",
+   "Emmailloter."
+  ],
+  "rank": 800,
+  "model": "volver",
+  "frequency": 3045,
+  "reviewed": false
+ },
+ {
+  "es": "combinar",
+  "fr": [
+   "Combiner."
+  ],
+  "rank": 801,
+  "model": null,
+  "frequency": 3043,
+  "reviewed": false
+ },
+ {
+  "es": "florecer",
+  "fr": [
+   "Fleurir."
+  ],
+  "rank": 802,
+  "model": "conocer",
+  "frequency": 3008,
+  "reviewed": false
+ },
+ {
+  "es": "alabar",
+  "fr": [
+   "Vanter, louer quelque chose ou quelqu’un, exaltar.",
+   "Se vanter, se glorifier."
+  ],
+  "rank": 803,
+  "model": null,
+  "frequency": 2999,
+  "reviewed": false
+ },
+ {
+  "es": "centrar",
+  "fr": [
+   "Centrer."
+  ],
+  "rank": 804,
+  "model": null,
+  "frequency": 2968,
+  "reviewed": false
+ },
+ {
+  "es": "derrumbar",
+  "fr": [
+   "Débouler, s’effondrer, tomber, s’écrouler."
+  ],
+  "rank": 805,
+  "model": null,
+  "frequency": 2965,
+  "reviewed": false
+ },
+ {
+  "es": "recrear",
+  "fr": [
+   "Divertir, amuser.",
+   "Recréer, créer à nouveau."
+  ],
+  "rank": 806,
+  "model": null,
+  "frequency": 2961,
+  "reviewed": false
+ },
+ {
+  "es": "anochecer",
+  "fr": [
+   "Tomber (Le jour tombe. La nuit approche.)."
+  ],
+  "rank": 807,
+  "model": "conocer",
+  "frequency": 2960,
+  "reviewed": false
+ },
+ {
+  "es": "morar",
+  "fr": [
+   "Demeurer, habiter, loger."
+  ],
+  "rank": 808,
+  "model": null,
+  "frequency": 2948,
+  "reviewed": false
+ },
+ {
+  "es": "oscurecer",
+  "fr": [
+   "Obscurcir, assombrir.",
+   "Foncer (une couleur)."
+  ],
+  "rank": 809,
+  "model": "conocer",
+  "frequency": 2937,
+  "reviewed": false
+ },
+ {
+  "es": "complicar",
+  "fr": [
+   "Compliquer."
+  ],
+  "rank": 810,
+  "model": null,
+  "frequency": 2905,
+  "reviewed": false
+ },
+ {
+  "es": "apurar",
+  "fr": [
+   "Épuiser.",
+   "Raffiner, épurer.",
+   "s'inquiéter, se faire du mauvais sang."
+  ],
+  "rank": 811,
+  "model": null,
+  "frequency": 2900,
+  "reviewed": false
+ },
+ {
+  "es": "penetrar",
+  "fr": [
+   "Pénétrer."
+  ],
+  "rank": 812,
+  "model": null,
+  "frequency": 2890,
+  "reviewed": false
+ },
+ {
+  "es": "sustituir",
+  "fr": [
+   "Substituer."
+  ],
+  "rank": 813,
+  "model": "construir",
+  "frequency": 2886,
+  "reviewed": false
+ },
+ {
+  "es": "sanar",
+  "fr": [
+   "Guérir."
+  ],
+  "rank": 814,
+  "model": null,
+  "frequency": 2881,
+  "reviewed": false
+ },
+ {
+  "es": "aplaudir",
+  "fr": [
+   "Applaudir.",
+   "Approuver, donner son accord."
+  ],
+  "rank": 815,
+  "model": null,
+  "frequency": 2876,
+  "reviewed": false
+ },
+ {
+  "es": "embarcar",
+  "fr": [
+   "Embarquer, monter à bord."
+  ],
+  "rank": 816,
+  "model": null,
+  "frequency": 2864,
+  "reviewed": false
+ },
+ {
+  "es": "maquinar",
+  "fr": [
+   "Machiner.",
+   "Usiner à la machine."
+  ],
+  "rank": 817,
+  "model": null,
+  "frequency": 2849,
+  "reviewed": false
+ },
+ {
+  "es": "beneficiar",
+  "fr": [
+   "Bénéficier."
+  ],
+  "rank": 818,
+  "model": null,
+  "frequency": 2845,
+  "reviewed": false
+ },
+ {
+  "es": "entusiasmar",
+  "fr": [
+   "Enthousiasmer."
+  ],
+  "rank": 819,
+  "model": null,
+  "frequency": 2845,
+  "reviewed": false
+ },
+ {
+  "es": "contemplar",
+  "fr": [
+   "Contempler."
+  ],
+  "rank": 820,
+  "model": null,
+  "frequency": 2837,
+  "reviewed": false
+ },
+ {
+  "es": "rellenar",
+  "fr": [
+   "Remplir."
+  ],
+  "rank": 821,
+  "model": null,
+  "frequency": 2837,
+  "reviewed": false
+ },
+ {
+  "es": "respectar",
+  "fr": [
+   "Respecter."
+  ],
+  "rank": 822,
+  "model": null,
+  "frequency": 2815,
+  "reviewed": false
+ },
+ {
+  "es": "reponer",
+  "fr": [
+   "Reposer, poser de nouveau.",
+   "Repousser."
+  ],
+  "rank": 823,
+  "model": "poner",
+  "frequency": 2810,
+  "reviewed": false
+ },
+ {
+  "es": "contribuir",
+  "fr": [
+   "Contribuer."
+  ],
+  "rank": 824,
+  "model": "construir",
+  "frequency": 2790,
+  "reviewed": false
+ },
+ {
+  "es": "descifrar",
+  "fr": [
+   "Déchiffrer."
+  ],
+  "rank": 825,
+  "model": null,
+  "frequency": 2785,
+  "reviewed": false
+ },
+ {
+  "es": "alzar",
+  "fr": [
+   "Hausser, soulever, élever.",
+   "Se dresser."
+  ],
+  "rank": 826,
+  "model": null,
+  "frequency": 2781,
+  "reviewed": false
+ },
+ {
+  "es": "afrontar",
+  "fr": [
+   "Affronter."
+  ],
+  "rank": 827,
+  "model": null,
+  "frequency": 2775,
+  "reviewed": false
+ },
+ {
+  "es": "colaborar",
+  "fr": [
+   "Collaborer."
+  ],
+  "rank": 828,
+  "model": null,
+  "frequency": 2770,
+  "reviewed": false
+ },
+ {
+  "es": "filtrar",
+  "fr": [
+   "Filtrer."
+  ],
+  "rank": 829,
+  "model": null,
+  "frequency": 2750,
+  "reviewed": false
+ },
+ {
+  "es": "pudrir",
+  "fr": [
+   "Pourrir"
+  ],
+  "rank": 830,
+  "model": null,
+  "frequency": 2749,
+  "reviewed": false
+ },
+ {
+  "es": "ejercer",
+  "fr": [
+   "Exercer."
+  ],
+  "rank": 831,
+  "model": null,
+  "frequency": 2742,
+  "reviewed": false
+ },
+ {
+  "es": "financiar",
+  "fr": [
+   "Financer."
+  ],
+  "rank": 832,
+  "model": null,
+  "frequency": 2731,
+  "reviewed": false
+ },
+ {
+  "es": "desvanecer",
+  "fr": [
+   "Évanouir, disparaitre.",
+   "Défaire, annuler.",
+   "S’évaporer."
+  ],
+  "rank": 833,
+  "model": "conocer",
+  "frequency": 2728,
+  "reviewed": false
+ },
+ {
+  "es": "autorizar",
+  "fr": [
+   "Autoriser."
+  ],
+  "rank": 834,
+  "model": null,
+  "frequency": 2721,
+  "reviewed": false
+ },
+ {
+  "es": "fundar",
+  "fr": [
+   "Fonder."
+  ],
+  "rank": 835,
+  "model": null,
+  "frequency": 2714,
+  "reviewed": false
+ },
+ {
+  "es": "adquirir",
+  "fr": [
+   "Acquérir."
+  ],
+  "rank": 836,
+  "model": "adquirir",
+  "frequency": 2712,
+  "reviewed": false
+ },
+ {
+  "es": "imitar",
+  "fr": [
+   "Imiter."
+  ],
+  "rank": 837,
+  "model": null,
+  "frequency": 2694,
+  "reviewed": false
+ },
+ {
+  "es": "expandir",
+  "fr": [
+   "Étendre, prendre de l’expansion, développer."
+  ],
+  "rank": 838,
+  "model": null,
+  "frequency": 2693,
+  "reviewed": false
+ },
+ {
+  "es": "disgustar",
+  "fr": [
+   "Dégouter."
+  ],
+  "rank": 839,
+  "model": null,
+  "frequency": 2687,
+  "reviewed": false
+ },
+ {
+  "es": "apresurar",
+  "fr": [
+   "Se presser, se dépêcher."
+  ],
+  "rank": 840,
+  "model": null,
+  "frequency": 2686,
+  "reviewed": false
+ },
+ {
+  "es": "adaptar",
+  "fr": [
+   "Adapter"
+  ],
+  "rank": 841,
+  "model": null,
+  "frequency": 2683,
+  "reviewed": false
+ },
+ {
+  "es": "aproximar",
+  "fr": [
+   "Approcher."
+  ],
+  "rank": 842,
+  "model": null,
+  "frequency": 2683,
+  "reviewed": false
+ },
+ {
+  "es": "cabalgar",
+  "fr": [
+   "Chevaucher."
+  ],
+  "rank": 843,
+  "model": null,
+  "frequency": 2682,
+  "reviewed": false
+ },
+ {
+  "es": "procurar",
+  "fr": [
+   "Procurer.",
+   "Faire en sorte de, tenter de (+ infinitif).",
+   "Se procurer, acheter, acquérir."
+  ],
+  "rank": 844,
+  "model": null,
+  "frequency": 2678,
+  "reviewed": false
+ },
+ {
+  "es": "proyectar",
+  "fr": [
+   "Projeter, lancer.",
+   "Projeter, planifier."
+  ],
+  "rank": 845,
+  "model": null,
+  "frequency": 2671,
+  "reviewed": false
+ },
+ {
+  "es": "medicar",
+  "fr": [
+   "Médiquer."
+  ],
+  "rank": 846,
+  "model": null,
+  "frequency": 2669,
+  "reviewed": false
+ },
+ {
+  "es": "anticipar",
+  "fr": [
+   "Anticiper."
+  ],
+  "rank": 847,
+  "model": null,
+  "frequency": 2652,
+  "reviewed": false
+ },
+ {
+  "es": "tapar",
+  "fr": [
+   "Boucher, raccommoder.",
+   "Couvrir, recouvrir."
+  ],
+  "rank": 848,
+  "model": null,
+  "frequency": 2640,
+  "reviewed": false
+ },
+ {
+  "es": "podrir",
+  "fr": [
+   "Pourrir."
+  ],
+  "rank": 849,
+  "model": null,
+  "frequency": 2638,
+  "reviewed": false
+ },
+ {
+  "es": "brear",
+  "fr": [
+   "Maltraiter, molester, violenter, battre."
+  ],
+  "rank": 850,
+  "model": null,
+  "frequency": 2606,
+  "reviewed": false
+ },
+ {
+  "es": "fotografiar",
+  "fr": [
+   "Photographier."
+  ],
+  "rank": 851,
+  "model": null,
+  "frequency": 2595,
+  "reviewed": false
+ },
+ {
+  "es": "insinuar",
+  "fr": [
+   "Insinuer."
+  ],
+  "rank": 852,
+  "model": null,
+  "frequency": 2589,
+  "reviewed": false
+ },
+ {
+  "es": "reposar",
+  "fr": [
+   "Reposer, se reposer.",
+   "infuser."
+  ],
+  "rank": 853,
+  "model": null,
+  "frequency": 2580,
+  "reviewed": false
+ },
+ {
+  "es": "traficar",
+  "fr": [
+   "Trafiquer."
+  ],
+  "rank": 854,
+  "model": null,
+  "frequency": 2580,
+  "reviewed": false
+ },
+ {
+  "es": "acumular",
+  "fr": [
+   "Accumuler."
+  ],
+  "rank": 855,
+  "model": null,
+  "frequency": 2578,
+  "reviewed": false
+ },
+ {
+  "es": "titar",
+  "fr": [
+   "Un volatile, crier en direction de ses congénères."
+  ],
+  "rank": 856,
+  "model": null,
+  "frequency": 2577,
+  "reviewed": false
+ },
+ {
+  "es": "recurrir",
+  "fr": [
+   "Introduire un recours en justice.",
+   "Recourir à une aide extérieure.",
+   "Être récurrent, en parlant d’une maladie, d’une fièvre intermittente, etc."
+  ],
+  "rank": 857,
+  "model": null,
+  "frequency": 2576,
+  "reviewed": false
+ },
+ {
+  "es": "remar",
+  "fr": [
+   "Ramer.",
+   "Ramer, avancer péniblement."
+  ],
+  "rank": 858,
+  "model": null,
+  "frequency": 2575,
+  "reviewed": false
+ },
+ {
+  "es": "perturbar",
+  "fr": [
+   "Perturber, déranger."
+  ],
+  "rank": 859,
+  "model": null,
+  "frequency": 2570,
+  "reviewed": false
+ },
+ {
+  "es": "abortar",
+  "fr": [
+   "Avorter."
+  ],
+  "rank": 860,
+  "model": null,
+  "frequency": 2555,
+  "reviewed": false
+ },
+ {
+  "es": "ensuciar",
+  "fr": [
+   "Salir"
+  ],
+  "rank": 861,
+  "model": null,
+  "frequency": 2552,
+  "reviewed": false
+ },
+ {
+  "es": "ligar",
+  "fr": [
+   "Lier, relier.",
+   "Liguer.",
+   "draguer (sens galant)."
+  ],
+  "rank": 862,
+  "model": null,
+  "frequency": 2546,
+  "reviewed": false
+ },
+ {
+  "es": "desatar",
+  "fr": [
+   "Détacher.",
+   "Désembrouiller, clarifier."
+  ],
+  "rank": 863,
+  "model": null,
+  "frequency": 2544,
+  "reviewed": false
+ },
+ {
+  "es": "colapsar",
+  "fr": [
+   "Bloquer, paralyser.",
+   "Cesser de fonctionner, échouer, éclater, se démanteler."
+  ],
+  "rank": 864,
+  "model": null,
+  "frequency": 2541,
+  "reviewed": false
+ },
+ {
+  "es": "aspirar",
+  "fr": [
+   "Aspirer.",
+   "Inspirer.",
+   "Pomper."
+  ],
+  "rank": 865,
+  "model": null,
+  "frequency": 2535,
+  "reviewed": false
+ },
+ {
+  "es": "gabar",
+  "fr": [
+   "Se vanter."
+  ],
+  "rank": 866,
+  "model": null,
+  "frequency": 2532,
+  "reviewed": false
+ },
+ {
+  "es": "revivir",
+  "fr": [
+   "Revivre."
+  ],
+  "rank": 867,
+  "model": null,
+  "frequency": 2528,
+  "reviewed": false
+ },
+ {
+  "es": "deducir",
+  "fr": [
+   "Déduire."
+  ],
+  "rank": 868,
+  "model": "conducir",
+  "frequency": 2527,
+  "reviewed": false
+ },
+ {
+  "es": "madurar",
+  "fr": [
+   "Mûrir."
+  ],
+  "rank": 869,
+  "model": null,
+  "frequency": 2526,
+  "reviewed": false
+ },
+ {
+  "es": "hackear",
+  "fr": [
+   "Hacker."
+  ],
+  "rank": 870,
+  "model": null,
+  "frequency": 2502,
+  "reviewed": false
+ },
+ {
+  "es": "improvisar",
+  "fr": [
+   "Improviser."
+  ],
+  "rank": 871,
+  "model": null,
+  "frequency": 2501,
+  "reviewed": false
+ },
+ {
+  "es": "imprimir",
+  "fr": [
+   "Imprimer."
+  ],
+  "rank": 872,
+  "model": null,
+  "frequency": 2494,
+  "reviewed": false
+ },
+ {
+  "es": "imponer",
+  "fr": [
+   "Imposer.",
+   "Renforcer."
+  ],
+  "rank": 873,
+  "model": "poner",
+  "frequency": 2484,
+  "reviewed": false
+ },
+ {
+  "es": "emocionar",
+  "fr": [
+   "Affecter, remuer, émouvoir, toucher."
+  ],
+  "rank": 874,
+  "model": null,
+  "frequency": 2483,
+  "reviewed": false
+ },
+ {
+  "es": "enfriar",
+  "fr": [
+   "Refroidir."
+  ],
+  "rank": 875,
+  "model": null,
+  "frequency": 2483,
+  "reviewed": false
+ },
+ {
+  "es": "mascar",
+  "fr": [
+   "Mâcher."
+  ],
+  "rank": 876,
+  "model": null,
+  "frequency": 2478,
+  "reviewed": false
+ },
+ {
+  "es": "pujar",
+  "fr": [
+   "Pousser.",
+   "Monter.",
+   "Faire monter un prix, augmenter."
+  ],
+  "rank": 877,
+  "model": null,
+  "frequency": 2473,
+  "reviewed": false
+ },
+ {
+  "es": "proveer",
+  "fr": [
+   "Fournir, pourvoir."
+  ],
+  "rank": 878,
+  "model": null,
+  "frequency": 2467,
+  "reviewed": false
+ },
+ {
+  "es": "disfrazar",
+  "fr": [
+   "Déguiser."
+  ],
+  "rank": 879,
+  "model": null,
+  "frequency": 2457,
+  "reviewed": false
+ },
+ {
+  "es": "despreciar",
+  "fr": [
+   "Dédaigner, détester, mépriser."
+  ],
+  "rank": 880,
+  "model": null,
+  "frequency": 2450,
+  "reviewed": false
+ },
+ {
+  "es": "reflexionar",
+  "fr": [
+   "Réfléchir."
+  ],
+  "rank": 881,
+  "model": null,
+  "frequency": 2445,
+  "reviewed": false
+ },
+ {
+  "es": "malgastar",
+  "fr": [
+   "Gaspiller."
+  ],
+  "rank": 882,
+  "model": null,
+  "frequency": 2426,
+  "reviewed": false
+ },
+ {
+  "es": "esparcir",
+  "fr": [
+   "Éparpiller.",
+   "Épandre."
+  ],
+  "rank": 883,
+  "model": null,
+  "frequency": 2416,
+  "reviewed": false
+ },
+ {
+  "es": "apasionar",
+  "fr": [
+   "Passionner."
+  ],
+  "rank": 884,
+  "model": null,
+  "frequency": 2413,
+  "reviewed": false
+ },
+ {
+  "es": "devorar",
+  "fr": [
+   "Dévorer."
+  ],
+  "rank": 885,
+  "model": null,
+  "frequency": 2393,
+  "reviewed": false
+ },
+ {
+  "es": "googlar",
+  "fr": [
+   "Googler."
+  ],
+  "rank": 886,
+  "model": null,
+  "frequency": 2374,
+  "reviewed": false
+ },
+ {
+  "es": "perforar",
+  "fr": [
+   "Perforer, forer (sans rotation), percer."
+  ],
+  "rank": 887,
+  "model": null,
+  "frequency": 2371,
+  "reviewed": false
+ },
+ {
+  "es": "dictar",
+  "fr": [
+   "Dicter."
+  ],
+  "rank": 888,
+  "model": null,
+  "frequency": 2368,
+  "reviewed": false
+ },
+ {
+  "es": "desactivar",
+  "fr": [
+   "Désactiver."
+  ],
+  "rank": 889,
+  "model": null,
+  "frequency": 2361,
+  "reviewed": false
+ },
+ {
+  "es": "pinchar",
+  "fr": [
+   "Pincer."
+  ],
+  "rank": 890,
+  "model": null,
+  "frequency": 2361,
+  "reviewed": false
+ },
+ {
+  "es": "empatar",
+  "fr": [
+   "Faire match nul."
+  ],
+  "rank": 891,
+  "model": null,
+  "frequency": 2351,
+  "reviewed": false
+ },
+ {
+  "es": "modificar",
+  "fr": [
+   "Modifier."
+  ],
+  "rank": 892,
+  "model": null,
+  "frequency": 2327,
+  "reviewed": false
+ },
+ {
+  "es": "bombardear",
+  "fr": [
+   "Bombarder."
+  ],
+  "rank": 893,
+  "model": null,
+  "frequency": 2325,
+  "reviewed": false
+ },
+ {
+  "es": "bucear",
+  "fr": [
+   "Plonger."
+  ],
+  "rank": 894,
+  "model": null,
+  "frequency": 2308,
+  "reviewed": false
+ },
+ {
+  "es": "estafar",
+  "fr": [
+   "Escroquer, filouter."
+  ],
+  "rank": 895,
+  "model": null,
+  "frequency": 2291,
+  "reviewed": false
+ },
+ {
+  "es": "trazar",
+  "fr": [
+   "Tracer."
+  ],
+  "rank": 896,
+  "model": null,
+  "frequency": 2289,
+  "reviewed": false
+ },
+ {
+  "es": "conmover",
+  "fr": [
+   "Émouvoir, remuer, affecter."
+  ],
+  "rank": 897,
+  "model": "contar",
+  "frequency": 2281,
+  "reviewed": false
+ },
+ {
+  "es": "telefonear",
+  "fr": [
+   "Téléphoner."
+  ],
+  "rank": 898,
+  "model": null,
+  "frequency": 2255,
+  "reviewed": false
+ },
+ {
+  "es": "deslizar",
+  "fr": [
+   "Glisser."
+  ],
+  "rank": 899,
+  "model": null,
+  "frequency": 2242,
+  "reviewed": false
+ },
+ {
+  "es": "seleccionar",
+  "fr": [
+   "Sélectionner, choisir, trier."
+  ],
+  "rank": 900,
+  "model": null,
+  "frequency": 2239,
+  "reviewed": false
+ },
+ {
+  "es": "atormentar",
+  "fr": [
+   "Tourmenter."
+  ],
+  "rank": 901,
+  "model": null,
+  "frequency": 2236,
+  "reviewed": false
+ },
+ {
+  "es": "halagar",
+  "fr": [
+   "Flatter."
+  ],
+  "rank": 902,
+  "model": null,
+  "frequency": 2235,
+  "reviewed": false
+ },
+ {
+  "es": "evaluar",
+  "fr": [
+   "Évaluer, estimer, apprécier."
+  ],
+  "rank": 903,
+  "model": null,
+  "frequency": 2226,
+  "reviewed": false
+ },
+ {
+  "es": "depositar",
+  "fr": [
+   "Déposer."
+  ],
+  "rank": 904,
+  "model": null,
+  "frequency": 2221,
+  "reviewed": false
+ },
+ {
+  "es": "jalar",
+  "fr": [
+   "Tirer",
+   "Attirer",
+   "Marcher, fonctionner bien."
+  ],
+  "rank": 905,
+  "model": null,
+  "frequency": 2219,
+  "reviewed": false
+ },
+ {
+  "es": "colar",
+  "fr": [
+   "Glisser, faufiler, filtrer.",
+   "colarse : se faufiler, se glisser."
+  ],
+  "rank": 906,
+  "model": "contar",
+  "frequency": 2212,
+  "reviewed": false
+ },
+ {
+  "es": "toser",
+  "fr": [
+   "Tousser."
+  ],
+  "rank": 907,
+  "model": null,
+  "frequency": 2212,
+  "reviewed": false
+ },
+ {
+  "es": "inyectar",
+  "fr": [
+   "Injecter."
+  ],
+  "rank": 908,
+  "model": null,
+  "frequency": 2211,
+  "reviewed": false
+ },
+ {
+  "es": "coleccionar",
+  "fr": [
+   "Collectionner."
+  ],
+  "rank": 909,
+  "model": null,
+  "frequency": 2204,
+  "reviewed": false
+ },
+ {
+  "es": "sobornar",
+  "fr": [
+   "Suborner.",
+   "Soudoyer."
+  ],
+  "rank": 910,
+  "model": null,
+  "frequency": 2203,
+  "reviewed": false
+ },
+ {
+  "es": "carecer",
+  "fr": [
+   "Manquer de quelque chose."
+  ],
+  "rank": 911,
+  "model": "conocer",
+  "frequency": 2185,
+  "reviewed": false
+ },
+ {
+  "es": "rizar",
+  "fr": [
+   "Friser."
+  ],
+  "rank": 912,
+  "model": null,
+  "frequency": 2183,
+  "reviewed": false
+ },
+ {
+  "es": "consentir",
+  "fr": [
+   "Consentir."
+  ],
+  "rank": 913,
+  "model": "sentir",
+  "frequency": 2182,
+  "reviewed": false
+ },
+ {
+  "es": "emplear",
+  "fr": [
+   "Employer."
+  ],
+  "rank": 914,
+  "model": null,
+  "frequency": 2175,
+  "reviewed": false
+ },
+ {
+  "es": "patinar",
+  "fr": [
+   "Patiner, glisser."
+  ],
+  "rank": 915,
+  "model": null,
+  "frequency": 2172,
+  "reviewed": false
+ },
+ {
+  "es": "engordar",
+  "fr": [
+   "Grossir."
+  ],
+  "rank": 916,
+  "model": null,
+  "frequency": 2152,
+  "reviewed": false
+ },
+ {
+  "es": "frustrar",
+  "fr": [
+   "Frustrer."
+  ],
+  "rank": 917,
+  "model": null,
+  "frequency": 2152,
+  "reviewed": false
+ },
+ {
+  "es": "recaudar",
+  "fr": [
+   "Récolter, lever des fonds."
+  ],
+  "rank": 918,
+  "model": null,
+  "frequency": 2146,
+  "reviewed": false
+ },
+ {
+  "es": "administrar",
+  "fr": [
+   "Administrer, diriger, gérer, régir."
+  ],
+  "rank": 919,
+  "model": null,
+  "frequency": 2140,
+  "reviewed": false
+ },
+ {
+  "es": "dorar",
+  "fr": [
+   "Dorer.",
+   "Faire dorer."
+  ],
+  "rank": 920,
+  "model": null,
+  "frequency": 2139,
+  "reviewed": false
+ },
+ {
+  "es": "impulsar",
+  "fr": [
+   "Impulser."
+  ],
+  "rank": 921,
+  "model": null,
+  "frequency": 2138,
+  "reviewed": false
+ },
+ {
+  "es": "masticar",
+  "fr": [
+   "Mastiquer, mâcher."
+  ],
+  "rank": 922,
+  "model": null,
+  "frequency": 2134,
+  "reviewed": false
+ },
+ {
+  "es": "revolver",
+  "fr": [
+   "Remuer, mélanger."
+  ],
+  "rank": 923,
+  "model": "volver",
+  "frequency": 2134,
+  "reviewed": false
+ },
+ {
+  "es": "enfocar",
+  "fr": [
+   "Faire la mise au point.",
+   "Zoomer.",
+   "pronominal Centrer son attention et sa réflexion sur un sujet particulier."
+  ],
+  "rank": 924,
+  "model": null,
+  "frequency": 2133,
+  "reviewed": false
+ },
+ {
+  "es": "ubicar",
+  "fr": [
+   "Situer en parlant d’un lieu géographique."
+  ],
+  "rank": 925,
+  "model": null,
+  "frequency": 2131,
+  "reviewed": false
+ },
+ {
+  "es": "topar",
+  "fr": [
+   "Se heurter.",
+   "Rencontrer, tomber sur quelqu’un par hasard.",
+   "Trouver, rencontrer ce ou celui que l’on cherchait.",
+   "Cosser, se doguer (pour des ovins)."
+  ],
+  "rank": 926,
+  "model": null,
+  "frequency": 2129,
+  "reviewed": false
+ },
+ {
+  "es": "debilitar",
+  "fr": [
+   "Affaiblir."
+  ],
+  "rank": 927,
+  "model": null,
+  "frequency": 2118,
+  "reviewed": false
+ },
+ {
+  "es": "arrasar",
+  "fr": [
+   "Aplanir, lisser.",
+   "Raser (la barbe).",
+   "Démolir, mettre à terre."
+  ],
+  "rank": 928,
+  "model": null,
+  "frequency": 2114,
+  "reviewed": false
+ },
+ {
+  "es": "diagnosticar",
+  "fr": [
+   "Diagnostiquer."
+  ],
+  "rank": 929,
+  "model": null,
+  "frequency": 2113,
+  "reviewed": false
+ },
+ {
+  "es": "educar",
+  "fr": [
+   "Éduquer.",
+   "Entraîner.",
+   "Dresser."
+  ],
+  "rank": 930,
+  "model": null,
+  "frequency": 2109,
+  "reviewed": false
+ },
+ {
+  "es": "bancar",
+  "fr": [
+   "Payer à la place de quelqu'un, entretenir financièrement une personne.",
+   "Assumer la responsabilité de quelque chose, s'en occuper.",
+   "Endure, supporter quelque chose."
+  ],
+  "rank": 931,
+  "model": null,
+  "frequency": 2106,
+  "reviewed": false
+ },
+ {
+  "es": "encarcelar",
+  "fr": [
+   "Incarcérer, emprisonner."
+  ],
+  "rank": 932,
+  "model": null,
+  "frequency": 2105,
+  "reviewed": false
+ },
+ {
+  "es": "someter",
+  "fr": [
+   "Soumettre."
+  ],
+  "rank": 933,
+  "model": null,
+  "frequency": 2105,
+  "reviewed": false
+ },
+ {
+  "es": "chequear",
+  "fr": [
+   "Contrôler, vérifier."
+  ],
+  "rank": 934,
+  "model": null,
+  "frequency": 2102,
+  "reviewed": false
+ },
+ {
+  "es": "aparentar",
+  "fr": [
+   "Sembler, avoir l’air, faire semblant, avoir l’apparence de."
+  ],
+  "rank": 935,
+  "model": null,
+  "frequency": 2101,
+  "reviewed": false
+ },
+ {
+  "es": "fiar",
+  "fr": [
+   "Fier, confier.",
+   "fiarse : Se fier, avoir confiance."
+  ],
+  "rank": 936,
+  "model": null,
+  "frequency": 2092,
+  "reviewed": false
+ },
+ {
+  "es": "presentir",
+  "fr": [
+   "Pressentir."
+  ],
+  "rank": 937,
+  "model": "sentir",
+  "frequency": 2085,
+  "reviewed": false
+ },
+ {
+  "es": "infiltrar",
+  "fr": [
+   "Infiltrer."
+  ],
+  "rank": 938,
+  "model": null,
+  "frequency": 2080,
+  "reviewed": false
+ },
+ {
+  "es": "catar",
+  "fr": [
+   "Goûter."
+  ],
+  "rank": 939,
+  "model": null,
+  "frequency": 2075,
+  "reviewed": false
+ },
+ {
+  "es": "hartar",
+  "fr": [
+   "Repaître, rassasier.",
+   "Lasser, exaspérer."
+  ],
+  "rank": 940,
+  "model": null,
+  "frequency": 2044,
+  "reviewed": false
+ },
+ {
+  "es": "alojar",
+  "fr": [
+   "Loger, héberger."
+  ],
+  "rank": 941,
+  "model": null,
+  "frequency": 2025,
+  "reviewed": false
+ },
+ {
+  "es": "resumir",
+  "fr": [
+   "Résumer, abréger."
+  ],
+  "rank": 942,
+  "model": null,
+  "frequency": 2025,
+  "reviewed": false
+ },
+ {
+  "es": "inundar",
+  "fr": [
+   "Inonder."
+  ],
+  "rank": 943,
+  "model": null,
+  "frequency": 2018,
+  "reviewed": false
+ },
+ {
+  "es": "rebotar",
+  "fr": [
+   "Rebondir."
+  ],
+  "rank": 944,
+  "model": null,
+  "frequency": 2013,
+  "reviewed": false
+ },
+ {
+  "es": "desangrar",
+  "fr": [
+   "Saigner, vider de son sang."
+  ],
+  "rank": 945,
+  "model": null,
+  "frequency": 2012,
+  "reviewed": false
+ },
+ {
+  "es": "preservar",
+  "fr": [
+   "Préserver."
+  ],
+  "rank": 946,
+  "model": null,
+  "frequency": 2005,
+  "reviewed": false
+ },
+ {
+  "es": "renovar",
+  "fr": [
+   "Rénover."
+  ],
+  "rank": 947,
+  "model": "contar",
+  "frequency": 2005,
+  "reviewed": false
+ },
+ {
+  "es": "liquidar",
+  "fr": [
+   "Liquider, supprimer.",
+   "Supprimer, tuer."
+  ],
+  "rank": 948,
+  "model": null,
+  "frequency": 2002,
+  "reviewed": false
+ },
+ {
+  "es": "motivar",
+  "fr": [
+   "Motiver."
+  ],
+  "rank": 949,
+  "model": null,
+  "frequency": 2000,
+  "reviewed": false
+ },
+ {
+  "es": "simular",
+  "fr": [
+   "Simuler."
+  ],
+  "rank": 950,
+  "model": null,
+  "frequency": 2000,
+  "reviewed": false
+ },
+ {
+  "es": "trepar",
+  "fr": [
+   "Gravir, grimper."
+  ],
+  "rank": 951,
+  "model": null,
+  "frequency": 2000,
+  "reviewed": false
+ },
+ {
+  "es": "subtitular",
+  "fr": [
+   "Sous-titrer."
+  ],
+  "rank": 952,
+  "model": null,
+  "frequency": 1996,
+  "reviewed": false
+ },
+ {
+  "es": "husmear",
+  "fr": [
+   "Renifler, suivre à l’odeur, pister."
+  ],
+  "rank": 953,
+  "model": null,
+  "frequency": 1993,
+  "reviewed": false
+ },
+ {
+  "es": "difundir",
+  "fr": [
+   "Diffuser."
+  ],
+  "rank": 954,
+  "model": null,
+  "frequency": 1992,
+  "reviewed": false
+ },
+ {
+  "es": "alucinar",
+  "fr": [
+   "Avoir des hallucinations.",
+   "Halluciner."
+  ],
+  "rank": 955,
+  "model": null,
+  "frequency": 1989,
+  "reviewed": false
+ },
+ {
+  "es": "clasificar",
+  "fr": [
+   "Classifier."
+  ],
+  "rank": 956,
+  "model": null,
+  "frequency": 1982,
+  "reviewed": false
+ },
+ {
+  "es": "ampliar",
+  "fr": [
+   "Étendre, agrandir, élargir."
+  ],
+  "rank": 957,
+  "model": null,
+  "frequency": 1979,
+  "reviewed": false
+ },
+ {
+  "es": "plantear",
+  "fr": [
+   "Poser le problème (dans le but de trouver une solution).",
+   "Suggérer.",
+   "Envisager."
+  ],
+  "rank": 958,
+  "model": null,
+  "frequency": 1979,
+  "reviewed": false
+ },
+ {
+  "es": "barrer",
+  "fr": [
+   "Balayer.",
+   "Balayer, éliminer."
+  ],
+  "rank": 959,
+  "model": null,
+  "frequency": 1975,
+  "reviewed": false
+ },
+ {
+  "es": "otorgar",
+  "fr": [
+   "Octroyer."
+  ],
+  "rank": 960,
+  "model": null,
+  "frequency": 1971,
+  "reviewed": false
+ },
+ {
+  "es": "fascinar",
+  "fr": [
+   "Fasciner, ravir."
+  ],
+  "rank": 961,
+  "model": null,
+  "frequency": 1968,
+  "reviewed": false
+ },
+ {
+  "es": "esquivar",
+  "fr": [
+   "Esquiver, parer, éviter.",
+   "S’abstenir de, s’excuser."
+  ],
+  "rank": 962,
+  "model": null,
+  "frequency": 1962,
+  "reviewed": false
+ },
+ {
+  "es": "interceptar",
+  "fr": [
+   "Intercepter.",
+   "Barrer le chemin."
+  ],
+  "rank": 963,
+  "model": null,
+  "frequency": 1945,
+  "reviewed": false
+ },
+ {
+  "es": "promover",
+  "fr": [
+   "Promouvoir."
+  ],
+  "rank": 964,
+  "model": "contar",
+  "frequency": 1945,
+  "reviewed": false
+ },
+ {
+  "es": "silbar",
+  "fr": [
+   "Siffler."
+  ],
+  "rank": 965,
+  "model": null,
+  "frequency": 1940,
+  "reviewed": false
+ },
+ {
+  "es": "nominar",
+  "fr": [
+   "Nommer.",
+   "Nominer."
+  ],
+  "rank": 966,
+  "model": null,
+  "frequency": 1924,
+  "reviewed": false
+ },
+ {
+  "es": "duplicar",
+  "fr": [
+   "Doubler, multiplier par deux.",
+   "Dupliquer."
+  ],
+  "rank": 967,
+  "model": null,
+  "frequency": 1921,
+  "reviewed": false
+ },
+ {
+  "es": "aportar",
+  "fr": [
+   "Amener, apporter.",
+   "Faire un apport."
+  ],
+  "rank": 968,
+  "model": null,
+  "frequency": 1916,
+  "reviewed": false
+ },
+ {
+  "es": "sumar",
+  "fr": [
+   "Additionner, ajouter.",
+   "Unir, reunir, joindre."
+  ],
+  "rank": 969,
+  "model": null,
+  "frequency": 1897,
+  "reviewed": false
+ },
+ {
+  "es": "concebir",
+  "fr": [
+   "Concevoir."
+  ],
+  "rank": 970,
+  "model": "pedir",
+  "frequency": 1895,
+  "reviewed": false
+ },
+ {
+  "es": "atracar",
+  "fr": [
+   "Attaquer, agresser."
+  ],
+  "rank": 971,
+  "model": null,
+  "frequency": 1894,
+  "reviewed": false
+ },
+ {
+  "es": "desconocer",
+  "fr": [
+   "Ignorer, ne pas savoir ou connaître."
+  ],
+  "rank": 972,
+  "model": "conocer",
+  "frequency": 1890,
+  "reviewed": false
+ },
+ {
+  "es": "falsificar",
+  "fr": [
+   "Falsifier, fausser."
+  ],
+  "rank": 973,
+  "model": null,
+  "frequency": 1887,
+  "reviewed": false
+ },
+ {
+  "es": "parpadear",
+  "fr": [
+   "Battre des paupières."
+  ],
+  "rank": 974,
+  "model": null,
+  "frequency": 1880,
+  "reviewed": false
+ },
+ {
+  "es": "frotar",
+  "fr": [
+   "Frotter."
+  ],
+  "rank": 975,
+  "model": null,
+  "frequency": 1863,
+  "reviewed": false
+ },
+ {
+  "es": "sabotear",
+  "fr": [
+   "Saboter."
+  ],
+  "rank": 976,
+  "model": null,
+  "frequency": 1853,
+  "reviewed": false
+ },
+ {
+  "es": "gotear",
+  "fr": [
+   "Goutter, tomber par goutte."
+  ],
+  "rank": 977,
+  "model": null,
+  "frequency": 1852,
+  "reviewed": false
+ },
+ {
+  "es": "conspirar",
+  "fr": [
+   "Conspirer."
+  ],
+  "rank": 978,
+  "model": null,
+  "frequency": 1840,
+  "reviewed": false
+ },
+ {
+  "es": "piar",
+  "fr": [
+   "Pépier"
+  ],
+  "rank": 979,
+  "model": null,
+  "frequency": 1838,
+  "reviewed": false
+ },
+ {
+  "es": "apachar",
+  "fr": [
+   "Aplatir, écraser.",
+   "Couvrir la femelle, en parlant des oiseaux domestiques."
+  ],
+  "rank": 980,
+  "model": null,
+  "frequency": 1830,
+  "reviewed": false
+ },
+ {
+  "es": "majar",
+  "fr": [
+   "Frapper, battre.",
+   "Battre au fléau pour séparer la paille du grain."
+  ],
+  "rank": 981,
+  "model": null,
+  "frequency": 1829,
+  "reviewed": false
+ },
+ {
+  "es": "rehusar",
+  "fr": [
+   "Refuser."
+  ],
+  "rank": 982,
+  "model": "actuar",
+  "frequency": 1826,
+  "reviewed": false
+ },
+ {
+  "es": "tranquilizar",
+  "fr": [
+   "Tranquilliser."
+  ],
+  "rank": 983,
+  "model": null,
+  "frequency": 1822,
+  "reviewed": false
+ },
+ {
+  "es": "excavar",
+  "fr": [
+   "Excaver, creuser.",
+   "Faire des fouilles."
+  ],
+  "rank": 984,
+  "model": null,
+  "frequency": 1812,
+  "reviewed": false
+ },
+ {
+  "es": "estresar",
+  "fr": [
+   "Stresser."
+  ],
+  "rank": 985,
+  "model": null,
+  "frequency": 1811,
+  "reviewed": false
+ },
+ {
+  "es": "facilitar",
+  "fr": [
+   "Faciliter.",
+   "Fournir."
+  ],
+  "rank": 986,
+  "model": null,
+  "frequency": 1808,
+  "reviewed": false
+ },
+ {
+  "es": "enredar",
+  "fr": [
+   "Prendre dans un filet.",
+   "Embrouiller, troubler, déconcerter, empêtrer."
+  ],
+  "rank": 987,
+  "model": null,
+  "frequency": 1795,
+  "reviewed": false
+ },
+ {
+  "es": "asombrar",
+  "fr": [
+   "Étonner.",
+   "Assombrir, faire de l’ombre."
+  ],
+  "rank": 988,
+  "model": null,
+  "frequency": 1791,
+  "reviewed": false
+ },
+ {
+  "es": "relevar",
+  "fr": [
+   "Relever.",
+   "Soulager, secourir."
+  ],
+  "rank": 989,
+  "model": null,
+  "frequency": 1791,
+  "reviewed": false
+ },
+ {
+  "es": "influir",
+  "fr": [
+   "Influer, influencer."
+  ],
+  "rank": 990,
+  "model": "construir",
+  "frequency": 1789,
+  "reviewed": false
+ },
+ {
+  "es": "festejar",
+  "fr": [
+   "Fêter.",
+   "Célébrer."
+  ],
+  "rank": 991,
+  "model": null,
+  "frequency": 1787,
+  "reviewed": false
+ },
+ {
+  "es": "ladrar",
+  "fr": [
+   "Aboyer, japper."
+  ],
+  "rank": 992,
+  "model": null,
+  "frequency": 1786,
+  "reviewed": false
+ },
+ {
+  "es": "nevar",
+  "fr": [
+   "Neiger.",
+   "Blanchir, rendre blanc comme neige, ou recouvrir de parcelles blanches comme des flocons."
+  ],
+  "rank": 993,
+  "model": "nevar",
+  "frequency": 1777,
+  "reviewed": false
+ },
+ {
+  "es": "perjudicar",
+  "fr": [
+   "Nuire."
+  ],
+  "rank": 994,
+  "model": null,
+  "frequency": 1774,
+  "reviewed": false
+ },
+ {
+  "es": "notificar",
+  "fr": [
+   "Notifier."
+  ],
+  "rank": 995,
+  "model": null,
+  "frequency": 1769,
+  "reviewed": false
+ },
+ {
+  "es": "doctorar",
+  "fr": [
+   "Élever au grade de docteur."
+  ],
+  "rank": 996,
+  "model": null,
+  "frequency": 1747,
+  "reviewed": false
+ },
+ {
+  "es": "enfurecer",
+  "fr": [
+   "S’énerver, devenir furieux."
+  ],
+  "rank": 997,
+  "model": "conocer",
+  "frequency": 1746,
+  "reviewed": false
+ },
+ {
+  "es": "vibrar",
+  "fr": [
+   "Vibrer."
+  ],
+  "rank": 998,
+  "model": null,
+  "frequency": 1745,
+  "reviewed": false
+ },
+ {
+  "es": "contraer",
+  "fr": [
+   "Contracter, réduire.",
+   "Contracter, faire un contrat."
+  ],
+  "rank": 999,
+  "model": "traer",
+  "frequency": 1741,
+  "reviewed": false
+ },
+ {
+  "es": "reforzar",
+  "fr": [
+   "Renforcer."
+  ],
+  "rank": 1000,
+  "model": "contar",
+  "frequency": 1734,
+  "reviewed": false
+ }
+]

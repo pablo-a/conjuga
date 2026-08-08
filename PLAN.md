@@ -195,8 +195,13 @@ Chaque entrée : `{ es, fr, rank, model, cefr, tags }`.
   licence CC-BY-SA) puis **relecture humaine des 300 premiers**, qui sont ceux réellement drillés
   les premiers mois. Un verbe peut avoir plusieurs traductions FR (`llevar` → porter / emmener /
   emporter) : le champ est une liste, et l'exercice de traduction accepte toutes les variantes.
-- **Attribution des modèles** : automatique par suffixe pour les réguliers, table explicite pour les
-  ~250 irréguliers.
+- **Attribution des modèles** : `resolveDerivation` s'en charge — table explicite, familles de
+  suffixe, puis dérivation préfixée. Sur les 1000 verbes retenus, 220 reçoivent un modèle
+  explicite et le reste est régulier. Un test vérifie que `verbs.json` reste d'accord avec le
+  moteur.
+- **Classement par fréquence** : obtenu en sommant, pour chaque verbe, les occurrences de tout
+  son paradigme — la liste de fréquence ne donne que des formes. Voir CLAUDE.md pour les deux
+  corrections d'homographie sans lesquelles `unir` sortait au rang 6.
 - **CEFR** : niveau indicatif, sert au curriculum.
 
 ## 6. Le système de répétition espacée
@@ -321,10 +326,15 @@ Chaque phase est livrable et testable indépendamment.
 | **1 — Moteur**     | `src/conjugation/*` en TDD, tous les modèles, vérification contre l'oracle | Tests verts sur 108 000 formes                                                                     |
 | **2 — Données**    | Liste des 1000 verbes, modèles assignés, traductions FR des 300 premiers   | **Écran Conjugueur fonctionnel** : n'importe quel verbe, tableau complet, irrégularités surlignées |
 
-L'écran Conjugueur de la phase 2 est **livré** : il conjugue n'importe quel infinitif, avec le
-segment irrégulier surligné et sa règle. Il ne dépend d'aucun jeu de données — c'est le
-bénéfice direct du moteur de règles. Reste de la phase 2 : `src/data/verbs.json`, qui suppose
-une liste de fréquence espagnole ouverte, encore à choisir et à créditer dans `CREDITS.md`.
+La phase 2 est **livrée**. L'écran Conjugueur conjugue n'importe quel infinitif avec le
+segment irrégulier surligné et sa règle ; il ne dépend d'aucun jeu de données, bénéfice direct
+du moteur de règles. `src/data/verbs.json` contient les 1000 verbes les plus fréquents avec
+leur modèle et leurs traductions.
+
+Reste à faire avant de s'appuyer dessus : **relire les traductions**. Les gloses viennent du
+Wiktionnaire, ce sont des définitions et non des équivalents ; chaque entrée porte
+`reviewed: false` et le fichier n'est pas encore livré au navigateur. `data/verbs-review.md`
+liste les points à trancher.
 
 | **3 — Drill + SRS** | Cartes, FSRS, sélecteur, curriculum, exercice drill, persistance | La boucle d'apprentissage quotidienne existe |
 | **4 — Théorie** | Fiches Markdown des temps A2, indicateurs de maîtrise, liens vers drills | Le « pourquoi » derrière le drill |

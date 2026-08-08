@@ -36,18 +36,27 @@ Il est mis à jour au fur et à mesure de l'intégration de chaque source.
 - **Leipzig Corpora Collection** — CC BY-NC. La clause non commerciale contraindrait l'app
   sans contrepartie.
 
+## Traductions françaises et catégories grammaticales
+
+- **[Wiktionnaire francophone](https://fr.wiktionary.org)** — **CC BY-SA 3.0**, via l'extraction
+  lisible par machine [kaikki.org](https://kaikki.org/frwiktionary/Espagnol/) (outil
+  `wiktextract`). Distillée par `npm run data:wiktionary` en
+  `data/wiktionary/es-verbs.json` (3 926 lemmes verbaux et leurs gloses françaises) et
+  `data/wiktionary/es-non-verbs.json` (47 859 mots non verbaux, servant à repérer les
+  homographes).
+
+  **Le partage à l'identique s'applique** : `src/data/verbs.json` est un dérivé de ces gloses
+  et hérite donc de CC BY-SA 3.0, de même que tout écran qui les affiche. À mentionner dans
+  l'écran Réglages au moment où les traductions seront montrées à l'utilisateur.
+
+  Cette source rend inutile le recours à un corpus annoté séparé : elle donne à la fois la
+  catégorie grammaticale et la traduction. `UD_Spanish-AnCora` (CC BY 4.0), envisagé pour la
+  seule catégorie, n'a donc pas été intégré.
+
+  Il n'existe pas de paire Apertium `fra-spa` : la piste d'un dictionnaire bilingue tout fait
+  est fermée.
+
 ## À intégrer
 
-Les sources ci-dessous sont prévues par le plan mais pas encore intégrées. L'attribution exacte
-sera complétée au moment de l'intégration.
-
-- **Catégorie grammaticale des lemmes** —
-  [UD_Spanish-AnCora](https://github.com/UniversalDependencies/UD_Spanish-AnCora), CC BY 4.0.
-  Sert à décider ce qui est un verbe, là où la liste de fréquence ne donne que des formes.
-  `UD_Spanish-GSD` couvre le même besoin mais en CC BY-SA, dont le partage à l'identique se
-  propagerait aux données dérivées.
-- **Traductions françaises** — Wiktionnaire FR/ES, CC-BY-SA 3.0. Attribution et partage à
-  l'identique requis pour les données dérivées. Il n'existe pas de paire Apertium
-  `fra-spa` : la piste d'un dictionnaire bilingue tout fait est fermée.
 - **Corpus de phrases** (enrichissement optionnel des exercices de traduction) —
   [Tatoeba](https://tatoeba.org), CC-BY 2.0 FR. Attribution requise.
