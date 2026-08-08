@@ -8,7 +8,7 @@
   "rank": 1,
   "model": "ser",
   "frequency": 12005387,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estar",
@@ -21,7 +21,7 @@
   "rank": 2,
   "model": "estar",
   "frequency": 7284478,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tener",
@@ -34,7 +34,7 @@
   "rank": 3,
   "model": "tener",
   "frequency": 4631802,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "haber",
@@ -47,7 +47,7 @@
   "rank": 4,
   "model": "haber",
   "frequency": 4142336,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ir",
@@ -58,7 +58,7 @@
   "rank": 5,
   "model": "ir",
   "frequency": 3615690,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "poder",
@@ -68,7 +68,7 @@
   "rank": 6,
   "model": "poder",
   "frequency": 3589365,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hacer",
@@ -78,7 +78,7 @@
   "rank": 7,
   "model": "hacer",
   "frequency": 3026806,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "querer",
@@ -89,7 +89,7 @@
   "rank": 8,
   "model": "querer",
   "frequency": 2425254,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "decir",
@@ -102,7 +102,7 @@
   "rank": 9,
   "model": "decir",
   "frequency": 2310898,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "saber",
@@ -112,7 +112,7 @@
   "rank": 10,
   "model": "saber",
   "frequency": 1697535,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ver",
@@ -122,7 +122,7 @@
   "rank": 11,
   "model": "ver",
   "frequency": 1557166,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "creer",
@@ -132,7 +132,7 @@
   "rank": 12,
   "model": null,
   "frequency": 1277853,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "deber",
@@ -143,7 +143,7 @@
   "rank": 13,
   "model": null,
   "frequency": 1182383,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sentir",
@@ -155,7 +155,7 @@
   "rank": 14,
   "model": "sentir",
   "frequency": 795083,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hablar",
@@ -165,7 +165,7 @@
   "rank": 15,
   "model": null,
   "frequency": 761949,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pensar",
@@ -175,7 +175,7 @@
   "rank": 16,
   "model": "pensar",
   "frequency": 704193,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dejar",
@@ -186,7 +186,7 @@
   "rank": 17,
   "model": null,
   "frequency": 677007,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "necesitar",
@@ -196,7 +196,7 @@
   "rank": 18,
   "model": null,
   "frequency": 672988,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dar",
@@ -207,7 +207,7 @@
   "rank": 19,
   "model": "dar",
   "frequency": 652764,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "venir",
@@ -217,7 +217,7 @@
   "rank": 20,
   "model": "venir",
   "frequency": 624944,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mirar",
@@ -228,7 +228,7 @@
   "rank": 21,
   "model": null,
   "frequency": 594079,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pasar",
@@ -241,7 +241,7 @@
   "rank": 22,
   "model": null,
   "frequency": 563630,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "parecer",
@@ -252,7 +252,7 @@
   "rank": 23,
   "model": "conocer",
   "frequency": 529549,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "volver",
@@ -263,7 +263,7 @@
   "rank": 24,
   "model": "volver",
   "frequency": 515082,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "gustar",
@@ -273,7 +273,7 @@
   "rank": 25,
   "model": null,
   "frequency": 508751,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encontrar",
@@ -285,7 +285,7 @@
   "rank": 26,
   "model": "contar",
   "frequency": 496572,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "esperar",
@@ -296,7 +296,7 @@
   "rank": 27,
   "model": null,
   "frequency": 486701,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "llevar",
@@ -309,7 +309,7 @@
   "rank": 28,
   "model": null,
   "frequency": 460701,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "llegar",
@@ -319,7 +319,7 @@
   "rank": 29,
   "model": null,
   "frequency": 449800,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "salir",
@@ -330,7 +330,7 @@
   "rank": 30,
   "model": "salir",
   "frequency": 440678,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "oír",
@@ -340,7 +340,7 @@
   "rank": 31,
   "model": "oir",
   "frequency": 411859,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "seguir",
@@ -352,7 +352,7 @@
   "rank": 32,
   "model": "pedir",
   "frequency": 400995,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conocer",
@@ -363,7 +363,7 @@
   "rank": 33,
   "model": "conocer",
   "frequency": 376336,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "llamar",
@@ -376,7 +376,7 @@
   "rank": 34,
   "model": null,
   "frequency": 368732,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "entender",
@@ -386,7 +386,7 @@
   "rank": 35,
   "model": "pensar",
   "frequency": 363876,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "poner",
@@ -397,7 +397,7 @@
   "rank": 36,
   "model": "poner",
   "frequency": 358732,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tomar",
@@ -410,7 +410,7 @@
   "rank": 37,
   "model": null,
   "frequency": 336916,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "matar",
@@ -420,7 +420,7 @@
   "rank": 38,
   "model": null,
   "frequency": 298078,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "morir",
@@ -430,7 +430,7 @@
   "rank": 39,
   "model": "morir",
   "frequency": 292804,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "trabajar",
@@ -440,7 +440,7 @@
   "rank": 40,
   "model": null,
   "frequency": 290978,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acabar",
@@ -453,7 +453,7 @@
   "rank": 41,
   "model": null,
   "frequency": 284175,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vivir",
@@ -463,7 +463,7 @@
   "rank": 42,
   "model": null,
   "frequency": 255341,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "importar",
@@ -473,7 +473,7 @@
   "rank": 43,
   "model": null,
   "frequency": 253915,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "empezar",
@@ -483,7 +483,7 @@
   "rank": 44,
   "model": "pensar",
   "frequency": 247052,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "quedar",
@@ -494,7 +494,7 @@
   "rank": 45,
   "model": null,
   "frequency": 246506,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "buscar",
@@ -505,7 +505,7 @@
   "rank": 46,
   "model": null,
   "frequency": 239592,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "entrar",
@@ -515,7 +515,7 @@
   "rank": 47,
   "model": null,
   "frequency": 234582,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "perder",
@@ -525,7 +525,7 @@
   "rank": 48,
   "model": "pensar",
   "frequency": 227732,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "intentar",
@@ -535,7 +535,7 @@
   "rank": 49,
   "model": null,
   "frequency": 220964,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "suponer",
@@ -545,7 +545,7 @@
   "rank": 50,
   "model": "poner",
   "frequency": 220469,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "terminar",
@@ -556,7 +556,7 @@
   "rank": 51,
   "model": null,
   "frequency": 217076,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "escuchar",
@@ -566,7 +566,7 @@
   "rank": 52,
   "model": null,
   "frequency": 210854,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "usar",
@@ -576,7 +576,7 @@
   "rank": 53,
   "model": null,
   "frequency": 205902,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "traer",
@@ -586,7 +586,7 @@
   "rank": 54,
   "model": "traer",
   "frequency": 202523,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pedir",
@@ -596,7 +596,7 @@
   "rank": 55,
   "model": "pedir",
   "frequency": 197482,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conseguir",
@@ -606,7 +606,7 @@
   "rank": 56,
   "model": "pedir",
   "frequency": 192776,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ayudar",
@@ -616,7 +616,7 @@
   "rank": 57,
   "model": null,
   "frequency": 191618,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comer",
@@ -626,7 +626,7 @@
   "rank": 58,
   "model": null,
   "frequency": 191458,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cambiar",
@@ -636,7 +636,7 @@
   "rank": 59,
   "model": null,
   "frequency": 185047,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "preocupar",
@@ -647,7 +647,7 @@
   "rank": 60,
   "model": null,
   "frequency": 183006,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recordar",
@@ -657,7 +657,7 @@
   "rank": 61,
   "model": "contar",
   "frequency": 180722,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tratar",
@@ -670,7 +670,7 @@
   "rank": 62,
   "model": null,
   "frequency": 169114,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "preguntar",
@@ -680,7 +680,7 @@
   "rank": 63,
   "model": null,
   "frequency": 167523,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dormir",
@@ -692,7 +692,7 @@
   "rank": 64,
   "model": "dormir",
   "frequency": 166347,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "significar",
@@ -702,7 +702,7 @@
   "rank": 65,
   "model": null,
   "frequency": 151944,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "jugar",
@@ -715,7 +715,7 @@
   "rank": 66,
   "model": "jugar",
   "frequency": 150801,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "suceder",
@@ -726,7 +726,7 @@
   "rank": 67,
   "model": null,
   "frequency": 146411,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sacar",
@@ -736,7 +736,7 @@
   "rank": 68,
   "model": null,
   "frequency": 140101,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ocurrir",
@@ -746,7 +746,7 @@
   "rank": 69,
   "model": null,
   "frequency": 139218,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "regresar",
@@ -757,7 +757,7 @@
   "rank": 70,
   "model": null,
   "frequency": 135434,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "leer",
@@ -767,7 +767,7 @@
   "rank": 71,
   "model": null,
   "frequency": 130781,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ganar",
@@ -777,7 +777,7 @@
   "rank": 72,
   "model": null,
   "frequency": 129287,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "funcionar",
@@ -787,7 +787,7 @@
   "rank": 73,
   "model": null,
   "frequency": 126961,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enviar",
@@ -797,7 +797,7 @@
   "rank": 74,
   "model": "enviar",
   "frequency": 126422,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pagar",
@@ -807,7 +807,7 @@
   "rank": 75,
   "model": null,
   "frequency": 124928,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comprar",
@@ -817,7 +817,7 @@
   "rank": 76,
   "model": null,
   "frequency": 124714,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "olvidar",
@@ -827,7 +827,7 @@
   "rank": 77,
   "model": null,
   "frequency": 123732,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mantener",
@@ -840,7 +840,7 @@
   "rank": 78,
   "model": "tener",
   "frequency": 119803,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tocar",
@@ -853,7 +853,7 @@
   "rank": 79,
   "model": null,
   "frequency": 118758,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recibir",
@@ -863,7 +863,7 @@
   "rank": 80,
   "model": null,
   "frequency": 118172,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "abrir",
@@ -874,7 +874,7 @@
   "rank": 81,
   "model": "abrir",
   "frequency": 116848,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "correr",
@@ -884,7 +884,7 @@
   "rank": 82,
   "model": null,
   "frequency": 112894,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "unir",
@@ -895,7 +895,7 @@
   "rank": 83,
   "model": null,
   "frequency": 112416,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "caer",
@@ -907,7 +907,7 @@
   "rank": 84,
   "model": "caer",
   "frequency": 110878,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "beber",
@@ -917,7 +917,7 @@
   "rank": 85,
   "model": null,
   "frequency": 108630,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acercar",
@@ -928,7 +928,7 @@
   "rank": 86,
   "model": null,
   "frequency": 108074,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contar",
@@ -939,7 +939,7 @@
   "rank": 87,
   "model": "contar",
   "frequency": 106313,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comenzar",
@@ -949,7 +949,7 @@
   "rank": 88,
   "model": "pensar",
   "frequency": 106033,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encantar",
@@ -960,7 +960,7 @@
   "rank": 89,
   "model": null,
   "frequency": 104646,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "echar",
@@ -971,7 +971,7 @@
   "rank": 90,
   "model": null,
   "frequency": 104543,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "escribir",
@@ -981,7 +981,7 @@
   "rank": 91,
   "model": "escribir",
   "frequency": 103778,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "disparar",
@@ -991,7 +991,7 @@
   "rank": 92,
   "model": null,
   "frequency": 99005,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sonar",
@@ -1002,7 +1002,7 @@
   "rank": 93,
   "model": "contar",
   "frequency": 95873,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "subir",
@@ -1013,7 +1013,7 @@
   "rank": 94,
   "model": null,
   "frequency": 94854,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "robar",
@@ -1023,7 +1023,7 @@
   "rank": 95,
   "model": null,
   "frequency": 93934,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vetar",
@@ -1033,7 +1033,7 @@
   "rank": 96,
   "model": null,
   "frequency": 93782,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "prometer",
@@ -1043,7 +1043,7 @@
   "rank": 97,
   "model": null,
   "frequency": 91179,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aprender",
@@ -1053,7 +1053,7 @@
   "rank": 98,
   "model": null,
   "frequency": 85633,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mover",
@@ -1066,7 +1066,7 @@
   "rank": 99,
   "model": "contar",
   "frequency": 85549,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "coger",
@@ -1078,7 +1078,7 @@
   "rank": 100,
   "model": null,
   "frequency": 85184,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "andar",
@@ -1088,7 +1088,7 @@
   "rank": 101,
   "model": "andar",
   "frequency": 82704,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aceptar",
@@ -1099,7 +1099,7 @@
   "rank": 102,
   "model": null,
   "frequency": 82317,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vender",
@@ -1109,7 +1109,7 @@
   "rank": 103,
   "model": null,
   "frequency": 81752,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "permitir",
@@ -1119,7 +1119,7 @@
   "rank": 104,
   "model": null,
   "frequency": 81099,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mentir",
@@ -1129,7 +1129,7 @@
   "rank": 105,
   "model": "sentir",
   "frequency": 79308,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desear",
@@ -1139,7 +1139,7 @@
   "rank": 106,
   "model": null,
   "frequency": 78800,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "preparar",
@@ -1149,7 +1149,7 @@
   "rank": 107,
   "model": null,
   "frequency": 77907,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "disculpar",
@@ -1159,7 +1159,7 @@
   "rank": 108,
   "model": null,
   "frequency": 76832,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "perdonar",
@@ -1169,7 +1169,7 @@
   "rank": 109,
   "model": null,
   "frequency": 75763,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "escapar",
@@ -1180,7 +1180,7 @@
   "rank": 110,
   "model": null,
   "frequency": 74712,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "decidir",
@@ -1190,7 +1190,7 @@
   "rank": 111,
   "model": null,
   "frequency": 74665,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "servir",
@@ -1200,7 +1200,7 @@
   "rank": 112,
   "model": "pedir",
   "frequency": 74599,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cerrar",
@@ -1211,7 +1211,7 @@
   "rank": 113,
   "model": "pensar",
   "frequency": 74490,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mandar",
@@ -1222,7 +1222,7 @@
   "rank": 114,
   "model": null,
   "frequency": 74001,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "romper",
@@ -1233,7 +1233,7 @@
   "rank": 115,
   "model": "romper",
   "frequency": 73449,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "parar",
@@ -1244,7 +1244,7 @@
   "rank": 116,
   "model": null,
   "frequency": 73430,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "imaginar",
@@ -1254,7 +1254,7 @@
   "rank": 117,
   "model": null,
   "frequency": 73114,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "meter",
@@ -1264,7 +1264,7 @@
   "rank": 118,
   "model": null,
   "frequency": 72971,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "partir",
@@ -1276,7 +1276,7 @@
   "rank": 119,
   "model": null,
   "frequency": 72895,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "referir",
@@ -1286,7 +1286,7 @@
   "rank": 120,
   "model": "sentir",
   "frequency": 71913,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arreglar",
@@ -1297,7 +1297,7 @@
   "rank": 121,
   "model": null,
   "frequency": 71776,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "salvar",
@@ -1307,7 +1307,7 @@
   "rank": 122,
   "model": null,
   "frequency": 71682,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "armar",
@@ -1318,7 +1318,7 @@
   "rank": 123,
   "model": null,
   "frequency": 71630,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "elegir",
@@ -1329,7 +1329,7 @@
   "rank": 124,
   "model": "pedir",
   "frequency": 67698,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "temer",
@@ -1339,7 +1339,7 @@
   "rank": 125,
   "model": null,
   "frequency": 67063,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "convertir",
@@ -1350,7 +1350,7 @@
   "rank": 126,
   "model": "sentir",
   "frequency": 66759,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "equivocar",
@@ -1360,7 +1360,7 @@
   "rank": 127,
   "model": null,
   "frequency": 65939,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bajar",
@@ -1370,7 +1370,7 @@
   "rank": 128,
   "model": null,
   "frequency": 65313,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "detener",
@@ -1381,7 +1381,7 @@
   "rank": 129,
   "model": "tener",
   "frequency": 65031,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "llorar",
@@ -1391,7 +1391,7 @@
   "rank": 130,
   "model": null,
   "frequency": 64996,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "existir",
@@ -1401,7 +1401,7 @@
   "rank": 131,
   "model": null,
   "frequency": 64506,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cuidar",
@@ -1411,7 +1411,7 @@
   "rank": 132,
   "model": null,
   "frequency": 64478,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aparecer",
@@ -1421,7 +1421,7 @@
   "rank": 133,
   "model": "conocer",
   "frequency": 63862,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lograr",
@@ -1432,7 +1432,7 @@
   "rank": 134,
   "model": null,
   "frequency": 63045,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "descubrir",
@@ -1442,7 +1442,7 @@
   "rank": 135,
   "model": "cubrir",
   "frequency": 61929,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "volar",
@@ -1452,7 +1452,7 @@
   "rank": 136,
   "model": "contar",
   "frequency": 61538,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enseñar",
@@ -1464,7 +1464,7 @@
   "rank": 137,
   "model": null,
   "frequency": 61237,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "marchar",
@@ -1474,7 +1474,7 @@
   "rank": 138,
   "model": null,
   "frequency": 60988,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tirar",
@@ -1485,7 +1485,7 @@
   "rank": 139,
   "model": null,
   "frequency": 60988,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "probar",
@@ -1498,7 +1498,7 @@
   "rank": 140,
   "model": "contar",
   "frequency": 60708,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bailar",
@@ -1508,7 +1508,7 @@
   "rank": 141,
   "model": null,
   "frequency": 60659,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "caminar",
@@ -1518,7 +1518,7 @@
   "rank": 142,
   "model": null,
   "frequency": 60347,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "casar",
@@ -1530,7 +1530,7 @@
   "rank": 143,
   "model": null,
   "frequency": 59562,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cantar",
@@ -1540,7 +1540,7 @@
   "rank": 144,
   "model": null,
   "frequency": 59503,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "soler",
@@ -1550,7 +1550,7 @@
   "rank": 145,
   "model": "soler",
   "frequency": 59122,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "presentar",
@@ -1561,7 +1561,7 @@
   "rank": 146,
   "model": null,
   "frequency": 58701,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "continuar",
@@ -1571,7 +1571,7 @@
   "rank": 147,
   "model": "actuar",
   "frequency": 58700,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "negociar",
@@ -1582,7 +1582,7 @@
   "rank": 148,
   "model": null,
   "frequency": 58605,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mostrar",
@@ -1592,7 +1592,7 @@
   "rank": 149,
   "model": "contar",
   "frequency": 57983,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "golpear",
@@ -1602,7 +1602,7 @@
   "rank": 150,
   "model": null,
   "frequency": 57518,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conducir",
@@ -1612,7 +1612,7 @@
   "rank": 151,
   "model": "conducir",
   "frequency": 57316,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "preferir",
@@ -1622,7 +1622,7 @@
   "rank": 152,
   "model": "sentir",
   "frequency": 56939,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "amar",
@@ -1632,7 +1632,7 @@
   "rank": 153,
   "model": null,
   "frequency": 56425,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "responder",
@@ -1642,7 +1642,7 @@
   "rank": 154,
   "model": null,
   "frequency": 56114,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "luchar",
@@ -1653,7 +1653,7 @@
   "rank": 155,
   "model": null,
   "frequency": 54451,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "invitar",
@@ -1663,7 +1663,7 @@
   "rank": 156,
   "model": null,
   "frequency": 54219,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "merecer",
@@ -1673,7 +1673,7 @@
   "rank": 157,
   "model": "conocer",
   "frequency": 53737,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "joder",
@@ -1686,7 +1686,7 @@
   "rank": 158,
   "model": null,
   "frequency": 53716,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "explicar",
@@ -1696,7 +1696,7 @@
   "rank": 159,
   "model": null,
   "frequency": 53693,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "quitar",
@@ -1706,7 +1706,7 @@
   "rank": 160,
   "model": null,
   "frequency": 53637,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desaparecer",
@@ -1716,7 +1716,7 @@
   "rank": 161,
   "model": "conocer",
   "frequency": 53628,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "actuar",
@@ -1727,7 +1727,7 @@
   "rank": 162,
   "model": "actuar",
   "frequency": 53157,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "obtener",
@@ -1737,7 +1737,7 @@
   "rank": 163,
   "model": "tener",
   "frequency": 52196,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "jurar",
@@ -1748,7 +1748,7 @@
   "rank": 164,
   "model": null,
   "frequency": 52002,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atrapar",
@@ -1759,7 +1759,7 @@
   "rank": 165,
   "model": null,
   "frequency": 51928,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "crecer",
@@ -1769,7 +1769,7 @@
   "rank": 166,
   "model": "conocer",
   "frequency": 51152,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "levantar",
@@ -1779,7 +1779,7 @@
   "rank": 167,
   "model": null,
   "frequency": 50551,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comprender",
@@ -1789,7 +1789,7 @@
   "rank": 168,
   "model": null,
   "frequency": 49315,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "gritar",
@@ -1799,7 +1799,7 @@
   "rank": 169,
   "model": null,
   "frequency": 49128,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "nacer",
@@ -1809,7 +1809,7 @@
   "rank": 170,
   "model": "conocer",
   "frequency": 48484,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "confiar",
@@ -1820,7 +1820,7 @@
   "rank": 171,
   "model": null,
   "frequency": 48482,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apostar",
@@ -1830,7 +1830,7 @@
   "rank": 172,
   "model": "contar",
   "frequency": 48315,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pelear",
@@ -1840,7 +1840,7 @@
   "rank": 173,
   "model": null,
   "frequency": 47951,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "placer",
@@ -1850,7 +1850,7 @@
   "rank": 174,
   "model": "conocer",
   "frequency": 47481,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "odiar",
@@ -1860,7 +1860,7 @@
   "rank": 175,
   "model": null,
   "frequency": 46873,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "considerar",
@@ -1870,7 +1870,7 @@
   "rank": 176,
   "model": null,
   "frequency": 46804,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bromear",
@@ -1880,7 +1880,7 @@
   "rank": 177,
   "model": null,
   "frequency": 46643,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atacar",
@@ -1890,7 +1890,7 @@
   "rank": 178,
   "model": null,
   "frequency": 46335,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sufrir",
@@ -1903,7 +1903,7 @@
   "rank": 179,
   "model": null,
   "frequency": 45903,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "destruir",
@@ -1913,7 +1913,7 @@
   "rank": 180,
   "model": "construir",
   "frequency": 45815,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "disfrutar",
@@ -1923,7 +1923,7 @@
   "rank": 181,
   "model": null,
   "frequency": 45525,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "interesar",
@@ -1935,7 +1935,7 @@
   "rank": 182,
   "model": null,
   "frequency": 45159,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "averiguar",
@@ -1945,7 +1945,7 @@
   "rank": 183,
   "model": null,
   "frequency": 45022,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "resultar",
@@ -1955,7 +1955,7 @@
   "rank": 184,
   "model": null,
   "frequency": 44956,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "doler",
@@ -1966,7 +1966,7 @@
   "rank": 185,
   "model": "contar",
   "frequency": 44781,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sentar",
@@ -1977,7 +1977,7 @@
   "rank": 186,
   "model": "pensar",
   "frequency": 43866,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cortar",
@@ -1988,7 +1988,7 @@
   "rank": 187,
   "model": null,
   "frequency": 43669,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "molestar",
@@ -1998,7 +1998,7 @@
   "rank": 188,
   "model": null,
   "frequency": 43596,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recoger",
@@ -2009,7 +2009,7 @@
   "rank": 189,
   "model": null,
   "frequency": 43433,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "esconder",
@@ -2019,7 +2019,7 @@
   "rank": 190,
   "model": null,
   "frequency": 42949,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reír",
@@ -2029,7 +2029,7 @@
   "rank": 191,
   "model": "reir",
   "frequency": 42864,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "huir",
@@ -2039,7 +2039,7 @@
   "rank": 192,
   "model": "construir",
   "frequency": 42726,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dirigir",
@@ -2050,7 +2050,7 @@
   "rank": 193,
   "model": null,
   "frequency": 42478,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "revisar",
@@ -2061,7 +2061,7 @@
   "rank": 194,
   "model": null,
   "frequency": 42404,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "proteger",
@@ -2071,7 +2071,7 @@
   "rank": 195,
   "model": null,
   "frequency": 42363,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ofrecer",
@@ -2081,7 +2081,7 @@
   "rank": 196,
   "model": "conocer",
   "frequency": 42349,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "notar",
@@ -2092,7 +2092,7 @@
   "rank": 197,
   "model": null,
   "frequency": 42270,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "despertar",
@@ -2102,7 +2102,7 @@
   "rank": 198,
   "model": "pensar",
   "frequency": 42215,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reconocer",
@@ -2112,7 +2112,7 @@
   "rank": 199,
   "model": "conocer",
   "frequency": 42157,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cenar",
@@ -2122,7 +2122,7 @@
   "rank": 200,
   "model": null,
   "frequency": 41925,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "crear",
@@ -2132,7 +2132,7 @@
   "rank": 201,
   "model": null,
   "frequency": 41629,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "construir",
@@ -2142,7 +2142,7 @@
   "rank": 202,
   "model": "construir",
   "frequency": 41358,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asegurar",
@@ -2153,7 +2153,7 @@
   "rank": 203,
   "model": null,
   "frequency": 41301,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recuperar",
@@ -2163,7 +2163,7 @@
   "rank": 204,
   "model": null,
   "frequency": 40694,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acordar",
@@ -2174,7 +2174,7 @@
   "rank": 205,
   "model": "contar",
   "frequency": 40657,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "respirar",
@@ -2184,7 +2184,7 @@
   "rank": 206,
   "model": null,
   "frequency": 40526,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "evitar",
@@ -2194,7 +2194,7 @@
   "rank": 207,
   "model": null,
   "frequency": 40522,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "oler",
@@ -2205,7 +2205,7 @@
   "rank": 208,
   "model": "oler",
   "frequency": 39736,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "saltar",
@@ -2215,7 +2215,7 @@
   "rank": 209,
   "model": null,
   "frequency": 39615,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "manejar",
@@ -2226,7 +2226,7 @@
   "rank": 210,
   "model": null,
   "frequency": 39364,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asesinar",
@@ -2236,7 +2236,7 @@
   "rank": 211,
   "model": null,
   "frequency": 39103,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arruinar",
@@ -2246,7 +2246,7 @@
   "rank": 212,
   "model": null,
   "frequency": 38795,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "descansar",
@@ -2256,7 +2256,7 @@
   "rank": 213,
   "model": null,
   "frequency": 38370,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "utilizar",
@@ -2266,7 +2266,7 @@
   "rank": 214,
   "model": null,
   "frequency": 38082,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "planear",
@@ -2276,7 +2276,7 @@
   "rank": 215,
   "model": null,
   "frequency": 37869,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asustar",
@@ -2286,7 +2286,7 @@
   "rank": 216,
   "model": null,
   "frequency": 37722,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "abandonar",
@@ -2296,7 +2296,7 @@
   "rank": 217,
   "model": null,
   "frequency": 37517,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "devolver",
@@ -2307,7 +2307,7 @@
   "rank": 218,
   "model": "volver",
   "frequency": 37476,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "guardar",
@@ -2317,7 +2317,7 @@
   "rank": 219,
   "model": null,
   "frequency": 37367,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "resolver",
@@ -2328,7 +2328,7 @@
   "rank": 220,
   "model": "volver",
   "frequency": 37272,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "agradecer",
@@ -2338,7 +2338,7 @@
   "rank": 221,
   "model": "conocer",
   "frequency": 36602,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cumplir",
@@ -2348,7 +2348,7 @@
   "rank": 222,
   "model": null,
   "frequency": 36509,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estudiar",
@@ -2358,7 +2358,7 @@
   "rank": 223,
   "model": null,
   "frequency": 36403,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "engañar",
@@ -2368,7 +2368,7 @@
   "rank": 224,
   "model": null,
   "frequency": 36392,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "informar",
@@ -2378,7 +2378,7 @@
   "rank": 225,
   "model": null,
   "frequency": 35785,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pesar",
@@ -2389,7 +2389,7 @@
   "rank": 226,
   "model": null,
   "frequency": 35750,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "entregar",
@@ -2401,7 +2401,7 @@
   "rank": 227,
   "model": null,
   "frequency": 35535,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "discutir",
@@ -2411,7 +2411,7 @@
   "rank": 228,
   "model": null,
   "frequency": 35491,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enterar",
@@ -2422,7 +2422,7 @@
   "rank": 229,
   "model": null,
   "frequency": 35481,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contestar",
@@ -2432,7 +2432,7 @@
   "rank": 230,
   "model": null,
   "frequency": 35382,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encargar",
@@ -2442,7 +2442,7 @@
   "rank": 231,
   "model": null,
   "frequency": 35115,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "quemar",
@@ -2454,7 +2454,7 @@
   "rank": 232,
   "model": null,
   "frequency": 35107,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "limpiar",
@@ -2464,7 +2464,7 @@
   "rank": 233,
   "model": null,
   "frequency": 35049,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "viajar",
@@ -2474,7 +2474,7 @@
   "rank": 234,
   "model": null,
   "frequency": 34751,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ordenar",
@@ -2484,7 +2484,7 @@
   "rank": 235,
   "model": null,
   "frequency": 34750,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "compartir",
@@ -2494,7 +2494,7 @@
   "rank": 236,
   "model": null,
   "frequency": 34665,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pertenecer",
@@ -2504,7 +2504,7 @@
   "rank": 237,
   "model": "conocer",
   "frequency": 34021,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "firmar",
@@ -2514,7 +2514,7 @@
   "rank": 238,
   "model": null,
   "frequency": 33954,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "controlar",
@@ -2524,7 +2524,7 @@
   "rank": 239,
   "model": null,
   "frequency": 33608,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ocupar",
@@ -2534,7 +2534,7 @@
   "rank": 240,
   "model": null,
   "frequency": 32723,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "investigar",
@@ -2544,7 +2544,7 @@
   "rank": 241,
   "model": null,
   "frequency": 32682,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "depender",
@@ -2554,7 +2554,7 @@
   "rank": 242,
   "model": null,
   "frequency": 32427,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tragar",
@@ -2567,7 +2567,7 @@
   "rank": 243,
   "model": null,
   "frequency": 32139,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cometer",
@@ -2578,7 +2578,7 @@
   "rank": 244,
   "model": null,
   "frequency": 32099,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fallar",
@@ -2588,7 +2588,7 @@
   "rank": 245,
   "model": null,
   "frequency": 31332,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fumar",
@@ -2598,7 +2598,7 @@
   "rank": 246,
   "model": null,
   "frequency": 31051,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "agarrar",
@@ -2608,7 +2608,7 @@
   "rank": 247,
   "model": null,
   "frequency": 31042,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "prestar",
@@ -2619,7 +2619,7 @@
   "rank": 248,
   "model": null,
   "frequency": 31020,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "demostrar",
@@ -2629,7 +2629,7 @@
   "rank": 249,
   "model": "contar",
   "frequency": 30815,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aguantar",
@@ -2641,7 +2641,7 @@
   "rank": 250,
   "model": null,
   "frequency": 30497,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "negar",
@@ -2651,7 +2651,7 @@
   "rank": 251,
   "model": "pensar",
   "frequency": 30096,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sugerir",
@@ -2661,7 +2661,7 @@
   "rank": 252,
   "model": "sentir",
   "frequency": 29861,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "causar",
@@ -2671,7 +2671,7 @@
   "rank": 253,
   "model": null,
   "frequency": 29700,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pegar",
@@ -2684,7 +2684,7 @@
   "rank": 254,
   "model": null,
   "frequency": 29332,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tardar",
@@ -2694,7 +2694,7 @@
   "rank": 255,
   "model": null,
   "frequency": 29231,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sorprender",
@@ -2705,7 +2705,7 @@
   "rank": 256,
   "model": null,
   "frequency": 29138,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "girar",
@@ -2716,7 +2716,7 @@
   "rank": 257,
   "model": null,
   "frequency": 28984,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hallar",
@@ -2729,7 +2729,7 @@
   "rank": 258,
   "model": null,
   "frequency": 28893,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "permanecer",
@@ -2739,7 +2739,7 @@
   "rank": 259,
   "model": "conocer",
   "frequency": 28727,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "soñar",
@@ -2749,7 +2749,7 @@
   "rank": 260,
   "model": "contar",
   "frequency": 28722,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lanzar",
@@ -2762,7 +2762,7 @@
   "rank": 261,
   "model": null,
   "frequency": 28657,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cruzar",
@@ -2773,7 +2773,7 @@
   "rank": 262,
   "model": null,
   "frequency": 28604,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mencionar",
@@ -2783,7 +2783,7 @@
   "rank": 263,
   "model": null,
   "frequency": 28373,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "besar",
@@ -2793,7 +2793,7 @@
   "rank": 264,
   "model": null,
   "frequency": 27949,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "almorzar",
@@ -2805,7 +2805,7 @@
   "rank": 265,
   "model": "contar",
   "frequency": 27775,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "curar",
@@ -2816,7 +2816,7 @@
   "rank": 266,
   "model": null,
   "frequency": 27378,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contratar",
@@ -2826,7 +2826,7 @@
   "rank": 267,
   "model": null,
   "frequency": 27289,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "adivinar",
@@ -2836,7 +2836,7 @@
   "rank": 268,
   "model": null,
   "frequency": 27257,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enojar",
@@ -2846,7 +2846,7 @@
   "rank": 269,
   "model": null,
   "frequency": 27247,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arrestar",
@@ -2856,7 +2856,7 @@
   "rank": 270,
   "model": null,
   "frequency": 27208,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "parir",
@@ -2868,7 +2868,7 @@
   "rank": 271,
   "model": null,
   "frequency": 27088,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "admitir",
@@ -2880,7 +2880,7 @@
   "rank": 272,
   "model": null,
   "frequency": 27032,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atrever",
@@ -2890,7 +2890,7 @@
   "rank": 273,
   "model": null,
   "frequency": 26992,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "soportar",
@@ -2900,7 +2900,7 @@
   "rank": 274,
   "model": null,
   "frequency": 26430,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dudar",
@@ -2910,7 +2910,7 @@
   "rank": 275,
   "model": null,
   "frequency": 26241,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vigilar",
@@ -2921,7 +2921,7 @@
   "rank": 276,
   "model": null,
   "frequency": 25995,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cubrir",
@@ -2931,7 +2931,7 @@
   "rank": 277,
   "model": "cubrir",
   "frequency": 25982,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "convencer",
@@ -2941,7 +2941,7 @@
   "rank": 278,
   "model": null,
   "frequency": 25981,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alcanzar",
@@ -2952,7 +2952,7 @@
   "rank": 279,
   "model": null,
   "frequency": 25926,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acompañar",
@@ -2962,7 +2962,7 @@
   "rank": 280,
   "model": null,
   "frequency": 25868,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lastimar",
@@ -2973,7 +2973,7 @@
   "rank": 281,
   "model": null,
   "frequency": 25826,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mejorar",
@@ -2983,7 +2983,7 @@
   "rank": 282,
   "model": null,
   "frequency": 25656,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acostar",
@@ -2996,7 +2996,7 @@
   "rank": 283,
   "model": "contar",
   "frequency": 25265,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apagar",
@@ -3006,7 +3006,7 @@
   "rank": 284,
   "model": null,
   "frequency": 25165,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "observar",
@@ -3016,7 +3016,7 @@
   "rank": 285,
   "model": null,
   "frequency": 25131,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "colgar",
@@ -3026,7 +3026,7 @@
   "rank": 286,
   "model": "contar",
   "frequency": 25044,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "avanzar",
@@ -3039,7 +3039,7 @@
   "rank": 287,
   "model": null,
   "frequency": 25007,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "repetir",
@@ -3050,7 +3050,7 @@
   "rank": 288,
   "model": "pedir",
   "frequency": 24807,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "charlar",
@@ -3060,7 +3060,7 @@
   "rank": 289,
   "model": null,
   "frequency": 24601,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "faltar",
@@ -3070,7 +3070,7 @@
   "rank": 290,
   "model": null,
   "frequency": 24178,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "marcar",
@@ -3082,7 +3082,7 @@
   "rank": 291,
   "model": null,
   "frequency": 23949,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "renunciar",
@@ -3092,7 +3092,7 @@
   "rank": 292,
   "model": null,
   "frequency": 23686,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "retirar",
@@ -3102,7 +3102,7 @@
   "rank": 293,
   "model": null,
   "frequency": 23471,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enfrentar",
@@ -3112,7 +3112,7 @@
   "rank": 294,
   "model": null,
   "frequency": 23409,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "costar",
@@ -3123,7 +3123,7 @@
   "rank": 295,
   "model": "contar",
   "frequency": 23314,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "visitar",
@@ -3133,7 +3133,7 @@
   "rank": 296,
   "model": null,
   "frequency": 23285,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fingir",
@@ -3144,7 +3144,7 @@
   "rank": 297,
   "model": null,
   "frequency": 23251,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "valer",
@@ -3154,7 +3154,7 @@
   "rank": 298,
   "model": "valer",
   "frequency": 23060,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "perseguir",
@@ -3164,7 +3164,7 @@
   "rank": 299,
   "model": "pedir",
   "frequency": 23057,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comprobar",
@@ -3174,7 +3174,7 @@
   "rank": 300,
   "model": "contar",
   "frequency": 23043,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "escoger",
@@ -3184,7 +3184,7 @@
   "rank": 301,
   "model": null,
   "frequency": 22930,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "celebrar",
@@ -3195,7 +3195,7 @@
   "rank": 302,
   "model": null,
   "frequency": 22771,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enfadar",
@@ -3205,7 +3205,7 @@
   "rank": 303,
   "model": null,
   "frequency": 22644,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sonreír",
@@ -3215,7 +3215,7 @@
   "rank": 304,
   "model": "reir",
   "frequency": 22174,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ofertar",
@@ -3225,7 +3225,7 @@
   "rank": 305,
   "model": null,
   "frequency": 22087,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "adorar",
@@ -3235,7 +3235,7 @@
   "rank": 306,
   "model": null,
   "frequency": 21966,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alejar",
@@ -3245,7 +3245,7 @@
   "rank": 307,
   "model": null,
   "frequency": 21879,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apuntar",
@@ -3256,7 +3256,7 @@
   "rank": 308,
   "model": null,
   "frequency": 21845,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "divertir",
@@ -3267,7 +3267,7 @@
   "rank": 309,
   "model": "sentir",
   "frequency": 21592,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "superar",
@@ -3278,7 +3278,7 @@
   "rank": 310,
   "model": null,
   "frequency": 21563,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "formar",
@@ -3288,7 +3288,7 @@
   "rank": 311,
   "model": null,
   "frequency": 21295,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "grabar",
@@ -3299,7 +3299,7 @@
   "rank": 312,
   "model": null,
   "frequency": 21217,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "inventar",
@@ -3309,7 +3309,7 @@
   "rank": 313,
   "model": null,
   "frequency": 21035,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apreciar",
@@ -3321,7 +3321,7 @@
   "rank": 314,
   "model": null,
   "frequency": 20997,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mudar",
@@ -3331,7 +3331,7 @@
   "rank": 315,
   "model": null,
   "frequency": 20814,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asumir",
@@ -3342,7 +3342,7 @@
   "rank": 316,
   "model": null,
   "frequency": 20786,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "incluir",
@@ -3352,7 +3352,7 @@
   "rank": 317,
   "model": "construir",
   "frequency": 20778,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sujetar",
@@ -3362,7 +3362,7 @@
   "rank": 318,
   "model": null,
   "frequency": 20519,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encender",
@@ -3372,7 +3372,7 @@
   "rank": 319,
   "model": "pensar",
   "frequency": 20462,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "afectar",
@@ -3382,7 +3382,7 @@
   "rank": 320,
   "model": null,
   "frequency": 20363,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "despedir",
@@ -3393,7 +3393,7 @@
   "rank": 321,
   "model": "pedir",
   "frequency": 20063,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "callar",
@@ -3404,7 +3404,7 @@
   "rank": 322,
   "model": null,
   "frequency": 19895,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encerrar",
@@ -3414,7 +3414,7 @@
   "rank": 323,
   "model": "pensar",
   "frequency": 19738,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "explotar",
@@ -3425,7 +3425,7 @@
   "rank": 324,
   "model": null,
   "frequency": 19722,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "liberar",
@@ -3435,7 +3435,7 @@
   "rank": 325,
   "model": null,
   "frequency": 19664,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cocinar",
@@ -3445,7 +3445,7 @@
   "rank": 326,
   "model": null,
   "frequency": 19584,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "durar",
@@ -3455,7 +3455,7 @@
   "rank": 327,
   "model": null,
   "frequency": 19570,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "confirmar",
@@ -3465,7 +3465,7 @@
   "rank": 328,
   "model": null,
   "frequency": 19537,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "avisar",
@@ -3475,7 +3475,7 @@
   "rank": 329,
   "model": null,
   "frequency": 19413,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "insistir",
@@ -3485,7 +3485,7 @@
   "rank": 330,
   "model": null,
   "frequency": 18918,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "votar",
@@ -3496,7 +3496,7 @@
   "rank": 331,
   "model": null,
   "frequency": 18896,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "empujar",
@@ -3506,7 +3506,7 @@
   "rank": 332,
   "model": null,
   "frequency": 18839,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "representar",
@@ -3517,7 +3517,7 @@
   "rank": 333,
   "model": null,
   "frequency": 18703,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "defender",
@@ -3527,7 +3527,7 @@
   "rank": 334,
   "model": "pensar",
   "frequency": 18542,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "colocar",
@@ -3539,7 +3539,7 @@
   "rank": 335,
   "model": null,
   "frequency": 18493,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "organizar",
@@ -3549,7 +3549,7 @@
   "rank": 336,
   "model": null,
   "frequency": 18365,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "separar",
@@ -3559,7 +3559,7 @@
   "rank": 337,
   "model": null,
   "frequency": 18351,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rendir",
@@ -3570,7 +3570,7 @@
   "rank": 338,
   "model": "pedir",
   "frequency": 18283,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rezar",
@@ -3580,7 +3580,7 @@
   "rank": 339,
   "model": null,
   "frequency": 18204,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arrancar",
@@ -3593,7 +3593,7 @@
   "rank": 340,
   "model": null,
   "frequency": 18167,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "soltar",
@@ -3604,7 +3604,7 @@
   "rank": 341,
   "model": "contar",
   "frequency": 18094,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "gastar",
@@ -3615,7 +3615,7 @@
   "rank": 342,
   "model": null,
   "frequency": 18049,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "obligar",
@@ -3625,7 +3625,7 @@
   "rank": 343,
   "model": null,
   "frequency": 18043,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rechazar",
@@ -3635,7 +3635,7 @@
   "rank": 344,
   "model": null,
   "frequency": 18011,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lucir",
@@ -3646,7 +3646,7 @@
   "rank": 345,
   "model": "conocer",
   "frequency": 17801,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "montar",
@@ -3656,7 +3656,7 @@
   "rank": 346,
   "model": null,
   "frequency": 17732,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enterrar",
@@ -3669,7 +3669,7 @@
   "rank": 347,
   "model": "pensar",
   "frequency": 17664,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "culpar",
@@ -3679,7 +3679,7 @@
   "rank": 348,
   "model": null,
   "frequency": 17602,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "militar",
@@ -3690,7 +3690,7 @@
   "rank": 349,
   "model": null,
   "frequency": 17570,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "extrañar",
@@ -3703,7 +3703,7 @@
   "rank": 350,
   "model": null,
   "frequency": 17535,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atender",
@@ -3713,7 +3713,7 @@
   "rank": 351,
   "model": "pensar",
   "frequency": 17455,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apoyar",
@@ -3723,7 +3723,7 @@
   "rank": 352,
   "model": null,
   "frequency": 17407,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "llenar",
@@ -3733,7 +3733,7 @@
   "rank": 353,
   "model": null,
   "frequency": 17360,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ocultar",
@@ -3743,7 +3743,7 @@
   "rank": 354,
   "model": null,
   "frequency": 17334,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "practicar",
@@ -3753,7 +3753,7 @@
   "rank": 355,
   "model": null,
   "frequency": 17274,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "realizar",
@@ -3763,7 +3763,7 @@
   "rank": 356,
   "model": null,
   "frequency": 17268,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "declarar",
@@ -3773,7 +3773,7 @@
   "rank": 357,
   "model": null,
   "frequency": 17195,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "excusar",
@@ -3783,7 +3783,7 @@
   "rank": 358,
   "model": null,
   "frequency": 17125,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cargar",
@@ -3796,7 +3796,7 @@
   "rank": 359,
   "model": null,
   "frequency": 17076,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "advertir",
@@ -3807,7 +3807,7 @@
   "rank": 360,
   "model": "sentir",
   "frequency": 16923,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "identificar",
@@ -3817,7 +3817,7 @@
   "rank": 361,
   "model": null,
   "frequency": 16869,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dedicar",
@@ -3828,7 +3828,7 @@
   "rank": 362,
   "model": null,
   "frequency": 16839,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "indicar",
@@ -3838,7 +3838,7 @@
   "rank": 363,
   "model": null,
   "frequency": 16693,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pescar",
@@ -3848,7 +3848,7 @@
   "rank": 364,
   "model": null,
   "frequency": 16477,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "eliminar",
@@ -3858,7 +3858,7 @@
   "rank": 365,
   "model": null,
   "frequency": 16397,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apestar",
@@ -3869,7 +3869,7 @@
   "rank": 366,
   "model": null,
   "frequency": 16393,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "opinar",
@@ -3880,7 +3880,7 @@
   "rank": 367,
   "model": null,
   "frequency": 16338,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "traicionar",
@@ -3890,7 +3890,7 @@
   "rank": 368,
   "model": null,
   "frequency": 16299,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "involucrar",
@@ -3900,7 +3900,7 @@
   "rank": 369,
   "model": null,
   "frequency": 16276,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "confesar",
@@ -3910,7 +3910,7 @@
   "rank": 370,
   "model": "pensar",
   "frequency": 16261,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conectar",
@@ -3920,7 +3920,7 @@
   "rank": 371,
   "model": null,
   "frequency": 16128,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "interrumpir",
@@ -3930,7 +3930,7 @@
   "rank": 372,
   "model": null,
   "frequency": 15936,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cancelar",
@@ -3941,7 +3941,7 @@
   "rank": 373,
   "model": null,
   "frequency": 15863,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cagar",
@@ -3954,7 +3954,7 @@
   "rank": 374,
   "model": null,
   "frequency": 15848,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "entrenar",
@@ -3964,7 +3964,7 @@
   "rank": 375,
   "model": null,
   "frequency": 15767,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "brillar",
@@ -3974,7 +3974,7 @@
   "rank": 376,
   "model": null,
   "frequency": 15734,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "registrar",
@@ -3984,7 +3984,7 @@
   "rank": 377,
   "model": null,
   "frequency": 15493,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "saludar",
@@ -3994,7 +3994,7 @@
   "rank": 378,
   "model": null,
   "frequency": 15273,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "nadar",
@@ -4004,7 +4004,7 @@
   "rank": 379,
   "model": null,
   "frequency": 15270,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "proponer",
@@ -4014,7 +4014,7 @@
   "rank": 380,
   "model": "poner",
   "frequency": 15122,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "filmar",
@@ -4024,7 +4024,7 @@
   "rank": 381,
   "model": null,
   "frequency": 14957,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acusar",
@@ -4034,7 +4034,7 @@
   "rank": 382,
   "model": null,
   "frequency": 14905,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "morder",
@@ -4044,7 +4044,7 @@
   "rank": 383,
   "model": "contar",
   "frequency": 14884,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "producir",
@@ -4055,7 +4055,7 @@
   "rank": 384,
   "model": "conducir",
   "frequency": 14863,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atravesar",
@@ -4065,7 +4065,7 @@
   "rank": 385,
   "model": "pensar",
   "frequency": 14715,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apretar",
@@ -4075,7 +4075,7 @@
   "rank": 386,
   "model": "pensar",
   "frequency": 14689,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arriesgar",
@@ -4085,7 +4085,7 @@
   "rank": 387,
   "model": null,
   "frequency": 14689,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lavar",
@@ -4095,7 +4095,7 @@
   "rank": 388,
   "model": null,
   "frequency": 14525,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "requerir",
@@ -4105,7 +4105,7 @@
   "rank": 389,
   "model": "sentir",
   "frequency": 14475,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "resistir",
@@ -4115,7 +4115,7 @@
   "rank": 390,
   "model": null,
   "frequency": 14471,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atraer",
@@ -4127,7 +4127,7 @@
   "rank": 391,
   "model": "traer",
   "frequency": 14440,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aumentar",
@@ -4138,7 +4138,7 @@
   "rank": 392,
   "model": null,
   "frequency": 14440,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aprovechar",
@@ -4149,7 +4149,7 @@
   "rank": 393,
   "model": null,
   "frequency": 14351,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "violar",
@@ -4159,7 +4159,7 @@
   "rank": 394,
   "model": null,
   "frequency": 14348,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recompensar",
@@ -4169,7 +4169,7 @@
   "rank": 395,
   "model": null,
   "frequency": 14346,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alimentar",
@@ -4179,7 +4179,7 @@
   "rank": 396,
   "model": null,
   "frequency": 14338,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acostumbrar",
@@ -4190,7 +4190,7 @@
   "rank": 397,
   "model": null,
   "frequency": 14277,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contactar",
@@ -4200,7 +4200,7 @@
   "rank": 398,
   "model": null,
   "frequency": 14173,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "publicar",
@@ -4210,7 +4210,7 @@
   "rank": 399,
   "model": null,
   "frequency": 14163,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "provocar",
@@ -4220,7 +4220,7 @@
   "rank": 400,
   "model": null,
   "frequency": 14064,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sostener",
@@ -4230,7 +4230,7 @@
   "rank": 401,
   "model": "tener",
   "frequency": 14046,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enamorar",
@@ -4241,7 +4241,7 @@
   "rank": 402,
   "model": null,
   "frequency": 14030,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "suicidar",
@@ -4251,7 +4251,7 @@
   "rank": 403,
   "model": null,
   "frequency": 13906,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "juzgar",
@@ -4261,7 +4261,7 @@
   "rank": 404,
   "model": null,
   "frequency": 13858,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pillar",
@@ -4272,7 +4272,7 @@
   "rank": 405,
   "model": null,
   "frequency": 13805,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "iniciar",
@@ -4283,7 +4283,7 @@
   "rank": 406,
   "model": null,
   "frequency": 13567,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "presionar",
@@ -4293,7 +4293,7 @@
   "rank": 407,
   "model": null,
   "frequency": 13548,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aprobar",
@@ -4304,7 +4304,7 @@
   "rank": 408,
   "model": "contar",
   "frequency": 13486,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ignorar",
@@ -4314,7 +4314,7 @@
   "rank": 409,
   "model": null,
   "frequency": 13476,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "revelar",
@@ -4324,7 +4324,7 @@
   "rank": 410,
   "model": null,
   "frequency": 13420,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ofender",
@@ -4334,7 +4334,7 @@
   "rank": 411,
   "model": null,
   "frequency": 13410,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "despejar",
@@ -4344,7 +4344,7 @@
   "rank": 412,
   "model": null,
   "frequency": 13391,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "participar",
@@ -4354,7 +4354,7 @@
   "rank": 413,
   "model": null,
   "frequency": 13270,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arrastrar",
@@ -4364,7 +4364,7 @@
   "rank": 414,
   "model": null,
   "frequency": 13149,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "establecer",
@@ -4374,7 +4374,7 @@
   "rank": 415,
   "model": "conocer",
   "frequency": 13143,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "agradar",
@@ -4384,7 +4384,7 @@
   "rank": 416,
   "model": null,
   "frequency": 13138,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "amenazar",
@@ -4394,7 +4394,7 @@
   "rank": 417,
   "model": null,
   "frequency": 13004,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sospechar",
@@ -4404,7 +4404,7 @@
   "rank": 418,
   "model": null,
   "frequency": 12948,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "destrozar",
@@ -4415,7 +4415,7 @@
   "rank": 419,
   "model": null,
   "frequency": 12930,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "respetar",
@@ -4425,7 +4425,7 @@
   "rank": 420,
   "model": null,
   "frequency": 12892,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "secuestrar",
@@ -4436,7 +4436,7 @@
   "rank": 421,
   "model": null,
   "frequency": 12762,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "solicitar",
@@ -4446,7 +4446,7 @@
   "rank": 422,
   "model": null,
   "frequency": 12750,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "balar",
@@ -4456,7 +4456,7 @@
   "rank": 423,
   "model": null,
   "frequency": 12646,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cobrar",
@@ -4466,7 +4466,7 @@
   "rank": 424,
   "model": null,
   "frequency": 12646,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sangrar",
@@ -4476,7 +4476,7 @@
   "rank": 425,
   "model": null,
   "frequency": 12628,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "quejar",
@@ -4486,7 +4486,7 @@
   "rank": 426,
   "model": null,
   "frequency": 12600,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "retroceder",
@@ -4496,7 +4496,7 @@
   "rank": 427,
   "model": null,
   "frequency": 12553,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "impedir",
@@ -4506,7 +4506,7 @@
   "rank": 428,
   "model": "pedir",
   "frequency": 12443,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "llover",
@@ -4516,7 +4516,7 @@
   "rank": 429,
   "model": "llover",
   "frequency": 12420,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atar",
@@ -4526,7 +4526,7 @@
   "rank": 430,
   "model": null,
   "frequency": 12414,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arrepentir",
@@ -4536,7 +4536,7 @@
   "rank": 431,
   "model": "sentir",
   "frequency": 12346,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pintar",
@@ -4546,7 +4546,7 @@
   "rank": 432,
   "model": null,
   "frequency": 12312,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vomitar",
@@ -4556,7 +4556,7 @@
   "rank": 433,
   "model": null,
   "frequency": 12281,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reducir",
@@ -4566,7 +4566,7 @@
   "rank": 434,
   "model": "conducir",
   "frequency": 12149,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "describir",
@@ -4576,7 +4576,7 @@
   "rank": 435,
   "model": "escribir",
   "frequency": 12045,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bendecir",
@@ -4586,7 +4586,7 @@
   "rank": 436,
   "model": "bendecir",
   "frequency": 11993,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "capturar",
@@ -4596,7 +4596,7 @@
   "rank": 437,
   "model": null,
   "frequency": 11989,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "condenar",
@@ -4606,7 +4606,7 @@
   "rank": 438,
   "model": null,
   "frequency": 11969,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "poseer",
@@ -4616,7 +4616,7 @@
   "rank": 439,
   "model": null,
   "frequency": 11935,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cazar",
@@ -4629,7 +4629,7 @@
   "rank": 440,
   "model": null,
   "frequency": 11806,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "criar",
@@ -4641,7 +4641,7 @@
   "rank": 441,
   "model": null,
   "frequency": 11767,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aterrizar",
@@ -4652,7 +4652,7 @@
   "rank": 442,
   "model": null,
   "frequency": 11738,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contener",
@@ -4662,7 +4662,7 @@
   "rank": 443,
   "model": "tener",
   "frequency": 11665,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vencer",
@@ -4672,7 +4672,7 @@
   "rank": 444,
   "model": null,
   "frequency": 11663,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arrojar",
@@ -4684,7 +4684,7 @@
   "rank": 445,
   "model": null,
   "frequency": 11546,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "amanecer",
@@ -4696,7 +4696,7 @@
   "rank": 446,
   "model": "conocer",
   "frequency": 11538,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arder",
@@ -4706,7 +4706,7 @@
   "rank": 447,
   "model": null,
   "frequency": 11523,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vestir",
@@ -4716,7 +4716,7 @@
   "rank": 448,
   "model": "pedir",
   "frequency": 11475,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ahorrar",
@@ -4726,7 +4726,7 @@
   "rank": 449,
   "model": null,
   "frequency": 11329,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "deshacer",
@@ -4736,7 +4736,7 @@
   "rank": 450,
   "model": "hacer",
   "frequency": 11308,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "castigar",
@@ -4746,7 +4746,7 @@
   "rank": 451,
   "model": null,
   "frequency": 11295,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aclarar",
@@ -4759,7 +4759,7 @@
   "rank": 452,
   "model": null,
   "frequency": 11119,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "regalar",
@@ -4770,7 +4770,7 @@
   "rank": 453,
   "model": null,
   "frequency": 11018,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encajar",
@@ -4782,7 +4782,7 @@
   "rank": 454,
   "model": null,
   "frequency": 10995,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "denunciar",
@@ -4792,7 +4792,7 @@
   "rank": 455,
   "model": null,
   "frequency": 10854,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "patrullar",
@@ -4802,7 +4802,7 @@
   "rank": 456,
   "model": null,
   "frequency": 10842,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "calmar",
@@ -4812,7 +4812,7 @@
   "rank": 457,
   "model": null,
   "frequency": 10752,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rastrear",
@@ -4822,7 +4822,7 @@
   "rank": 458,
   "model": null,
   "frequency": 10741,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "surgir",
@@ -4832,7 +4832,7 @@
   "rank": 459,
   "model": null,
   "frequency": 10460,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apetecer",
@@ -4843,7 +4843,7 @@
   "rank": 460,
   "model": "conocer",
   "frequency": 10431,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "herir",
@@ -4853,7 +4853,7 @@
   "rank": 461,
   "model": "sentir",
   "frequency": 10380,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "coincidir",
@@ -4864,7 +4864,7 @@
   "rank": 462,
   "model": null,
   "frequency": 10314,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tender",
@@ -4875,7 +4875,7 @@
   "rank": 463,
   "model": "pensar",
   "frequency": 10300,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "garantizar",
@@ -4885,7 +4885,7 @@
   "rank": 464,
   "model": null,
   "frequency": 10228,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "admirar",
@@ -4896,7 +4896,7 @@
   "rank": 465,
   "model": null,
   "frequency": 10161,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alquilar",
@@ -4906,7 +4906,7 @@
   "rank": 466,
   "model": null,
   "frequency": 10153,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pasear",
@@ -4917,7 +4917,7 @@
   "rank": 467,
   "model": null,
   "frequency": 10134,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "borrar",
@@ -4927,7 +4927,7 @@
   "rank": 468,
   "model": null,
   "frequency": 10125,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ultimar",
@@ -4938,7 +4938,7 @@
   "rank": 469,
   "model": null,
   "frequency": 10115,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "expresar",
@@ -4948,7 +4948,7 @@
   "rank": 470,
   "model": null,
   "frequency": 10071,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "anunciar",
@@ -4958,7 +4958,7 @@
   "rank": 471,
   "model": null,
   "frequency": 10034,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desgraciar",
@@ -4969,7 +4969,7 @@
   "rank": 472,
   "model": null,
   "frequency": 10015,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comportar",
@@ -4979,7 +4979,7 @@
   "rank": 473,
   "model": null,
   "frequency": 9931,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comparar",
@@ -4989,7 +4989,7 @@
   "rank": 474,
   "model": null,
   "frequency": 9914,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ahogar",
@@ -5000,7 +5000,7 @@
   "rank": 475,
   "model": null,
   "frequency": 9908,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recomendar",
@@ -5010,7 +5010,7 @@
   "rank": 476,
   "model": "pensar",
   "frequency": 9881,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "experimentar",
@@ -5020,7 +5020,7 @@
   "rank": 477,
   "model": null,
   "frequency": 9866,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hundir",
@@ -5032,7 +5032,7 @@
   "rank": 478,
   "model": null,
   "frequency": 9858,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asistir",
@@ -5042,7 +5042,7 @@
   "rank": 479,
   "model": null,
   "frequency": 9851,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conservar",
@@ -5052,7 +5052,7 @@
   "rank": 480,
   "model": null,
   "frequency": 9766,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "exagerar",
@@ -5062,7 +5062,7 @@
   "rank": 481,
   "model": null,
   "frequency": 9757,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "localizar",
@@ -5072,7 +5072,7 @@
   "rank": 482,
   "model": null,
   "frequency": 9747,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lamentar",
@@ -5083,7 +5083,7 @@
   "rank": 483,
   "model": null,
   "frequency": 9708,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "portar",
@@ -5094,7 +5094,7 @@
   "rank": 484,
   "model": null,
   "frequency": 9678,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bruzar",
@@ -5104,7 +5104,7 @@
   "rank": 485,
   "model": null,
   "frequency": 9633,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "examinar",
@@ -5114,7 +5114,7 @@
   "rank": 486,
   "model": null,
   "frequency": 9600,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bloquear",
@@ -5124,7 +5124,7 @@
   "rank": 487,
   "model": null,
   "frequency": 9521,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "retrasar",
@@ -5134,7 +5134,7 @@
   "rank": 488,
   "model": null,
   "frequency": 9520,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lidiar",
@@ -5144,7 +5144,7 @@
   "rank": 489,
   "model": null,
   "frequency": 9473,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "expulsar",
@@ -5154,7 +5154,7 @@
   "rank": 490,
   "model": null,
   "frequency": 9462,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estropear",
@@ -5166,7 +5166,7 @@
   "rank": 491,
   "model": null,
   "frequency": 9438,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cansar",
@@ -5176,7 +5176,7 @@
   "rank": 492,
   "model": null,
   "frequency": 9374,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "basar",
@@ -5186,7 +5186,7 @@
   "rank": 493,
   "model": null,
   "frequency": 9347,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "solucionar",
@@ -5196,7 +5196,7 @@
   "rank": 494,
   "model": null,
   "frequency": 9313,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "confundir",
@@ -5206,7 +5206,7 @@
   "rank": 495,
   "model": null,
   "frequency": 9196,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comunicar",
@@ -5216,7 +5216,7 @@
   "rank": 496,
   "model": null,
   "frequency": 9178,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "determinar",
@@ -5226,7 +5226,7 @@
   "rank": 497,
   "model": null,
   "frequency": 9111,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fracasar",
@@ -5237,7 +5237,7 @@
   "rank": 498,
   "model": null,
   "frequency": 9088,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "chocar",
@@ -5247,7 +5247,7 @@
   "rank": 499,
   "model": null,
   "frequency": 9085,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "nombrar",
@@ -5257,7 +5257,7 @@
   "rank": 500,
   "model": null,
   "frequency": 8998,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "burlar",
@@ -5268,7 +5268,7 @@
   "rank": 501,
   "model": null,
   "frequency": 8995,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sobrar",
@@ -5278,7 +5278,7 @@
   "rank": 502,
   "model": null,
   "frequency": 8980,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desarrollar",
@@ -5291,7 +5291,7 @@
   "rank": 503,
   "model": null,
   "frequency": 8975,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acceder",
@@ -5302,7 +5302,7 @@
   "rank": 504,
   "model": null,
   "frequency": 8974,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reservar",
@@ -5312,7 +5312,7 @@
   "rank": 505,
   "model": null,
   "frequency": 8843,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "follar",
@@ -5322,7 +5322,7 @@
   "rank": 506,
   "model": null,
   "frequency": 8784,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "añadir",
@@ -5333,7 +5333,7 @@
   "rank": 507,
   "model": null,
   "frequency": 8755,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reaccionar",
@@ -5343,7 +5343,7 @@
   "rank": 508,
   "model": null,
   "frequency": 8755,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "juntar",
@@ -5353,7 +5353,7 @@
   "rank": 509,
   "model": null,
   "frequency": 8744,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "forzar",
@@ -5363,7 +5363,7 @@
   "rank": 510,
   "model": "contar",
   "frequency": 8730,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "empeorar",
@@ -5373,7 +5373,7 @@
   "rank": 511,
   "model": null,
   "frequency": 8701,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "exigir",
@@ -5384,7 +5384,7 @@
   "rank": 512,
   "model": null,
   "frequency": 8674,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "anotar",
@@ -5395,7 +5395,7 @@
   "rank": 513,
   "model": null,
   "frequency": 8651,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rodar",
@@ -5408,7 +5408,7 @@
   "rank": 514,
   "model": "contar",
   "frequency": 8642,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ejecutar",
@@ -5418,7 +5418,7 @@
   "rank": 515,
   "model": null,
   "frequency": 8574,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desayunar",
@@ -5428,7 +5428,7 @@
   "rank": 516,
   "model": null,
   "frequency": 8504,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dibujar",
@@ -5438,7 +5438,7 @@
   "rank": 517,
   "model": null,
   "frequency": 8496,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "avergonzar",
@@ -5448,7 +5448,7 @@
   "rank": 518,
   "model": "contar",
   "frequency": 8492,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "relacionar",
@@ -5458,7 +5458,7 @@
   "rank": 519,
   "model": null,
   "frequency": 8465,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "interpretar",
@@ -5468,7 +5468,7 @@
   "rank": 520,
   "model": null,
   "frequency": 8411,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "extender",
@@ -5478,7 +5478,7 @@
   "rank": 521,
   "model": "pensar",
   "frequency": 8397,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "detectar",
@@ -5488,7 +5488,7 @@
   "rank": 522,
   "model": null,
   "frequency": 8366,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "medir",
@@ -5498,7 +5498,7 @@
   "rank": 523,
   "model": "pedir",
   "frequency": 8358,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "analizar",
@@ -5508,7 +5508,7 @@
   "rank": 524,
   "model": null,
   "frequency": 8332,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enloquecer",
@@ -5518,7 +5518,7 @@
   "rank": 525,
   "model": "conocer",
   "frequency": 8325,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pisar",
@@ -5528,7 +5528,7 @@
   "rank": 526,
   "model": null,
   "frequency": 8322,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "batir",
@@ -5539,7 +5539,7 @@
   "rank": 527,
   "model": null,
   "frequency": 8319,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dominar",
@@ -5549,7 +5549,7 @@
   "rank": 528,
   "model": null,
   "frequency": 8312,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "interrogar",
@@ -5559,7 +5559,7 @@
   "rank": 529,
   "model": null,
   "frequency": 8294,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "obedecer",
@@ -5569,7 +5569,7 @@
   "rank": 530,
   "model": "conocer",
   "frequency": 8261,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "traducir",
@@ -5579,7 +5579,7 @@
   "rank": 531,
   "model": "conducir",
   "frequency": 8202,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "doblar",
@@ -5591,7 +5591,7 @@
   "rank": 532,
   "model": null,
   "frequency": 8199,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "brindar",
@@ -5602,7 +5602,7 @@
   "rank": 533,
   "model": null,
   "frequency": 8163,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conceder",
@@ -5612,7 +5612,7 @@
   "rank": 534,
   "model": null,
   "frequency": 8047,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alterar",
@@ -5622,7 +5622,7 @@
   "rank": 535,
   "model": null,
   "frequency": 8043,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mear",
@@ -5632,7 +5632,7 @@
   "rank": 536,
   "model": null,
   "frequency": 8025,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dividir",
@@ -5642,7 +5642,7 @@
   "rank": 537,
   "model": null,
   "frequency": 8016,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aguardar",
@@ -5655,7 +5655,7 @@
   "rank": 538,
   "model": null,
   "frequency": 8004,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pretender",
@@ -5665,7 +5665,7 @@
   "rank": 539,
   "model": "pensar",
   "frequency": 7980,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cavar",
@@ -5675,7 +5675,7 @@
   "rank": 540,
   "model": null,
   "frequency": 7957,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "verificar",
@@ -5685,7 +5685,7 @@
   "rank": 541,
   "model": null,
   "frequency": 7933,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "invertir",
@@ -5696,7 +5696,7 @@
   "rank": 542,
   "model": "sentir",
   "frequency": 7931,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "diseñar",
@@ -5706,7 +5706,7 @@
   "rank": 543,
   "model": null,
   "frequency": 7910,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sacrificar",
@@ -5716,7 +5716,7 @@
   "rank": 544,
   "model": null,
   "frequency": 7874,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "congelar",
@@ -5726,7 +5726,7 @@
   "rank": 545,
   "model": null,
   "frequency": 7873,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "suplicar",
@@ -5736,7 +5736,7 @@
   "rank": 546,
   "model": null,
   "frequency": 7849,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "proceder",
@@ -5747,7 +5747,7 @@
   "rank": 547,
   "model": null,
   "frequency": 7834,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estallar",
@@ -5757,7 +5757,7 @@
   "rank": 548,
   "model": null,
   "frequency": 7791,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acudir",
@@ -5770,7 +5770,7 @@
   "rank": 549,
   "model": null,
   "frequency": 7780,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rogar",
@@ -5780,7 +5780,7 @@
   "rank": 550,
   "model": "contar",
   "frequency": 7660,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "implicar",
@@ -5790,7 +5790,7 @@
   "rank": 551,
   "model": null,
   "frequency": 7640,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "despegar",
@@ -5800,7 +5800,7 @@
   "rank": 552,
   "model": null,
   "frequency": 7605,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "activar",
@@ -5810,7 +5810,7 @@
   "rank": 553,
   "model": null,
   "frequency": 7574,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aplastar",
@@ -5820,7 +5820,7 @@
   "rank": 554,
   "model": null,
   "frequency": 7567,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "derribar",
@@ -5830,7 +5830,7 @@
   "rank": 555,
   "model": null,
   "frequency": 7536,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reparar",
@@ -5841,7 +5841,7 @@
   "rank": 556,
   "model": null,
   "frequency": 7484,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "abrazar",
@@ -5851,7 +5851,7 @@
   "rank": 557,
   "model": null,
   "frequency": 7440,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sudar",
@@ -5862,7 +5862,7 @@
   "rank": 558,
   "model": null,
   "frequency": 7398,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "transformar",
@@ -5872,7 +5872,7 @@
   "rank": 559,
   "model": null,
   "frequency": 7396,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fijar",
@@ -5883,7 +5883,7 @@
   "rank": 560,
   "model": null,
   "frequency": 7353,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hechizar",
@@ -5893,7 +5893,7 @@
   "rank": 561,
   "model": null,
   "frequency": 7280,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mezclar",
@@ -5904,7 +5904,7 @@
   "rank": 562,
   "model": null,
   "frequency": 7217,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "animar",
@@ -5916,7 +5916,7 @@
   "rank": 563,
   "model": null,
   "frequency": 7205,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "plantar",
@@ -5926,7 +5926,7 @@
   "rank": 564,
   "model": null,
   "frequency": 7187,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "competir",
@@ -5937,7 +5937,7 @@
   "rank": 565,
   "model": "pedir",
   "frequency": 7161,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apartar",
@@ -5950,7 +5950,7 @@
   "rank": 566,
   "model": null,
   "frequency": 7083,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "retener",
@@ -5960,7 +5960,7 @@
   "rank": 567,
   "model": "tener",
   "frequency": 7080,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "exponer",
@@ -5970,7 +5970,7 @@
   "rank": 568,
   "model": "poner",
   "frequency": 7034,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rescatar",
@@ -5980,7 +5980,7 @@
   "rank": 569,
   "model": null,
   "frequency": 7023,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desperdiciar",
@@ -5991,7 +5991,7 @@
   "rank": 570,
   "model": null,
   "frequency": 6972,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "guiar",
@@ -6001,7 +6001,7 @@
   "rank": 571,
   "model": "enviar",
   "frequency": 6954,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desmayar",
@@ -6012,7 +6012,7 @@
   "rank": 572,
   "model": null,
   "frequency": 6933,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "inspirar",
@@ -6022,7 +6022,7 @@
   "rank": 573,
   "model": null,
   "frequency": 6922,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "caber",
@@ -6035,7 +6035,7 @@
   "rank": 574,
   "model": "caber",
   "frequency": 6858,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tallar",
@@ -6048,7 +6048,7 @@
   "rank": 575,
   "model": null,
   "frequency": 6849,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "calentar",
@@ -6059,7 +6059,7 @@
   "rank": 576,
   "model": "pensar",
   "frequency": 6828,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "agotar",
@@ -6070,7 +6070,7 @@
   "rank": 577,
   "model": null,
   "frequency": 6826,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "adoptar",
@@ -6080,7 +6080,7 @@
   "rank": 578,
   "model": null,
   "frequency": 6823,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tramar",
@@ -6090,7 +6090,7 @@
   "rank": 579,
   "model": null,
   "frequency": 6782,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "derramar",
@@ -6100,7 +6100,7 @@
   "rank": 580,
   "model": null,
   "frequency": 6776,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apuñalar",
@@ -6110,7 +6110,7 @@
   "rank": 581,
   "model": null,
   "frequency": 6745,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "completar",
@@ -6120,7 +6120,7 @@
   "rank": 582,
   "model": null,
   "frequency": 6724,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desfilar",
@@ -6131,7 +6131,7 @@
   "rank": 583,
   "model": null,
   "frequency": 6719,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "transmitir",
@@ -6141,7 +6141,7 @@
   "rank": 584,
   "model": null,
   "frequency": 6716,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fabricar",
@@ -6151,7 +6151,7 @@
   "rank": 585,
   "model": null,
   "frequency": 6679,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "insultar",
@@ -6161,7 +6161,7 @@
   "rank": 586,
   "model": null,
   "frequency": 6666,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "afirmar",
@@ -6171,7 +6171,7 @@
   "rank": 587,
   "model": null,
   "frequency": 6649,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "latir",
@@ -6182,7 +6182,7 @@
   "rank": 588,
   "model": null,
   "frequency": 6632,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "suspender",
@@ -6193,7 +6193,7 @@
   "rank": 589,
   "model": null,
   "frequency": 6585,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "señalar",
@@ -6205,7 +6205,7 @@
   "rank": 590,
   "model": null,
   "frequency": 6546,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "copiar",
@@ -6215,7 +6215,7 @@
   "rank": 591,
   "model": null,
   "frequency": 6535,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "consumir",
@@ -6225,7 +6225,7 @@
   "rank": 592,
   "model": null,
   "frequency": 6528,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "clavar",
@@ -6235,7 +6235,7 @@
   "rank": 593,
   "model": null,
   "frequency": 6511,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "corresponder",
@@ -6245,7 +6245,7 @@
   "rank": 594,
   "model": null,
   "frequency": 6480,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "relajar",
@@ -6256,7 +6256,7 @@
   "rank": 595,
   "model": null,
   "frequency": 6473,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "drogar",
@@ -6267,7 +6267,7 @@
   "rank": 596,
   "model": null,
   "frequency": 6444,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "convenir",
@@ -6277,7 +6277,7 @@
   "rank": 597,
   "model": "venir",
   "frequency": 6430,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "protestar",
@@ -6287,7 +6287,7 @@
   "rank": 598,
   "model": null,
   "frequency": 6394,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reclamar",
@@ -6297,7 +6297,7 @@
   "rank": 599,
   "model": null,
   "frequency": 6366,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acelerar",
@@ -6307,7 +6307,7 @@
   "rank": 600,
   "model": null,
   "frequency": 6327,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "consolar",
@@ -6317,7 +6317,7 @@
   "rank": 601,
   "model": "contar",
   "frequency": 6294,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fastidiar",
@@ -6327,7 +6327,7 @@
   "rank": 602,
   "model": null,
   "frequency": 6290,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "instalar",
@@ -6337,7 +6337,7 @@
   "rank": 603,
   "model": null,
   "frequency": 6289,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aburrir",
@@ -6347,7 +6347,7 @@
   "rank": 604,
   "model": null,
   "frequency": 6256,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "normar",
@@ -6357,7 +6357,7 @@
   "rank": 605,
   "model": null,
   "frequency": 6252,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "soplar",
@@ -6370,7 +6370,7 @@
   "rank": 606,
   "model": null,
   "frequency": 6245,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "flotar",
@@ -6380,7 +6380,7 @@
   "rank": 607,
   "model": null,
   "frequency": 6210,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mentar",
@@ -6390,7 +6390,7 @@
   "rank": 608,
   "model": null,
   "frequency": 6169,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "largar",
@@ -6401,7 +6401,7 @@
   "rank": 609,
   "model": null,
   "frequency": 6152,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "envenenar",
@@ -6411,7 +6411,7 @@
   "rank": 610,
   "model": null,
   "frequency": 6095,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reemplazar",
@@ -6421,7 +6421,7 @@
   "rank": 611,
   "model": null,
   "frequency": 6071,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aplicar",
@@ -6431,7 +6431,7 @@
   "rank": 612,
   "model": null,
   "frequency": 6053,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aconsejar",
@@ -6441,7 +6441,7 @@
   "rank": 613,
   "model": null,
   "frequency": 6046,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atropellar",
@@ -6454,7 +6454,7 @@
   "rank": 614,
   "model": null,
   "frequency": 6031,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conversar",
@@ -6464,7 +6464,7 @@
   "rank": 615,
   "model": null,
   "frequency": 5991,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "prender",
@@ -6477,7 +6477,7 @@
   "rank": 616,
   "model": null,
   "frequency": 5909,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "transferir",
@@ -6488,7 +6488,7 @@
   "rank": 617,
   "model": "sentir",
   "frequency": 5879,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "excitar",
@@ -6498,7 +6498,7 @@
   "rank": 618,
   "model": null,
   "frequency": 5873,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "calcular",
@@ -6508,7 +6508,7 @@
   "rank": 619,
   "model": null,
   "frequency": 5833,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ajustar",
@@ -6519,7 +6519,7 @@
   "rank": 620,
   "model": null,
   "frequency": 5827,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "captar",
@@ -6529,7 +6529,7 @@
   "rank": 621,
   "model": null,
   "frequency": 5793,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "orinar",
@@ -6539,7 +6539,7 @@
   "rank": 622,
   "model": null,
   "frequency": 5757,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ceder",
@@ -6549,7 +6549,7 @@
   "rank": 623,
   "model": null,
   "frequency": 5737,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "prohibir",
@@ -6559,7 +6559,7 @@
   "rank": 624,
   "model": "enviar",
   "frequency": 5726,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arar",
@@ -6569,7 +6569,7 @@
   "rank": 625,
   "model": null,
   "frequency": 5715,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "escupir",
@@ -6579,7 +6579,7 @@
   "rank": 626,
   "model": null,
   "frequency": 5703,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dañar",
@@ -6589,7 +6589,7 @@
   "rank": 627,
   "model": null,
   "frequency": 5632,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "esforzar",
@@ -6599,7 +6599,7 @@
   "rank": 628,
   "model": "contar",
   "frequency": 5592,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reclutar",
@@ -6609,7 +6609,7 @@
   "rank": 629,
   "model": null,
   "frequency": 5588,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cooperar",
@@ -6619,7 +6619,7 @@
   "rank": 630,
   "model": null,
   "frequency": 5582,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "navegar",
@@ -6629,7 +6629,7 @@
   "rank": 631,
   "model": null,
   "frequency": 5579,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "librar",
@@ -6640,7 +6640,7 @@
   "rank": 632,
   "model": null,
   "frequency": 5562,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "agregar",
@@ -6650,7 +6650,7 @@
   "rank": 633,
   "model": null,
   "frequency": 5555,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "trasladar",
@@ -6660,7 +6660,7 @@
   "rank": 634,
   "model": null,
   "frequency": 5555,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recorrer",
@@ -6670,7 +6670,7 @@
   "rank": 635,
   "model": null,
   "frequency": 5553,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enfermar",
@@ -6680,7 +6680,7 @@
   "rank": 636,
   "model": null,
   "frequency": 5489,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ingresar",
@@ -6690,7 +6690,7 @@
   "rank": 637,
   "model": null,
   "frequency": 5444,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "descuidar",
@@ -6700,7 +6700,7 @@
   "rank": 638,
   "model": null,
   "frequency": 5430,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "detestar",
@@ -6710,7 +6710,7 @@
   "rank": 639,
   "model": null,
   "frequency": 5429,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "decepcionar",
@@ -6721,7 +6721,7 @@
   "rank": 640,
   "model": null,
   "frequency": 5382,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bastar",
@@ -6731,7 +6731,7 @@
   "rank": 641,
   "model": null,
   "frequency": 5375,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "explorar",
@@ -6741,7 +6741,7 @@
   "rank": 642,
   "model": null,
   "frequency": 5314,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comprometer",
@@ -6751,7 +6751,7 @@
   "rank": 643,
   "model": null,
   "frequency": 5306,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "manipular",
@@ -6762,7 +6762,7 @@
   "rank": 644,
   "model": null,
   "frequency": 5303,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tolerar",
@@ -6772,7 +6772,7 @@
   "rank": 645,
   "model": null,
   "frequency": 5301,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "invadir",
@@ -6782,7 +6782,7 @@
   "rank": 646,
   "model": null,
   "frequency": 5290,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asignar",
@@ -6792,7 +6792,7 @@
   "rank": 647,
   "model": null,
   "frequency": 5264,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "espiar",
@@ -6802,7 +6802,7 @@
   "rank": 648,
   "model": null,
   "frequency": 5262,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "complacer",
@@ -6812,7 +6812,7 @@
   "rank": 649,
   "model": "conocer",
   "frequency": 5219,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estacionar",
@@ -6822,7 +6822,7 @@
   "rank": 650,
   "model": null,
   "frequency": 5210,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "halar",
@@ -6832,7 +6832,7 @@
   "rank": 651,
   "model": null,
   "frequency": 5172,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pervertir",
@@ -6842,7 +6842,7 @@
   "rank": 652,
   "model": null,
   "frequency": 5169,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ensayar",
@@ -6852,7 +6852,7 @@
   "rank": 653,
   "model": null,
   "frequency": 5132,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tumbar",
@@ -6862,7 +6862,7 @@
   "rank": 654,
   "model": null,
   "frequency": 5118,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "repartir",
@@ -6872,7 +6872,7 @@
   "rank": 655,
   "model": null,
   "frequency": 5117,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "linear",
@@ -6882,7 +6882,7 @@
   "rank": 656,
   "model": null,
   "frequency": 5107,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "circular",
@@ -6892,7 +6892,7 @@
   "rank": 657,
   "model": null,
   "frequency": 5096,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "abusar",
@@ -6902,7 +6902,7 @@
   "rank": 658,
   "model": null,
   "frequency": 5056,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "intimidar",
@@ -6912,7 +6912,7 @@
   "rank": 659,
   "model": null,
   "frequency": 5033,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tensar",
@@ -6922,7 +6922,7 @@
   "rank": 660,
   "model": null,
   "frequency": 5015,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "gobernar",
@@ -6932,7 +6932,7 @@
   "rank": 661,
   "model": "pensar",
   "frequency": 5004,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encubrir",
@@ -6942,7 +6942,7 @@
   "rank": 662,
   "model": "cubrir",
   "frequency": 4968,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "combatir",
@@ -6952,7 +6952,7 @@
   "rank": 663,
   "model": null,
   "frequency": 4947,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "generar",
@@ -6962,7 +6962,7 @@
   "rank": 664,
   "model": null,
   "frequency": 4946,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "talar",
@@ -6972,7 +6972,7 @@
   "rank": 665,
   "model": null,
   "frequency": 4926,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "comentar",
@@ -6982,7 +6982,7 @@
   "rank": 666,
   "model": null,
   "frequency": 4897,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "componer",
@@ -6992,7 +6992,7 @@
   "rank": 667,
   "model": "poner",
   "frequency": 4872,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aliviar",
@@ -7002,7 +7002,7 @@
   "rank": 668,
   "model": null,
   "frequency": 4849,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cuestionar",
@@ -7012,7 +7012,7 @@
   "rank": 669,
   "model": null,
   "frequency": 4837,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "distraer",
@@ -7022,7 +7022,7 @@
   "rank": 670,
   "model": "traer",
   "frequency": 4825,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "temblar",
@@ -7032,7 +7032,7 @@
   "rank": 671,
   "model": "pensar",
   "frequency": 4811,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "honrar",
@@ -7045,7 +7045,7 @@
   "rank": 672,
   "model": null,
   "frequency": 4806,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estimar",
@@ -7057,7 +7057,7 @@
   "rank": 673,
   "model": null,
   "frequency": 4801,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conquistar",
@@ -7067,7 +7067,7 @@
   "rank": 674,
   "model": null,
   "frequency": 4786,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atascar",
@@ -7077,7 +7077,7 @@
   "rank": 675,
   "model": null,
   "frequency": 4774,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "oponer",
@@ -7087,7 +7087,7 @@
   "rank": 676,
   "model": "poner",
   "frequency": 4761,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "chupar",
@@ -7099,7 +7099,7 @@
   "rank": 677,
   "model": null,
   "frequency": 4747,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "citar",
@@ -7109,7 +7109,7 @@
   "rank": 678,
   "model": null,
   "frequency": 4736,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ascender",
@@ -7119,7 +7119,7 @@
   "rank": 679,
   "model": "pensar",
   "frequency": 4701,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "divorciar",
@@ -7130,7 +7130,7 @@
   "rank": 680,
   "model": null,
   "frequency": 4648,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "transportar",
@@ -7140,7 +7140,7 @@
   "rank": 681,
   "model": null,
   "frequency": 4628,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "entretener",
@@ -7150,7 +7150,7 @@
   "rank": 682,
   "model": "tener",
   "frequency": 4603,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "definir",
@@ -7160,7 +7160,7 @@
   "rank": 683,
   "model": null,
   "frequency": 4563,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reventar",
@@ -7171,7 +7171,7 @@
   "rank": 684,
   "model": "pensar",
   "frequency": 4521,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "liar",
@@ -7183,7 +7183,7 @@
   "rank": 685,
   "model": null,
   "frequency": 4507,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "graduar",
@@ -7195,7 +7195,7 @@
   "rank": 686,
   "model": null,
   "frequency": 4499,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "adelantar",
@@ -7206,7 +7206,7 @@
   "rank": 687,
   "model": null,
   "frequency": 4497,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "criticar",
@@ -7216,7 +7216,7 @@
   "rank": 688,
   "model": null,
   "frequency": 4495,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cultivar",
@@ -7226,7 +7226,7 @@
   "rank": 689,
   "model": null,
   "frequency": 4494,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "procesar",
@@ -7237,7 +7237,7 @@
   "rank": 690,
   "model": null,
   "frequency": 4488,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conformar",
@@ -7248,7 +7248,7 @@
   "rank": 691,
   "model": null,
   "frequency": 4487,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "descargar",
@@ -7259,7 +7259,7 @@
   "rank": 692,
   "model": null,
   "frequency": 4486,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "susurrar",
@@ -7269,7 +7269,7 @@
   "rank": 693,
   "model": null,
   "frequency": 4475,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "heredar",
@@ -7279,7 +7279,7 @@
   "rank": 694,
   "model": null,
   "frequency": 4474,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vaciar",
@@ -7289,7 +7289,7 @@
   "rank": 695,
   "model": null,
   "frequency": 4436,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "justificar",
@@ -7299,7 +7299,7 @@
   "rank": 696,
   "model": null,
   "frequency": 4417,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "introducir",
@@ -7309,7 +7309,7 @@
   "rank": 697,
   "model": "conducir",
   "frequency": 4411,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "deprimir",
@@ -7319,7 +7319,7 @@
   "rank": 698,
   "model": null,
   "frequency": 4390,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "corregir",
@@ -7329,7 +7329,7 @@
   "rank": 699,
   "model": "pedir",
   "frequency": 4384,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "descartar",
@@ -7339,7 +7339,7 @@
   "rank": 700,
   "model": null,
   "frequency": 4379,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "descender",
@@ -7349,7 +7349,7 @@
   "rank": 701,
   "model": "pensar",
   "frequency": 4360,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "iluminar",
@@ -7359,7 +7359,7 @@
   "rank": 702,
   "model": null,
   "frequency": 4357,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acosar",
@@ -7369,7 +7369,7 @@
   "rank": 703,
   "model": null,
   "frequency": 4354,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "compensar",
@@ -7379,7 +7379,7 @@
   "rank": 704,
   "model": null,
   "frequency": 4338,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "abordar",
@@ -7390,7 +7390,7 @@
   "rank": 705,
   "model": null,
   "frequency": 4336,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "escalar",
@@ -7400,7 +7400,7 @@
   "rank": 706,
   "model": null,
   "frequency": 4321,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fluir",
@@ -7410,7 +7410,7 @@
   "rank": 707,
   "model": "construir",
   "frequency": 4312,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "programar",
@@ -7420,7 +7420,7 @@
   "rank": 708,
   "model": null,
   "frequency": 4293,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estrellar",
@@ -7431,7 +7431,7 @@
   "rank": 709,
   "model": null,
   "frequency": 4291,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "envejecer",
@@ -7443,7 +7443,7 @@
   "rank": 710,
   "model": "conocer",
   "frequency": 4286,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "limitar",
@@ -7453,7 +7453,7 @@
   "rank": 711,
   "model": null,
   "frequency": 4261,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "predecir",
@@ -7463,7 +7463,7 @@
   "rank": 712,
   "model": "decir",
   "frequency": 4252,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "elevar",
@@ -7473,7 +7473,7 @@
   "rank": 713,
   "model": null,
   "frequency": 4209,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "concordar",
@@ -7485,7 +7485,7 @@
   "rank": 714,
   "model": "contar",
   "frequency": 4183,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asaltar",
@@ -7495,7 +7495,7 @@
   "rank": 715,
   "model": null,
   "frequency": 4177,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "felicitar",
@@ -7505,7 +7505,7 @@
   "rank": 716,
   "model": null,
   "frequency": 4176,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "intervenir",
@@ -7515,7 +7515,7 @@
   "rank": 717,
   "model": "venir",
   "frequency": 4170,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "disminuir",
@@ -7525,7 +7525,7 @@
   "rank": 718,
   "model": "construir",
   "frequency": 4143,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tropezar",
@@ -7536,7 +7536,7 @@
   "rank": 719,
   "model": "pensar",
   "frequency": 4131,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "intercambiar",
@@ -7546,7 +7546,7 @@
   "rank": 720,
   "model": null,
   "frequency": 4093,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ejercitar",
@@ -7556,7 +7556,7 @@
   "rank": 721,
   "model": null,
   "frequency": 4046,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "valorar",
@@ -7566,7 +7566,7 @@
   "rank": 722,
   "model": null,
   "frequency": 4045,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "percibir",
@@ -7576,7 +7576,7 @@
   "rank": 723,
   "model": null,
   "frequency": 4029,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sacudir",
@@ -7589,7 +7589,7 @@
   "rank": 724,
   "model": null,
   "frequency": 4025,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "concentrar",
@@ -7599,7 +7599,7 @@
   "rank": 725,
   "model": null,
   "frequency": 4013,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acertar",
@@ -7610,7 +7610,7 @@
   "rank": 726,
   "model": "pensar",
   "frequency": 4009,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fallecer",
@@ -7620,7 +7620,7 @@
   "rank": 727,
   "model": "conocer",
   "frequency": 4000,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "consultar",
@@ -7631,7 +7631,7 @@
   "rank": 728,
   "model": null,
   "frequency": 3999,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "donar",
@@ -7641,7 +7641,7 @@
   "rank": 729,
   "model": null,
   "frequency": 3999,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "disponer",
@@ -7652,7 +7652,7 @@
   "rank": 730,
   "model": "poner",
   "frequency": 3959,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "frenar",
@@ -7662,7 +7662,7 @@
   "rank": 731,
   "model": null,
   "frequency": 3942,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "emborrachar",
@@ -7672,7 +7672,7 @@
   "rank": 732,
   "model": null,
   "frequency": 3941,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "picar",
@@ -7684,7 +7684,7 @@
   "rank": 733,
   "model": null,
   "frequency": 3937,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "extraer",
@@ -7694,7 +7694,7 @@
   "rank": 734,
   "model": "traer",
   "frequency": 3936,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hervir",
@@ -7704,7 +7704,7 @@
   "rank": 735,
   "model": "sentir",
   "frequency": 3936,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aventurar",
@@ -7714,7 +7714,7 @@
   "rank": 736,
   "model": null,
   "frequency": 3911,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sellar",
@@ -7724,7 +7724,7 @@
   "rank": 737,
   "model": null,
   "frequency": 3885,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "freír",
@@ -7734,7 +7734,7 @@
   "rank": 738,
   "model": "freir",
   "frequency": 3859,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "infectar",
@@ -7744,7 +7744,7 @@
   "rank": 739,
   "model": null,
   "frequency": 3817,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "quebrar",
@@ -7755,7 +7755,7 @@
   "rank": 740,
   "model": "pensar",
   "frequency": 3817,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pronunciar",
@@ -7765,7 +7765,7 @@
   "rank": 741,
   "model": null,
   "frequency": 3794,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estirar",
@@ -7775,7 +7775,7 @@
   "rank": 742,
   "model": null,
   "frequency": 3765,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desafiar",
@@ -7785,7 +7785,7 @@
   "rank": 743,
   "model": null,
   "frequency": 3761,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "entrevistar",
@@ -7796,7 +7796,7 @@
   "rank": 744,
   "model": null,
   "frequency": 3735,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "destinar",
@@ -7806,7 +7806,7 @@
   "rank": 745,
   "model": null,
   "frequency": 3733,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "derretir",
@@ -7819,7 +7819,7 @@
   "rank": 746,
   "model": "pedir",
   "frequency": 3716,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "posar",
@@ -7829,7 +7829,7 @@
   "rank": 747,
   "model": null,
   "frequency": 3706,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rondar",
@@ -7841,7 +7841,7 @@
   "rank": 748,
   "model": null,
   "frequency": 3704,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vengar",
@@ -7851,7 +7851,7 @@
   "rank": 749,
   "model": null,
   "frequency": 3689,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "yacer",
@@ -7861,7 +7861,7 @@
   "rank": 750,
   "model": "conocer",
   "frequency": 3689,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "concernir",
@@ -7871,7 +7871,7 @@
   "rank": 751,
   "model": "concernir",
   "frequency": 3680,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "liderar",
@@ -7881,7 +7881,7 @@
   "rank": 752,
   "model": null,
   "frequency": 3652,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "suspirar",
@@ -7891,7 +7891,7 @@
   "rank": 753,
   "model": null,
   "frequency": 3652,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "constar",
@@ -7902,7 +7902,7 @@
   "rank": 754,
   "model": null,
   "frequency": 3647,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "incendiar",
@@ -7912,7 +7912,7 @@
   "rank": 755,
   "model": null,
   "frequency": 3631,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "delatar",
@@ -7922,7 +7922,7 @@
   "rank": 756,
   "model": null,
   "frequency": 3629,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "torturar",
@@ -7933,7 +7933,7 @@
   "rank": 757,
   "model": null,
   "frequency": 3610,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "repasar",
@@ -7944,7 +7944,7 @@
   "rank": 758,
   "model": null,
   "frequency": 3607,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "orar",
@@ -7954,7 +7954,7 @@
   "rank": 759,
   "model": null,
   "frequency": 3603,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bañar",
@@ -7964,7 +7964,7 @@
   "rank": 760,
   "model": null,
   "frequency": 3596,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "anular",
@@ -7975,7 +7975,7 @@
   "rank": 761,
   "model": null,
   "frequency": 3568,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "inclinar",
@@ -7985,7 +7985,7 @@
   "rank": 762,
   "model": null,
   "frequency": 3568,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "lamer",
@@ -7995,7 +7995,7 @@
   "rank": 763,
   "model": null,
   "frequency": 3553,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "evacuar",
@@ -8005,7 +8005,7 @@
   "rank": 764,
   "model": null,
   "frequency": 3535,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "coser",
@@ -8016,7 +8016,7 @@
   "rank": 765,
   "model": null,
   "frequency": 3532,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mojar",
@@ -8027,7 +8027,7 @@
   "rank": 766,
   "model": null,
   "frequency": 3504,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "inquietar",
@@ -8037,7 +8037,7 @@
   "rank": 767,
   "model": null,
   "frequency": 3490,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "distinguir",
@@ -8048,7 +8048,7 @@
   "rank": 768,
   "model": null,
   "frequency": 3479,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "maldecir",
@@ -8058,7 +8058,7 @@
   "rank": 769,
   "model": "bendecir",
   "frequency": 3478,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desconectar",
@@ -8068,7 +8068,7 @@
   "rank": 770,
   "model": null,
   "frequency": 3434,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reformar",
@@ -8079,7 +8079,7 @@
   "rank": 771,
   "model": null,
   "frequency": 3430,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enganchar",
@@ -8089,7 +8089,7 @@
   "rank": 772,
   "model": null,
   "frequency": 3405,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "secar",
@@ -8099,7 +8099,7 @@
   "rank": 773,
   "model": null,
   "frequency": 3375,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "almacenar",
@@ -8109,7 +8109,7 @@
   "rank": 774,
   "model": null,
   "frequency": 3300,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "agitar",
@@ -8119,7 +8119,7 @@
   "rank": 775,
   "model": null,
   "frequency": 3294,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cabrear",
@@ -8130,7 +8130,7 @@
   "rank": 776,
   "model": null,
   "frequency": 3293,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fichar",
@@ -8140,7 +8140,7 @@
   "rank": 777,
   "model": null,
   "frequency": 3293,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "humillar",
@@ -8150,7 +8150,7 @@
   "rank": 778,
   "model": null,
   "frequency": 3290,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desviar",
@@ -8160,7 +8160,7 @@
   "rank": 779,
   "model": null,
   "frequency": 3283,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reflejar",
@@ -8170,7 +8170,7 @@
   "rank": 780,
   "model": null,
   "frequency": 3275,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pacer",
@@ -8181,7 +8181,7 @@
   "rank": 781,
   "model": null,
   "frequency": 3271,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "presumir",
@@ -8192,7 +8192,7 @@
   "rank": 782,
   "model": null,
   "frequency": 3259,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aparcar",
@@ -8202,7 +8202,7 @@
   "rank": 783,
   "model": null,
   "frequency": 3240,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "prevenir",
@@ -8212,7 +8212,7 @@
   "rank": 784,
   "model": "venir",
   "frequency": 3203,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "triunfar",
@@ -8222,7 +8222,7 @@
   "rank": 785,
   "model": null,
   "frequency": 3196,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "seducir",
@@ -8232,7 +8232,7 @@
   "rank": 786,
   "model": "conducir",
   "frequency": 3159,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "redar",
@@ -8242,7 +8242,7 @@
   "rank": 787,
   "model": null,
   "frequency": 3145,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "molar",
@@ -8252,7 +8252,7 @@
   "rank": 788,
   "model": null,
   "frequency": 3141,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reconstruir",
@@ -8262,7 +8262,7 @@
   "rank": 789,
   "model": "construir",
   "frequency": 3125,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "afeitar",
@@ -8273,7 +8273,7 @@
   "rank": 790,
   "model": null,
   "frequency": 3121,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "resbalar",
@@ -8283,7 +8283,7 @@
   "rank": 791,
   "model": null,
   "frequency": 3112,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "consistir",
@@ -8293,7 +8293,7 @@
   "rank": 792,
   "model": null,
   "frequency": 3111,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "evolucionar",
@@ -8303,7 +8303,7 @@
   "rank": 793,
   "model": null,
   "frequency": 3108,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acampar",
@@ -8313,7 +8313,7 @@
   "rank": 794,
   "model": null,
   "frequency": 3100,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acechar",
@@ -8324,7 +8324,7 @@
   "rank": 795,
   "model": null,
   "frequency": 3098,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "absorber",
@@ -8334,7 +8334,7 @@
   "rank": 796,
   "model": null,
   "frequency": 3084,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "concluir",
@@ -8344,7 +8344,7 @@
   "rank": 797,
   "model": "construir",
   "frequency": 3075,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pelar",
@@ -8356,7 +8356,7 @@
   "rank": 798,
   "model": null,
   "frequency": 3074,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "interferir",
@@ -8366,7 +8366,7 @@
   "rank": 799,
   "model": null,
   "frequency": 3055,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "envolver",
@@ -8377,7 +8377,7 @@
   "rank": 800,
   "model": "volver",
   "frequency": 3045,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "combinar",
@@ -8387,7 +8387,7 @@
   "rank": 801,
   "model": null,
   "frequency": 3043,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "florecer",
@@ -8397,7 +8397,7 @@
   "rank": 802,
   "model": "conocer",
   "frequency": 3008,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alabar",
@@ -8408,7 +8408,7 @@
   "rank": 803,
   "model": null,
   "frequency": 2999,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "centrar",
@@ -8418,7 +8418,7 @@
   "rank": 804,
   "model": null,
   "frequency": 2968,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "derrumbar",
@@ -8428,7 +8428,7 @@
   "rank": 805,
   "model": null,
   "frequency": 2965,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recrear",
@@ -8439,7 +8439,7 @@
   "rank": 806,
   "model": null,
   "frequency": 2961,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "anochecer",
@@ -8449,7 +8449,7 @@
   "rank": 807,
   "model": "conocer",
   "frequency": 2960,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "morar",
@@ -8459,7 +8459,7 @@
   "rank": 808,
   "model": null,
   "frequency": 2948,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "oscurecer",
@@ -8470,7 +8470,7 @@
   "rank": 809,
   "model": "conocer",
   "frequency": 2937,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "complicar",
@@ -8480,7 +8480,7 @@
   "rank": 810,
   "model": null,
   "frequency": 2905,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apurar",
@@ -8492,7 +8492,7 @@
   "rank": 811,
   "model": null,
   "frequency": 2900,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "penetrar",
@@ -8502,7 +8502,7 @@
   "rank": 812,
   "model": null,
   "frequency": 2890,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sustituir",
@@ -8512,7 +8512,7 @@
   "rank": 813,
   "model": "construir",
   "frequency": 2886,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sanar",
@@ -8522,7 +8522,7 @@
   "rank": 814,
   "model": null,
   "frequency": 2881,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aplaudir",
@@ -8533,7 +8533,7 @@
   "rank": 815,
   "model": null,
   "frequency": 2876,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "embarcar",
@@ -8543,7 +8543,7 @@
   "rank": 816,
   "model": null,
   "frequency": 2864,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "maquinar",
@@ -8554,7 +8554,7 @@
   "rank": 817,
   "model": null,
   "frequency": 2849,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "beneficiar",
@@ -8564,7 +8564,7 @@
   "rank": 818,
   "model": null,
   "frequency": 2845,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "entusiasmar",
@@ -8574,7 +8574,7 @@
   "rank": 819,
   "model": null,
   "frequency": 2845,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contemplar",
@@ -8584,7 +8584,7 @@
   "rank": 820,
   "model": null,
   "frequency": 2837,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rellenar",
@@ -8594,7 +8594,7 @@
   "rank": 821,
   "model": null,
   "frequency": 2837,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "respectar",
@@ -8604,7 +8604,7 @@
   "rank": 822,
   "model": null,
   "frequency": 2815,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reponer",
@@ -8615,7 +8615,7 @@
   "rank": 823,
   "model": "poner",
   "frequency": 2810,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contribuir",
@@ -8625,7 +8625,7 @@
   "rank": 824,
   "model": "construir",
   "frequency": 2790,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "descifrar",
@@ -8635,7 +8635,7 @@
   "rank": 825,
   "model": null,
   "frequency": 2785,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alzar",
@@ -8646,7 +8646,7 @@
   "rank": 826,
   "model": null,
   "frequency": 2781,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "afrontar",
@@ -8656,7 +8656,7 @@
   "rank": 827,
   "model": null,
   "frequency": 2775,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "colaborar",
@@ -8666,7 +8666,7 @@
   "rank": 828,
   "model": null,
   "frequency": 2770,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "filtrar",
@@ -8676,7 +8676,7 @@
   "rank": 829,
   "model": null,
   "frequency": 2750,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pudrir",
@@ -8686,7 +8686,7 @@
   "rank": 830,
   "model": null,
   "frequency": 2749,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ejercer",
@@ -8696,7 +8696,7 @@
   "rank": 831,
   "model": null,
   "frequency": 2742,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "financiar",
@@ -8706,7 +8706,7 @@
   "rank": 832,
   "model": null,
   "frequency": 2731,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desvanecer",
@@ -8718,7 +8718,7 @@
   "rank": 833,
   "model": "conocer",
   "frequency": 2728,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "autorizar",
@@ -8728,7 +8728,7 @@
   "rank": 834,
   "model": null,
   "frequency": 2721,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fundar",
@@ -8738,7 +8738,7 @@
   "rank": 835,
   "model": null,
   "frequency": 2714,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "adquirir",
@@ -8748,7 +8748,7 @@
   "rank": 836,
   "model": "adquirir",
   "frequency": 2712,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "imitar",
@@ -8758,7 +8758,7 @@
   "rank": 837,
   "model": null,
   "frequency": 2694,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "expandir",
@@ -8768,7 +8768,7 @@
   "rank": 838,
   "model": null,
   "frequency": 2693,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "disgustar",
@@ -8778,7 +8778,7 @@
   "rank": 839,
   "model": null,
   "frequency": 2687,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apresurar",
@@ -8788,7 +8788,7 @@
   "rank": 840,
   "model": null,
   "frequency": 2686,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "adaptar",
@@ -8798,7 +8798,7 @@
   "rank": 841,
   "model": null,
   "frequency": 2683,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aproximar",
@@ -8808,7 +8808,7 @@
   "rank": 842,
   "model": null,
   "frequency": 2683,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "cabalgar",
@@ -8818,7 +8818,7 @@
   "rank": 843,
   "model": null,
   "frequency": 2682,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "procurar",
@@ -8830,7 +8830,7 @@
   "rank": 844,
   "model": null,
   "frequency": 2678,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "proyectar",
@@ -8841,7 +8841,7 @@
   "rank": 845,
   "model": null,
   "frequency": 2671,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "medicar",
@@ -8851,7 +8851,7 @@
   "rank": 846,
   "model": null,
   "frequency": 2669,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "anticipar",
@@ -8861,7 +8861,7 @@
   "rank": 847,
   "model": null,
   "frequency": 2652,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tapar",
@@ -8872,7 +8872,7 @@
   "rank": 848,
   "model": null,
   "frequency": 2640,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "podrir",
@@ -8882,7 +8882,7 @@
   "rank": 849,
   "model": null,
   "frequency": 2638,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "brear",
@@ -8892,7 +8892,7 @@
   "rank": 850,
   "model": null,
   "frequency": 2606,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fotografiar",
@@ -8902,7 +8902,7 @@
   "rank": 851,
   "model": null,
   "frequency": 2595,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "insinuar",
@@ -8912,7 +8912,7 @@
   "rank": 852,
   "model": null,
   "frequency": 2589,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reposar",
@@ -8923,7 +8923,7 @@
   "rank": 853,
   "model": null,
   "frequency": 2580,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "traficar",
@@ -8933,7 +8933,7 @@
   "rank": 854,
   "model": null,
   "frequency": 2580,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "acumular",
@@ -8943,7 +8943,7 @@
   "rank": 855,
   "model": null,
   "frequency": 2578,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "titar",
@@ -8953,7 +8953,7 @@
   "rank": 856,
   "model": null,
   "frequency": 2577,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recurrir",
@@ -8965,7 +8965,7 @@
   "rank": 857,
   "model": null,
   "frequency": 2576,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "remar",
@@ -8976,7 +8976,7 @@
   "rank": 858,
   "model": null,
   "frequency": 2575,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "perturbar",
@@ -8986,7 +8986,7 @@
   "rank": 859,
   "model": null,
   "frequency": 2570,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "abortar",
@@ -8996,7 +8996,7 @@
   "rank": 860,
   "model": null,
   "frequency": 2555,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ensuciar",
@@ -9006,7 +9006,7 @@
   "rank": 861,
   "model": null,
   "frequency": 2552,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ligar",
@@ -9018,7 +9018,7 @@
   "rank": 862,
   "model": null,
   "frequency": 2546,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desatar",
@@ -9029,7 +9029,7 @@
   "rank": 863,
   "model": null,
   "frequency": 2544,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "colapsar",
@@ -9040,7 +9040,7 @@
   "rank": 864,
   "model": null,
   "frequency": 2541,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aspirar",
@@ -9052,7 +9052,7 @@
   "rank": 865,
   "model": null,
   "frequency": 2535,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "gabar",
@@ -9062,7 +9062,7 @@
   "rank": 866,
   "model": null,
   "frequency": 2532,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "revivir",
@@ -9072,7 +9072,7 @@
   "rank": 867,
   "model": null,
   "frequency": 2528,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "deducir",
@@ -9082,7 +9082,7 @@
   "rank": 868,
   "model": "conducir",
   "frequency": 2527,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "madurar",
@@ -9092,7 +9092,7 @@
   "rank": 869,
   "model": null,
   "frequency": 2526,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hackear",
@@ -9102,7 +9102,7 @@
   "rank": 870,
   "model": null,
   "frequency": 2502,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "improvisar",
@@ -9112,7 +9112,7 @@
   "rank": 871,
   "model": null,
   "frequency": 2501,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "imprimir",
@@ -9122,7 +9122,7 @@
   "rank": 872,
   "model": null,
   "frequency": 2494,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "imponer",
@@ -9133,7 +9133,7 @@
   "rank": 873,
   "model": "poner",
   "frequency": 2484,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "emocionar",
@@ -9143,7 +9143,7 @@
   "rank": 874,
   "model": null,
   "frequency": 2483,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enfriar",
@@ -9153,7 +9153,7 @@
   "rank": 875,
   "model": null,
   "frequency": 2483,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "mascar",
@@ -9163,7 +9163,7 @@
   "rank": 876,
   "model": null,
   "frequency": 2478,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pujar",
@@ -9175,7 +9175,7 @@
   "rank": 877,
   "model": null,
   "frequency": 2473,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "proveer",
@@ -9185,7 +9185,7 @@
   "rank": 878,
   "model": null,
   "frequency": 2467,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "disfrazar",
@@ -9195,7 +9195,7 @@
   "rank": 879,
   "model": null,
   "frequency": 2457,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "despreciar",
@@ -9205,7 +9205,7 @@
   "rank": 880,
   "model": null,
   "frequency": 2450,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reflexionar",
@@ -9215,7 +9215,7 @@
   "rank": 881,
   "model": null,
   "frequency": 2445,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "malgastar",
@@ -9225,7 +9225,7 @@
   "rank": 882,
   "model": null,
   "frequency": 2426,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "esparcir",
@@ -9236,7 +9236,7 @@
   "rank": 883,
   "model": null,
   "frequency": 2416,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apasionar",
@@ -9246,7 +9246,7 @@
   "rank": 884,
   "model": null,
   "frequency": 2413,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "devorar",
@@ -9256,7 +9256,7 @@
   "rank": 885,
   "model": null,
   "frequency": 2393,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "googlar",
@@ -9266,7 +9266,7 @@
   "rank": 886,
   "model": null,
   "frequency": 2374,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "perforar",
@@ -9276,7 +9276,7 @@
   "rank": 887,
   "model": null,
   "frequency": 2371,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dictar",
@@ -9286,7 +9286,7 @@
   "rank": 888,
   "model": null,
   "frequency": 2368,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desactivar",
@@ -9296,7 +9296,7 @@
   "rank": 889,
   "model": null,
   "frequency": 2361,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "pinchar",
@@ -9306,7 +9306,7 @@
   "rank": 890,
   "model": null,
   "frequency": 2361,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "empatar",
@@ -9316,7 +9316,7 @@
   "rank": 891,
   "model": null,
   "frequency": 2351,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "modificar",
@@ -9326,7 +9326,7 @@
   "rank": 892,
   "model": null,
   "frequency": 2327,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bombardear",
@@ -9336,7 +9336,7 @@
   "rank": 893,
   "model": null,
   "frequency": 2325,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bucear",
@@ -9346,7 +9346,7 @@
   "rank": 894,
   "model": null,
   "frequency": 2308,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estafar",
@@ -9356,7 +9356,7 @@
   "rank": 895,
   "model": null,
   "frequency": 2291,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "trazar",
@@ -9366,7 +9366,7 @@
   "rank": 896,
   "model": null,
   "frequency": 2289,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conmover",
@@ -9376,7 +9376,7 @@
   "rank": 897,
   "model": "contar",
   "frequency": 2281,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "telefonear",
@@ -9386,7 +9386,7 @@
   "rank": 898,
   "model": null,
   "frequency": 2255,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "deslizar",
@@ -9396,7 +9396,7 @@
   "rank": 899,
   "model": null,
   "frequency": 2242,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "seleccionar",
@@ -9406,7 +9406,7 @@
   "rank": 900,
   "model": null,
   "frequency": 2239,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atormentar",
@@ -9416,7 +9416,7 @@
   "rank": 901,
   "model": null,
   "frequency": 2236,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "halagar",
@@ -9426,7 +9426,7 @@
   "rank": 902,
   "model": null,
   "frequency": 2235,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "evaluar",
@@ -9436,7 +9436,7 @@
   "rank": 903,
   "model": null,
   "frequency": 2226,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "depositar",
@@ -9446,7 +9446,7 @@
   "rank": 904,
   "model": null,
   "frequency": 2221,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "jalar",
@@ -9458,7 +9458,7 @@
   "rank": 905,
   "model": null,
   "frequency": 2219,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "colar",
@@ -9469,7 +9469,7 @@
   "rank": 906,
   "model": "contar",
   "frequency": 2212,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "toser",
@@ -9479,7 +9479,7 @@
   "rank": 907,
   "model": null,
   "frequency": 2212,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "inyectar",
@@ -9489,7 +9489,7 @@
   "rank": 908,
   "model": null,
   "frequency": 2211,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "coleccionar",
@@ -9499,7 +9499,7 @@
   "rank": 909,
   "model": null,
   "frequency": 2204,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sobornar",
@@ -9510,7 +9510,7 @@
   "rank": 910,
   "model": null,
   "frequency": 2203,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "carecer",
@@ -9520,7 +9520,7 @@
   "rank": 911,
   "model": "conocer",
   "frequency": 2185,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rizar",
@@ -9530,7 +9530,7 @@
   "rank": 912,
   "model": null,
   "frequency": 2183,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "consentir",
@@ -9540,7 +9540,7 @@
   "rank": 913,
   "model": "sentir",
   "frequency": 2182,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "emplear",
@@ -9550,7 +9550,7 @@
   "rank": 914,
   "model": null,
   "frequency": 2175,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "patinar",
@@ -9560,7 +9560,7 @@
   "rank": 915,
   "model": null,
   "frequency": 2172,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "engordar",
@@ -9570,7 +9570,7 @@
   "rank": 916,
   "model": null,
   "frequency": 2152,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "frustrar",
@@ -9580,7 +9580,7 @@
   "rank": 917,
   "model": null,
   "frequency": 2152,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "recaudar",
@@ -9590,7 +9590,7 @@
   "rank": 918,
   "model": null,
   "frequency": 2146,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "administrar",
@@ -9600,7 +9600,7 @@
   "rank": 919,
   "model": null,
   "frequency": 2140,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "dorar",
@@ -9611,7 +9611,7 @@
   "rank": 920,
   "model": null,
   "frequency": 2139,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "impulsar",
@@ -9621,7 +9621,7 @@
   "rank": 921,
   "model": null,
   "frequency": 2138,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "masticar",
@@ -9631,7 +9631,7 @@
   "rank": 922,
   "model": null,
   "frequency": 2134,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "revolver",
@@ -9641,7 +9641,7 @@
   "rank": 923,
   "model": "volver",
   "frequency": 2134,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enfocar",
@@ -9653,7 +9653,7 @@
   "rank": 924,
   "model": null,
   "frequency": 2133,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ubicar",
@@ -9663,7 +9663,7 @@
   "rank": 925,
   "model": null,
   "frequency": 2131,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "topar",
@@ -9676,7 +9676,7 @@
   "rank": 926,
   "model": null,
   "frequency": 2129,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "debilitar",
@@ -9686,7 +9686,7 @@
   "rank": 927,
   "model": null,
   "frequency": 2118,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "arrasar",
@@ -9698,7 +9698,7 @@
   "rank": 928,
   "model": null,
   "frequency": 2114,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "diagnosticar",
@@ -9708,7 +9708,7 @@
   "rank": 929,
   "model": null,
   "frequency": 2113,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "educar",
@@ -9720,7 +9720,7 @@
   "rank": 930,
   "model": null,
   "frequency": 2109,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "bancar",
@@ -9732,7 +9732,7 @@
   "rank": 931,
   "model": null,
   "frequency": 2106,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "encarcelar",
@@ -9742,7 +9742,7 @@
   "rank": 932,
   "model": null,
   "frequency": 2105,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "someter",
@@ -9752,7 +9752,7 @@
   "rank": 933,
   "model": null,
   "frequency": 2105,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "chequear",
@@ -9762,7 +9762,7 @@
   "rank": 934,
   "model": null,
   "frequency": 2102,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aparentar",
@@ -9772,7 +9772,7 @@
   "rank": 935,
   "model": null,
   "frequency": 2101,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fiar",
@@ -9783,7 +9783,7 @@
   "rank": 936,
   "model": null,
   "frequency": 2092,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "presentir",
@@ -9793,7 +9793,7 @@
   "rank": 937,
   "model": "sentir",
   "frequency": 2085,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "infiltrar",
@@ -9803,7 +9803,7 @@
   "rank": 938,
   "model": null,
   "frequency": 2080,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "catar",
@@ -9813,7 +9813,7 @@
   "rank": 939,
   "model": null,
   "frequency": 2075,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "hartar",
@@ -9824,7 +9824,7 @@
   "rank": 940,
   "model": null,
   "frequency": 2044,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alojar",
@@ -9834,7 +9834,7 @@
   "rank": 941,
   "model": null,
   "frequency": 2025,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "resumir",
@@ -9844,7 +9844,7 @@
   "rank": 942,
   "model": null,
   "frequency": 2025,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "inundar",
@@ -9854,7 +9854,7 @@
   "rank": 943,
   "model": null,
   "frequency": 2018,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rebotar",
@@ -9864,7 +9864,7 @@
   "rank": 944,
   "model": null,
   "frequency": 2013,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desangrar",
@@ -9874,7 +9874,7 @@
   "rank": 945,
   "model": null,
   "frequency": 2012,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "preservar",
@@ -9884,7 +9884,7 @@
   "rank": 946,
   "model": null,
   "frequency": 2005,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "renovar",
@@ -9894,7 +9894,7 @@
   "rank": 947,
   "model": "contar",
   "frequency": 2005,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "liquidar",
@@ -9905,7 +9905,7 @@
   "rank": 948,
   "model": null,
   "frequency": 2002,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "motivar",
@@ -9915,7 +9915,7 @@
   "rank": 949,
   "model": null,
   "frequency": 2000,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "simular",
@@ -9925,7 +9925,7 @@
   "rank": 950,
   "model": null,
   "frequency": 2000,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "trepar",
@@ -9935,7 +9935,7 @@
   "rank": 951,
   "model": null,
   "frequency": 2000,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "subtitular",
@@ -9945,7 +9945,7 @@
   "rank": 952,
   "model": null,
   "frequency": 1996,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "husmear",
@@ -9955,7 +9955,7 @@
   "rank": 953,
   "model": null,
   "frequency": 1993,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "difundir",
@@ -9965,7 +9965,7 @@
   "rank": 954,
   "model": null,
   "frequency": 1992,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "alucinar",
@@ -9976,7 +9976,7 @@
   "rank": 955,
   "model": null,
   "frequency": 1989,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "clasificar",
@@ -9986,7 +9986,7 @@
   "rank": 956,
   "model": null,
   "frequency": 1982,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ampliar",
@@ -9996,7 +9996,7 @@
   "rank": 957,
   "model": null,
   "frequency": 1979,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "plantear",
@@ -10008,7 +10008,7 @@
   "rank": 958,
   "model": null,
   "frequency": 1979,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "barrer",
@@ -10019,7 +10019,7 @@
   "rank": 959,
   "model": null,
   "frequency": 1975,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "otorgar",
@@ -10029,7 +10029,7 @@
   "rank": 960,
   "model": null,
   "frequency": 1971,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "fascinar",
@@ -10039,7 +10039,7 @@
   "rank": 961,
   "model": null,
   "frequency": 1968,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "esquivar",
@@ -10050,7 +10050,7 @@
   "rank": 962,
   "model": null,
   "frequency": 1962,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "interceptar",
@@ -10061,7 +10061,7 @@
   "rank": 963,
   "model": null,
   "frequency": 1945,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "promover",
@@ -10071,7 +10071,7 @@
   "rank": 964,
   "model": "contar",
   "frequency": 1945,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "silbar",
@@ -10081,7 +10081,7 @@
   "rank": 965,
   "model": null,
   "frequency": 1940,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "nominar",
@@ -10092,7 +10092,7 @@
   "rank": 966,
   "model": null,
   "frequency": 1924,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "duplicar",
@@ -10103,7 +10103,7 @@
   "rank": 967,
   "model": null,
   "frequency": 1921,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "aportar",
@@ -10114,7 +10114,7 @@
   "rank": 968,
   "model": null,
   "frequency": 1916,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sumar",
@@ -10125,7 +10125,7 @@
   "rank": 969,
   "model": null,
   "frequency": 1897,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "concebir",
@@ -10135,7 +10135,7 @@
   "rank": 970,
   "model": "pedir",
   "frequency": 1895,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "atracar",
@@ -10145,7 +10145,7 @@
   "rank": 971,
   "model": null,
   "frequency": 1894,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "desconocer",
@@ -10155,7 +10155,7 @@
   "rank": 972,
   "model": "conocer",
   "frequency": 1890,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "falsificar",
@@ -10165,7 +10165,7 @@
   "rank": 973,
   "model": null,
   "frequency": 1887,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "parpadear",
@@ -10175,7 +10175,7 @@
   "rank": 974,
   "model": null,
   "frequency": 1880,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "frotar",
@@ -10185,7 +10185,7 @@
   "rank": 975,
   "model": null,
   "frequency": 1863,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "sabotear",
@@ -10195,7 +10195,7 @@
   "rank": 976,
   "model": null,
   "frequency": 1853,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "gotear",
@@ -10205,7 +10205,7 @@
   "rank": 977,
   "model": null,
   "frequency": 1852,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "conspirar",
@@ -10215,7 +10215,7 @@
   "rank": 978,
   "model": null,
   "frequency": 1840,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "piar",
@@ -10225,7 +10225,7 @@
   "rank": 979,
   "model": null,
   "frequency": 1838,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "apachar",
@@ -10236,7 +10236,7 @@
   "rank": 980,
   "model": null,
   "frequency": 1830,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "majar",
@@ -10247,7 +10247,7 @@
   "rank": 981,
   "model": null,
   "frequency": 1829,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "rehusar",
@@ -10257,7 +10257,7 @@
   "rank": 982,
   "model": "actuar",
   "frequency": 1826,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "tranquilizar",
@@ -10267,7 +10267,7 @@
   "rank": 983,
   "model": null,
   "frequency": 1822,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "excavar",
@@ -10278,7 +10278,7 @@
   "rank": 984,
   "model": null,
   "frequency": 1812,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "estresar",
@@ -10288,7 +10288,7 @@
   "rank": 985,
   "model": null,
   "frequency": 1811,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "facilitar",
@@ -10299,7 +10299,7 @@
   "rank": 986,
   "model": null,
   "frequency": 1808,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enredar",
@@ -10310,7 +10310,7 @@
   "rank": 987,
   "model": null,
   "frequency": 1795,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "asombrar",
@@ -10321,7 +10321,7 @@
   "rank": 988,
   "model": null,
   "frequency": 1791,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "relevar",
@@ -10332,7 +10332,7 @@
   "rank": 989,
   "model": null,
   "frequency": 1791,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "influir",
@@ -10342,7 +10342,7 @@
   "rank": 990,
   "model": "construir",
   "frequency": 1789,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "festejar",
@@ -10353,7 +10353,7 @@
   "rank": 991,
   "model": null,
   "frequency": 1787,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "ladrar",
@@ -10363,7 +10363,7 @@
   "rank": 992,
   "model": null,
   "frequency": 1786,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "nevar",
@@ -10374,7 +10374,7 @@
   "rank": 993,
   "model": "nevar",
   "frequency": 1777,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "perjudicar",
@@ -10384,7 +10384,7 @@
   "rank": 994,
   "model": null,
   "frequency": 1774,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "notificar",
@@ -10394,7 +10394,7 @@
   "rank": 995,
   "model": null,
   "frequency": 1769,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "doctorar",
@@ -10404,7 +10404,7 @@
   "rank": 996,
   "model": null,
   "frequency": 1747,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "enfurecer",
@@ -10414,7 +10414,7 @@
   "rank": 997,
   "model": "conocer",
   "frequency": 1746,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "vibrar",
@@ -10424,7 +10424,7 @@
   "rank": 998,
   "model": null,
   "frequency": 1745,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "contraer",
@@ -10435,7 +10435,7 @@
   "rank": 999,
   "model": "traer",
   "frequency": 1741,
-  "reviewed": false
+  "reviewed": true
  },
  {
   "es": "reforzar",
@@ -10445,6 +10445,6 @@
   "rank": 1000,
   "model": "contar",
   "frequency": 1734,
-  "reviewed": false
+  "reviewed": true
  }
 ]
