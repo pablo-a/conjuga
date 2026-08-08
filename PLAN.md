@@ -120,6 +120,8 @@ src/
     accents.ts            # Placement de l'accent tonique et des accents écrits
     engine.ts             # conjugate(lemma, tense, person) → Form
     diff.ts               # Comparaison forme régulière vs réelle → Irregularity[]
+    highlight.ts          # Irregularity[] → segments rendus par l'UI
+    lookup.ts             # Recherche d'un verbe, accents rétablis
     index.ts
   data/
     verbs.json            # 1000 lemmas : { es, fr, rank, model, tags, cefr }
@@ -139,10 +141,9 @@ src/
   views/                  # Home, Practice, Theory, Conjugator, Stats, Settings
   components/
 scripts/
-  build-verb-list.ts      # Fréquence + traductions FR → verbs.json
-  verify-against-oracle.ts# Diff moteur ↔ spanish-verbs, exécuté en CI
+  build-verb-list.ts      # Fréquence + traductions FR → verbs.json (à écrire)
 tests/
-  conjugation/            # Tests exhaustifs par modèle
+  conjugation/            # Tests exhaustifs par modèle, plus contrôle lexical
 ```
 
 ## 4. Le moteur de conjugaison — détail
@@ -314,16 +315,22 @@ notification locale optionnelle de rappel quotidien.
 
 Chaque phase est livrable et testable indépendamment.
 
-| Phase                    | Contenu                                                                    | Résultat visible                                                                                   |
-| ------------------------ | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **0 — Fondations**       | Vite + Vue + TS + Tailwind/Nuxt UI, PWA, Dexie, ESLint/Prettier/Vitest, CI | App vide installable et offline                                                                    |
-| **1 — Moteur**           | `src/conjugation/*` en TDD, tous les modèles, vérification contre l'oracle | Tests verts sur 108 000 formes                                                                     |
-| **2 — Données**          | Liste des 1000 verbes, modèles assignés, traductions FR des 300 premiers   | **Écran Conjugueur fonctionnel** : n'importe quel verbe, tableau complet, irrégularités surlignées |
-| **3 — Drill + SRS**      | Cartes, FSRS, sélecteur, curriculum, exercice drill, persistance           | La boucle d'apprentissage quotidienne existe                                                       |
-| **4 — Théorie**          | Fiches Markdown des temps A2, indicateurs de maîtrise, liens vers drills   | Le « pourquoi » derrière le drill                                                                  |
-| **5 — Reconnaissance**   | QCM à distracteurs intelligents, exercice inverse                          | Sessions variées, format mobile                                                                    |
-| **6 — Traduction FR→ES** | Patrons de phrases, exercice cloze, exercice indefinido/imperfecto         | Le point faible n°1 est travaillé                                                                  |
-| **7 — Finition**         | Stats, séries, TTS, export/import, rappels, accessibilité, Lighthouse      | Version quotidiennement utilisable                                                                 |
+| Phase              | Contenu                                                                    | Résultat visible                                                                                   |
+| ------------------ | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **0 — Fondations** | Vite + Vue + TS + Tailwind/Nuxt UI, PWA, Dexie, ESLint/Prettier/Vitest, CI | App vide installable et offline                                                                    |
+| **1 — Moteur**     | `src/conjugation/*` en TDD, tous les modèles, vérification contre l'oracle | Tests verts sur 108 000 formes                                                                     |
+| **2 — Données**    | Liste des 1000 verbes, modèles assignés, traductions FR des 300 premiers   | **Écran Conjugueur fonctionnel** : n'importe quel verbe, tableau complet, irrégularités surlignées |
+
+L'écran Conjugueur de la phase 2 est **livré** : il conjugue n'importe quel infinitif, avec le
+segment irrégulier surligné et sa règle. Il ne dépend d'aucun jeu de données — c'est le
+bénéfice direct du moteur de règles. Reste de la phase 2 : `src/data/verbs.json`, qui suppose
+une liste de fréquence espagnole ouverte, encore à choisir et à créditer dans `CREDITS.md`.
+
+| **3 — Drill + SRS** | Cartes, FSRS, sélecteur, curriculum, exercice drill, persistance | La boucle d'apprentissage quotidienne existe |
+| **4 — Théorie** | Fiches Markdown des temps A2, indicateurs de maîtrise, liens vers drills | Le « pourquoi » derrière le drill |
+| **5 — Reconnaissance** | QCM à distracteurs intelligents, exercice inverse | Sessions variées, format mobile |
+| **6 — Traduction FR→ES** | Patrons de phrases, exercice cloze, exercice indefinido/imperfecto | Le point faible n°1 est travaillé |
+| **7 — Finition** | Stats, séries, TTS, export/import, rappels, accessibilité, Lighthouse | Version quotidiennement utilisable |
 
 Le jalon important est la **phase 2** : dès qu'elle est finie, l'app est déjà utile comme conjugueur
 de référence hors ligne, avant même le premier exercice.
