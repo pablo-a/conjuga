@@ -121,6 +121,15 @@ describe('écran Pratique', () => {
     expect(wrapper.get('a[href*="conjugueur"]').attributes('href')).toContain('v=ser')
   })
 
+  it('renvoie vers la fiche qui explique le temps interrogé', async () => {
+    // Le surlignage montre *où* est l'irrégularité ; la fiche dit *pourquoi*.
+    // Sans ce lien, la correction s'arrête à l'endroit le plus intéressant.
+    const wrapper = await practice()
+    await answer(wrapper, 'eres')
+
+    expect(wrapper.get('a[href*="theorie"]').attributes('href')).toContain('present')
+  })
+
   it('range la carte dès sa dernière personne, pas en fin de session', async () => {
     // Une session de vingt minutes interrompue ne doit pas perdre ce qui a été
     // révisé : c'est la raison d'être de l'écriture carte par carte.

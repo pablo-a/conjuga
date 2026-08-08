@@ -19,6 +19,14 @@ export const router = createRouter({
       meta: { title: 'Théorie' },
     },
     {
+      // Le slug plutôt qu'un index : une fiche se partage, et l'URL doit dire
+      // ce qu'elle ouvre.
+      path: '/theorie/:slug',
+      name: 'theory-sheet',
+      component: () => import('@/views/TheorySheetView.vue'),
+      meta: { title: 'Théorie' },
+    },
+    {
       path: '/conjugueur',
       name: 'conjugator',
       component: () => import('@/views/ConjugatorView.vue'),

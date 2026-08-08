@@ -364,9 +364,20 @@ l'avancement du niveau, et mène à la Pratique. Il compose son décompte avec l
 `planSession` que la session elle-même — ce qu'il promet est donc exactement ce qui sera
 posé. La série s'appuie sur une table `days` alimentée par `saveReview` (voir CLAUDE.md).
 
-La « suggestion ciblée sur la faiblesse du moment » prévue en §9 attend la phase 4 :
-`patternStats` est écrit depuis la phase 3 mais n'a encore nulle part où renvoyer, faute de
-fiches de théorie.
+**Phase 4, entamée.** La mécanique de la théorie est complète : les fiches sont du markdown
+compilé en composants, ce qui leur permet de tirer leurs tableaux du moteur au lieu de les
+recopier — une fiche ne peut donc pas enseigner une forme que la Pratique corrigerait
+autrement. L'écran liste les fiches avec un indicateur de maîtrise tiré de `patternStats`,
+la fiche nomme les patrons réellement ratés avant de dérouler la théorie, et la correction
+d'un exercice renvoie désormais vers la fiche du temps interrogé.
+
+**Deux fiches sur huit** sont écrites : le présent, et la transversale « indefinido ou
+imperfecto » — la plus utile des deux, puisque c'est le piège n°1. Restent à rédiger :
+perfecto, indefinido, imperfecto, futur et conditionnel, impératif, subjonctif présent.
+
+Deux points de §8 restent ouverts : le **drill ciblé** sur un temps depuis une fiche (le
+lien mène pour l'instant à la session ordinaire — cibler demanderait une variante de
+session), et la « suggestion ciblée sur la faiblesse du moment » sur l'écran d'accueil.
 
 ## 11. Risques et points à trancher
 

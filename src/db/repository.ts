@@ -2,6 +2,7 @@ import { conjugationOf, modelFor } from '@/conjugation'
 import type { Person } from '@/conjugation'
 import { parseCardId } from '@/srs/curriculum'
 import type { CardId, Progress } from '@/srs/curriculum'
+import type { PatternCount } from '@/srs/patterns'
 import { applyReview, newCardState } from '@/srs/scheduler'
 import type { Grade } from '@/srs/scheduler'
 import type { DeckEntry } from '@/srs/selector'
@@ -172,6 +173,19 @@ export async function saveReview(review: ReviewToSave): Promise<void> {
       answers: (day?.answers ?? 0) + review.answers.length,
     })
   })
+}
+
+/**
+ * Tous les agrégats `(modèle, temps)`.
+ *
+ * Rendus bruts, sans agrégation ni classement : ce qu'on en tire — taux de
+ * réussite, patrons les plus ratés, seuil en deçà duquel on ne conclut rien —
+ * relève de `srs/patterns.ts`, où c'est testable sans base. La table est bornée
+ * par le nombre de modèles fois le nombre de temps, soit quelques centaines de
+ * lignes au grand maximum.
+ */
+export async function loadPatternStats(): Promise<PatternCount[]> {
+  return db.patternStats.toArray()
 }
 
 /**

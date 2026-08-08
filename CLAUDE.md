@@ -21,11 +21,15 @@ Phases livrées : 0 (socle PWA), 1 (moteur de conjugaison), 2 (les 1000 verbes e
 Conjugueur) et 3 — **la boucle quotidienne existe** : l'accueil dit ce qui attend, l'écran
 Pratique compose la session, corrige, explique et range la progression dans IndexedDB.
 
+Phase 4 **entamée** : la mécanique de la théorie est complète (fiches en markdown compilé,
+écran, indicateur de maîtrise, lien depuis la correction), avec **deux fiches sur huit** —
+le présent, et « indefinido ou imperfecto ». Les six autres sont de la rédaction.
+
 Reste à faire sur les données : **relire les traductions**. Les gloses de `verbs.json`
 viennent du Wiktionnaire, ce sont des définitions et non des équivalents ; elles ne sont
 pas encore embarquées (voir « La chaîne de données »).
 
-`TheoryView`, `StatsView` et `SettingsView` sont des placeholders « À construire ».
+`StatsView` et `SettingsView` sont des placeholders « À construire ».
 
 ## Commandes
 
@@ -68,7 +72,9 @@ se fait pas depuis le dépôt.
 
 `vitest.config.ts` est volontairement séparé de `vite.config.ts` : les tests n'ont besoin
 ni du service worker ni de Tailwind. Toute modification d'alias doit être répercutée dans
-les deux fichiers **et** dans `tsconfig.app.json` (`paths`).
+les deux fichiers **et** dans `tsconfig.app.json` (`paths`). La compilation du markdown, en
+revanche, doit rester **identique** dans les deux : les fiches de théorie sont des
+composants, et un test qui ne saurait pas les monter ne vérifierait rien.
 
 ## Le moteur de conjugaison (`src/conjugation/`)
 
@@ -340,6 +346,41 @@ et c'est délibéré : à vingt minutes par jour, la régularité pèse plus lou
 `tests/home.test.ts` monte l'écran sur la vraie chaîne, comme celui de la Pratique. Seul
 `Date` y est simulé (`vi.useFakeTimers({ toFake: ['Date'] })`) : la série est une propriété
 du calendrier, donc le test doit choisir le jour, mais figer les minuteries bloquerait Dexie.
+
+## La théorie (`src/content/`)
+
+Une fiche est un `.md` **compilé en composant Vue** par `unplugin-vue-markdown`. Elle
+s'écrit comme un texte, mais peut appeler `<ConjugationTable>` : ses tableaux de formation
+sortent donc du moteur au lieu d'être recopiés. C'est la raison du choix — une fiche qui
+enseignerait `piensamos` pendant que la Pratique le refuse serait pire que pas de fiche.
+
+Trois pièges de câblage, tous rencontrés :
+
+- **`Markdown()` prend un `include: /\.md$/` explicite.** Son filtre par défaut couvre aussi
+  les sous-requêtes `.md?vue&type=script`, que le plugin Vue émet **après** avoir compilé le
+  bloc : le markdown s'appliquerait alors au JavaScript déjà produit, qui repartirait
+  enveloppé dans un `<p>`. L'erreur qui en sort ne désigne rien de compréhensible.
+- **`vue()` doit recevoir `include: [/\.vue$/, /\.md$/]`**, dans `vite.config.ts` **et** dans
+  `vitest.config.ts`.
+- **Le `<style scoped>` de `TheorySheetView` commence par `@reference '../style.css'`.** Le
+  HTML issu du markdown n'a aucune classe à cibler, il est donc stylé là au `@apply` — et en
+  Tailwind v4 un bloc isolé ne connaît le thème que par cette directive. C'est le seul
+  endroit de l'app dans ce cas, parce que c'est le seul où le HTML n'est pas écrit à la main.
+
+`src/content/index.ts` est le catalogue. L'ordre y compte : `sheetFor` retient la
+**première** fiche qui couvre un temps, donc les fiches dédiées passent avant les
+transversales. Aujourd'hui « indefinido ou imperfecto » répond pour les deux temps ; le jour
+où chacun aura la sienne, elles se glisseront au-dessus sans que rien d'autre ne bouge.
+
+### `srs/patterns.ts` — ce que les erreurs disent des patrons
+
+C'est ici que `patternStats`, écrit depuis la phase 3, trouve enfin un lecteur. Savoir qu'on
+rate `pensar` n'apprend rien ; savoir qu'on rate les `e→ie` renvoie à une règle et à la
+fiche qui l'explique.
+
+**`MIN_ATTEMPTS` (10) est le garde-fou** : une forme ratée une fois donne 100 % d'échec, ce
+qui n'est pas une faiblesse mais un manque de données. En deçà, l'écran dit qu'il ne sait
+pas, au lieu de désigner au hasard une fiche à relire.
 
 ## Politique de vérification (non négociable)
 

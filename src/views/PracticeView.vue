@@ -4,9 +4,19 @@ import { computed, nextTick, onMounted, ref } from 'vue'
 import AccentKeys from '@/components/AccentKeys.vue'
 import VerbForm from '@/components/VerbForm.vue'
 import { PERSON_LABELS, TENSE_LABELS } from '@/conjugation'
+import { sheetFor } from '@/content'
 import { useSessionStore } from '@/stores/session'
 
 const store = useSessionStore()
+
+/**
+ * La fiche qui explique le temps interrogé, quand elle existe.
+ *
+ * C'est le prolongement naturel du surlignage : l'écran montre *où* est
+ * l'irrégularité, la fiche dit *pourquoi*. Tant que tous les temps n'ont pas la
+ * leur, le lien s'efface au lieu de mener à une page vide.
+ */
+const sheet = computed(() => (store.answered ? sheetFor(store.answered.drill.tense) : undefined))
 
 const text = ref('')
 const inputEl = ref<HTMLInputElement | null>(null)
@@ -267,12 +277,21 @@ async function restart(): Promise<void> {
              là que le segment irrégulier se voit et que la règle s'apprend. -->
         <p class="mt-2 text-lg"><VerbForm :form="store.answered.drill.form" /></p>
 
-        <RouterLink
-          :to="{ name: 'conjugator', query: { v: store.answered.drill.lemma } }"
-          class="mt-3 inline-block text-sm text-accent-600 hover:underline dark:text-accent-500"
-        >
-          Tout le tableau de {{ store.answered.drill.lemma }}
-        </RouterLink>
+        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+          <RouterLink
+            v-if="sheet"
+            :to="{ name: 'theory-sheet', params: { slug: sheet.slug } }"
+            class="text-accent-600 hover:underline dark:text-accent-500"
+          >
+            {{ sheet.title }}
+          </RouterLink>
+          <RouterLink
+            :to="{ name: 'conjugator', query: { v: store.answered.drill.lemma } }"
+            class="text-accent-600 hover:underline dark:text-accent-500"
+          >
+            Tout le tableau de {{ store.answered.drill.lemma }}
+          </RouterLink>
+        </div>
       </div>
     </template>
   </section>

@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig } from 'vite'
 import type { Plugin } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -49,7 +50,20 @@ export default defineConfig({
   base,
   plugins: [
     spaFallback(),
-    vue(),
+    // `include` étend le plugin Vue aux `.md` : les fiches de théorie sont
+    // compilées en composants, pas en chaînes de HTML. C'est ce qui leur permet
+    // d'appeler <ConjugationTable>, donc de tirer leurs tableaux du moteur au
+    // lieu de les recopier — une fiche ne peut pas enseigner une forme que
+    // l'app corrigerait autrement.
+    /*
+     * `include` restreint au fichier lui-même. Le filtre par défaut du plugin
+     * couvre aussi les sous-requêtes `.md?vue&type=script`, que le plugin Vue
+     * émet **après** avoir compilé le bloc : le markdown s'appliquerait alors au
+     * JavaScript déjà produit, qui repartirait enveloppé dans un `<p>`. L'erreur
+     * qui en sort ne désigne rien de compréhensible.
+     */
+    Markdown({ include: /\.md$/, headEnabled: false }),
+    vue({ include: [/\.vue$/, /\.md$/] }),
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
