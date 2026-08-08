@@ -53,5 +53,9 @@ pnpm-debug.log*
 # Sortie de compilations ponctuelles hors du build Vite
 dist-test/
 
-# Réglages locaux de l’agent, propres à chaque poste
-.claude/
+# Réglages locaux de l’agent, propres à chaque poste — sauf les permissions
+# accordées au dépôt lui-même, qui valent pour quiconque y travaille.
+# Le contenu est exclu fichier par fichier (`.claude/*`) et non par le dossier :
+# git ne rouvre jamais un répertoire déjà exclu, et la négation serait ignorée.
+.claude/*
+!.claude/settings.json
