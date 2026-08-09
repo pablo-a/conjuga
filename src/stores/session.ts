@@ -3,10 +3,10 @@ import { computed, ref, shallowRef } from 'vue'
 
 import type { Tense } from '@/conjugation'
 import { loadSnapshot, saveReview, weakPersons } from '@/db/repository'
-import { grade as correct } from '@/exercises/grading'
-import { buildDrills, closesCard, reviewOf, tally } from '@/exercises/session'
-import type { Drill, DrillAnswer } from '@/exercises/session'
-import { currentLevel, unlockedCards } from '@/srs/curriculum'
+import { grade as correct, gradeSelection } from '@/exercises/grading'
+import { buildExercises, closesCard, reviewOf, tally } from '@/exercises/session'
+import type { Exercise, ExerciseAnswer } from '@/exercises/session'
+import { A2_TENSES, currentLevel, unlockedCards } from '@/srs/curriculum'
 import type { CardId, Level } from '@/srs/curriculum'
 import { planSession, questionsFor } from '@/srs/selector'
 import type { DeckEntry, SessionPlan } from '@/srs/selector'
@@ -47,8 +47,8 @@ export const useSessionStore = defineStore('session', () => {
 
   // Les formes conjuguées sont figées à la composition de la session : les rendre
   // profondément réactives ferait observer chaque caractère de chaque forme.
-  const drills = shallowRef<Drill[]>([])
-  const answers = shallowRef<DrillAnswer[]>([])
+  const exercises = shallowRef<Exercise[]>([])
+  const answers = shallowRef<ExerciseAnswer[]>([])
   const index = ref(0)
 
   const plan = shallowRef<SessionPlan | null>(null)
@@ -64,7 +64,7 @@ export const useSessionStore = defineStore('session', () => {
    */
   let shownAt = 0
 
-  const current = computed<Drill | null>(() => drills.value[index.value] ?? null)
+  const current = computed<Exercise | null>(() => exercises.value[index.value] ?? null)
 
   /**
    * La réponse à la question courante, si elle a déjà été donnée.
@@ -74,9 +74,9 @@ export const useSessionStore = defineStore('session', () => {
    * question affichée, et son existence distingue « en train de répondre » de
    * « en train de lire la correction ».
    */
-  const answered = computed<DrillAnswer | null>(() => answers.value[index.value] ?? null)
+  const answered = computed<ExerciseAnswer | null>(() => answers.value[index.value] ?? null)
 
-  const total = computed(() => drills.value.length)
+  const total = computed(() => exercises.value.length)
   const completed = computed(() => answers.value.length)
   const summary = computed(() => tally(answers.value))
 
@@ -115,11 +115,15 @@ export const useSessionStore = defineStore('session', () => {
 
       level.value = currentLevel(progress)
       plan.value = session
-      drills.value = buildDrills(questionsFor(session, weighted, random))
+      exercises.value = buildExercises(questionsFor(session, weighted, random), {
+        introducing: new Set(session.fresh),
+        tenses: options.focus ?? A2_TENSES,
+        random,
+      })
       answers.value = []
       index.value = 0
       shownAt = Date.now()
-      status.value = drills.value.length > 0 ? 'running' : 'done'
+      status.value = exercises.value.length > 0 ? 'running' : 'done'
     } catch (cause) {
       // Sans IndexedDB, il n'y a pas de session : proposer des questions dont le
       // résultat serait jeté ferait croire à une progression qui n'existe pas.
@@ -136,17 +140,22 @@ export const useSessionStore = defineStore('session', () => {
    * effacer ce qui a été révisé.
    */
   async function submit(text: string): Promise<void> {
-    const drill = current.value
-    if (status.value !== 'running' || drill === null || answered.value !== null) return
+    const exercise = current.value
+    if (status.value !== 'running' || exercise === null || answered.value !== null) return
 
-    const answer: DrillAnswer = {
-      drill,
-      grade: correct(text, drill.form),
+    // Le format décide de la correction, et c'est la seule chose que le magasin
+    // ait à en savoir : la tolérance sur l'accent n'a de sens que pour ce qui est
+    // tapé (voir `gradeSelection`).
+    const grade = exercise.kind === 'drill' ? correct : gradeSelection
+
+    const answer: ExerciseAnswer = {
+      exercise,
+      grade: grade(text, exercise.form),
       elapsedMs: Math.max(0, Date.now() - shownAt),
     }
     answers.value = [...answers.value, answer]
 
-    if (closesCard(drills.value, index.value)) await persist(drill.card)
+    if (closesCard(exercises.value, index.value)) await persist(exercise.card)
   }
 
   async function persist(card: CardId): Promise<void> {
@@ -157,7 +166,8 @@ export const useSessionStore = defineStore('session', () => {
         grade: review.grade,
         at: new Date(),
         answers: review.answers.map((answer) => ({
-          person: answer.drill.person,
+          person: answer.exercise.person,
+          kind: answer.exercise.kind,
           expected: answer.grade.expected,
           given: answer.grade.given,
           correct: answer.grade.verdict === 'correct',
@@ -176,7 +186,7 @@ export const useSessionStore = defineStore('session', () => {
   function next(): void {
     if (status.value !== 'running' || answered.value === null) return
 
-    if (index.value + 1 >= drills.value.length) {
+    if (index.value + 1 >= exercises.value.length) {
       status.value = 'done'
       return
     }
@@ -188,7 +198,7 @@ export const useSessionStore = defineStore('session', () => {
   function reset(): void {
     status.value = 'idle'
     error.value = null
-    drills.value = []
+    exercises.value = []
     answers.value = []
     index.value = 0
     plan.value = null
@@ -199,7 +209,7 @@ export const useSessionStore = defineStore('session', () => {
   return {
     status,
     error,
-    drills,
+    exercises,
     answers,
     index,
     plan,

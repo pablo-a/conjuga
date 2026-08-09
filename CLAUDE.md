@@ -27,9 +27,10 @@ passé composé, passé simple, imparfait, « indefinido ou imperfecto », futur
 impératif, subjonctif présent — le **drill ciblé** depuis une fiche, et la **suggestion
 ciblée** sur l'accueil.
 
-Phase 5 **entamée** : la couche pure de la reconnaissance existe (`exercises/distractors.ts`,
-`exercises/recognition.ts`). Reste à rendre la session hétérogène et à câbler l'écran — voir
-PLAN.md §10 pour l'arbitrage à porter au schéma avant d'y toucher.
+Phase 5 **entamée** : la reconnaissance est en place — distracteurs tirés du moteur, QCM
+posé en ouverture de chaque carte neuve, et la comptabilité qui l'empêche de valoir une
+production. Reste l'**exercice inverse** (donner `tuvieron`, faire identifier verbe, temps et
+personne), qui est un troisième format à ajouter à l'union.
 
 Reste à faire sur les données : **relire les traductions**. Les gloses de `verbs.json`
 viennent du Wiktionnaire, ce sont des définitions et non des équivalents ; elles ne sont
@@ -268,18 +269,55 @@ permet de tester les règles d'apprentissage sans monter d'interface ni ouvrir d
 | `stores/session.ts`      | Enchaîne, chronomètre, range                            | Pinia + les deux |
 | `views/PracticeView.vue` | Pose la question, montre la correction                  | le magasin       |
 
-**Le magasin ne décide de rien.** Il appelle `planSession`, `questionsFor`, `grade`,
-`rateReview` et `saveReview` dans cet ordre. Une règle d'apprentissage écrite dans
-`stores/session.ts` est au mauvais endroit — elle appartient à un module pur, où elle est
-testable.
+**Le magasin ne décide de rien.** Il appelle `planSession`, `questionsFor`, `buildExercises`,
+`grade` ou `gradeSelection`, `rateReview` et `saveReview` dans cet ordre. Une règle
+d'apprentissage écrite dans `stores/session.ts` est au mauvais endroit — elle appartient à un
+module pur, où elle est testable. Le seul choix qu'il fait est celui de la fonction de
+correction, et il le lit sur `exercise.kind`.
 
-### `exercises/session.ts` — quand une carte est close
+### `exercises/session.ts` — deux formats, une carte close
+
+Un `Exercise` est une union discriminée par `kind` : `drill` (on tape la forme) ou `choice`
+(on la désigne). Les deux portent la **même cellule** — carte, verbe, temps, personne,
+forme — donc tout ce qui vient après, correction, notation, écriture, affichage, ne
+distingue les deux qu'aux rares endroits où ça change quelque chose.
+
+**Une carte neuve s'ouvre par une reconnaissance**, sur la personne que le drill suivant va
+demander. Demander d'écrire une forme jamais vue n'enseigne rien : ça constate qu'on ne la
+sait pas. On montre d'abord, on fait produire ensuite, dans la même session. Une carte neuve
+coûte donc quatre questions au lieu de trois, ce que le budget absorbe — `QUESTIONS_PER_CARD`
+vaut 2,5, déjà en dessous du nominal à cause des verbes défectifs.
+
+**Invariant** : une reconnaissance ne tient jamais seule sur une carte, elle précède toujours
+la production de la même cellule. C'est ce qui permet à `reviewOf` de noter sur la seule
+production sans jamais tomber sur une carte vide.
 
 Les questions d'une même carte se suivent, parce que `questionsFor` les produit carte par
 carte : un changement de carte marque donc la fin de la précédente. C'est ce moment qui
 déclenche la note FSRS **et l'écriture**. La progression est ainsi rangée au fil de la
 session, et fermer l'onglet au milieu ne perd que la carte en cours — une session de vingt
 minutes interrompue par un appel ne doit pas s'effacer.
+
+### Ce que la reconnaissance ne doit pas peser
+
+Reconnaître une forme parmi quatre est plus facile que l'écrire. Compter les deux à égalité
+est la façon dont un système de répétition espacée se met à mentir : on allongerait les
+échéances d'une carte qu'on ne sait pas encore produire. D'où trois règles, et le champ
+`Answer.kind` qui les rend possibles (schéma v3, qui marque `drill` tout l'historique) :
+
+- **`reviewOf` note sur la production seule.** La reconnaissance est un tremplin, pas une
+  preuve.
+- **`patternStats` ne compte que la production.** Le mélange d'exercices évoluera ; additionner
+  les deux ferait bouger le taux d'échec d'un patron sans que l'apprenant ait changé, donc
+  rendrait la mesure incomparable dans le temps et la suggestion de l'accueil erratique.
+- **`weakPersons` ne regarde que la production.** Sa règle est « la dernière réponse fait
+  foi », et elle ne supporte pas le mélange : une reconnaissance réussie effacerait une
+  faiblesse de production. Sur une carte neuve les deux portent d'ailleurs le même
+  horodatage, donc l'ordre lui-même serait affaire de chance.
+
+Enfin, `gradeSelection` **ne connaît pas le verdict `accent`**. La tolérance de la production
+récompense un geste de frappe ; cliquer sur `estas` quand `estás` est juste à côté est un
+choix fait après lecture. Personne ne sélectionne un accent par mégarde.
 
 ### `exercises/distractors.ts` — ce qui décide qu'un QCM enseigne
 
@@ -300,8 +338,11 @@ Trois exclusions, toutes constatées en regardant ce que le module produisait :
 
 - **jamais un temps composé face à un temps simple** : `he pensado` contre `pienso` se
   tranche en comptant les mots.
-- **jamais la forme régulière d'une suppletion** : `ser` régulier donnerait `ses`, que
-  personne n'a jamais écrit pour `eres`. La règle du groupe n'a jamais été un candidat.
+- **jamais la forme régulière d'un verbe sans radical** (`MIN_STEM`). `ser`, `ir`, `ver`,
+  `dar` régularisés donnent `ses`, `o`, `ví`, `dé` : des terminaisons nues, qu'on écarte sans
+  conjuguer. Le critère porte sur le **radical**, pas sur le genre d'irrégularité — `ser` et
+  `estar` sont tous deux classés suppletifs par le moteur, alors que `estas` contre `estás`
+  est le meilleur distracteur qu'on puisse proposer.
 - **aucun distracteur de temps sans pool explicite.** Le module ignore le curriculum et ne
   le devine pas : opposer un temps jamais rencontré rendrait la question plus facile, pas
   plus instructive. Sans liste, il s'en tient aux personnes.

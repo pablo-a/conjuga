@@ -1,4 +1,11 @@
-import { PERSONS, PERSON_LABELS, TENSE_LABELS, conjugate, isCompoundTense } from '@/conjugation'
+import {
+  PERSONS,
+  PERSON_LABELS,
+  TENSE_LABELS,
+  conjugate,
+  isCompoundTense,
+  stemOf,
+} from '@/conjugation'
 import type { Form, Person, Tense } from '@/conjugation'
 
 /**
@@ -92,7 +99,7 @@ export function distractorsFor(
     chosen.push(candidate)
   }
 
-  add(regularOf(form))
+  add(regularOf(lemma, form))
 
   // Alternance des deux autres sources plutôt qu'épuisement de la première : un
   // QCM dont les trois erreurs sont trois personnes ne pose qu'une question.
@@ -113,20 +120,30 @@ export function distractorsFor(
 }
 
 /**
+ * En deçà, la « forme régulière » n'est plus un mot mais une terminaison.
+ *
+ * `ser`, `ir`, `ver`, `dar` ont un radical d'une lettre ou moins : régularisés,
+ * ils donnent `ses`, `o`, `ví`, `dé` — des fragments que personne n'écrit pour
+ * `eres`, `voy`, `vi` ou `di`, et qu'un apprenant écarte sans conjuguer. Dès deux
+ * lettres, la forme régulière redevient un mot possible et donc l'erreur type :
+ * `tení` pour `tuve`, `estas` pour `estás`, `penso` pour `pienso`.
+ *
+ * Le critère porte sur le radical et non sur le genre d'irrégularité : `ser` et
+ * `estar` sont tous deux classés suppletifs par le moteur, alors que `estas`
+ * contre `estás` est le meilleur distracteur qu'on puisse proposer.
+ */
+const MIN_STEM = 2
+
+/**
  * La forme régulière, quand le verbe s'en écarte de façon imitable.
  *
  * `Form.regular` est calculée par le moteur avec le modèle régulier du groupe :
  * c'est exactement ce qu'un apprenant appliquant la règle produirait. Sa raison
  * vient de la première irrégularité relevée, celle que l'écran surligne.
- *
- * Sauf pour les formes **suppletives**, écartées ici : `ser` régulier donnerait
- * `ses`, que personne n'a jamais écrit pour `eres`. Une suppletion n'a aucun
- * lien avec l'infinitif, donc la règle du groupe n'a jamais été un candidat dans
- * la tête de qui que ce soit — c'est du bruit, pas une erreur plausible.
  */
-function regularOf(form: Form): Distractor | null {
+function regularOf(lemma: string, form: Form): Distractor | null {
   if (form.regular === form.value) return null
-  if (form.irregularities.some((irregularity) => irregularity.kind === 'suppletive')) return null
+  if (stemOf(lemma).length < MIN_STEM) return null
 
   const reason = form.irregularities[0]?.explanation
   return {

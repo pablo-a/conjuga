@@ -73,6 +73,12 @@ export const FOCUS_BUDGET_MS = 5 * 60 * 1000
 export interface SessionPlan {
   /** Les cartes à poser, dans l'ordre. */
   cards: CardId[]
+  /**
+   * Celles que la session découvre. La composition des exercices en a besoin, et
+   * pas seulement de leur nombre : une carte jamais vue s'ouvre par une
+   * reconnaissance, où l'on montre la forme avant de demander de l'écrire.
+   */
+  fresh: readonly CardId[]
   /** Combien d'entre elles sont nouvelles. */
   introduced: number
   /**
@@ -150,6 +156,7 @@ export function planSession(
 
   return {
     cards: interleave([...reviews, ...early], fresh),
+    fresh,
     introduced: fresh.length,
     ahead: early.length,
     backlog,

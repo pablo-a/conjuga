@@ -1,3 +1,4 @@
+import Dexie from 'dexie'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { db } from '@/db'
@@ -18,6 +19,7 @@ const HABLAR = cardId('hablar', 'indicativo.presente')
 
 const answer = (over: Partial<AnswerDraft> = {}): AnswerDraft => ({
   person: 'yo',
+  kind: 'drill',
   expected: 'pienso',
   given: 'pienso',
   correct: true,
@@ -197,5 +199,48 @@ describe('jours travaillés', () => {
     await saveReview({ card: HABLAR, grade: 'good', at: AT, answers: [answer()] })
 
     expect((await loadStudyDays()).map((day) => day.id)).toEqual([DAY, dayKey(NEXT)])
+  })
+})
+
+/**
+ * La migration n'est pas cosmétique : `kind` décide de ce qui compte comme preuve
+ * de production. Laisser les lignes d'avant sans valeur les ferait lire, tôt ou
+ * tard, comme « pas une production » — et effacerait l'historique de qui a le
+ * plus travaillé.
+ */
+describe('passage à la version 3', () => {
+  it('marque comme production tout ce qui était rangé avant la reconnaissance', async () => {
+    await db.close()
+    await db.delete()
+
+    // Une base telle que la version 2 la laissait : aucune réponse ne porte de
+    // format, puisqu'il n'y en avait qu'un.
+    const before = new Dexie('conjuga')
+    before.version(1).stores({
+      cards: 'id, lemma, tense, due',
+      answers: '++id, cardId, answeredAt',
+      patternStats: 'id, model, tense',
+    })
+    before.version(2).stores({ days: 'id' })
+    await before.open()
+    await before.table('answers').add({
+      cardId: PENSAR,
+      answeredAt: AT,
+      person: 'yo',
+      expected: 'pienso',
+      given: 'penso',
+      correct: false,
+      accentOnly: false,
+      elapsedMs: 5000,
+    })
+    before.close()
+
+    await db.open()
+
+    const stored = await db.answers.toArray()
+    expect(stored).toHaveLength(1)
+    expect(stored[0]!.kind).toBe('drill')
+    // Et la faiblesse qu'elle portait est toujours lue comme telle.
+    expect((await weakPersons([PENSAR])).get(PENSAR)).toEqual(['yo'])
   })
 })

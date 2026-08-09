@@ -70,16 +70,27 @@ describe('distracteurs', () => {
     }
   })
 
-  it('n’oppose pas une forme suppletive à sa version régulière', () => {
-    // `ser` régulier donnerait `ses`, que personne n'a jamais écrit pour `eres` :
-    // une suppletion n'a aucun lien avec l'infinitif, donc la règle du groupe
-    // n'a jamais été un candidat. C'est du bruit, pas une erreur plausible.
-    const produced = values('ser', 'indicativo.presente', 'tu')
+  it('n’oppose pas une terminaison nue à un verbe sans radical', () => {
+    // `ser` régularisé donne `ses`, `ir` donne `o`, `ver` donne `ví` : des
+    // fragments qu'on écarte sans conjuguer, donc des questions plus faciles.
+    for (const [lemma, tense, person, fragment] of [
+      ['ser', 'indicativo.presente', 'tu', 'ses'],
+      ['ir', 'indicativo.presente', 'yo', 'o'],
+      ['ver', 'indicativo.indefinido', 'yo', 'ví'],
+    ] as [string, Tense, Person, string][]) {
+      const produced = values(lemma, tense, person)
+      expect(produced, lemma).not.toContain(fragment)
+      // Le verbe reste interrogeable : ce sont ses vraies formes qui font leurre.
+      expect(produced.length, lemma).toBe(3)
+    }
+  })
 
-    expect(produced).not.toContain('ses')
-    // Le verbe reste interrogeable pour autant : ce sont ses vraies formes qui
-    // servent de leurres.
-    expect(produced.length).toBe(3)
+  it('garde la forme régulière dès que le radical porte deux lettres', () => {
+    // Le critère est le radical, pas le genre d'irrégularité : `ser` et `estar`
+    // sont tous deux suppletifs pour le moteur, et pourtant `estas` contre
+    // `estás` est le meilleur distracteur qu'on puisse proposer.
+    expect(values('estar', 'indicativo.presente', 'tu')).toContain('estas')
+    expect(values('tener', 'indicativo.indefinido', 'yo')).toContain('tení')
   })
 
   it('compte l’adaptation graphique comme une erreur plausible', () => {

@@ -3,9 +3,11 @@ import { createPinia, setActivePinia } from 'pinia'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { db } from '@/db'
+import { weakPersons } from '@/db/repository'
 import { router } from '@/router'
 import { LEVELS, MASTERY_STABILITY_DAYS, parseCardId } from '@/srs/curriculum'
 import { newCardState } from '@/srs/scheduler'
+import type { Exercise } from '@/exercises/session'
 import { useSessionStore } from '@/stores/session'
 import PracticeView from '@/views/PracticeView.vue'
 
@@ -16,7 +18,9 @@ import PracticeView from '@/views/PracticeView.vue'
  *
  * Le hasard est neutralisé (`() => 0`), ce qui rend la session entièrement
  * prévisible : dix nouvelles cartes prises en tête du curriculum, trois personnes
- * chacune. La première question est donc toujours `ser` à la deuxième personne.
+ * chacune. La première cellule est donc toujours `ser` à la deuxième personne —
+ * posée d'abord en reconnaissance, puisque la carte est neuve, puis en
+ * production.
  */
 
 const AT = new Date('2026-08-08T09:00:00Z')
@@ -42,10 +46,20 @@ async function practice(random: () => number = () => 0): Promise<Wrapper> {
   return wrapper
 }
 
-/** Répond à la question courante et attend la correction. */
+/**
+ * Répond à la question courante, quel que soit son format, et attend la
+ * correction. Un QCM se répond en désignant, pas en tapant.
+ */
 async function answer(wrapper: Wrapper, text: string): Promise<void> {
-  await wrapper.get('#reponse').setValue(text)
-  await wrapper.get('form').trigger('submit')
+  if (useSessionStore().current?.kind === 'choice') {
+    const option = wrapper
+      .findAll('[data-choices] button')
+      .find((button) => button.text().trim() === text)
+    await option!.trigger('click')
+  } else {
+    await wrapper.get('#reponse').setValue(text)
+    await wrapper.get('form').trigger('submit')
+  }
   await flushPromises()
 }
 
@@ -55,19 +69,34 @@ async function next(wrapper: Wrapper): Promise<void> {
   await flushPromises()
 }
 
-/** Enchaîne `count` bonnes réponses, pour atteindre une question précise. */
-async function advance(wrapper: Wrapper, count: number): Promise<void> {
+/** Enchaîne des bonnes réponses tant que la condition tient. */
+async function advanceWhile(
+  wrapper: Wrapper,
+  wanted: (exercise: Exercise) => boolean,
+): Promise<void> {
   const store = useSessionStore()
-  for (let done = 0; done < count; done++) {
-    await answer(wrapper, store.current!.form.value)
+  for (let guard = 0; guard < 50 && store.current && wanted(store.current); guard++) {
+    await answer(wrapper, store.current.form.value)
     await next(wrapper)
   }
+}
+
+/**
+ * Amène l'écran à la première production.
+ *
+ * Une carte neuve s'ouvre par une reconnaissance : la plupart des tests portent
+ * sur la production, et la traverser à la main dans chacun d'eux masquerait leur
+ * objet. La reconnaissance a ses propres tests, plus bas.
+ */
+async function toDrill(wrapper: Wrapper): Promise<void> {
+  await advanceWhile(wrapper, (exercise) => exercise.kind !== 'drill')
 }
 
 describe('écran Pratique', () => {
   it('pose une question de la session du jour', async () => {
     const wrapper = await practice()
     const store = useSessionStore()
+    await toDrill(wrapper)
 
     expect(store.status).toBe('running')
     expect(wrapper.get('[data-lemma]').text()).toBe('ser')
@@ -79,6 +108,7 @@ describe('écran Pratique', () => {
 
   it('valide une forme exacte, et montre quand même la forme', async () => {
     const wrapper = await practice()
+    await toDrill(wrapper)
 
     await answer(wrapper, 'eres')
 
@@ -89,10 +119,13 @@ describe('écran Pratique', () => {
   })
 
   it('distingue la faute d’accent d’une forme fausse', async () => {
-    // Quatrième question de la session : `estar` à la deuxième personne, où
-    // l'accent est le seul écart possible.
+    // On avance jusqu'à `estar` à la deuxième personne, où l'accent est le seul
+    // écart possible.
     const wrapper = await practice()
-    await advance(wrapper, 3)
+    await advanceWhile(
+      wrapper,
+      (exercise) => !(exercise.kind === 'drill' && exercise.form.value === 'estás'),
+    )
     expect(useSessionStore().current!.form.value).toBe('estás')
 
     await answer(wrapper, 'estas')
@@ -104,6 +137,7 @@ describe('écran Pratique', () => {
   it('traite « je ne sais pas » comme une réponse fausse qui enseigne', async () => {
     const wrapper = await practice()
     const store = useSessionStore()
+    await toDrill(wrapper)
 
     const give = wrapper.findAll('button').find((button) => button.text() === 'Je ne sais pas')
     await give!.trigger('click')
@@ -116,6 +150,7 @@ describe('écran Pratique', () => {
 
   it('renvoie vers le tableau complet du verbe interrogé', async () => {
     const wrapper = await practice()
+    await toDrill(wrapper)
     await answer(wrapper, 'eres')
 
     expect(wrapper.get('a[href*="conjugueur"]').attributes('href')).toContain('v=ser')
@@ -125,6 +160,7 @@ describe('écran Pratique', () => {
     // Le surlignage montre *où* est l'irrégularité ; la fiche dit *pourquoi*.
     // Sans ce lien, la correction s'arrête à l'endroit le plus intéressant.
     const wrapper = await practice()
+    await toDrill(wrapper)
     await answer(wrapper, 'eres')
 
     expect(wrapper.get('a[href*="theorie"]').attributes('href')).toContain('present')
@@ -137,8 +173,9 @@ describe('écran Pratique', () => {
     const store = useSessionStore()
 
     const card = store.current!.card
-    const questions = store.drills.filter((drill) => drill.card === card).length
-    expect(questions).toBe(3)
+    const questions = store.exercises.filter((exercise) => exercise.card === card).length
+    // Une carte neuve : une reconnaissance d'ouverture, puis trois productions.
+    expect(questions).toBe(4)
 
     for (let asked = 0; asked < questions; asked++) {
       expect(await db.cards.count(), `avant la question ${asked + 1}`).toBe(0)
@@ -168,13 +205,13 @@ describe('écran Pratique', () => {
     // répété corrigerait la même question plusieurs fois.
     const wrapper = await practice()
     const store = useSessionStore()
+    await toDrill(wrapper)
 
+    const asked = store.current!
     await answer(wrapper, 'eres')
     await answer(wrapper, 'eres')
 
-    expect(
-      store.answers.filter((given) => given.drill.card === store.drills[0]!.card),
-    ).toHaveLength(1)
+    expect(store.answers.filter((given) => given.exercise === asked)).toHaveLength(1)
   })
 
   it('annonce une session vide plutôt qu’un écran blanc', async () => {
@@ -252,14 +289,16 @@ describe('session ciblée', () => {
     const store = useSessionStore()
 
     expect(store.status).toBe('running')
-    expect(store.drills.every((drill) => drill.tense === 'indicativo.imperfecto')).toBe(true)
+    expect(store.exercises.every((exercise) => exercise.tense === 'indicativo.imperfecto')).toBe(
+      true,
+    )
     expect(wrapper.get('[data-focus]').text()).toContain('imparfait')
   })
 
   it('mêle les deux temps d’une fiche qui en couvre deux', async () => {
     await unlockEssentials()
     const wrapper = await focused('indicativo.futuro,indicativo.condicional')
-    const tenses = new Set(useSessionStore().drills.map((drill) => drill.tense))
+    const tenses = new Set(useSessionStore().exercises.map((exercise) => exercise.tense))
 
     expect(tenses).toEqual(new Set(['indicativo.futuro', 'indicativo.condicional']))
     expect(wrapper.get('[data-focus]').text()).toContain('et')
@@ -291,9 +330,141 @@ describe('session ciblée', () => {
     await router.push('/pratique?temps=indicativo.futuro')
     await settle()
 
-    expect(useSessionStore().drills.every((drill) => drill.tense === 'indicativo.futuro')).toBe(
-      true,
-    )
+    expect(
+      useSessionStore().exercises.every((exercise) => exercise.tense === 'indicativo.futuro'),
+    ).toBe(true)
     expect(wrapper.get('[data-focus]').text()).toContain('futur')
+  })
+})
+
+/**
+ * La reconnaissance ouvre les cartes neuves. Ce qui est vérifié ici, ce n'est pas
+ * qu'un QCM s'affiche, mais qu'il pèse dans la progression exactement ce qu'il
+ * vaut : moins qu'une production.
+ */
+describe('reconnaissance', () => {
+  const options = () => useSessionStore().current
+
+  it('ouvre une carte neuve par un QCM, pas par une page blanche à remplir', async () => {
+    // Demander d'écrire une forme jamais vue ne fait que constater qu'on ne la
+    // sait pas. On montre d'abord, on fait produire ensuite — même cellule.
+    const wrapper = await practice()
+    const store = useSessionStore()
+
+    expect(store.current!.kind).toBe('choice')
+    expect(wrapper.findAll('[data-choices] button')).toHaveLength(4)
+    expect(wrapper.text()).toContain('Laquelle est la forme de tú ?')
+
+    await answer(wrapper, 'eres')
+    await next(wrapper)
+
+    // La production suit, sur la même case.
+    expect(store.current!.kind).toBe('drill')
+    expect(store.current!.person).toBe('tu')
+    expect(store.current!.form.value).toBe('eres')
+  })
+
+  it('ne tolère pas l’accent sur une forme désignée', async () => {
+    // On ne clique pas sur un accent par mégarde : la tolérance de la production
+    // récompense un geste de frappe, pas un choix fait après lecture.
+    const wrapper = await practice()
+    const store = useSessionStore()
+    await advanceWhile(
+      wrapper,
+      (exercise) => !(exercise.kind === 'choice' && exercise.form.value === 'estás'),
+    )
+    expect(options()!.kind).toBe('choice')
+
+    // `estar` régularisé donne `estas` : le distracteur qui ne diffère que par
+    // l'accent, et donc le seul cas où la tolérance de la production se poserait.
+    const wrong = wrapper
+      .findAll('[data-choices] button')
+      .find((button) => button.text().trim() === 'estas')
+
+    await wrong!.trigger('click')
+    await flushPromises()
+
+    expect(store.answered!.grade.verdict).toBe('wrong')
+    expect(wrapper.text()).not.toContain('accent tonique')
+  })
+
+  it('marque la bonne forme même quand elle a été trouvée', async () => {
+    // C'est la seule ligne qui vaille d'être relue : la laisser se confondre avec
+    // les trois autres perdrait tout ce que la correction avait à apprendre.
+    const wrapper = await practice()
+
+    await answer(wrapper, 'eres')
+
+    const right = wrapper
+      .findAll('[data-choices] button')
+      .find((button) => button.text().startsWith('eres'))
+    expect(right!.classes().join(' ')).toContain('emerald')
+  })
+
+  it('dit ce qu’était chaque mauvaise proposition', async () => {
+    const wrapper = await practice()
+
+    await answer(wrapper, 'eres')
+
+    // Une croix rouge n'apprend rien ; « la forme de yo » situe l'erreur.
+    expect(wrapper.get('[data-choices]').text()).toContain('la forme de')
+  })
+
+  it('n’allonge pas une échéance et n’entre pas dans les statistiques de patron', async () => {
+    const wrapper = await practice()
+    const store = useSessionStore()
+
+    const card = store.current!.card
+    const questions = store.exercises.filter((exercise) => exercise.card === card).length
+
+    // Toute la carte en bonnes réponses : une reconnaissance, trois productions.
+    for (let asked = 0; asked < questions; asked++) {
+      await answer(wrapper, store.current!.form.value)
+      await next(wrapper)
+    }
+
+    const stat = await db.patternStats.toArray()
+    expect(stat).toHaveLength(1)
+    // Trois productions comptées, la reconnaissance écartée : le taux d'échec
+    // d'un patron doit rester comparable dans le temps, quel que soit le mélange
+    // d'exercices du moment.
+    expect(stat[0]!.attempts).toBe(questions - 1)
+
+    // Elle est rangée pour autant, et sait dire d'où elle vient.
+    const answers = await db.answers.toArray()
+    expect(answers).toHaveLength(questions)
+    expect(answers.filter((given) => given.kind === 'choice')).toHaveLength(1)
+  })
+
+  it('ne laisse pas une reconnaissance réussie effacer une faiblesse de production', async () => {
+    // `weakPersons` retient la dernière réponse : si la reconnaissance comptait,
+    // le QCM d'ouverture blanchirait la personne que la production vient de rater.
+    await db.answers.bulkAdd([
+      {
+        cardId: LEVELS[0]!.cards[0]!,
+        answeredAt: AT,
+        person: 'tu',
+        kind: 'drill',
+        expected: 'eres',
+        given: 'ers',
+        correct: false,
+        accentOnly: false,
+        elapsedMs: 5000,
+      },
+      {
+        cardId: LEVELS[0]!.cards[0]!,
+        answeredAt: AT,
+        person: 'tu',
+        kind: 'choice',
+        expected: 'eres',
+        given: 'eres',
+        correct: true,
+        accentOnly: false,
+        elapsedMs: 2000,
+      },
+    ])
+
+    const weak = await weakPersons([LEVELS[0]!.cards[0]!])
+    expect(weak.get(LEVELS[0]!.cards[0]!)).toEqual(['tu'])
   })
 })

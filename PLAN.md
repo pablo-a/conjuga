@@ -427,19 +427,33 @@ repoussée sur un coup de pièce. Il n'a **pas** de fonction de correction, et c
 de fond : désigner une forme fausse est une erreur pleine, là où l'écrire à un accent près
 reste un quasi-succès. On ne choisit pas un accent par mégarde.
 
-**Ce qui reste, et la décision qui le précède.** La session est encore homogène — une liste
-de `Drill` corrigés par comparaison de chaîne. Trois types d'exercices demandent une union
-discriminée, une correction par variante et un composant par variante, le magasin continuant
-à ne rien décider. Avant d'y toucher, un arbitrage à porter au schéma : **un QCM réussi ne
-vaut pas un drill réussi**, reconnaître étant plus facile que produire. La règle retenue,
-sauf avis contraire :
+**La session est désormais hétérogène.** Un `Exercise` est une union discriminée par `kind`,
+les deux formats portant la même cellule : tout ce qui vient après — correction, notation,
+écriture, affichage — ne les distingue qu'aux rares endroits où ça change quelque chose.
 
-- la **note FSRS** d'une carte se calcule sur ses questions de production ; la reconnaissance
-  n'allonge pas une échéance ;
+**Une carte neuve s'ouvre par une reconnaissance**, sur la personne que le drill suivant va
+demander. Demander d'écrire une forme jamais vue ne fait que constater qu'on ne la sait pas.
+Une carte neuve coûte donc quatre questions au lieu de trois, ce que le budget absorbe.
+
+L'arbitrage annoncé est appliqué, à une correction près, venue de l'implémentation :
+
+- la **note FSRS** se calcule sur la production seule ; la reconnaissance n'allonge pas une
+  échéance ;
 - `patternStats` ne compte que la production, pour que le taux d'échec d'un patron reste
   comparable dans le temps alors même que le mélange d'exercices évolue ;
-- chaque réponse rangée porte néanmoins son type d'exercice, et les erreurs de
-  reconnaissance alimentent `weakPersons` : elles disent quelles cases reposer.
+- **`weakPersons` aussi ne regarde que la production** — c'est la correction. Sa règle est
+  « la dernière réponse fait foi », et elle ne supporte pas le mélange : une reconnaissance
+  réussie effacerait une faiblesse de production, alors qu'elle ne prouve pas qu'on sache
+  écrire la forme. Sur une carte neuve, les deux réponses portent d'ailleurs le même
+  horodatage, donc l'ordre lui-même serait affaire de chance.
+
+Le champ `Answer.kind` porte tout cela (schéma v3, dont la migration marque `drill` tout
+l'historique : les lignes d'avant venaient toutes du drill, et les laisser sans valeur les
+ferait lire tôt ou tard comme « pas une production »).
+
+**Reste de la phase 5** : l'exercice **inverse** — on donne `tuvieron`, il faut identifier
+verbe, temps et personne. C'est un troisième format à ajouter à l'union, et le premier qui
+n'interroge pas une cellule connue d'avance.
 
 ## 11. Risques et points à trancher
 

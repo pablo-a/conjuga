@@ -102,5 +102,25 @@ export function grade(answer: string, form: Form): Grade {
   return { verdict: 'wrong', given, expected: closest }
 }
 
+/**
+ * Corrige une forme **désignée** parmi des propositions.
+ *
+ * La différence avec `grade` n'est pas une simplification : `accent` n'existe pas
+ * ici, et ne doit pas exister. La tolérance de la production récompense
+ * l'apprenant qui a trouvé la forme et manqué la syllabe tonique — un geste de
+ * frappe. Cliquer sur `hablo` quand la réponse est `habló`, c'est avoir choisi
+ * l'autre forme après l'avoir lue à côté de la bonne. Personne ne sélectionne un
+ * accent par mégarde, et l'excuser reviendrait à ne pas poser la question.
+ */
+export function gradeSelection(chosen: string, form: Form): Grade {
+  const given = normalizeAnswer(chosen)
+  const candidates = acceptedForms(form).map(normalizeAnswer)
+  const exact = candidates.find((candidate) => candidate === given)
+
+  return exact !== undefined
+    ? { verdict: 'correct', given, expected: exact }
+    : { verdict: 'wrong', given, expected: candidates[0]! }
+}
+
 /** Une réponse juste, accent compris ou non — ce qui compte pour « a-t-il trouvé la forme ? ». */
 export const foundTheForm = (grade: Grade): boolean => grade.verdict !== 'wrong'

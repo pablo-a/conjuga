@@ -7,6 +7,7 @@ import VerbForm from '@/components/VerbForm.vue'
 import { PERSON_LABELS, TENSE_LABELS, TENSES } from '@/conjugation'
 import type { Tense } from '@/conjugation'
 import { sheetFor } from '@/content'
+import type { Choice } from '@/exercises/recognition'
 import { useSessionStore } from '@/stores/session'
 
 const store = useSessionStore()
@@ -39,7 +40,7 @@ const focusLabel = computed(() =>
  * l'irrégularité, la fiche dit *pourquoi*. Tant que tous les temps n'ont pas la
  * leur, le lien s'efface au lieu de mener à une page vide.
  */
-const sheet = computed(() => (store.answered ? sheetFor(store.answered.drill.tense) : undefined))
+const sheet = computed(() => (store.answered ? sheetFor(store.answered.exercise.tense) : undefined))
 
 const text = ref('')
 const inputEl = ref<HTMLInputElement | null>(null)
@@ -91,6 +92,10 @@ const VERDICTS = {
 
 const verdict = computed(() => (store.answered ? VERDICTS[store.answered.grade.verdict] : null))
 
+/**
+ * Le champ n'existe qu'en production : sur un QCM il n'y a rien à taper, et
+ * viser un élément absent ne ferait que renvoyer le focus en tête de page.
+ */
 async function focusInput(): Promise<void> {
   await nextTick()
   inputEl.value?.focus()
@@ -109,6 +114,9 @@ async function onSubmit(): Promise<void> {
     return
   }
 
+  // Sur un QCM, le formulaire ne sert qu'à avancer : la réponse se donne en
+  // désignant une proposition, il n'y a rien à valider.
+  if (store.current?.kind !== 'drill') return
   if (text.value.trim().length === 0) return
   await answer(text.value)
 }
@@ -141,6 +149,25 @@ function insert(character: string): void {
     const caret = start + character.length
     el.setSelectionRange(caret, caret)
   })
+}
+
+/**
+ * L'habillage d'une proposition, avant et après la réponse.
+ *
+ * Une fois corrigé, la bonne forme se marque **toujours**, y compris quand elle
+ * a été trouvée : c'est elle qu'il faut retenir, et la laisser se confondre avec
+ * les trois autres perdrait la seule ligne qui vaille la peine d'être relue.
+ */
+function toneOf(choice: Choice): string {
+  if (store.answered === null) {
+    return 'border-slate-300 hover:border-accent-500 dark:border-slate-700'
+  }
+  if (choice.correct) {
+    return 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40'
+  }
+  return store.answered.grade.given === choice.value
+    ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/30'
+    : 'border-slate-200 opacity-60 dark:border-slate-800'
 }
 
 /** Relancer garde la cible : on enchaîne le drill qu'on était venu faire. */
@@ -279,28 +306,62 @@ const restart = begin
         </h2>
 
         <form class="mt-4" @submit.prevent="onSubmit">
-          <label for="reponse" class="text-sm text-slate-500 dark:text-slate-400">
-            {{ PERSON_LABELS[store.current.person] }}
-          </label>
-          <input
-            id="reponse"
-            ref="inputEl"
-            v-model="text"
-            type="text"
-            :readonly="store.answered !== null"
-            autocomplete="off"
-            autocapitalize="none"
-            autocorrect="off"
-            spellcheck="false"
-            enterkeyhint="done"
-            class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30 read-only:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:read-only:bg-slate-950"
-          />
+          <template v-if="store.current.kind === 'drill'">
+            <label for="reponse" class="text-sm text-slate-500 dark:text-slate-400">
+              {{ PERSON_LABELS[store.current.person] }}
+            </label>
+            <input
+              id="reponse"
+              ref="inputEl"
+              v-model="text"
+              type="text"
+              :readonly="store.answered !== null"
+              autocomplete="off"
+              autocapitalize="none"
+              autocorrect="off"
+              spellcheck="false"
+              enterkeyhint="done"
+              class="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30 read-only:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:read-only:bg-slate-950"
+            />
 
-          <AccentKeys v-if="store.answered === null" class="mt-2" @insert="insert" />
+            <AccentKeys v-if="store.answered === null" class="mt-2" @insert="insert" />
+          </template>
+
+          <!-- La reconnaissance ouvre les cartes neuves : on montre la forme
+               avant de demander de l'écrire. La consigne dit donc la personne,
+               comme au drill — c'est la même case qu'on interroge. -->
+          <template v-else>
+            <p id="consigne" class="text-sm text-slate-500 dark:text-slate-400">
+              Laquelle est la forme de {{ PERSON_LABELS[store.current.person] }} ?
+            </p>
+            <ul class="mt-2 space-y-2" aria-labelledby="consigne" data-choices>
+              <li v-for="choice in store.current.choices" :key="choice.value">
+                <button
+                  type="button"
+                  :disabled="store.answered !== null"
+                  class="w-full rounded-lg border px-3 py-2 text-left text-lg disabled:cursor-default"
+                  :class="toneOf(choice)"
+                  @click="answer(choice.value)"
+                >
+                  {{ choice.value }}
+                  <!-- Après coup, chaque proposition dit ce qu'elle était : une
+                       croix rouge n'apprend rien, « c'était le présent » situe
+                       l'erreur. -->
+                  <span
+                    v-if="store.answered && choice.label"
+                    class="block text-xs text-slate-500 dark:text-slate-400"
+                  >
+                    {{ choice.label
+                    }}<template v-if="choice.reason"> — {{ choice.reason }}</template>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </template>
 
           <div class="mt-4 flex gap-2">
             <button
-              v-if="store.answered === null"
+              v-if="store.answered === null && store.current.kind === 'drill'"
               type="submit"
               :disabled="text.trim().length === 0"
               class="rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white hover:bg-accent-700 disabled:opacity-40"
@@ -308,7 +369,7 @@ const restart = begin
               Valider
             </button>
             <button
-              v-if="store.answered === null"
+              v-if="store.answered === null && store.current.kind === 'drill'"
               type="button"
               class="rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-600 hover:border-slate-400 dark:border-slate-700 dark:text-slate-300"
               @click="giveUp"
@@ -316,7 +377,7 @@ const restart = begin
               Je ne sais pas
             </button>
             <button
-              v-else
+              v-if="store.answered !== null"
               ref="continueEl"
               type="submit"
               class="rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white hover:bg-accent-700"
@@ -340,12 +401,13 @@ const restart = begin
           v-if="store.answered.grade.verdict !== 'correct' && store.answered.grade.given.length > 0"
           class="mt-1 text-sm text-slate-500 dark:text-slate-400"
         >
-          Tu as écrit « {{ store.answered.grade.given }} ».
+          {{ store.answered.exercise.kind === 'drill' ? 'Tu as écrit' : 'Tu as choisi' }}
+          « {{ store.answered.grade.given }} ».
         </p>
 
         <!-- Toujours la forme complète, même quand la réponse est juste : c'est
              là que le segment irrégulier se voit et que la règle s'apprend. -->
-        <p class="mt-2 text-lg"><VerbForm :form="store.answered.drill.form" /></p>
+        <p class="mt-2 text-lg"><VerbForm :form="store.answered.exercise.form" /></p>
 
         <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
           <RouterLink
@@ -356,10 +418,10 @@ const restart = begin
             {{ sheet.title }}
           </RouterLink>
           <RouterLink
-            :to="{ name: 'conjugator', query: { v: store.answered.drill.lemma } }"
+            :to="{ name: 'conjugator', query: { v: store.answered.exercise.lemma } }"
             class="text-accent-600 hover:underline dark:text-accent-500"
           >
-            Tout le tableau de {{ store.answered.drill.lemma }}
+            Tout le tableau de {{ store.answered.exercise.lemma }}
           </RouterLink>
         </div>
       </div>

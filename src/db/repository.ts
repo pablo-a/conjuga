@@ -1,5 +1,6 @@
 import { conjugationOf, modelFor } from '@/conjugation'
 import type { Person } from '@/conjugation'
+import type { ExerciseKind } from '@/exercises/session'
 import { parseCardId } from '@/srs/curriculum'
 import type { CardId, Progress } from '@/srs/curriculum'
 import type { PatternCount } from '@/srs/patterns'
@@ -24,6 +25,7 @@ import type { Answer, StudyDay } from './index'
 /** Une réponse à ranger, telle que la session la produit. */
 export interface AnswerDraft {
   person: Person
+  kind: ExerciseKind
   expected: string
   given: string
   correct: boolean
@@ -70,6 +72,12 @@ export async function loadSnapshot(): Promise<Snapshot> {
  *
  * La faute d'accent compte comme un échec ici, alors que le SRS la traite plus
  * doucement : l'accent tonique se travaille exactement en reposant la personne.
+ *
+ * Seule la **production** est regardée. La règle « la dernière réponse fait foi »
+ * ne supporte pas le mélange : une reconnaissance réussie effacerait une
+ * faiblesse de production, alors qu'elle ne prouve pas qu'on sache écrire la
+ * forme — et sur une carte neuve les deux portent le même horodatage, donc
+ * l'ordre lui-même serait affaire de chance.
  */
 export async function weakPersons(cards: readonly CardId[]): Promise<Map<CardId, Person[]>> {
   if (cards.length === 0) return new Map()
@@ -81,6 +89,7 @@ export async function weakPersons(cards: readonly CardId[]): Promise<Map<CardId,
 
   const latest = new Map<string, Answer>()
   for (const answer of answers) {
+    if (answer.kind !== 'drill') continue
     const key = `${answer.cardId}|${answer.person}`
     const known = latest.get(key)
     if (!known || known.answeredAt.getTime() <= answer.answeredAt.getTime()) latest.set(key, answer)
@@ -121,12 +130,19 @@ export async function saveReview(review: ReviewToSave): Promise<void> {
   const patternId = `${model}:${tense}`
 
   /*
-   * Ce qui compte comme erreur du patron, c'est de ne pas avoir trouvé la forme.
-   * Une faute d'accent seul dit que la règle a été appliquée et que la syllabe
-   * tonique a été manquée : la compter ici gonflerait le taux d'échec des
+   * L'agrégat des patrons ne compte que la **production**. Le mélange
+   * d'exercices évoluera — plus de reconnaissance sur les cartes neuves, moins
+   * ensuite — et additionner les deux ferait bouger le taux d'échec d'un patron
+   * sans que l'apprenant ait changé, ce qui rendrait la mesure incomparable dans
+   * le temps et la suggestion de l'accueil erratique.
+   *
+   * Parmi celles-ci, ce qui compte comme erreur, c'est de ne pas avoir trouvé la
+   * forme. Une faute d'accent seul dit que la règle a été appliquée et que la
+   * syllabe tonique a été manquée : la compter ici gonflerait le taux d'échec des
    * modèles les plus accentués et enverrait l'apprenant vers la mauvaise fiche.
    */
-  const errors = review.answers.filter((answer) => !answer.correct && !answer.accentOnly).length
+  const produced = review.answers.filter((answer) => answer.kind === 'drill')
+  const errors = produced.filter((answer) => !answer.correct && !answer.accentOnly).length
 
   await db.transaction('rw', db.cards, db.answers, db.patternStats, db.days, async () => {
     const existing = await db.cards.get(review.card)
@@ -156,7 +172,7 @@ export async function saveReview(review: ReviewToSave): Promise<void> {
       id: patternId,
       model,
       tense,
-      attempts: (stat?.attempts ?? 0) + review.answers.length,
+      attempts: (stat?.attempts ?? 0) + produced.length,
       errors: (stat?.errors ?? 0) + errors,
     })
 

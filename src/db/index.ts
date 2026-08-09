@@ -37,6 +37,15 @@ export interface Answer {
   cardId: string
   answeredAt: Date
   person: string
+  /**
+   * Le format sous lequel la question a été posée.
+   *
+   * Ce n'est pas une donnée d'affichage : c'est ce qui permet de ne compter que
+   * la production là où seule la production fait preuve. Reconnaître une forme
+   * parmi quatre et l'écrire ne mesurent pas la même chose, et les additionner
+   * ferait dériver le taux d'échec d'un patron au gré du mélange d'exercices.
+   */
+  kind: 'drill' | 'choice'
   expected: string
   given: string
   correct: boolean
@@ -108,3 +117,19 @@ db.version(2)
       .table<StudyDay>('days')
       .bulkAdd([...days].map(([id, day]) => ({ id, cards: day.cards.size, answers: day.answers })))
   })
+
+db.version(3).upgrade(async (transaction) => {
+  /*
+   * Avant la reconnaissance, tout ce qui était rangé venait du drill. On le dit
+   * explicitement plutôt que de laisser des lignes sans `kind` : ce champ décide
+   * de ce qui compte comme preuve de production, et un `undefined` s'y lirait
+   * tôt ou tard comme « pas une production », effaçant l'historique de qui a le
+   * plus travaillé.
+   */
+  await transaction
+    .table<Answer>('answers')
+    .toCollection()
+    .modify((answer) => {
+      answer.kind = 'drill'
+    })
+})
