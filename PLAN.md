@@ -398,16 +398,48 @@ ce qu'on lit et ce qu'on refait :
 - **La suggestion ciblée** de l'accueil (§9). Elle nomme le patron le plus raté, pas le
   verbe, et mène à sa fiche puis à son drill. Sous le seuil de significativité, elle se tait.
 
-**Prochaine étape : la phase 5.** Sa vraie difficulté n'est pas le QCM mais le fait que la
-session est aujourd'hui homogène — une liste de `Drill` corrigés par comparaison de chaîne.
-Trois types d'exercices demandent une union discriminée, une correction par variante et un
-composant par variante, le magasin continuant à ne rien décider. Le morceau qui porte la
-valeur est le générateur de distracteurs : forme régulière attendue, bonne forme à la
-mauvaise personne, bon radical au mauvais temps — module pur, quatrième usage du choix
-« règles plutôt que table ». Un point à trancher avant d'écrire : **un QCM réussi ne vaut
-pas un drill réussi**, reconnaître étant plus facile que produire ; à poids égal dans FSRS
-et `patternStats`, la maîtrise affichée serait fausse et les échéances trop longues. Cela
-touche le schéma Dexie, donc autant le décider d'abord.
+**Phase 5, entamée : la couche pure de la reconnaissance est écrite.**
+
+`exercises/distractors.ts` produit les mauvaises réponses, et c'est là qu'un QCM se joue.
+Un distracteur tiré au hasard se rejette sans réfléchir : la question devient un exercice de
+reconnaissance de mots espagnols. Trois sources, toutes des formes que le moteur a
+construites — quatrième usage du choix « règles plutôt que table », et le premier qui
+exploite `Form.regular`, déjà calculée pour localiser l'irrégularité :
+
+1. **la forme régulière** que le verbe aurait eue s'il suivait son groupe (`penso`, `tení`,
+   `buscé`), avec la raison de l'écart dans les mots du moteur ;
+2. **la bonne forme à une autre personne**, sans quoi on répond en reconnaissant le verbe ;
+3. **la même personne à un autre temps**, la discrimination que la production ne travaille
+   jamais.
+
+Trois garde-fous sont sortis de l'observation de ce que le module produisait :
+
+- **pas de mélange simple / composé** — `he pensado` contre `pienso` se tranche en comptant
+  les mots ;
+- **pas de forme régulière face à une suppletion** — `ser` régulier donnerait `ses`, que
+  personne n'a jamais écrit pour `eres` ;
+- **pas de pool de temps par défaut** — le module ignore le curriculum, donc il ne devine
+  pas : sans liste, il s'en tient aux personnes plutôt que d'opposer un temps jamais vu.
+
+`exercises/recognition.ts` assemble le QCM et refuse de poser une question en dessous de
+trois propositions : à deux, le hasard réussit une fois sur deux et une carte serait
+repoussée sur un coup de pièce. Il n'a **pas** de fonction de correction, et c'est un point
+de fond : désigner une forme fausse est une erreur pleine, là où l'écrire à un accent près
+reste un quasi-succès. On ne choisit pas un accent par mégarde.
+
+**Ce qui reste, et la décision qui le précède.** La session est encore homogène — une liste
+de `Drill` corrigés par comparaison de chaîne. Trois types d'exercices demandent une union
+discriminée, une correction par variante et un composant par variante, le magasin continuant
+à ne rien décider. Avant d'y toucher, un arbitrage à porter au schéma : **un QCM réussi ne
+vaut pas un drill réussi**, reconnaître étant plus facile que produire. La règle retenue,
+sauf avis contraire :
+
+- la **note FSRS** d'une carte se calcule sur ses questions de production ; la reconnaissance
+  n'allonge pas une échéance ;
+- `patternStats` ne compte que la production, pour que le taux d'échec d'un patron reste
+  comparable dans le temps alors même que le mélange d'exercices évolue ;
+- chaque réponse rangée porte néanmoins son type d'exercice, et les erreurs de
+  reconnaissance alimentent `weakPersons` : elles disent quelles cases reposer.
 
 ## 11. Risques et points à trancher
 

@@ -27,8 +27,9 @@ passé composé, passé simple, imparfait, « indefinido ou imperfecto », futur
 impératif, subjonctif présent — le **drill ciblé** depuis une fiche, et la **suggestion
 ciblée** sur l'accueil.
 
-Prochaine étape : la **phase 5, reconnaissance** (QCM à distracteurs tirés du moteur,
-exercice inverse). Elle demande de rendre la session hétérogène — voir PLAN.md §10.
+Phase 5 **entamée** : la couche pure de la reconnaissance existe (`exercises/distractors.ts`,
+`exercises/recognition.ts`). Reste à rendre la session hétérogène et à câbler l'écran — voir
+PLAN.md §10 pour l'arbitrage à porter au schéma avant d'y toucher.
 
 Reste à faire sur les données : **relire les traductions**. Les gloses de `verbs.json`
 viennent du Wiktionnaire, ce sont des définitions et non des équivalents ; elles ne sont
@@ -279,6 +280,38 @@ carte : un changement de carte marque donc la fin de la précédente. C'est ce m
 déclenche la note FSRS **et l'écriture**. La progression est ainsi rangée au fil de la
 session, et fermer l'onglet au milieu ne perd que la carte en cours — une session de vingt
 minutes interrompue par un appel ne doit pas s'effacer.
+
+### `exercises/distractors.ts` — ce qui décide qu'un QCM enseigne
+
+Un distracteur tiré au hasard se rejette sans réfléchir : la question devient un exercice de
+reconnaissance de mots espagnols. Trois sources, **toutes des formes que le moteur a
+réellement construites** — jamais rien de fabriqué ici, c'est la même exigence que pour les
+formes correctes :
+
+- **la forme régulière** que le verbe aurait eue s'il suivait son groupe. Elle sort de
+  `Form.regular`, que le moteur calcule déjà pour localiser l'irrégularité, et vient avec sa
+  raison. C'est l'erreur numéro un, donc elle passe **toujours en tête**, jamais soumise au
+  tirage.
+- **la bonne forme à une autre personne**, sans quoi on répond en reconnaissant le verbe.
+- **la même personne à un autre temps** — la seule discrimination que la production ne
+  travaille jamais, puisqu'au drill on n'a l'autre forme sous les yeux à aucun moment.
+
+Trois exclusions, toutes constatées en regardant ce que le module produisait :
+
+- **jamais un temps composé face à un temps simple** : `he pensado` contre `pienso` se
+  tranche en comptant les mots.
+- **jamais la forme régulière d'une suppletion** : `ser` régulier donnerait `ses`, que
+  personne n'a jamais écrit pour `eres`. La règle du groupe n'a jamais été un candidat.
+- **aucun distracteur de temps sans pool explicite.** Le module ignore le curriculum et ne
+  le devine pas : opposer un temps jamais rencontré rendrait la question plus facile, pas
+  plus instructive. Sans liste, il s'en tient aux personnes.
+
+`recognition.ts` assemble, mélange, et **refuse de poser une question sous trois
+propositions** (`MIN_CHOICES`) : à deux, le hasard réussit une fois sur deux et une carte
+serait repoussée sur un coup de pièce. Il n'a pas de fonction de correction — une
+proposition porte `correct`. C'est une différence de fond avec le drill : désigner une forme
+fausse est une erreur pleine, là où l'écrire à un accent près reste un quasi-succès. On ne
+choisit pas un accent par mégarde.
 
 ### `db/repository.ts` — l'écriture, en un seul endroit
 
