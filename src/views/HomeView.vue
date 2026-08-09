@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 
+import { MODELS, TENSE_LABELS } from '@/conjugation'
+import type { Tense } from '@/conjugation'
+import { sheetFor } from '@/content'
+import { successRate } from '@/srs/patterns'
 import { useOverviewStore } from '@/stores/overview'
 
 const store = useOverviewStore()
@@ -37,6 +41,30 @@ const todayLabel = computed(
 )
 
 const percent = computed(() => Math.round(store.levelMastery * 100))
+
+/**
+ * Ce que l'accueil suggère de reprendre : un patron, sa fiche, et de quoi
+ * l'exercer tout de suite.
+ *
+ * Nommer le patron plutôt que le verbe est tout l'intérêt de l'agrégat
+ * `(modèle, temps)` : « tu rates 62 % des e→ie au présent » renvoie à une règle,
+ * « tu rates pensar » ne renvoie qu'à un verbe.
+ */
+const weakness = computed(() => {
+  const pattern = store.weakness
+  if (pattern === null) return null
+
+  const tense = pattern.tense as Tense
+  const sheet = sheetFor(tense)
+  if (sheet === undefined) return null
+
+  return {
+    label: MODELS[pattern.model]?.label ?? pattern.model,
+    tense: TENSE_LABELS[tense],
+    percent: Math.round((1 - successRate(pattern)) * 100),
+    sheet,
+  }
+})
 </script>
 
 <template>
@@ -121,6 +149,35 @@ const percent = computed(() => Math.round(store.levelMastery * 100))
             En attendant, conjuguer un verbe
           </RouterLink>
         </template>
+      </div>
+
+      <!-- La suggestion vient après la session du jour, jamais à sa place : le
+           programme passe d'abord, et relire une fiche ne remplace pas de
+           réviser. Elle se tait tant que trop peu de formes ont été demandées
+           pour que le taux d'échec veuille dire quelque chose. -->
+      <div
+        v-if="weakness"
+        class="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/60 dark:bg-amber-950/30"
+        data-weakness
+      >
+        <h2 class="text-sm font-semibold tracking-tight">Ton point faible du moment</h2>
+        <p class="mt-1 text-sm text-slate-700 dark:text-slate-200">
+          {{ weakness.label }} — {{ weakness.percent }} % d’erreurs ({{ weakness.tense }}).
+        </p>
+        <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+          <RouterLink
+            :to="{ name: 'theory-sheet', params: { slug: weakness.sheet.slug } }"
+            class="text-accent-600 hover:underline dark:text-accent-500"
+          >
+            Relire {{ weakness.sheet.title }}
+          </RouterLink>
+          <RouterLink
+            :to="{ name: 'practice', query: { temps: weakness.sheet.tenses.join(',') } }"
+            class="text-accent-600 hover:underline dark:text-accent-500"
+          >
+            S’exercer sur ce temps
+          </RouterLink>
+        </div>
       </div>
 
       <div v-if="store.level" class="mt-4">

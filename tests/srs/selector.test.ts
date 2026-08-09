@@ -125,6 +125,96 @@ describe('planSession', () => {
   })
 })
 
+describe('session ciblée', () => {
+  const presente = (n: number) => cardId(`verbe${n}`, 'indicativo.presente')
+  const indefinido = (n: number) => cardId(`verbe${n}`, 'indicativo.indefinido')
+
+  it('n’ouvre que les temps visés', () => {
+    const deck: DeckEntry[] = [
+      { id: presente(1), due: ago(1) },
+      { id: indefinido(1), due: ago(1) },
+    ]
+    const plan = planSession(deck, [presente(1), indefinido(1)], NOW, {
+      focus: ['indicativo.indefinido'],
+      newPerSession: 0,
+    })
+
+    expect(plan.cards).toEqual([indefinido(1)])
+    // Le retard affiché est celui de la cible, pas celui du programme entier.
+    expect(plan.backlog).toBe(1)
+  })
+
+  it('mêle les temps quand la fiche en couvre deux', () => {
+    const unlocked = [presente(1), indefinido(1)]
+    const plan = planSession([], unlocked, NOW, {
+      focus: ['indicativo.presente', 'indicativo.indefinido'],
+    })
+
+    expect(new Set(plan.cards)).toEqual(new Set(unlocked))
+  })
+
+  /*
+   * C'est la règle propre au drill ciblé : on referme une fiche pour l'essayer,
+   * et « rien à réviser » ferait du lien une impasse. Une session ordinaire, au
+   * contraire, doit s'en tenir aux échéances.
+   */
+  it('accepte les cartes en avance sur leur échéance', () => {
+    const deck: DeckEntry[] = [{ id: indefinido(1), due: ahead(5) }]
+
+    const ordinary = planSession(deck, [indefinido(1)], NOW, { newPerSession: 0 })
+    expect(ordinary.cards).toEqual([])
+    expect(ordinary.ahead).toBe(0)
+
+    const focused = planSession(deck, [indefinido(1)], NOW, {
+      focus: ['indicativo.indefinido'],
+      newPerSession: 0,
+    })
+    expect(focused.cards).toEqual([indefinido(1)])
+    expect(focused.ahead).toBe(1)
+  })
+
+  it('fait quand même passer les cartes dues devant celles en avance', () => {
+    const deck: DeckEntry[] = [
+      { id: indefinido(1), due: ahead(2) },
+      { id: indefinido(2), due: ago(1) },
+      { id: indefinido(3), due: ahead(9) },
+    ]
+    const plan = planSession(
+      deck,
+      deck.map((entry) => entry.id),
+      NOW,
+      { focus: ['indicativo.indefinido'], newPerSession: 0 },
+    )
+
+    // Due d'abord, puis les plus proches de leur échéance : ce sont celles dont
+    // l'oubli approche, donc celles que réviser en avance coûte le moins.
+    expect(plan.cards).toEqual([indefinido(2), indefinido(1), indefinido(3)])
+  })
+
+  it('reste courte : on ne relit pas une fiche pour repartir vingt minutes', () => {
+    const deck: DeckEntry[] = Array.from({ length: 200 }, (_, index) => ({
+      id: indefinido(index),
+      due: ago(1),
+    }))
+    const unlocked = deck.map((entry) => entry.id)
+
+    const focused = planSession(deck, unlocked, NOW, {
+      focus: ['indicativo.indefinido'],
+      newPerSession: 0,
+    })
+    const ordinary = planSession(deck, unlocked, NOW, { newPerSession: 0 })
+
+    expect(focused.cards.length).toBeLessThan(ordinary.cards.length)
+    expect(focused.cards.length).toBeGreaterThan(0)
+  })
+
+  it('ne rend rien quand le programme n’a pas encore ouvert le temps visé', () => {
+    // Vide et non « tout est à jour » : l'écran doit pouvoir dire lequel des deux.
+    const plan = planSession([], [presente(1)], NOW, { focus: ['subjuntivo.presente'] })
+    expect(plan.cards).toEqual([])
+  })
+})
+
 describe('choix des personnes', () => {
   const presente = cardId('hablar', 'indicativo.presente')
 

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { computed, ref, shallowRef } from 'vue'
 
+import type { Tense } from '@/conjugation'
 import { loadSnapshot, saveReview, weakPersons } from '@/db/repository'
 import { grade as correct } from '@/exercises/grading'
 import { buildDrills, closesCard, reviewOf, tally } from '@/exercises/session'
@@ -32,6 +33,14 @@ export type SessionStatus =
   /** La persistance est indisponible : navigation privée, quota, base verrouillée. */
   | 'error'
 
+/** De quoi composer une session : tout est optionnel, tout a un défaut. */
+export interface StartOptions {
+  now?: Date
+  random?: () => number
+  /** Restreint la session à ces temps — le drill lancé depuis une fiche. */
+  focus?: readonly Tense[]
+}
+
 export const useSessionStore = defineStore('session', () => {
   const status = ref<SessionStatus>('idle')
   const error = ref<string | null>(null)
@@ -44,6 +53,9 @@ export const useSessionStore = defineStore('session', () => {
 
   const plan = shallowRef<SessionPlan | null>(null)
   const level = shallowRef<Level | null>(null)
+
+  /** Les temps auxquels la session est restreinte, quand elle l'est. */
+  const focus = shallowRef<readonly Tense[] | null>(null)
 
   /**
    * Instant d'affichage de la question courante. Volontairement hors de l'état
@@ -78,13 +90,20 @@ export const useSessionStore = defineStore('session', () => {
    * niveaux ouverts déterminent les cartes candidates, et seules les cartes
    * retenues valent la peine qu'on aille chercher leurs personnes faibles.
    */
-  async function start(now: Date = new Date(), random: () => number = Math.random): Promise<void> {
+  async function start(options: StartOptions = {}): Promise<void> {
+    const now = options.now ?? new Date()
+    const random = options.random ?? Math.random
+
     status.value = 'loading'
     error.value = null
+    focus.value = options.focus ?? null
 
     try {
       const { deck, progress } = await loadSnapshot()
-      const session = planSession(deck, unlockedCards(progress), now, { random })
+      const session = planSession(deck, unlockedCards(progress), now, {
+        random,
+        ...(options.focus ? { focus: options.focus } : {}),
+      })
       const weak = await weakPersons(session.cards)
 
       const known = new Map(deck.map((entry) => [entry.id, entry]))
@@ -174,6 +193,7 @@ export const useSessionStore = defineStore('session', () => {
     index.value = 0
     plan.value = null
     level.value = null
+    focus.value = null
   }
 
   return {
@@ -184,6 +204,7 @@ export const useSessionStore = defineStore('session', () => {
     index,
     plan,
     level,
+    focus,
     current,
     answered,
     total,

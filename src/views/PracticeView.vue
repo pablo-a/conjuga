@@ -1,13 +1,36 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 import AccentKeys from '@/components/AccentKeys.vue'
 import VerbForm from '@/components/VerbForm.vue'
-import { PERSON_LABELS, TENSE_LABELS } from '@/conjugation'
+import { PERSON_LABELS, TENSE_LABELS, TENSES } from '@/conjugation'
+import type { Tense } from '@/conjugation'
 import { sheetFor } from '@/content'
 import { useSessionStore } from '@/stores/session'
 
 const store = useSessionStore()
+const route = useRoute()
+
+/**
+ * Les temps auxquels l'URL restreint la session : `/pratique?temps=…`.
+ *
+ * La session ciblée vit dans l'URL comme la recherche du Conjugueur, et pour la
+ * même raison — elle se partage, se met en favori et survit à un rechargement.
+ * Les valeurs sont validées contre le moteur : un paramètre trafiqué doit rendre
+ * la session ordinaire, pas une session vide.
+ */
+const focus = computed<Tense[] | undefined>(() => {
+  const raw = route.query.temps
+  if (typeof raw !== 'string') return undefined
+  const tenses = raw.split(',').filter((tense): tense is Tense => TENSES.includes(tense as Tense))
+  return tenses.length > 0 ? tenses : undefined
+})
+
+/** Ce que la session cible, en toutes lettres. */
+const focusLabel = computed(() =>
+  (store.focus ?? []).map((tense) => TENSE_LABELS[tense]).join(' et '),
+)
 
 /**
  * La fiche qui explique le temps interrogé, quand elle existe.
@@ -26,8 +49,26 @@ const continueEl = ref<HTMLButtonElement | null>(null)
 // restent celles qu'on avait commencées, sinon naviguer vers la théorie au milieu
 // d'une session la ferait recommencer.
 onMounted(() => {
-  if (store.status === 'idle') void store.start()
+  if (store.status === 'idle') void begin()
 })
+
+/*
+ * Changer de cible relance, en revanche. La vue est réutilisée d'une requête à
+ * l'autre — arriver ici depuis une fiche pendant une session en cours ne
+ * remonterait rien, et l'apprenant se verrait poser les questions qu'il venait
+ * précisément de quitter.
+ */
+watch(
+  () => route.query.temps,
+  () => void begin(),
+)
+
+async function begin(): Promise<void> {
+  store.reset()
+  text.value = ''
+  await store.start(focus.value ? { focus: focus.value } : {})
+  await focusInput()
+}
 
 const progress = computed(() =>
   store.total > 0 ? Math.round((store.completed / store.total) * 100) : 0,
@@ -102,17 +143,25 @@ function insert(character: string): void {
   })
 }
 
-async function restart(): Promise<void> {
-  store.reset()
-  text.value = ''
-  await store.start()
-  await focusInput()
-}
+/** Relancer garde la cible : on enchaîne le drill qu'on était venu faire. */
+const restart = begin
 </script>
 
 <template>
   <section>
     <h1 class="text-2xl font-semibold tracking-tight">Pratique</h1>
+
+    <!-- Une session ciblée ne suit pas le programme : le dire évite de croire
+         que la progression du jour avance pendant qu'on répète un seul temps. -->
+    <p v-if="store.focus" class="mt-2 text-sm text-slate-500 dark:text-slate-400" data-focus>
+      Session ciblée sur {{ focusLabel }}.
+      <RouterLink
+        :to="{ name: 'practice' }"
+        class="text-accent-600 hover:underline dark:text-accent-500"
+      >
+        Revenir à la session du jour
+      </RouterLink>
+    </p>
 
     <p
       v-if="store.status === 'loading' || store.status === 'idle'"
@@ -134,16 +183,37 @@ async function restart(): Promise<void> {
     <!-- Rien à réviser n'est pas un écran vide : c'est le résultat normal d'un
          système de répétition espacée à jour, et il faut le dire ainsi. -->
     <div v-else-if="store.empty" class="mt-6">
-      <p class="text-slate-700 dark:text-slate-200">
-        Rien à réviser pour l’instant — tout est à jour.
-      </p>
-      <p v-if="store.plan?.paused" class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-        L’introduction de nouvelles cartes est en pause : {{ store.plan.backlog }} cartes en retard.
-        Elles reviendront d’abord.
-      </p>
-      <p v-else class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-        Reviens demain : les cartes réapparaissent quand leur oubli devient probable.
-      </p>
+      <!-- Une session ciblée vide ne veut pas dire « à jour » : elle veut dire
+           que le programme n'a pas encore ouvert ce temps, puisqu'elle accepte
+           même les cartes en avance sur leur échéance. -->
+      <template v-if="store.focus">
+        <p class="text-slate-700 dark:text-slate-200">
+          Ce temps n’est pas encore ouvert dans ton programme.
+        </p>
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          Les niveaux le débloqueront le moment venu. En attendant, la fiche se lit, et le
+          Conjugueur montre n’importe quel verbe à ce temps.
+        </p>
+        <RouterLink
+          :to="{ name: 'practice' }"
+          class="mt-4 inline-block text-sm text-accent-600 hover:underline dark:text-accent-500"
+        >
+          Faire la session du jour
+        </RouterLink>
+      </template>
+
+      <template v-else>
+        <p class="text-slate-700 dark:text-slate-200">
+          Rien à réviser pour l’instant — tout est à jour.
+        </p>
+        <p v-if="store.plan?.paused" class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          L’introduction de nouvelles cartes est en pause : {{ store.plan.backlog }} cartes en
+          retard. Elles reviendront d’abord.
+        </p>
+        <p v-else class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          Reviens demain : les cartes réapparaissent quand leur oubli devient probable.
+        </p>
+      </template>
     </div>
 
     <div v-else-if="store.status === 'done'" class="mt-6">

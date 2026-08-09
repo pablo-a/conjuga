@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 
 import { db } from '@/db'
 import { router } from '@/router'
-import { LEVELS, parseCardId } from '@/srs/curriculum'
+import { LEVELS, MASTERY_STABILITY_DAYS, parseCardId } from '@/srs/curriculum'
 import { newCardState } from '@/srs/scheduler'
 import { useSessionStore } from '@/stores/session'
 import PracticeView from '@/views/PracticeView.vue'
@@ -36,7 +36,7 @@ type Wrapper = ReturnType<typeof mount<typeof PracticeView>>
  * magasin au repos, ce qui laisse le test choisir la graine.
  */
 async function practice(random: () => number = () => 0): Promise<Wrapper> {
-  await useSessionStore().start(AT, random)
+  await useSessionStore().start({ now: AT, random })
   const wrapper = mount(PracticeView, { global: { plugins: [router] } })
   await flushPromises()
   return wrapper
@@ -196,5 +196,104 @@ describe('écran Pratique', () => {
 
     expect(useSessionStore().empty).toBe(true)
     expect(wrapper.text()).toContain('tout est à jour')
+  })
+})
+
+/**
+ * Le drill lancé depuis une fiche de théorie. Le magasin est laissé au repos :
+ * c'est l'écran qui doit lire l'URL et composer la session, comme il le fera
+ * quand on arrivera ici par le lien d'une fiche.
+ */
+describe('session ciblée', () => {
+  /**
+   * Ici l'écran compose lui-même, à partir de l'URL : il faut donc attendre que
+   * la lecture d'IndexedDB aboutisse, ce qu'un seul tour de boucle ne garantit
+   * pas.
+   */
+  async function settle(): Promise<void> {
+    const store = useSessionStore()
+    for (
+      let tries = 0;
+      tries < 20 && (store.status === 'idle' || store.status === 'loading');
+      tries++
+    ) {
+      await flushPromises()
+    }
+  }
+
+  async function focused(temps: string): Promise<Wrapper> {
+    await router.push(`/pratique?temps=${encodeURIComponent(temps)}`)
+    const wrapper = mount(PracticeView, { global: { plugins: [router] } })
+    await settle()
+    return wrapper
+  }
+
+  /**
+   * Déclare le premier niveau acquis, ce qui ouvre le second — les quatre
+   * piliers à tous les temps de l'indicatif. Sans lui, seul le présent existe,
+   * et cibler un autre temps ne prouverait rien.
+   */
+  async function unlockEssentials(): Promise<void> {
+    await db.cards.bulkPut(
+      LEVELS[0]!.cards.map((id) => ({
+        id,
+        ...parseCardId(id),
+        fsrs: { ...newCardState(AT), stability: MASTERY_STABILITY_DAYS },
+        due: new Date(AT.getTime() + 7 * 86_400_000),
+        reps: 1,
+        lapses: 0,
+      })),
+    )
+  }
+
+  it('ne pose que le temps demandé, et le dit', async () => {
+    await unlockEssentials()
+    const wrapper = await focused('indicativo.imperfecto')
+    const store = useSessionStore()
+
+    expect(store.status).toBe('running')
+    expect(store.drills.every((drill) => drill.tense === 'indicativo.imperfecto')).toBe(true)
+    expect(wrapper.get('[data-focus]').text()).toContain('imparfait')
+  })
+
+  it('mêle les deux temps d’une fiche qui en couvre deux', async () => {
+    await unlockEssentials()
+    const wrapper = await focused('indicativo.futuro,indicativo.condicional')
+    const tenses = new Set(useSessionStore().drills.map((drill) => drill.tense))
+
+    expect(tenses).toEqual(new Set(['indicativo.futuro', 'indicativo.condicional']))
+    expect(wrapper.get('[data-focus]').text()).toContain('et')
+  })
+
+  it('dit que le temps n’est pas ouvert plutôt que « tout est à jour »', async () => {
+    // Le subjonctif clôt le programme : au premier niveau, ses cartes n'existent
+    // pas encore. Répondre « à jour » laisserait croire à une avance imaginaire.
+    const wrapper = await focused('subjuntivo.presente')
+
+    expect(useSessionStore().empty).toBe(true)
+    expect(wrapper.text()).toContain('pas encore ouvert')
+    expect(wrapper.text()).not.toContain('tout est à jour')
+  })
+
+  it('ignore un paramètre qui ne désigne aucun temps', async () => {
+    // Une URL trafiquée doit rendre la session ordinaire, pas une session vide.
+    const wrapper = await focused('n’importe quoi')
+
+    expect(useSessionStore().focus).toBeNull()
+    expect(wrapper.find('[data-focus]').exists()).toBe(false)
+    expect(wrapper.get('[data-lemma]').text()).toBe('ser')
+  })
+
+  it('recompose la session quand la cible change sous la même vue', async () => {
+    await unlockEssentials()
+    const wrapper = await focused('indicativo.imperfecto')
+
+    await router.push('/pratique?temps=indicativo.futuro')
+    await settle()
+
+    expect(useSessionStore().drills.every((drill) => drill.tense === 'indicativo.futuro')).toBe(
+      true,
+    )
+    expect(wrapper.get('[data-focus]').text()).toContain('futur')
   })
 })

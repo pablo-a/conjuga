@@ -42,10 +42,5 @@ const percent = (rate: number): number => Math.round(rate * 100)
         </RouterLink>
       </li>
     </ul>
-
-    <p class="mt-6 text-sm text-slate-500 dark:text-slate-400">
-      Les fiches des autres temps arrivent — passé composé, passé simple, imparfait, futur et
-      conditionnel, impératif, subjonctif.
-    </p>
   </section>
 </template>

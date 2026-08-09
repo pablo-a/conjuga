@@ -1,5 +1,5 @@
 import { conjugate } from '@/conjugation'
-import type { Person } from '@/conjugation'
+import type { Person, Tense } from '@/conjugation'
 import { PERSONS } from '@/conjugation/types'
 
 import { parseCardId } from './curriculum'
@@ -25,10 +25,17 @@ export interface DeckEntry {
 }
 
 export interface SessionOptions {
-  /** Budget de la session. Par défaut 20 minutes. */
+  /** Budget de la session. Par défaut 20 minutes, ou 5 en session ciblée. */
   budgetMs?: number
   /** Nouvelles cartes au maximum. Par défaut 10. */
   newPerSession?: number
+  /**
+   * Restreint la session à ces temps — c'est le drill lancé depuis une fiche de
+   * théorie. Une liste plutôt qu'un temps unique parce qu'une fiche en couvre
+   * parfois deux, et que « indefinido ou imperfecto » ne s'exerce justement
+   * qu'en les mêlant.
+   */
+  focus?: readonly Tense[]
   random?: () => number
 }
 
@@ -54,11 +61,25 @@ export const BACKLOG_PAUSE = 60
 const DEFAULT_BUDGET_MS = 20 * 60 * 1000
 const DEFAULT_NEW = 10
 
+/**
+ * Budget d'une session ciblée.
+ *
+ * On ne referme pas une fiche de théorie pour repartir vingt minutes : le drill
+ * ciblé est un essai immédiat, et le budget quotidien doit rester disponible
+ * pour la session ordinaire, qui seule suit l'ordre du programme.
+ */
+export const FOCUS_BUDGET_MS = 5 * 60 * 1000
+
 export interface SessionPlan {
   /** Les cartes à poser, dans l'ordre. */
   cards: CardId[]
   /** Combien d'entre elles sont nouvelles. */
   introduced: number
+  /**
+   * Combien sont révisées en avance sur leur échéance. Toujours 0 hors session
+   * ciblée. `cards.length - introduced - ahead` donne les révisions dues.
+   */
+  ahead: number
   /** Cartes en retard au moment de composer la session. */
   backlog: number
   /** Vrai quand le retard a suspendu l'introduction de nouveautés. */
@@ -73,6 +94,13 @@ export interface SessionPlan {
  * due ce matin. Les nouveautés sont ensuite réparties dans le lot plutôt que
  * groupées — enchaîner dix formes inconnues d'affilée est le meilleur moyen de
  * n'en retenir aucune.
+ *
+ * `focus` restreint le tout à quelques temps, et change une règle : les cartes
+ * pas encore échues deviennent acceptables. Un apprenant qui vient de lire une
+ * fiche veut l'essayer maintenant, et lui répondre « rien à réviser » ferait du
+ * lien une impasse. Elles ne viennent qu'après les cartes réellement dues, et
+ * jamais dans une session ordinaire, où elles videraient la répétition espacée
+ * de son seul intérêt.
  */
 export function planSession(
   deck: readonly DeckEntry[],
@@ -80,16 +108,20 @@ export function planSession(
   now: Date,
   options: SessionOptions = {},
 ): SessionPlan {
-  const budgetMs = options.budgetMs ?? DEFAULT_BUDGET_MS
+  const focus = options.focus
+  const budgetMs = options.budgetMs ?? (focus ? FOCUS_BUDGET_MS : DEFAULT_BUDGET_MS)
   const newPerSession = options.newPerSession ?? DEFAULT_NEW
 
-  const open = new Set(unlocked)
+  const wanted = focus === undefined ? undefined : new Set<string>(focus)
+  const candidates =
+    wanted === undefined ? unlocked : unlocked.filter((id) => wanted.has(parseCardId(id).tense))
+
+  const open = new Set(candidates)
   const known = new Map(deck.map((entry) => [entry.id, entry]))
 
-  const due = deck
-    .filter(
-      (entry) => open.has(entry.id) && entry.due !== null && entry.due.getTime() <= now.getTime(),
-    )
+  const scheduled = deck.filter((entry) => open.has(entry.id) && entry.due !== null)
+  const due = scheduled
+    .filter((entry) => entry.due!.getTime() <= now.getTime())
     .sort((a, b) => a.due!.getTime() - b.due!.getTime())
 
   const backlog = due.length
@@ -101,13 +133,25 @@ export function planSession(
   // rangés dans l'ordre où on veut les apprendre.
   const fresh = paused
     ? []
-    : unlocked.filter((id) => !known.has(id)).slice(0, Math.min(newPerSession, capacity))
+    : candidates.filter((id) => !known.has(id)).slice(0, Math.min(newPerSession, capacity))
 
   const reviews = due.slice(0, Math.max(0, capacity - fresh.length)).map((entry) => entry.id)
 
+  // Les plus proches de leur échéance d'abord : ce sont celles dont l'oubli
+  // approche, donc celles que réviser en avance coûte le moins.
+  const early =
+    focus === undefined
+      ? []
+      : scheduled
+          .filter((entry) => entry.due!.getTime() > now.getTime())
+          .sort((a, b) => a.due!.getTime() - b.due!.getTime())
+          .slice(0, Math.max(0, capacity - fresh.length - reviews.length))
+          .map((entry) => entry.id)
+
   return {
-    cards: interleave(reviews, fresh),
+    cards: interleave([...reviews, ...early], fresh),
     introduced: fresh.length,
+    ahead: early.length,
     backlog,
     paused,
   }

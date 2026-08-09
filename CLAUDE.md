@@ -21,9 +21,14 @@ Phases livrées : 0 (socle PWA), 1 (moteur de conjugaison), 2 (les 1000 verbes e
 Conjugueur) et 3 — **la boucle quotidienne existe** : l'accueil dit ce qui attend, l'écran
 Pratique compose la session, corrige, explique et range la progression dans IndexedDB.
 
-Phase 4 **entamée** : la mécanique de la théorie est complète (fiches en markdown compilé,
-écran, indicateur de maîtrise, lien depuis la correction), avec **deux fiches sur huit** —
-le présent, et « indefinido ou imperfecto ». Les six autres sont de la rédaction.
+Phase 4 **livrée et close** : mécanique de la théorie (fiches en markdown compilé, écran,
+indicateur de maîtrise, lien depuis la correction), **les huit fiches rédigées** — présent,
+passé composé, passé simple, imparfait, « indefinido ou imperfecto », futur et conditionnel,
+impératif, subjonctif présent — le **drill ciblé** depuis une fiche, et la **suggestion
+ciblée** sur l'accueil.
+
+Prochaine étape : la **phase 5, reconnaissance** (QCM à distracteurs tirés du moteur,
+exercice inverse). Elle demande de rendre la session hétérogène — voir PLAN.md §10.
 
 Reste à faire sur les données : **relire les traductions**. Les gloses de `verbs.json`
 viennent du Wiktionnaire, ce sont des définitions et non des équivalents ; elles ne sont
@@ -306,6 +311,32 @@ Deux règles de comptage, opposées par nature :
   apprenant à jour. De même, un stockage indisponible interrompt la session au lieu de poser
   des questions dont le résultat serait jeté.
 
+### La session ciblée (`/pratique?temps=…`)
+
+C'est le drill lancé depuis une fiche de théorie, et depuis la suggestion de l'accueil. La
+cible vit dans l'URL, comme la recherche du Conjugueur et pour la même raison : elle se
+partage et survit à un rechargement. Le paramètre porte une **liste** de temps, parce
+qu'une fiche en couvre parfois deux — et que « indefinido ou imperfecto » ne s'exerce
+justement qu'en les mêlant.
+
+Elle change **une seule règle** de `planSession` : les cartes pas encore échues deviennent
+acceptables, après les cartes dues et par échéance croissante. On referme une fiche pour
+l'essayer tout de suite, et répondre « rien à réviser » ferait du lien une impasse ; une
+session ordinaire, elle, s'en tient aux échéances, sans quoi la répétition espacée n'aurait
+plus d'objet. `SessionPlan.ahead` compte ces cartes, pour que le plan reste lisible.
+
+Trois conséquences à ne pas défaire :
+
+- **Le budget est plus court** (`FOCUS_BUDGET_MS`, 5 min) : le budget quotidien doit rester
+  disponible pour la session qui suit l'ordre du programme.
+- **La progression est écrite comme d'habitude.** Un mode « pour s'entraîner, sans compter »
+  a été écarté : l'app dit déjà ailleurs qu'une session dont le résultat serait perdu
+  n'apprend rien, et les erreurs faites ici sont exactement celles que `patternStats` doit
+  connaître.
+- **Une session ciblée vide ne veut pas dire « à jour »** mais « le programme n'a pas encore
+  ouvert ce temps » — puisqu'elle accepte même les cartes en avance. L'écran dit lequel des
+  deux ; les confondre laisserait croire à une avance imaginaire.
+
 `tests/practice.test.ts` monte l'écran sur la vraie chaîne — magasin, moteur, IndexedDB via
 `fake-indexeddb` — parce que c'est l'assemblage qu'il faut vérifier ; chaque pièce est déjà
 testée seule. Le hasard y est neutralisé (`() => 0`), ce qui rend la session prévisible :
@@ -323,6 +354,13 @@ donnerait un nombre qui n'est pas celui qu'on va poser : l'accueil promettrait 6
 où la session en pose 48, et la promesse est justement ce qui fait revenir. C'est aussi
 pourquoi `remaining` est affiché : le budget de vingt minutes est un plafond, et taire les
 cartes échues qui débordent laisserait croire qu'une session éponge tout un retard.
+
+**La suggestion ciblée** vient après la session du jour, jamais à sa place : le programme
+passe d'abord, et relire une fiche ne remplace pas de réviser. Elle nomme le patron le plus
+raté (`weakest`, borné à `COVERED_TENSES` pour que la suggestion mène toujours quelque
+part), renvoie vers sa fiche et vers le drill de son temps. Sous `MIN_ATTEMPTS`, **elle se
+tait** : une forme ratée une fois donne 100 % d'échec, ce qui n'est pas une faiblesse mais
+un manque de données.
 
 ### La série (`srs/streak.ts` et la table `days`)
 
@@ -367,10 +405,35 @@ Trois pièges de câblage, tous rencontrés :
   Tailwind v4 un bloc isolé ne connaît le thème que par cette directive. C'est le seul
   endroit de l'app dans ce cas, parce que c'est le seul où le HTML n'est pas écrit à la main.
 
-`src/content/index.ts` est le catalogue. L'ordre y compte : `sheetFor` retient la
-**première** fiche qui couvre un temps, donc les fiches dédiées passent avant les
-transversales. Aujourd'hui « indefinido ou imperfecto » répond pour les deux temps ; le jour
-où chacun aura la sienne, elles se glisseront au-dessus sans que rien d'autre ne bouge.
+**Le catalogue (`index.ts`) ne porte que des données ; le contenu compilé vit dans
+`sheets.ts`.** Trois écrans lisent le catalogue sans afficher la moindre fiche — l'accueil y
+cherche vers quoi renvoyer, la Pratique vers quoi enchaîner, la liste n'affiche que des
+titres — et l'accueil est la première route, chargée d'emblée : un catalogue qui importerait
+les fiches ferait tomber ~60 Ko de théorie dans le paquet initial. Les imports de `sheets.ts`
+sont **secs**, pas différés : une fiche doit s'afficher d'un coup, et seul son écran, déjà
+chargé à la demande, importe ce module. Un test vérifie que chaque fiche annoncée a bien son
+contenu, puisque la séparation rend l'oubli possible.
+
+L'ordre du catalogue compte deux fois : c'est celui de la
+liste affichée, et `sheetFor` retient la **première** fiche qui couvre un temps. Les fiches
+dédiées passent donc avant les transversales — après une question à l'`indefinido`, c'est
+la formation du temps qu'on veut relire, et « indefinido ou imperfecto » se lit derrière,
+par le lien que les trois fiches du passé lui font. Le reste de l'ordre est celui du
+curriculum : la théorie d'un temps se lit quand les cartes l'introduisent.
+
+Un test vérifie que **chaque temps du curriculum a sa fiche** (`A2_TENSES`) : une carte
+posée sur un temps sans fiche corrige sans expliquer, la correction n'ayant nulle part où
+renvoyer. Un autre monte les huit fiches — le markdown compilé ne révèle ses erreurs de
+câblage qu'au montage.
+
+Chaque fiche mène au **drill de ses propres temps** (`/pratique?temps=…`), pas à la session
+du jour : refermer la fiche du subjonctif pour réciter des présents ne prolongerait pas la
+lecture, ça la couperait.
+
+Les fiches ne recopient jamais une forme qu'un `<ConjugationTable>` pourrait donner. Ce
+qu'elles écrivent en toutes lettres (listes de radicaux, participes irréguliers) a été
+vérifié contre le moteur avant rédaction ; y ajouter une forme sans cette vérification
+rouvre exactement le risque que le format était censé fermer.
 
 ### `srs/patterns.ts` — ce que les erreurs disent des patrons
 

@@ -364,20 +364,50 @@ l'avancement du niveau, et mène à la Pratique. Il compose son décompte avec l
 `planSession` que la session elle-même — ce qu'il promet est donc exactement ce qui sera
 posé. La série s'appuie sur une table `days` alimentée par `saveReview` (voir CLAUDE.md).
 
-**Phase 4, entamée.** La mécanique de la théorie est complète : les fiches sont du markdown
+**Phase 4, livrée.** La mécanique de la théorie est complète : les fiches sont du markdown
 compilé en composants, ce qui leur permet de tirer leurs tableaux du moteur au lieu de les
 recopier — une fiche ne peut donc pas enseigner une forme que la Pratique corrigerait
 autrement. L'écran liste les fiches avec un indicateur de maîtrise tiré de `patternStats`,
 la fiche nomme les patrons réellement ratés avant de dérouler la théorie, et la correction
 d'un exercice renvoie désormais vers la fiche du temps interrogé.
 
-**Deux fiches sur huit** sont écrites : le présent, et la transversale « indefinido ou
-imperfecto » — la plus utile des deux, puisque c'est le piège n°1. Restent à rédiger :
-perfecto, indefinido, imperfecto, futur et conditionnel, impératif, subjonctif présent.
+**Les huit fiches sont écrites** : présent, passé composé, passé simple, imparfait, la
+transversale « indefinido ou imperfecto », futur et conditionnel, impératif, subjonctif
+présent. Elles couvrent donc tout le scope A2 du curriculum, plus deux temps qu'il
+n'introduit pas encore — l'impératif et le subjonctif — dont le moteur sait déjà tout.
 
-Deux points de §8 restent ouverts : le **drill ciblé** sur un temps depuis une fiche (le
-lien mène pour l'instant à la session ordinaire — cibler demanderait une variante de
-session), et la « suggestion ciblée sur la faiblesse du moment » sur l'écran d'accueil.
+Toutes suivent la structure de §8, et deux principes de rédaction s'y sont ajoutés :
+
+- **Aucune forme n'est recopiée si un `<ConjugationTable>` peut la produire.** Les listes
+  écrites en toutes lettres — radicaux de prétérits forts, participes irréguliers, les
+  douze radicaux de futur — ont été vérifiées contre le moteur avant d'être rédigées.
+- **Les fiches se renvoient les unes aux autres.** Les trois fiches du passé enseignent
+  chacune leur formation et laissent l'arbitrage à « indefinido ou imperfecto », qu'elles
+  citent en lien : un temps se forme seul, il ne se choisit pas seul.
+
+Les deux derniers points de la phase sont livrés, et ferment la boucle entre ce qu'on rate,
+ce qu'on lit et ce qu'on refait :
+
+- **Le drill ciblé** (§8.5). Chaque fiche mène à `/pratique?temps=…`, restreint aux temps
+  qu'elle vient d'expliquer. Ce n'est pas une variante de session mais une option de
+  `planSession`, qui n'assouplit qu'une règle : les cartes pas encore échues y sont
+  acceptables, après les cartes dues. On referme une fiche pour l'essayer tout de suite, et
+  « rien à réviser » ferait du lien une impasse. Le budget est plus court que celui du jour,
+  et la progression est écrite normalement — un mode « sans compter » a été écarté, l'app
+  disant déjà ailleurs qu'une session dont le résultat serait perdu n'apprend rien.
+- **La suggestion ciblée** de l'accueil (§9). Elle nomme le patron le plus raté, pas le
+  verbe, et mène à sa fiche puis à son drill. Sous le seuil de significativité, elle se tait.
+
+**Prochaine étape : la phase 5.** Sa vraie difficulté n'est pas le QCM mais le fait que la
+session est aujourd'hui homogène — une liste de `Drill` corrigés par comparaison de chaîne.
+Trois types d'exercices demandent une union discriminée, une correction par variante et un
+composant par variante, le magasin continuant à ne rien décider. Le morceau qui porte la
+valeur est le générateur de distracteurs : forme régulière attendue, bonne forme à la
+mauvaise personne, bon radical au mauvais temps — module pur, quatrième usage du choix
+« règles plutôt que table ». Un point à trancher avant d'écrire : **un QCM réussi ne vaut
+pas un drill réussi**, reconnaître étant plus facile que produire ; à poids égal dans FSRS
+et `patternStats`, la maîtrise affichée serait fausse et les échéances trop longues. Cela
+touche le schéma Dexie, donc autant le décider d'abord.
 
 ## 11. Risques et points à trancher
 

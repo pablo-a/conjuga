@@ -3,6 +3,7 @@ import { computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { sheetBySlug } from '@/content'
+import { componentFor } from '@/content/sheets'
 import { MODELS, TENSE_LABELS } from '@/conjugation'
 import { successRate } from '@/srs/patterns'
 import { useTheoryStore } from '@/stores/theory'
@@ -13,6 +14,7 @@ const store = useTheoryStore()
 onMounted(() => void store.load())
 
 const sheet = computed(() => sheetBySlug(String(route.params.slug)))
+const content = computed(() => (sheet.value ? componentFor(sheet.value.slug) : undefined))
 
 /**
  * Les patrons que l'apprenant rate sur les temps de cette fiche.
@@ -60,14 +62,16 @@ const weaknesses = computed(() =>
     </div>
 
     <article class="theory mt-6">
-      <component :is="sheet.component" />
+      <component :is="content" />
     </article>
 
+    <!-- La pratique lancée d'ici porte sur ce que la fiche vient d'expliquer :
+         relire le subjonctif pour réciter des présents ne prolongerait rien. -->
     <RouterLink
-      :to="{ name: 'practice' }"
+      :to="{ name: 'practice', query: { temps: sheet.tenses.join(',') } }"
       class="mt-8 inline-block rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white hover:bg-accent-700"
     >
-      Passer à la pratique
+      S’exercer sur ce temps
     </RouterLink>
   </section>
 
@@ -115,6 +119,13 @@ const weaknesses = computed(() =>
 
 .theory :deep(blockquote) {
   @apply mt-3 border-l-2 border-accent-500 pl-4 text-slate-700 italic dark:text-slate-200;
+}
+
+/* Les fiches se renvoient les unes aux autres — le partage indefinido/imperfecto
+   se lit depuis les trois fiches concernées. Un lien qui ne se voit pas ne serait
+   pas suivi. */
+.theory :deep(a) {
+  @apply text-accent-600 hover:underline dark:text-accent-500;
 }
 
 .theory :deep(code) {

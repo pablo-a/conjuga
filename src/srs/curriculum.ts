@@ -39,7 +39,7 @@ const topVerbs = (count: number): string[] => lemmas.slice(0, count)
  * Les temps du scope A2, dans l'ordre où le curriculum les introduit.
  * Le subjonctif n'en fait pas partie : il clôt le programme (niveau 9).
  */
-const A2_TENSES: readonly Tense[] = [
+export const A2_TENSES: readonly Tense[] = [
   'indicativo.presente',
   'indicativo.perfecto',
   'indicativo.indefinido',

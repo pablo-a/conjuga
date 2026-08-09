@@ -34,7 +34,7 @@ describe('session sans stockage', () => {
     breakStorage()
     const store = useSessionStore()
 
-    await store.start(AT)
+    await store.start({ now: AT })
 
     // Poser des questions dont le résultat serait jeté ferait croire à une
     // progression qui n'existe pas.
@@ -58,7 +58,7 @@ describe('session sans stockage', () => {
 describe('reset', () => {
   it('rend le magasin au repos, pour relancer une session', async () => {
     const store = useSessionStore()
-    await store.start(AT, () => 0)
+    await store.start({ now: AT, random: () => 0 })
     await store.submit(store.current!.form.value)
     expect(store.completed).toBe(1)
 

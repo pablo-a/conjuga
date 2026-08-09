@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia'
 import { computed, ref, shallowRef } from 'vue'
 
-import { loadSnapshot, loadStudyDays } from '@/db/repository'
+import { COVERED_TENSES } from '@/content'
+import { loadPatternStats, loadSnapshot, loadStudyDays } from '@/db/repository'
 import { currentLevel, mastery, unlockedCards } from '@/srs/curriculum'
 import type { Level } from '@/srs/curriculum'
+import { weakest } from '@/srs/patterns'
+import type { PatternCount } from '@/srs/patterns'
 import { planSession } from '@/srs/selector'
 import type { SessionPlan } from '@/srs/selector'
 import { dayKey, streakLength } from '@/srs/streak'
@@ -39,6 +42,16 @@ export const useOverviewStore = defineStore('overview', () => {
   const streak = ref(0)
   const today = ref<TodayTotals>({ cards: 0, answers: 0 })
 
+  /**
+   * Le patron le plus raté, quand il y en a un dont on puisse répondre.
+   *
+   * `weakest` applique le seuil de significativité : sous dix formes demandées,
+   * un taux d'échec ne mesure rien, et l'accueil se tait plutôt que d'envoyer
+   * relire une fiche au hasard. La recherche est bornée aux temps couverts par
+   * une fiche pour que la suggestion mène toujours quelque part.
+   */
+  const weakness = shallowRef<PatternCount | null>(null)
+
   /** Combien de cartes la session posera, et combien seront nouvelles. */
   const waiting = computed(() => plan.value?.cards.length ?? 0)
   const introduced = computed(() => plan.value?.introduced ?? 0)
@@ -62,7 +75,11 @@ export const useOverviewStore = defineStore('overview', () => {
     error.value = null
 
     try {
-      const [{ deck, progress }, days] = await Promise.all([loadSnapshot(), loadStudyDays()])
+      const [{ deck, progress }, days, stats] = await Promise.all([
+        loadSnapshot(),
+        loadStudyDays(),
+        loadPatternStats(),
+      ])
 
       const current = currentLevel(progress)
       plan.value = planSession(deck, unlockedCards(progress), now)
@@ -76,6 +93,7 @@ export const useOverviewStore = defineStore('overview', () => {
       const key = dayKey(now)
       const stamp = days.find((day) => day.id === key)
       today.value = { cards: stamp?.cards ?? 0, answers: stamp?.answers ?? 0 }
+      weakness.value = weakest(stats, COVERED_TENSES, 1)[0] ?? null
 
       status.value = 'ready'
     } catch (cause) {
@@ -95,6 +113,7 @@ export const useOverviewStore = defineStore('overview', () => {
     levelMastery,
     streak,
     today,
+    weakness,
     waiting,
     introduced,
     remaining,

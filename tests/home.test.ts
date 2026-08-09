@@ -179,6 +179,57 @@ describe('écran d’accueil', () => {
     expect(wrapper.text()).toContain('cartes en retard passent d’abord')
   })
 
+  /*
+   * `patternStats` mesure des patrons, pas des verbes : c'est ce qui permet à
+   * l'accueil de renvoyer vers une règle et vers la fiche qui l'explique, au
+   * lieu de désigner un verbe dont on ne tirerait rien.
+   */
+  it('désigne le patron le plus raté, et de quoi le reprendre', async () => {
+    await db.patternStats.bulkPut([
+      {
+        id: 'pensar:indicativo.presente',
+        model: 'pensar',
+        tense: 'indicativo.presente',
+        attempts: 20,
+        errors: 13,
+      },
+      {
+        id: 'hablar:indicativo.presente',
+        model: 'hablar',
+        tense: 'indicativo.presente',
+        attempts: 40,
+        errors: 1,
+      },
+    ])
+
+    const wrapper = await home()
+    const suggestion = wrapper.get('[data-weakness]')
+
+    expect(suggestion.text()).toContain('65 %')
+    expect(suggestion.get('a[href*="theorie"]').attributes('href')).toContain('present')
+    // Relire ne suffit pas : la suggestion doit aussi mener au drill du temps.
+    expect(suggestion.get('a[href*="pratique"]').attributes('href')).toContain(
+      'indicativo.presente',
+    )
+  })
+
+  it('se tait tant que trop peu de formes ont été demandées pour conclure', async () => {
+    // Une forme ratée une fois donne 100 % d'échec : ce n'est pas une faiblesse,
+    // c'est un manque de données, et désigner une fiche là-dessus serait du bruit.
+    await db.patternStats.put({
+      id: 'pensar:indicativo.presente',
+      model: 'pensar',
+      tense: 'indicativo.presente',
+      attempts: 1,
+      errors: 1,
+    })
+
+    const wrapper = await home()
+
+    expect(useOverviewStore().weakness).toBeNull()
+    expect(wrapper.find('[data-weakness]').exists()).toBe(false)
+  })
+
   it('dit son impuissance quand le stockage est indisponible', async () => {
     // Afficher une série à zéro et un programme neuf serait indiscernable d'un
     // compte vierge : l'apprenant croirait avoir tout perdu.

@@ -4,8 +4,10 @@ import { beforeEach, describe, expect, it } from 'vitest'
 
 import { MODELS, TENSES, conjugate } from '@/conjugation'
 import { SHEETS, sheetBySlug, sheetFor } from '@/content'
+import { componentFor } from '@/content/sheets'
 import { db } from '@/db'
 import { router } from '@/router'
+import { A2_TENSES } from '@/srs/curriculum'
 import { MIN_ATTEMPTS } from '@/srs/patterns'
 import TheorySheetView from '@/views/TheorySheetView.vue'
 import TheoryView from '@/views/TheoryView.vue'
@@ -57,6 +59,17 @@ describe('le catalogue de fiches', () => {
     expect(new Set(slugs).size).toBe(slugs.length)
   })
 
+  /*
+   * Le catalogue ne porte que des données, le contenu compilé vit à côté — ce
+   * qui garde la théorie hors du paquet initial, mais ouvre la possibilité
+   * qu'une fiche annoncée n'ait rien à afficher. C'est ce que ce test ferme.
+   */
+  it('a le contenu de chacune des fiches qu’il annonce', () => {
+    for (const entry of SHEETS) {
+      expect(componentFor(entry.slug), entry.slug).toBeDefined()
+    }
+  })
+
   it('résout chaque slug annoncé', () => {
     for (const entry of SHEETS) expect(sheetBySlug(entry.slug)).toBe(entry)
     expect(sheetBySlug('inexistant')).toBeUndefined()
@@ -64,11 +77,21 @@ describe('le catalogue de fiches', () => {
 
   it('rattache un temps à la fiche qui en traite', () => {
     expect(sheetFor('indicativo.presente')?.slug).toBe('present')
-    // Tant que `indefinido` n'a pas sa fiche dédiée, c'est la transversale qui
-    // répond — et le jour où elle existera, elle passera devant sans rien casser.
-    expect(sheetFor('indicativo.indefinido')?.slug).toBe('indefinido-ou-imperfecto')
+    // Les fiches dédiées passent avant la transversale : après une question à
+    // l'indefinido, c'est la formation du temps qu'on veut relire, pas l'arbitrage
+    // entre deux temps.
+    expect(sheetFor('indicativo.indefinido')?.slug).toBe('passe-simple')
+    expect(sheetFor('indicativo.imperfecto')?.slug).toBe('imparfait')
     // Un temps sans fiche ne renvoie nulle part plutôt que vers une page vide.
     expect(sheetFor('subjuntivo.imperfecto')).toBeUndefined()
+  })
+
+  it('couvre tous les temps du curriculum', () => {
+    // Une carte posée sur un temps sans fiche corrige sans expliquer : la
+    // correction n'aurait nulle part où renvoyer.
+    for (const tense of A2_TENSES) {
+      expect(sheetFor(tense), tense).toBeDefined()
+    }
   })
 })
 
@@ -114,6 +137,28 @@ describe('une fiche', () => {
     expect(forms).toContain('pensamos')
   })
 
+  it('monte, et appelle le moteur, quel que soit son slug', async () => {
+    // Une fiche est du markdown compilé : une erreur de câblage ne se voit qu'au
+    // montage, et une fiche qui n'appellerait pas `ConjugationTable` aurait
+    // recopié ses tableaux — c'est précisément ce que le format doit empêcher.
+    for (const entry of SHEETS) {
+      const wrapper = await sheet(entry.slug)
+
+      expect(wrapper.text(), entry.slug).toContain(entry.title)
+      expect(wrapper.findAll('[data-form]').length, entry.slug).toBeGreaterThan(0)
+    }
+  })
+
+  it('renvoie vers la transversale depuis les fiches des deux passés', async () => {
+    // Chacune des deux enseigne sa formation et laisse l'arbitrage à la fiche qui
+    // en traite : sans le lien, l'apprenant repart avec la moitié de la réponse.
+    for (const slug of ['passe-simple', 'imparfait', 'passe-compose']) {
+      const wrapper = await sheet(slug)
+
+      expect(wrapper.find('a[href*="indefinido-ou-imperfecto"]').exists(), slug).toBe(true)
+    }
+  })
+
   it('nomme les patrons ratés avant de dérouler la théorie', async () => {
     await stat('pensar', 'indicativo.presente', 20, 12)
 
@@ -131,9 +176,18 @@ describe('une fiche', () => {
     expect(wrapper.text()).not.toContain('Ce que tu rates')
   })
 
-  it('mène à la pratique', async () => {
-    const wrapper = await sheet('present')
-    expect(wrapper.find('a[href*="pratique"]').exists()).toBe(true)
+  /*
+   * Le lien porte les temps de la fiche : refermer le subjonctif pour réciter
+   * des présents ne prolongerait pas la lecture, ça la couperait.
+   */
+  it('mène à la pratique du temps qu’elle vient d’expliquer', async () => {
+    for (const entry of SHEETS) {
+      const wrapper = await sheet(entry.slug)
+      const href = wrapper.get('a[href*="pratique"]').attributes('href')!
+
+      const temps = new URL(href, 'https://exemple.test').searchParams.get('temps')
+      expect(temps?.split(','), entry.slug).toEqual([...entry.tenses])
+    }
   })
 
   it('annonce une fiche inconnue plutôt que d’afficher une page vide', async () => {
