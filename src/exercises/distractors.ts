@@ -1,10 +1,10 @@
 import {
   PERSONS,
   PERSON_LABELS,
-  TENSE_LABELS,
   conjugate,
   isCompoundTense,
   stemOf,
+  tenseWithArticle,
 } from '@/conjugation'
 import type { Form, Person, Tense } from '@/conjugation'
 
@@ -185,19 +185,8 @@ function tenseDistractors(
     .flatMap((other) => {
       const form = conjugate(lemma, other, person)
       if (form === null) return []
-      return [{ value: form.value, kind: 'tense' as const, label: article(TENSE_LABELS[other]) }]
+      return [{ value: form.value, kind: 'tense' as const, label: tenseWithArticle(other) }]
     })
-}
-
-/**
- * L'article défini élidé quand il le faut : « l'imparfait », pas « le imparfait ».
- *
- * Les noms des temps sont écrits dans le moteur et sortent tels quels ; la
- * poignée qui commence par une voyelle suffit à rendre la phrase fautive, et un
- * exercice qui écorche le français décrédibilise ce qu'il enseigne.
- */
-function article(label: string): string {
-  return /^[aeiouéèêàh]/i.test(label) ? `l’${label}` : `le ${label}`
 }
 
 /** Mélange de Fisher-Yates, sur une copie. */

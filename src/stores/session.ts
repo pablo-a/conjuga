@@ -3,10 +3,10 @@ import { computed, ref, shallowRef } from 'vue'
 
 import type { Tense } from '@/conjugation'
 import { loadSnapshot, saveReview, weakPersons } from '@/db/repository'
-import { grade as correct, gradeSelection } from '@/exercises/grading'
+import { grade as correct, gradeIdentification, gradeSelection } from '@/exercises/grading'
 import { buildExercises, closesCard, reviewOf, tally } from '@/exercises/session'
 import type { Exercise, ExerciseAnswer } from '@/exercises/session'
-import { A2_TENSES, currentLevel, unlockedCards } from '@/srs/curriculum'
+import { A2_TENSES, currentLevel, parseCardId, unlockedCards } from '@/srs/curriculum'
 import type { CardId, Level } from '@/srs/curriculum'
 import { planSession, questionsFor } from '@/srs/selector'
 import type { DeckEntry, SessionPlan } from '@/srs/selector'
@@ -118,6 +118,9 @@ export const useSessionStore = defineStore('session', () => {
       exercises.value = buildExercises(questionsFor(session, weighted, random), {
         introducing: new Set(session.fresh),
         tenses: options.focus ?? A2_TENSES,
+        // Les leurres de verbe de l'exercice inverse se prennent parmi les
+        // verbes de la session : ceux-là, l'apprenant les étudie vraiment.
+        lemmas: [...new Set(session.cards.map((id) => parseCardId(id).lemma))],
         random,
       })
       answers.value = []
@@ -143,14 +146,22 @@ export const useSessionStore = defineStore('session', () => {
     const exercise = current.value
     if (status.value !== 'running' || exercise === null || answered.value !== null) return
 
-    // Le format décide de la correction, et c'est la seule chose que le magasin
-    // ait à en savoir : la tolérance sur l'accent n'a de sens que pour ce qui est
-    // tapé (voir `gradeSelection`).
-    const grade = exercise.kind === 'drill' ? correct : gradeSelection
+    /*
+     * Le format décide de la correction, et c'est la seule chose que le magasin
+     * ait à en savoir : la tolérance sur l'accent n'a de sens que pour ce qui est
+     * tapé (voir `gradeSelection`), et l'exercice inverse ne compare pas une
+     * forme mais une identité.
+     */
+    const grade =
+      exercise.kind === 'identify'
+        ? gradeIdentification(text, exercise.expected)
+        : exercise.kind === 'drill'
+          ? correct(text, exercise.form)
+          : gradeSelection(text, exercise.form)
 
     const answer: ExerciseAnswer = {
       exercise,
-      grade: grade(text, exercise.form),
+      grade,
       elapsedMs: Math.max(0, Date.now() - shownAt),
     }
     answers.value = [...answers.value, answer]

@@ -27,10 +27,9 @@ passé composé, passé simple, imparfait, « indefinido ou imperfecto », futur
 impératif, subjonctif présent — le **drill ciblé** depuis une fiche, et la **suggestion
 ciblée** sur l'accueil.
 
-Phase 5 **entamée** : la reconnaissance est en place — distracteurs tirés du moteur, QCM
-posé en ouverture de chaque carte neuve, et la comptabilité qui l'empêche de valoir une
-production. Reste l'**exercice inverse** (donner `tuvieron`, faire identifier verbe, temps et
-personne), qui est un troisième format à ajouter à l'union.
+Phase 5 **livrée** : la session mêle trois formats — production, reconnaissance et
+identification — chacun placé là où il apprend quelque chose, et comptabilisé pour ce qu'il
+vaut. Prochaine étape : la **phase 6**, traduction FR→ES par texte à trou (PLAN.md §7).
 
 Reste à faire sur les données : **relire les traductions**. Les gloses de `verbs.json`
 viennent du Wiktionnaire, ce sont des définitions et non des équivalents ; elles ne sont
@@ -275,22 +274,52 @@ d'apprentissage écrite dans `stores/session.ts` est au mauvais endroit — elle
 module pur, où elle est testable. Le seul choix qu'il fait est celui de la fonction de
 correction, et il le lit sur `exercise.kind`.
 
-### `exercises/session.ts` — deux formats, une carte close
+### `exercises/session.ts` — trois formats, une carte close
 
-Un `Exercise` est une union discriminée par `kind` : `drill` (on tape la forme) ou `choice`
-(on la désigne). Les deux portent la **même cellule** — carte, verbe, temps, personne,
-forme — donc tout ce qui vient après, correction, notation, écriture, affichage, ne
-distingue les deux qu'aux rares endroits où ça change quelque chose.
+Un `Exercise` est une union discriminée par `kind` : `drill` (on tape la forme), `choice` (on
+la désigne parmi quatre) ou `identify` (on la lit et on la nomme). Les trois portent la
+**même cellule** — carte, verbe, temps, personne, forme — donc tout ce qui vient après,
+correction, notation, écriture, affichage, ne les distingue qu'aux rares endroits où ça
+change quelque chose.
 
-**Une carte neuve s'ouvre par une reconnaissance**, sur la personne que le drill suivant va
-demander. Demander d'écrire une forme jamais vue n'enseigne rien : ça constate qu'on ne la
-sait pas. On montre d'abord, on fait produire ensuite, dans la même session. Une carte neuve
-coûte donc quatre questions au lieu de trois, ce que le budget absorbe — `QUESTIONS_PER_CARD`
-vaut 2,5, déjà en dessous du nominal à cause des verbes défectifs.
+Le placement n'est pas décoratif ; il suit l'ordre d'apprentissage :
 
-**Invariant** : une reconnaissance ne tient jamais seule sur une carte, elle précède toujours
-la production de la même cellule. C'est ce qui permet à `reviewOf` de noter sur la seule
-production sans jamais tomber sur une carte vide.
+- **une carte neuve s'ouvre par une reconnaissance**, sur la personne que le drill suivant va
+  demander. Demander d'écrire une forme jamais vue n'enseigne rien : ça constate qu'on ne la
+  sait pas. On montre d'abord, on fait produire ensuite ;
+- **une carte connue se ferme par une identification**, et seulement si sa forme cache son
+  infinitif (`hidesItsInfinitive`). On ne fait nommer qu'après avoir fait écrire, et jamais
+  sur une carte découverte à l'instant — ce serait tester la mémoire de la session, pas la
+  lecture de l'espagnol.
+
+Une carte neuve coûte donc quatre questions au lieu de trois, ce que le budget absorbe —
+`QUESTIONS_PER_CARD` vaut 2,5, déjà en dessous du nominal à cause des verbes défectifs.
+
+**Invariant** : ni reconnaissance ni identification ne tiennent seules sur une carte, elles
+encadrent toujours au moins une production. C'est ce qui permet à `reviewOf` de noter sur la
+seule production sans jamais tomber sur une carte vide.
+
+### `exercises/identification.ts` — le seul exercice de lecture
+
+Produire `tuvieron` et le reconnaître dans une phrase sont deux compétences ; la seconde
+s'emploie tout le temps et ne s'exerçait nulle part. On montre la forme, il faut nommer le
+verbe, le temps et la personne.
+
+- **On ne la pose que sur les formes qui cachent leur infinitif.** Le critère est direct :
+  la forme commence-t-elle par le radical ? `hablaron` oui, `tuvieron` non. Demander à quel
+  verbe appartient `hablaron` n'apprendrait rien. Les temps composés sont écartés d'office —
+  `he tenido` porte son verbe, et l'auxiliaire annonce déjà le temps.
+- **Chaque leurre ne dévie que d'une dimension** — un temps, une personne ou un verbe. Une
+  option fausse sur deux points se rejette sur le premier venu, et la question ne porterait
+  plus que sur lui. Les trois dimensions alternent, pour la même raison.
+- **Jamais deux identités qui désignent la même forme.** Le piège du format, et il est
+  fréquent : `hablaba` est l'imparfait de `yo` **et** de `él`, `hablamos` le présent et le
+  passé simple de `nosotros`. Sans ce filtre, la question aurait deux réponses justes et
+  l'apprenant serait compté faux pour avoir eu raison.
+- Les leurres de verbe se prennent **parmi les verbes de la session** : en confondre deux
+  qu'on étudie est une erreur réelle, en proposer un tiré des mille n'en serait pas une.
+
+L'écran n'y affiche **ni le verbe ni le temps** en en-tête : ils sont la réponse.
 
 Les questions d'une même carte se suivent, parce que `questionsFor` les produit carte par
 carte : un changement de carte marque donc la fin de la précédente. C'est ce moment qui
@@ -300,13 +329,14 @@ minutes interrompue par un appel ne doit pas s'effacer.
 
 ### Ce que la reconnaissance ne doit pas peser
 
-Reconnaître une forme parmi quatre est plus facile que l'écrire. Compter les deux à égalité
-est la façon dont un système de répétition espacée se met à mentir : on allongerait les
-échéances d'une carte qu'on ne sait pas encore produire. D'où trois règles, et le champ
+Reconnaître une forme parmi quatre, ou la nommer, est plus facile que l'écrire. Compter tout
+à égalité est la façon dont un système de répétition espacée se met à mentir : on allongerait
+les échéances d'une carte qu'on ne sait pas encore produire. D'où trois règles, et le champ
 `Answer.kind` qui les rend possibles (schéma v3, qui marque `drill` tout l'historique) :
 
-- **`reviewOf` note sur la production seule.** La reconnaissance est un tremplin, pas une
-  preuve.
+- **`reviewOf` note sur la production seule.** Reconnaissance et identification sont des
+  tremplins, pas des preuves — ne pas savoir lire `fui` ne dit rien de la capacité à
+  l'écrire, qui est ce que l'échéance mesure.
 - **`patternStats` ne compte que la production.** Le mélange d'exercices évoluera ; additionner
   les deux ferait bouger le taux d'échec d'un patron sans que l'apprenant ait changé, donc
   rendrait la mesure incomparable dans le temps et la suggestion de l'accueil erratique.
@@ -317,7 +347,18 @@ est la façon dont un système de répétition espacée se met à mentir : on al
 
 Enfin, `gradeSelection` **ne connaît pas le verdict `accent`**. La tolérance de la production
 récompense un geste de frappe ; cliquer sur `estas` quand `estás` est juste à côté est un
-choix fait après lecture. Personne ne sélectionne un accent par mégarde.
+choix fait après lecture. Personne ne sélectionne un accent par mégarde. `gradeIdentification`
+compare des clés d'identité, et c'est la seule correction de l'app qui ne regarde pas une
+forme espagnole.
+
+**Une écriture ratée en cours de session est signalée sans l'interrompre.** Ce qui est rangé
+l'est, et recommencer ne servirait à rien ; mais la taire laisserait travailler vingt minutes
+pour rien. Le bandeau apparaît dès que `store.error` est posé, sans changer le statut.
+
+⚠️ **Piège de fixture** : `newCardState` laisse `difficulty` à zéro. Un test qui force
+`stability` sans la difficulté produit un état qu'aucune révision n'aurait pu créer, et
+`ts-fsrs` rejette la révision suivante — en silence, puisque l'erreur n'interrompt pas la
+session. Voir `mastered()` dans `tests/practice.test.ts`.
 
 ### `exercises/distractors.ts` — ce qui décide qu'un QCM enseigne
 

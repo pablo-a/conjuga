@@ -49,13 +49,17 @@ async function home() {
  * `stability` n'est pas décoratif : c'est lui que le curriculum compare à
  * `MASTERY_STABILITY_DAYS` pour ouvrir le niveau suivant. Le laisser à zéro
  * garde le programme fermé au premier niveau, quoi qu'on écrive par ailleurs.
+ *
+ * `difficulty` va avec : `ts-fsrs` refuse une stabilité sans difficulté, et une
+ * carte semée ainsi ferait échouer en silence la première révision qu'on lui
+ * ferait passer.
  */
 async function seed(cards: readonly string[], due: Date, stability = 0): Promise<string[]> {
   await db.cards.bulkPut(
     cards.map((id) => ({
       id,
       ...parseCardId(id),
-      fsrs: { ...newCardState(AT), stability },
+      fsrs: { ...newCardState(AT), stability, ...(stability > 0 ? { difficulty: 5 } : {}) },
       due,
       reps: 1,
       lapses: 0,

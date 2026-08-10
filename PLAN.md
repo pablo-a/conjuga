@@ -451,9 +451,33 @@ Le champ `Answer.kind` porte tout cela (schéma v3, dont la migration marque `dr
 l'historique : les lignes d'avant venaient toutes du drill, et les laisser sans valeur les
 ferait lire tôt ou tard comme « pas une production »).
 
-**Reste de la phase 5** : l'exercice **inverse** — on donne `tuvieron`, il faut identifier
-verbe, temps et personne. C'est un troisième format à ajouter à l'union, et le premier qui
-n'interroge pas une cellule connue d'avance.
+**L'exercice inverse clôt la phase 5.** On montre `tuvieron`, il faut nommer le verbe, le
+temps et la personne. C'est le seul exercice de l'app qui travaille la **lecture** : produire
+une forme et la reconnaître dans une phrase sont deux compétences, et la seconde s'emploie
+tout le temps sans s'exercer nulle part.
+
+Il ne se pose que sur les formes qui **cachent leur infinitif** — `tuvieron` oui, `hablaron`
+non, puisque le verbe y est écrit en toutes lettres. Chaque leurre ne dévie que d'une
+dimension, faute de quoi il se rejetterait sur la première venue, et jamais deux options ne
+désignent la même forme : `hablaba` est l'imparfait de `yo` **et** de `él`, et la question
+aurait alors deux réponses justes.
+
+Le placement suit l'ordre d'apprentissage : une carte neuve **s'ouvre** par une
+reconnaissance, une carte connue **se ferme** par une identification. On montre avant de
+faire écrire, et on ne fait nommer qu'après avoir fait écrire.
+
+Deux corrections venues de l'implémentation, notées ici parce qu'elles se reproduiront :
+
+- une **écriture ratée en cours de session** ne se voyait nulle part. Ne pas interrompre est
+  délibéré ; se taire ne l'était pas — l'apprenant travaillait vingt minutes pour rien. Un
+  bandeau le signale désormais sans changer le statut de la session ;
+- `newCardState` laisse `difficulty` à zéro. Une carte semée avec une stabilité mais sans
+  difficulté est un état qu'aucune révision n'aurait pu créer, et `ts-fsrs` rejette la
+  révision suivante — en silence, précisément à cause du point précédent.
+
+**Phase 6** ensuite : le texte à trou FR→ES (§7), qui travaille le choix du temps en plus de
+la forme et vise le piège n°1 du francophone. C'est la phase la plus coûteuse en contenu —
+~250 patrons de phrases écrits à la main.
 
 ## 11. Risques et points à trancher
 

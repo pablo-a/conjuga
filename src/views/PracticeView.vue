@@ -4,9 +4,10 @@ import { useRoute } from 'vue-router'
 
 import AccentKeys from '@/components/AccentKeys.vue'
 import VerbForm from '@/components/VerbForm.vue'
-import { PERSON_LABELS, TENSE_LABELS, TENSES } from '@/conjugation'
+import { PERSON_LABELS, PERSON_PRONOUNS, TENSE_LABELS, TENSES } from '@/conjugation'
 import type { Tense } from '@/conjugation'
 import { sheetFor } from '@/content'
+import type { IdentityOption } from '@/exercises/identification'
 import type { Choice } from '@/exercises/recognition'
 import { useSessionStore } from '@/stores/session'
 
@@ -158,14 +159,14 @@ function insert(character: string): void {
  * a été trouvée : c'est elle qu'il faut retenir, et la laisser se confondre avec
  * les trois autres perdrait la seule ligne qui vaille la peine d'être relue.
  */
-function toneOf(choice: Choice): string {
+function toneOf(option: Choice | IdentityOption): string {
   if (store.answered === null) {
     return 'border-slate-300 hover:border-accent-500 dark:border-slate-700'
   }
-  if (choice.correct) {
+  if (option.correct) {
     return 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40'
   }
-  return store.answered.grade.given === choice.value
+  return store.answered.grade.given === option.value
     ? 'border-rose-400 bg-rose-50 dark:bg-rose-950/30'
     : 'border-slate-200 opacity-60 dark:border-slate-800'
 }
@@ -295,15 +296,42 @@ const restart = begin
         </div>
       </div>
 
+      <!-- Une écriture ratée n'interrompt pas la session — ce qui est rangé
+           l'est, et recommencer ne servirait à rien. Mais la taire laisserait
+           travailler vingt minutes pour rien : on le dit, discrètement. -->
+      <p
+        v-if="store.error"
+        class="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-slate-700 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-slate-200"
+        role="status"
+        data-save-warning
+      >
+        La progression de la dernière carte n’a pas pu être enregistrée. Tu peux continuer, mais
+        vérifie que le navigateur autorise le stockage local.
+      </p>
+
       <div
         class="mt-4 rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
       >
-        <p class="text-xs tracking-wide text-slate-500 uppercase dark:text-slate-400">
-          {{ TENSE_LABELS[store.current.tense] }}
-        </p>
-        <h2 class="mt-1 text-2xl font-semibold tracking-tight" data-lemma>
-          {{ store.current.lemma }}
-        </h2>
+        <!-- L'identification ne peut pas afficher son en-tête habituel : le temps
+             et le verbe *sont* la réponse. C'est la forme qu'on montre, et rien
+             d'autre. -->
+        <template v-if="store.current.kind === 'identify'">
+          <p class="text-xs tracking-wide text-slate-500 uppercase dark:text-slate-400">
+            Cette forme, c’est…
+          </p>
+          <h2 class="mt-1 text-2xl font-semibold tracking-tight" data-form-asked>
+            {{ store.current.form.value }}
+          </h2>
+        </template>
+
+        <template v-else>
+          <p class="text-xs tracking-wide text-slate-500 uppercase dark:text-slate-400">
+            {{ TENSE_LABELS[store.current.tense] }}
+          </p>
+          <h2 class="mt-1 text-2xl font-semibold tracking-tight" data-lemma>
+            {{ store.current.lemma }}
+          </h2>
+        </template>
 
         <form class="mt-4" @submit.prevent="onSubmit">
           <template v-if="store.current.kind === 'drill'">
@@ -325,6 +353,36 @@ const restart = begin
             />
 
             <AccentKeys v-if="store.answered === null" class="mt-2" @insert="insert" />
+          </template>
+
+          <!-- L'exercice inverse : trois choses à nommer d'un coup, chaque leurre
+               n'en déviant qu'une. C'est ce qui oblige à les vérifier toutes. -->
+          <template v-else-if="store.current.kind === 'identify'">
+            <p id="consigne" class="text-sm text-slate-500 dark:text-slate-400">
+              Quel verbe, quel temps, quelle personne ?
+            </p>
+            <ul class="mt-2 space-y-2" aria-labelledby="consigne" data-options>
+              <li v-for="option in store.current.options" :key="option.value">
+                <button
+                  type="button"
+                  :disabled="store.answered !== null"
+                  class="w-full rounded-lg border px-3 py-2 text-left disabled:cursor-default"
+                  :class="toneOf(option)"
+                  @click="answer(option.value)"
+                >
+                  <span class="font-medium">{{ option.lemma }}</span>
+                  <span class="text-slate-500 dark:text-slate-400">
+                    · {{ TENSE_LABELS[option.tense] }} · {{ PERSON_PRONOUNS[option.person] }}
+                  </span>
+                  <span
+                    v-if="store.answered && option.label"
+                    class="block text-xs text-slate-500 dark:text-slate-400"
+                  >
+                    {{ option.label }}
+                  </span>
+                </button>
+              </li>
+            </ul>
           </template>
 
           <!-- La reconnaissance ouvre les cartes neuves : on montre la forme

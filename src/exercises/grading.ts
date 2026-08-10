@@ -122,5 +122,19 @@ export function gradeSelection(chosen: string, form: Form): Grade {
     : { verdict: 'wrong', given, expected: candidates[0]! }
 }
 
+/**
+ * Corrige une identification : on compare des clés, pas des formes.
+ *
+ * L'exercice inverse ne demande pas d'écrire quoi que ce soit — il demande de
+ * nommer un verbe, un temps et une personne. Ce qui est juste ou faux est donc
+ * l'identité désignée, et c'est la seule correction de l'app qui ne regarde pas
+ * une forme espagnole.
+ */
+export function gradeIdentification(chosen: string, expected: string): Grade {
+  return chosen === expected
+    ? { verdict: 'correct', given: chosen, expected }
+    : { verdict: 'wrong', given: chosen, expected }
+}
+
 /** Une réponse juste, accent compris ou non — ce qui compte pour « a-t-il trouvé la forme ? ». */
 export const foundTheForm = (grade: Grade): boolean => grade.verdict !== 'wrong'

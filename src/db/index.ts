@@ -45,7 +45,7 @@ export interface Answer {
    * parmi quatre et l'écrire ne mesurent pas la même chose, et les additionner
    * ferait dériver le taux d'échec d'un patron au gré du mélange d'exercices.
    */
-  kind: 'drill' | 'choice'
+  kind: 'drill' | 'choice' | 'identify'
   expected: string
   given: string
   correct: boolean

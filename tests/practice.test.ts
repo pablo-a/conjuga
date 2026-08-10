@@ -1,11 +1,12 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { db } from '@/db'
 import { weakPersons } from '@/db/repository'
 import { router } from '@/router'
-import { LEVELS, MASTERY_STABILITY_DAYS, parseCardId } from '@/srs/curriculum'
+import { hidesItsInfinitive } from '@/exercises/identification'
+import { LEVELS, MASTERY_STABILITY_DAYS, cardId, parseCardId } from '@/srs/curriculum'
 import { newCardState } from '@/srs/scheduler'
 import type { Exercise } from '@/exercises/session'
 import { useSessionStore } from '@/stores/session'
@@ -33,7 +34,21 @@ beforeEach(async () => {
   await router.isReady()
 })
 
+afterEach(() => {
+  vi.restoreAllMocks()
+})
+
 type Wrapper = ReturnType<typeof mount<typeof PracticeView>>
+
+/**
+ * Un état FSRS de carte acquise, et **valide**.
+ *
+ * `newCardState` laisse `difficulty` à zéro, que `ts-fsrs` refuse dès qu'on lui
+ * repasse la carte : forcer la stabilité sans la difficulté produit un état
+ * qu'aucune révision n'aurait pu créer, et l'écriture suivante échoue en
+ * silence — l'erreur n'interrompant pas la session, elle ne se voit nulle part.
+ */
+const mastered = () => ({ ...newCardState(AT), stability: MASTERY_STABILITY_DAYS, difficulty: 5 })
 
 /**
  * Compose la session avant le montage : l'écran ne démarre que s'il trouve le
@@ -51,17 +66,36 @@ async function practice(random: () => number = () => 0): Promise<Wrapper> {
  * correction. Un QCM se répond en désignant, pas en tapant.
  */
 async function answer(wrapper: Wrapper, text: string): Promise<void> {
-  if (useSessionStore().current?.kind === 'choice') {
+  const current = useSessionStore().current
+  if (current?.kind === 'choice') {
     const option = wrapper
       .findAll('[data-choices] button')
       .find((button) => button.text().trim() === text)
     await option!.trigger('click')
+  } else if (current?.kind === 'identify') {
+    // Les propositions ne montrent pas leur clé : on désigne par sa position.
+    const index = current.options.findIndex((option) => option.value === text)
+    await wrapper.findAll('[data-options] button')[index]!.trigger('click')
   } else {
     await wrapper.get('#reponse').setValue(text)
     await wrapper.get('form').trigger('submit')
   }
   await flushPromises()
 }
+
+/**
+ * Laisse la transaction Dexie de fin de carte aboutir.
+ *
+ * `saveReview` est lancée depuis `submit` sans être attendue par l'appelant : un
+ * seul tour de boucle ne suffit pas à la voir arriver en base.
+ */
+async function written(): Promise<void> {
+  for (let tries = 0; tries < 5; tries++) await flushPromises()
+}
+
+/** La bonne réponse à un exercice, dans la monnaie que sa correction attend. */
+const rightAnswer = (exercise: Exercise): string =>
+  exercise.kind === 'identify' ? exercise.expected : exercise.form.value
 
 /** Passe à la question suivante, une fois la correction lue. */
 async function next(wrapper: Wrapper): Promise<void> {
@@ -75,8 +109,12 @@ async function advanceWhile(
   wanted: (exercise: Exercise) => boolean,
 ): Promise<void> {
   const store = useSessionStore()
-  for (let guard = 0; guard < 50 && store.current && wanted(store.current); guard++) {
-    await answer(wrapper, store.current.form.value)
+  for (
+    let guard = 0;
+    guard < 60 && store.status === 'running' && store.current && wanted(store.current);
+    guard++
+  ) {
+    await answer(wrapper, rightAnswer(store.current))
     await next(wrapper)
   }
 }
@@ -179,7 +217,7 @@ describe('écran Pratique', () => {
 
     for (let asked = 0; asked < questions; asked++) {
       expect(await db.cards.count(), `avant la question ${asked + 1}`).toBe(0)
-      await answer(wrapper, store.current!.form.value)
+      await answer(wrapper, rightAnswer(store.current!))
       await next(wrapper)
     }
 
@@ -275,7 +313,7 @@ describe('session ciblée', () => {
       LEVELS[0]!.cards.map((id) => ({
         id,
         ...parseCardId(id),
-        fsrs: { ...newCardState(AT), stability: MASTERY_STABILITY_DAYS },
+        fsrs: mastered(),
         due: new Date(AT.getTime() + 7 * 86_400_000),
         reps: 1,
         lapses: 0,
@@ -419,7 +457,7 @@ describe('reconnaissance', () => {
 
     // Toute la carte en bonnes réponses : une reconnaissance, trois productions.
     for (let asked = 0; asked < questions; asked++) {
-      await answer(wrapper, store.current!.form.value)
+      await answer(wrapper, rightAnswer(store.current!))
       await next(wrapper)
     }
 
@@ -466,5 +504,125 @@ describe('reconnaissance', () => {
 
     const weak = await weakPersons([LEVELS[0]!.cards[0]!])
     expect(weak.get(LEVELS[0]!.cards[0]!)).toEqual(['tu'])
+  })
+})
+
+/**
+ * L'exercice inverse. Il ferme les cartes déjà connues dont la forme cache son
+ * infinitif — la seule compétence, la lecture, que le reste de l'app n'exerce
+ * jamais.
+ */
+describe('identification', () => {
+  const FUI = cardId('ser', 'indicativo.indefinido')
+
+  /**
+   * Une carte revue, pas découverte : `ser` au passé simple, dont `fui` ne
+   * laisse rien deviner de l'infinitif. Le premier niveau est déclaré acquis
+   * pour ouvrir le second, seul à porter cette carte.
+   */
+  async function reviewing(): Promise<Wrapper> {
+    await db.cards.bulkPut(
+      LEVELS[0]!.cards.map((id) => ({
+        id,
+        ...parseCardId(id),
+        fsrs: mastered(),
+        due: new Date(AT.getTime() + 7 * 86_400_000),
+        reps: 1,
+        lapses: 0,
+      })),
+    )
+    await db.cards.put({
+      id: FUI,
+      ...parseCardId(FUI),
+      fsrs: mastered(),
+      due: new Date(AT.getTime() - 86_400_000),
+      reps: 3,
+      lapses: 0,
+    })
+    return practice()
+  }
+
+  it('ferme une carte connue en demandant de nommer la forme', async () => {
+    const wrapper = await reviewing()
+    const store = useSessionStore()
+
+    const mine = store.exercises.filter((exercise) => exercise.card === FUI)
+    expect(mine.at(-1)!.kind).toBe('identify')
+    // En clôture : on ne fait nommer qu'après avoir fait écrire.
+    expect(mine.filter((exercise) => exercise.kind === 'drill').length).toBeGreaterThan(0)
+
+    await advanceWhile(wrapper, (exercise) => exercise.kind !== 'identify')
+
+    // Ni le verbe ni le temps ne sont affichés : ils sont la réponse.
+    expect(wrapper.get('[data-form-asked]').text()).toBe(store.current!.form.value)
+    expect(wrapper.find('[data-lemma]').exists()).toBe(false)
+    expect(wrapper.text()).toContain('Quel verbe, quel temps, quelle personne ?')
+    expect(wrapper.findAll('[data-options] button').length).toBeGreaterThanOrEqual(3)
+  })
+
+  it('ne la pose que sur les formes qui cachent leur infinitif', async () => {
+    // Demander à quel verbe appartient `hablaron` n'apprendrait rien.
+    const wrapper = await reviewing()
+    await advanceWhile(wrapper, () => true)
+
+    for (const exercise of useSessionStore().exercises) {
+      if (exercise.kind !== 'identify') continue
+      expect(
+        hidesItsInfinitive(exercise.lemma, exercise.tense, exercise.form.value),
+        exercise.form.value,
+      ).toBe(true)
+    }
+  })
+
+  it('ne compte ni dans la note ni dans les statistiques de patron', async () => {
+    const wrapper = await reviewing()
+    const store = useSessionStore()
+
+    const drills = store.exercises.filter(
+      (exercise) => exercise.card === FUI && exercise.kind === 'drill',
+    ).length
+
+    // Toutes les productions justes, puis une identification ratée.
+    await advanceWhile(wrapper, (exercise) => exercise.kind !== 'identify')
+    const current = store.current!
+    expect(current.kind).toBe('identify')
+
+    const wrongIndex =
+      current.kind === 'identify' ? current.options.findIndex((option) => !option.correct) : -1
+    await wrapper.findAll('[data-options] button')[wrongIndex]!.trigger('click')
+    await written()
+    expect(store.answered!.grade.verdict).toBe('wrong')
+    await next(wrapper)
+    // La carte reste acquise : ne pas savoir lire `fui` ne dit rien de la
+    // capacité à l'écrire, qui est ce que l'échéance mesure.
+    expect((await db.cards.get(FUI))!.due.getTime()).toBeGreaterThan(AT.getTime())
+
+    const preterite = (await db.patternStats.toArray()).find(
+      (entry) => entry.tense === 'indicativo.indefinido',
+    )!
+    expect(preterite.attempts).toBe(drills)
+    expect(preterite.errors).toBe(0)
+
+    // Rangée pour autant, et elle sait dire d'où elle vient.
+    const stored = await db.answers.where('cardId').equals(FUI).toArray()
+    expect(stored.filter((given) => given.kind === 'identify')).toHaveLength(1)
+  })
+})
+
+describe('écriture en échec', () => {
+  it('le signale sans interrompre la session', async () => {
+    // Ne pas interrompre est délibéré : ce qui est rangé l'est, et recommencer
+    // ne servirait à rien. Se taire ne l'est pas — l'apprenant travaillerait
+    // vingt minutes pour rien sans jamais l'apprendre.
+    const wrapper = await practice()
+    const store = useSessionStore()
+    vi.spyOn(db.cards, 'get').mockRejectedValue(new Error('quota dépassé'))
+
+    await advanceWhile(wrapper, (exercise) => exercise.card === store.exercises[0]!.card)
+    await written()
+
+    expect(store.error).toContain('quota')
+    expect(store.status).toBe('running')
+    expect(wrapper.get('[data-save-warning]').text()).toContain('n’a pas pu être enregistrée')
   })
 })

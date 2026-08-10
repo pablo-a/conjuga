@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { grade } from '@/exercises/grading'
+import { grade, gradeIdentification } from '@/exercises/grading'
 import { buildExercises, closesCard, reviewOf, tally } from '@/exercises/session'
 import type { Exercise, ExerciseAnswer } from '@/exercises/session'
 import { cardId } from '@/srs/curriculum'
@@ -66,20 +66,26 @@ describe('closesCard', () => {
 })
 
 describe('reviewOf', () => {
+  const PENSAR = cardId('pensar', 'indicativo.presente')
+
+  // Les cartes sont ici toutes considérées comme connues : `pensar` se voit donc
+  // ajouter une identification en clôture, ce qui est justement ce qu'on veut
+  // pour vérifier qu'elle ne pèse pas dans la note.
   const exercises = buildExercises([
     question('pensar', 'indicativo.presente', 'yo'),
     question('pensar', 'indicativo.presente', 'nosotros'),
     question('hablar', 'indicativo.presente', 'yo'),
   ])
+  const drills = exercises.filter((exercise) => exercise.kind === 'drill')
 
   it('ne retient que les réponses de la carte notée', () => {
     const answers = [
-      answerOn(exercises[0]!, 'pienso'),
-      answerOn(exercises[1]!, 'pensamos'),
-      answerOn(exercises[2]!, 'nimportequoi'),
+      answerOn(drills[0]!, 'pienso'),
+      answerOn(drills[1]!, 'pensamos'),
+      answerOn(drills[2]!, 'nimportequoi'),
     ]
 
-    const review = reviewOf(cardId('pensar', 'indicativo.presente'), answers)
+    const review = reviewOf(PENSAR, answers)
     expect(review.answers).toHaveLength(2)
     expect(review.grade).toBe('good')
   })
@@ -87,9 +93,25 @@ describe('reviewOf', () => {
   it('fait échouer la carte entière sur une seule forme fausse', () => {
     // Savoir `pienso` mais pas `pensamos`, ce n'est pas savoir le présent de
     // `pensar` : la carte porte le couple (verbe, temps).
-    const answers = [answerOn(exercises[0]!, 'pienso'), answerOn(exercises[1]!, 'piensamos')]
+    const answers = [answerOn(drills[0]!, 'pienso'), answerOn(drills[1]!, 'piensamos')]
 
-    expect(reviewOf(cardId('pensar', 'indicativo.presente'), answers).grade).toBe('again')
+    expect(reviewOf(PENSAR, answers).grade).toBe('again')
+  })
+
+  it('ne note pas sur une identification ratée', () => {
+    // Ne pas savoir nommer `pienso` en le lisant ne dit rien de la capacité à
+    // l'écrire, qui est ce que l'échéance mesure.
+    const identify = exercises.find((exercise) => exercise.kind === 'identify')!
+    const answers = [
+      answerOn(drills[0]!, 'pienso'),
+      answerOn(drills[1]!, 'pensamos'),
+      { exercise: identify, grade: gradeIdentification('faux', 'vrai'), elapsedMs: 6000 },
+    ]
+
+    const review = reviewOf(PENSAR, answers)
+    expect(review.grade).toBe('good')
+    // Rangée pour autant : elle a sa place dans le journal, pas dans la note.
+    expect(review.answers).toHaveLength(3)
   })
 
   it('range la faute d’accent comme fragile', () => {

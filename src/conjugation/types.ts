@@ -19,6 +19,22 @@ export const PERSON_LABELS: Record<Person, string> = {
   ellos: 'ellos / ellas / ustedes',
 }
 
+/**
+ * Le pronom seul, quand l'étiquette complète ne tient pas.
+ *
+ * Une consigne peut se permettre `él / ella / usted` ; une proposition de QCM
+ * qui doit aussi porter un verbe et un temps ne le peut pas, et une option qu'on
+ * lit sur trois lignes cesse d'être comparable aux autres d'un coup d'œil.
+ */
+export const PERSON_PRONOUNS: Record<Person, string> = {
+  yo: 'yo',
+  tu: 'tú',
+  el: 'él',
+  nosotros: 'nosotros',
+  vosotros: 'vosotros',
+  ellos: 'ellos',
+}
+
 /** Temps simples : une seule forme verbale, construite radical + terminaison. */
 export const SIMPLE_TENSES = [
   'indicativo.presente',
@@ -83,6 +99,18 @@ export const TENSE_LABELS: Record<Tense, string> = {
   'indicativo.condicionalPerfecto': 'conditionnel passé',
   'subjuntivo.perfecto': 'passé du subjonctif',
   'subjuntivo.pluscuamperfecto': 'plus-que-parfait du subjonctif',
+}
+
+/**
+ * Le nom d'un temps précédé de son article, élidé quand il le faut.
+ *
+ * « le imparfait » dans une consigne ou une correction décrédibilise ce qu'elle
+ * enseigne. Les noms sont écrits juste au-dessus et sortent tels quels ; la
+ * poignée qui commence par une voyelle suffit à rendre la phrase fautive.
+ */
+export function tenseWithArticle(tense: Tense): string {
+  const label = TENSE_LABELS[tense]
+  return /^[aeiouéèêàh]/i.test(label) ? `l’${label}` : `le ${label}`
 }
 
 /** Les trois groupes, déterminés par la terminaison de l'infinitif. */

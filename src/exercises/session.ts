@@ -7,6 +7,8 @@ import type { Grade as ReviewGrade, QuestionOutcome } from '@/srs/scheduler'
 import type { Question } from '@/srs/selector'
 
 import type { Grade } from './grading'
+import { hidesItsInfinitive, identificationOf } from './identification'
+import type { IdentityOption } from './identification'
 import { multipleChoice } from './recognition'
 import type { Choice } from './recognition'
 
@@ -20,8 +22,8 @@ import type { Choice } from './recognition'
  * sans monter d'interface.
  */
 
-/** Ce qu'on demande d'une cellule : l'écrire, ou la reconnaître. */
-export type ExerciseKind = 'drill' | 'choice'
+/** Ce qu'on demande d'une cellule : l'écrire, la reconnaître, ou la nommer. */
+export type ExerciseKind = 'drill' | 'choice' | 'identify'
 
 /** La cellule interrogée, commune aux deux formats. */
 interface Cell {
@@ -44,7 +46,15 @@ export interface Recognition extends Cell {
   choices: readonly Choice[]
 }
 
-export type Exercise = Drill | Recognition
+/** Identification : on montre la forme, il faut dire verbe, temps et personne. */
+export interface Identify extends Cell {
+  kind: 'identify'
+  options: readonly IdentityOption[]
+  /** La clé de la bonne identité, contre laquelle la réponse est comparée. */
+  expected: string
+}
+
+export type Exercise = Drill | Recognition | Identify
 
 /** Ce qu'une question a donné. */
 export interface ExerciseAnswer {
@@ -77,6 +87,12 @@ export interface BuildOptions {
    * curriculum.
    */
   tenses?: readonly Tense[]
+  /**
+   * Les autres verbes de la session, pour les leurres de l'exercice inverse.
+   * Confondre deux verbes qu'on étudie est une erreur réelle ; en proposer un
+   * pris au hasard dans les mille n'en serait pas une.
+   */
+  lemmas?: readonly string[]
   random?: () => number
 }
 
@@ -88,39 +104,96 @@ export interface BuildOptions {
  * présenter — mais entre poser une question sans réponse et sauter une case, une
  * app qui enseigne n'a pas le choix.
  *
- * **Invariant** : une reconnaissance ne tient jamais seule sur une carte, elle
- * précède toujours la production de la même cellule. C'est ce qui permet à
+ * **Invariant** : ni reconnaissance ni identification ne tiennent seules sur une
+ * carte, elles encadrent toujours au moins une production. C'est ce qui permet à
  * `reviewOf` de noter sur la production sans jamais tomber sur une carte vide.
+ *
+ * Une carte neuve s'ouvre donc par une reconnaissance ; une carte déjà connue se
+ * **ferme** par une identification, quand sa forme cache son infinitif. L'ordre
+ * n'est pas indifférent : on montre avant de faire écrire, et on ne fait nommer
+ * qu'après avoir fait écrire.
  */
 export function buildExercises(
   questions: readonly Question[],
   options: BuildOptions = {},
 ): Exercise[] {
   const exercises: Exercise[] = []
-  let opened: CardId | null = null
+  const random = options.random ?? Math.random
 
-  for (const question of questions) {
-    const { lemma, tense } = parseCardId(question.card)
-    const form = conjugate(lemma, tense, question.person)
-    if (form === null) continue
+  for (const group of byCard(questions)) {
+    const cells = group.flatMap(toCell)
+    const first = cells[0]
+    if (first === undefined) continue
 
-    const cell: Cell = { card: question.card, lemma, tense, person: question.person, form }
+    const fresh = options.introducing?.has(first.card) === true
 
-    if (question.card !== opened && options.introducing?.has(question.card)) {
-      const qcm = multipleChoice(lemma, tense, question.person, form, {
+    if (fresh) {
+      const qcm = multipleChoice(first.lemma, first.tense, first.person, first.form, {
         ...(options.tenses ? { tenses: options.tenses } : {}),
-        ...(options.random ? { random: options.random } : {}),
+        random,
       })
       // `null` quand le moteur ne peut pas fournir assez de leurres — un verbe
       // défectif, essentiellement. La carte s'ouvre alors directement en
       // production, ce qui vaut mieux qu'un QCM qui se joue à pile ou face.
-      if (qcm !== null) exercises.push({ ...cell, kind: 'choice', choices: qcm.choices })
+      if (qcm !== null) exercises.push({ ...first, kind: 'choice', choices: qcm.choices })
     }
 
-    exercises.push({ ...cell, kind: 'drill' })
-    opened = question.card
+    for (const cell of cells) exercises.push({ ...cell, kind: 'drill' })
+
+    if (!fresh) {
+      const identify = closingIdentification(cells, options, random)
+      if (identify !== null) exercises.push(identify)
+    }
   }
   return exercises
+}
+
+/**
+ * L'identification qui clôt une carte, s'il y a lieu.
+ *
+ * On ne la pose que sur une forme qui **cache son infinitif** : demander à quel
+ * verbe appartient `hablaron` n'apprendrait rien, il est écrit dedans. Et on
+ * ne la pose pas sur une carte neuve — nommer une forme rencontrée deux minutes
+ * plus tôt teste la mémoire de la session, pas la lecture de l'espagnol.
+ */
+function closingIdentification(
+  cells: readonly Cell[],
+  options: BuildOptions,
+  random: () => number,
+): Identify | null {
+  const cell = cells.find((candidate) =>
+    hidesItsInfinitive(candidate.lemma, candidate.tense, candidate.form.value),
+  )
+  if (cell === undefined) return null
+
+  const question = identificationOf(cell.lemma, cell.tense, cell.person, cell.form.value, {
+    ...(options.tenses ? { tenses: options.tenses } : {}),
+    ...(options.lemmas ? { lemmas: options.lemmas } : {}),
+    random,
+  })
+  if (question === null) return null
+
+  const expected = question.options.find((option) => option.correct)!.value
+  return { ...cell, kind: 'identify', options: question.options, expected }
+}
+
+/** Les questions regroupées par carte, dans l'ordre où le sélecteur les a produites. */
+function byCard(questions: readonly Question[]): Question[][] {
+  const groups: Question[][] = []
+  for (const question of questions) {
+    const last = groups[groups.length - 1]
+    if (last !== undefined && last[0]!.card === question.card) last.push(question)
+    else groups.push([question])
+  }
+  return groups
+}
+
+/** Une cellule posable, ou rien si elle n'existe pas. */
+function toCell(question: Question): Cell[] {
+  const { lemma, tense } = parseCardId(question.card)
+  const form = conjugate(lemma, tense, question.person)
+  if (form === null) return []
+  return [{ card: question.card, lemma, tense, person: question.person, form }]
 }
 
 /**
