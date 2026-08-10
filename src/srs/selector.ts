@@ -4,6 +4,7 @@ import { PERSONS } from '@/conjugation/types'
 
 import { parseCardId } from './curriculum'
 import type { CardId } from './curriculum'
+import { dayKey } from './streak'
 
 /**
  * Composition d'une session : quelles cartes, et quelles personnes sur chacune.
@@ -20,15 +21,45 @@ export interface DeckEntry {
   id: CardId
   /** Échéance FSRS. `null` pour une carte jamais vue. */
   due: Date | null
+  /**
+   * Dernière révision. `null` pour une carte jamais vue.
+   *
+   * Sert à reconnaître une **repasse** : FSRS ramène une carte neuve dans les dix
+   * minutes, et cette seconde vue n'est pas un deuxième travail à faire, c'est la
+   * fin du premier. Sans cette distinction, l'objectif du jour grossirait à
+   * chaque carte découverte.
+   */
+  lastReview?: Date | null
   /** Personnes déjà ratées sur cette carte : le tirage les favorise. */
   weakPersons?: readonly Person[]
 }
 
+/**
+ * Ce que la journée a déjà consommé, tel que la table `days` le compte.
+ *
+ * Sans lui, le budget serait celui d'une *session* : deux sessions dans la même
+ * journée en donneraient deux pleines, avec dix nouvelles cartes chacune, et la
+ * journée n'aurait pas de fin — c'est ce qui faisait qu'un décompte annoncé sur
+ * l'accueil ne bougeait pas quoi qu'on révise.
+ */
+export interface DayProgress {
+  /**
+   * Cartes **distinctes** du programme déjà révisées : dues ou nouvelles. Une
+   * carte repassée dans la journée n'y compte qu'une fois — c'est ce qui rend
+   * l'objectif stable.
+   */
+  planned: number
+  /** Nouveautés déjà découvertes. */
+  introduced: number
+}
+
 export interface SessionOptions {
-  /** Budget de la session. Par défaut 20 minutes, ou 5 en session ciblée. */
+  /** Budget de la journée. Par défaut 20 minutes, ou 5 pour une session ciblée. */
   budgetMs?: number
-  /** Nouvelles cartes au maximum. Par défaut 10. */
+  /** Nouvelles cartes au maximum, pour la journée entière. Par défaut 10. */
   newPerSession?: number
+  /** Ce qui a déjà été fait aujourd'hui, et qui se déduit du budget. */
+  today?: DayProgress
   /**
    * Restreint la session à ces temps — c'est le drill lancé depuis une fiche de
    * théorie. Une liste plutôt qu'un temps unique parce qu'une fiche en couvre
@@ -74,6 +105,36 @@ export interface SessionPlan {
   /** Les cartes à poser, dans l'ordre. */
   cards: CardId[]
   /**
+   * Le travail de la journée entière : ce qui a déjà été fait, plus ce que cette
+   * session pose de neuf. C'est le dénominateur du « 12 / 48 » de l'accueil, et
+   * il est calculé ici parce qu'il doit rester **stable** d'un bout à l'autre du
+   * jour — ce qu'on retire du reste, on l'a ajouté au fait.
+   *
+   * Deux sortes de cartes n'y entrent pas : celles révisées en avance, qui ne
+   * font partie d'aucun programme, et les repasses, qui achèvent un travail déjà
+   * compté. Les unes comme les autres feraient grossir un objectif qu'on croyait
+   * atteindre.
+   */
+  goal: number
+  /**
+   * Cartes déjà vues aujourd'hui que FSRS ramène avant ce soir — la seconde vue
+   * d'une nouveauté, ou la reprise d'une carte ratée.
+   *
+   * Elles sont posées **en plus** du budget, jamais à la place : les écarter
+   * faute de place reviendrait à rétablir les pas d'apprentissage puis à ne
+   * jamais les honorer, et la carte resterait due jusqu'au lendemain.
+   */
+  repeats: number
+  /**
+   * Cartes vues aujourd'hui dont la repasse n'est **pas encore** due, mais le
+   * sera avant ce soir.
+   *
+   * Sans ce compte, l'accueil annoncerait « séance terminée » à quelqu'un dont
+   * dix cartes vont reparaître dans dix minutes. L'app dit ailleurs qu'une case
+   * vide s'annonce plutôt qu'elle ne se laisse deviner ; c'est la même règle.
+   */
+  pending: number
+  /**
    * Celles que la session découvre. La composition des exercices en a besoin, et
    * pas seulement de leur nombre : une carte jamais vue s'ouvre par une
    * reconnaissance, où l'on montre la forme avant de demander de l'écrire.
@@ -101,12 +162,24 @@ export interface SessionPlan {
  * groupées — enchaîner dix formes inconnues d'affilée est le meilleur moyen de
  * n'en retenir aucune.
  *
+ * Le budget est celui de la **journée**, pas d'une session : `today` en retranche
+ * ce qui a déjà été révisé, cartes du programme comme nouveautés. C'est ce qui
+ * permet à une journée de se terminer — sans quoi revenir sur l'accueil après
+ * une séance recomposerait une séance entière, dix nouveautés comprises.
+ *
+ * Les **repasses** échappent à ce budget : une carte déjà vue aujourd'hui que
+ * FSRS ramène avant ce soir passe en tête, hors quota. C'est la contrepartie des
+ * pas d'apprentissage — les rétablir puis les refuser faute de place laisserait
+ * la carte due jusqu'au lendemain, ce qui est le pire des deux mondes.
+ *
  * `focus` restreint le tout à quelques temps, et change une règle : les cartes
  * pas encore échues deviennent acceptables. Un apprenant qui vient de lire une
  * fiche veut l'essayer maintenant, et lui répondre « rien à réviser » ferait du
  * lien une impasse. Elles ne viennent qu'après les cartes réellement dues, et
  * jamais dans une session ordinaire, où elles videraient la répétition espacée
- * de son seul intérêt.
+ * de son seul intérêt. Une session ciblée garde son propre budget entier — c'est
+ * un supplément, pas une part du quotidien — mais son plafond de nouveautés est
+ * bien celui du jour : une carte neuve reste une carte neuve.
  */
 export function planSession(
   deck: readonly DeckEntry[],
@@ -116,7 +189,7 @@ export function planSession(
 ): SessionPlan {
   const focus = options.focus
   const budgetMs = options.budgetMs ?? (focus ? FOCUS_BUDGET_MS : DEFAULT_BUDGET_MS)
-  const newPerSession = options.newPerSession ?? DEFAULT_NEW
+  const done = options.today ?? { planned: 0, introduced: 0 }
 
   const wanted = focus === undefined ? undefined : new Set<string>(focus)
   const candidates =
@@ -126,20 +199,46 @@ export function planSession(
   const known = new Map(deck.map((entry) => [entry.id, entry]))
 
   const scheduled = deck.filter((entry) => open.has(entry.id) && entry.due !== null)
-  const due = scheduled
+  const ripe = scheduled
     .filter((entry) => entry.due!.getTime() <= now.getTime())
     .sort((a, b) => a.due!.getTime() - b.due!.getTime())
 
+  /*
+   * Ce qui a déjà été vu aujourd'hui et revient avant ce soir : la seconde vue
+   * d'une nouveauté, ou la reprise d'une carte ratée. C'est du travail déjà
+   * compté au programme, qu'on achève — pas du travail en plus.
+   */
+  const today = dayKey(now)
+  const seenToday = (entry: DeckEntry): boolean =>
+    entry.lastReview != null && dayKey(entry.lastReview) === today
+
+  const repeats = ripe.filter(seenToday).map((entry) => entry.id)
+  const due = ripe.filter((entry) => !seenToday(entry))
+
+  // Les repasses encore à venir : dues plus tard, mais avant ce soir.
+  const pending = scheduled.filter(
+    (entry) =>
+      seenToday(entry) && entry.due!.getTime() > now.getTime() && dayKey(entry.due!) === today,
+  ).length
+
+  // Le retard ne compte que ce qui reste à faire : une carte qu'on vient de voir
+  // n'est pas en retard, et la compter ferait paraître un rattrapage sur place.
   const backlog = due.length
   const paused = backlog > BACKLOG_PAUSE
 
-  const capacity = Math.max(1, Math.floor(budgetMs / (QUESTIONS_PER_CARD * MS_PER_QUESTION)))
+  const daily = Math.max(1, Math.floor(budgetMs / (QUESTIONS_PER_CARD * MS_PER_QUESTION)))
+
+  // Une session ciblée ne puise pas dans le budget quotidien : elle a le sien,
+  // court, et ce qu'elle révise en avance ne compte de toute façon pas comme
+  // travail du jour.
+  const capacity = focus === undefined ? Math.max(0, daily - done.planned) : daily
+  const newToday = Math.max(0, (options.newPerSession ?? DEFAULT_NEW) - done.introduced)
 
   // L'ordre du curriculum fait foi pour l'introduction : les niveaux ont été
   // rangés dans l'ordre où on veut les apprendre.
   const fresh = paused
     ? []
-    : candidates.filter((id) => !known.has(id)).slice(0, Math.min(newPerSession, capacity))
+    : candidates.filter((id) => !known.has(id)).slice(0, Math.min(newToday, capacity))
 
   const reviews = due.slice(0, Math.max(0, capacity - fresh.length)).map((entry) => entry.id)
 
@@ -155,7 +254,12 @@ export function planSession(
           .map((entry) => entry.id)
 
   return {
-    cards: interleave([...reviews, ...early], fresh),
+    // Les repasses en tête : ce sont des cartes vues il y a quelques minutes, et
+    // c'est justement leur fraîcheur qui fait qu'on les repose maintenant.
+    cards: [...repeats, ...interleave([...reviews, ...early], fresh)],
+    goal: done.planned + reviews.length + fresh.length,
+    repeats: repeats.length,
+    pending,
     fresh,
     introduced: fresh.length,
     ahead: early.length,

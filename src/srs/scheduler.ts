@@ -21,6 +21,27 @@ import type { Verdict } from '@/exercises/grading'
  * il rend l'ordonnancement non déterministe — donc intestable. Le volume visé
  * (~45 cartes par jour) ne produit de toute façon pas les gros paquets qu'il sert
  * à casser.
+ *
+ * **L'ordonnancement à court terme, lui, est gardé** — et ce n'est pas par
+ * défaut mais par décision, parce qu'il a été coupé un temps puis rétabli.
+ *
+ * FSRS ramène une carte neuve dix minutes après un `good`, une minute après un
+ * `again` : ces « pas d'apprentissage » viennent de SM-2 et servent à l'encodage,
+ * pas à la rétention. Le modèle le dit d'ailleurs lui-même — le passage à dix
+ * minutes laisse la stabilité inchangée (2,3 avant, 2,3 après) — et c'est ce qui
+ * avait motivé de le couper.
+ *
+ * Il est rétabli parce que le gain mesuré ne compensait pas ce qu'on perdait :
+ * une carte ratée n'était plus reposée le jour même, donc la séance pouvait se
+ * terminer sur un échec sans qu'une seule récupération réussie ait eu lieu. Une
+ * simulation à poids constants n'est pas une raison suffisante pour retirer une
+ * reprise que toute la littérature sur l'apprentissage place au bon endroit.
+ *
+ * Conséquence à assumer ailleurs, et non à masquer : **une carte revient dans la
+ * journée**. C'est `planSession` qui l'absorbe — ces repasses s'ajoutent au
+ * programme au lieu d'en faire partie (`SessionPlan.repeats`), pour que
+ * l'objectif du jour ne gonfle pas à mesure qu'on le remplit — et c'est l'accueil
+ * qui l'explique, plutôt que de laisser croire à un décompte qui recule.
  */
 const PARAMETERS = generatorParameters({ enable_fuzz: false })
 const engine = fsrs(PARAMETERS)

@@ -230,15 +230,35 @@ const restart = begin
         </RouterLink>
       </template>
 
+      <!-- Le budget est celui de la journée : une session vide après une séance
+           faite ne veut pas dire « tout est à jour », elle veut dire « c'est fait
+           pour aujourd'hui ». Les confondre effacerait le travail accompli. -->
+      <template v-else-if="(store.plan?.goal ?? 0) > 0">
+        <p class="text-slate-700 dark:text-slate-200" data-finished>
+          La séance du jour est terminée — {{ store.plan!.goal }} cartes revues, repasses comprises.
+        </p>
+        <p v-if="store.plan?.paused" class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          L’introduction de nouvelles cartes reste en pause : {{ store.plan.backlog }} cartes en
+          retard. Elles reviendront d’abord.
+        </p>
+        <p v-else class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          À demain : c’est l’espacement qui fait tenir, pas la quantité.
+        </p>
+        <RouterLink
+          :to="{ name: 'home' }"
+          class="mt-4 inline-block text-sm text-accent-600 hover:underline dark:text-accent-500"
+        >
+          Retour à l’accueil
+        </RouterLink>
+      </template>
+
+      <!-- Le dernier cas est celui de qui n'avait rien à faire du tout : ni carte
+           échue, ni nouveauté à ouvrir, ni journée entamée. -->
       <template v-else>
         <p class="text-slate-700 dark:text-slate-200">
           Rien à réviser pour l’instant — tout est à jour.
         </p>
-        <p v-if="store.plan?.paused" class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-          L’introduction de nouvelles cartes est en pause : {{ store.plan.backlog }} cartes en
-          retard. Elles reviendront d’abord.
-        </p>
-        <p v-else class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
           Reviens demain : les cartes réapparaissent quand leur oubli devient probable.
         </p>
       </template>

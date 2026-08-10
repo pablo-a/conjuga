@@ -84,6 +84,26 @@ describe('cycle de vie d’une carte', () => {
     expect(good.getTime()).toBeLessThanOrEqual(easy.getTime())
   })
 
+  it('repose une carte neuve le jour même, avant de l’espacer', () => {
+    /*
+     * Les pas d'apprentissage sont **gardés**, et ce test les épingle : ils ont
+     * été coupés un temps, et les rétablir sans le dire les exposerait à être
+     * recoupés au premier compteur qui paraîtra bizarre. Toute la comptabilité de
+     * la journée est bâtie sur ce comportement — voir `SessionPlan.repeats`.
+     */
+    const sameDay = AT.getTime() + 86_400_000
+    for (const grade of ['again', 'good'] as const) {
+      const first = applyReview(newCardState(AT), grade, AT)
+      expect(first.due.getTime(), `carte neuve, ${grade}`).toBeLessThan(sameDay)
+    }
+
+    // La reprise, elle, espace pour de bon : le pas d'apprentissage ne se répète
+    // pas indéfiniment.
+    const learned = applyReview(newCardState(AT), 'good', AT)
+    const graduated = applyReview(learned.state, 'good', learned.due)
+    expect(graduated.due.getTime() - learned.due.getTime()).toBeGreaterThan(86_400_000)
+  })
+
   it('ne modifie pas la carte quand on ne fait que prévoir', () => {
     const state = newCardState(AT)
     const before = JSON.stringify(state)

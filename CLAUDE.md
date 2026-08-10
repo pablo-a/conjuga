@@ -470,6 +470,67 @@ où la session en pose 48, et la promesse est justement ce qui fait revenir. C'e
 pourquoi `remaining` est affiché : le budget de vingt minutes est un plafond, et taire les
 cartes échues qui débordent laisserait croire qu'une session éponge tout un retard.
 
+### La séance du jour : un objectif fixe et une fin
+
+C'est le premier défaut qu'un usage réel a révélé : l'accueil annonçait des cartes en attente,
+et le nombre ne bougeait pas quand on en faisait. Deux causes, et **elles n'appelaient pas la
+même réponse** :
+
+- **Le budget était celui d'une session, pas d'une journée.** Chaque retour sur l'accueil
+  recomposait une séance pleine, dix nouveautés comprises. `days` compte donc ce que le jour a
+  coûté et `planSession` le retranche (`SessionOptions.today`). C'est la correction de fond.
+- **FSRS repose la carte le jour même** (dix minutes après un `good`, une après un `again`).
+  Couper l'ordonnancement à court terme a été essayé, puis **annulé** : le modèle n'accorde
+  presque rien à cette repasse, mais la couper privait la séance de toute reprise après un
+  échec. Ne pas y revenir sans argument nouveau — le commentaire de `scheduler.ts` porte la
+  décision, et `tests/srs/scheduler.test.ts` l'épingle.
+
+Ce second point se traite donc **en aval**, dans la comptabilité et dans l'interface. Une
+repasse n'est pas du travail en plus, c'est la fin d'un travail déjà compté : `planSession` la
+sort du quota (`repeats`, posées en tête et hors budget — les refuser faute de place laisserait
+la carte due jusqu'au lendemain), et `saveReview` ne l'ajoute pas à `planned`. Sans cela
+l'objectif passerait de 10 à 20 pendant qu'on le remplit, ce qui reproduit exactement le
+symptôme d'origine. `pending` compte les repasses **pas encore dues** : sans lui, l'accueil
+annoncerait « séance terminée » à quelqu'un dont dix cartes vont reparaître dans dix minutes.
+
+`StudyDay` porte pour cela deux compteurs en plus de `cards`/`answers` :
+
+| Champ        | Ce qu'il compte                               | Ce qu'il pilote               |
+| ------------ | --------------------------------------------- | ----------------------------- |
+| `planned`    | cartes **distinctes** dues ou neuves révisées | le budget restant du jour     |
+| `introduced` | nouveautés découvertes                        | le plafond de 10 par **jour** |
+
+Une carte révisée **en avance** — le drill lancé depuis une fiche — n'entre dans ni l'un ni
+l'autre côté `planned` : elle ne fait avancer aucune échéance, et la faire peser sur le budget
+laisserait croire la journée finie pendant que les cartes dues attendent. C'est `saveReview`
+qui tranche, seul endroit à connaître l'état de la carte avant révision. Le drill ciblé garde
+donc son budget entier, mais **pas** son plafond de nouveautés : une carte neuve reste une
+carte neuve, sans quoi dix drills en ouvriraient cent.
+
+`SessionPlan.goal` est le dénominateur du « 12 / 48 » : déjà fait + reste à faire. Il est
+calculé dans le module pur parce que sa propriété essentielle est d'être **stable** sur la
+journée — ce qu'on retire du reste, on l'a ajouté au fait. Un objectif qui bougerait en cours
+de route n'en serait pas un, et un test le vérifie explicitement.
+
+D'où **trois** états sur l'accueil, et non deux. « Séance du jour terminée » n'est pas « tout
+est à jour » : le premier récompense un travail fait, le second constate qu'il n'y avait rien
+à faire. Les confondre efface l'un des deux. L'écran Pratique fait la même distinction, sur
+`plan.goal > 0`, sinon relancer une session après l'avoir faite répondrait « tout est à jour »
+à quelqu'un qui vient justement de tout faire.
+
+### Le mode d'emploi (`[data-how]`)
+
+Un bloc dépliable sur l'accueil, et il n'est pas décoratif. Un système de répétition espacée
+prend des décisions que l'apprenant n'a pas demandées : il ramène une carte le jour même, il
+refuse d'en ouvrir une onzième, il met les nouveautés en pause au-delà de soixante cartes en
+retard. Chacune est bonne et **illisible de l'extérieur** — non expliquées, elles se lisent
+comme des bugs, et c'est très exactement ce qui s'est produit. Toute règle ajoutée au
+sélecteur qui se voit à l'écran doit y trouver sa ligne.
+
+Replié par défaut : il répond à une question, il ne s'impose pas à qui ne se la pose pas.
+`<details>` natif plutôt qu'un composant — le pliage est déjà accessible au clavier et aux
+lecteurs d'écran, ce qui est le critère qui décide du recours à Reka UI.
+
 **La suggestion ciblée** vient après la session du jour, jamais à sa place : le programme
 passe d'abord, et relire une fiche ne remplace pas de réviser. Elle nomme le patron le plus
 raté (`weakest`, borné à `COVERED_TENSES` pour que la suggestion mène toujours quelque
@@ -494,7 +555,9 @@ et c'est délibéré : à vingt minutes par jour, la régularité pèse plus lou
   est écrite par `saveReview`, **dans sa transaction**, donc un jour marqué correspond
   toujours à une carte réellement révisée : ouvrir l'app et fermer l'onglet ne fait pas une
   journée. La version 2 du schéma la reconstruit depuis les réponses existantes, pour qu'une
-  base déjà remplie ne perde pas sa série à la migration.
+  base déjà remplie ne perde pas sa série à la migration ; la version 4 y ajoute `planned` et
+  `introduced`, qui entrent dans des soustractions — absents, ils donneraient `NaN` et non
+  zéro, et une base d'avant la mise à jour n'aurait plus de séance du jour du tout.
 
 `tests/home.test.ts` monte l'écran sur la vraie chaîne, comme celui de la Pratique. Seul
 `Date` y est simulé (`vi.useFakeTimers({ toFake: ['Date'] })`) : la série est une propriété

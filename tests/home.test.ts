@@ -78,6 +78,8 @@ describe('écran d’accueil', () => {
     // à dix par jour.
     expect(store.waiting).toBe(10)
     expect(store.introduced).toBe(10)
+    expect(store.goal).toBe(10)
+    expect(wrapper.get('[data-progress]').text()).toContain('0 / 10')
     expect(wrapper.text()).toContain('10 cartes t’attendent')
     expect(wrapper.text()).toContain('dont 10 nouvelles')
   })
@@ -94,7 +96,7 @@ describe('écran d’accueil', () => {
 
     expect(wrapper.text()).toContain('Le présent')
     expect(wrapper.text()).toContain('les plus fréquents au présent')
-    expect(wrapper.get('[role="progressbar"]').attributes('aria-valuenow')).toBe('0')
+    expect(wrapper.get('[data-mastery]').attributes('aria-valuenow')).toBe('0')
   })
 
   it('annonce l’absence de série plutôt qu’un zéro', async () => {
@@ -120,7 +122,6 @@ describe('écran d’accueil', () => {
 
     expect(useOverviewStore().streak).toBe(2)
     expect(wrapper.get('[data-streak]').text()).toContain('2 jours d’affilée')
-    expect(wrapper.text()).toContain('Déjà 1 carte revue aujourd’hui')
     // Déjà commencé aujourd'hui : on reprend, on ne recommence pas.
     expect(wrapper.get('a[href*="pratique"]').text()).toBe('Continuer')
   })
@@ -137,6 +138,123 @@ describe('écran d’accueil', () => {
 
     expect(wrapper.get('[data-streak]').text()).toContain('1 jour d’affilée')
     expect(wrapper.get('[data-streak]').text()).toContain('pour la garder')
+  })
+
+  /*
+   * Le défaut que ces trois tests ferment : le décompte annoncé ne bougeait pas
+   * quand on révisait. Deux causes, indépendantes — FSRS reposait la carte le jour
+   * même, et le budget étant celui d'une *session*, chaque retour sur l'accueil
+   * recomposait une séance entière, dix nouveautés comprises.
+   */
+  describe('séance du jour', () => {
+    /** Révise les `count` premières cartes du programme, comme une séance le ferait. */
+    async function revise(count: number, at = AT): Promise<void> {
+      for (const card of LEVELS[0]!.cards.slice(0, count)) {
+        await saveReview({ card, grade: 'good', at, answers: [] })
+      }
+    }
+
+    it('avance à mesure qu’on révise', async () => {
+      const before = await home()
+      expect(before.get('[data-progress]').text()).toContain('0 / 10')
+      expect(useOverviewStore().waiting).toBe(10)
+
+      await revise(4)
+      const after = await home()
+      const store = useOverviewStore()
+
+      expect(store.done).toBe(4)
+      expect(store.waiting).toBe(6)
+      // L'objectif, lui, ne bouge pas : c'est ce qui rend le compte crédible.
+      expect(store.goal).toBe(10)
+      expect(after.get('[data-progress]').text()).toContain('4 / 10')
+      expect(after.get('[data-day-progress]').attributes('aria-valuenow')).toBe('4')
+    })
+
+    it('annonce la journée terminée quand elle l’est', async () => {
+      await revise(10)
+
+      const wrapper = await home()
+      const store = useOverviewStore()
+
+      expect(store.waiting).toBe(0)
+      expect(store.finishedToday).toBe(true)
+      expect(wrapper.get('[data-finished]').text()).toContain('Séance du jour terminée')
+      expect(wrapper.text()).toContain('10 cartes revues aujourd’hui')
+      // La séance est faite : on ne propose plus d'y retourner.
+      expect(wrapper.find('a[href*="pratique"]').exists()).toBe(false)
+    })
+
+    it('ne confond pas la journée finie avec un programme vide', async () => {
+      // « Tout est à jour » est l'état de qui n'avait rien à faire ; « terminée »
+      // récompense un travail fait. Les confondre efface l'un des deux.
+      await revise(10)
+      expect((await home()).find('[data-finished]').exists()).toBe(true)
+
+      await db.days.clear()
+      await db.cards.clear()
+      const fresh = await home()
+
+      expect(useOverviewStore().finishedToday).toBe(false)
+      expect(fresh.find('[data-finished]').exists()).toBe(false)
+    })
+
+    it('rouvre le programme le lendemain', async () => {
+      // Le plafond de nouveautés est journalier : sans cela, il n'y aurait plus
+      // jamais rien à découvrir après la première séance.
+      await revise(10)
+      vi.setSystemTime(new Date(AT.getTime() + A_DAY))
+
+      const wrapper = await home()
+      const store = useOverviewStore()
+
+      expect(store.done).toBe(0)
+      expect(store.introduced).toBe(10)
+      // Vingt et non dix : les dix d'hier n'ont pas eu leur repasse, elles sont
+      // restées au pas d'apprentissage et sont dues aujourd'hui. Elles ne sont
+      // plus des repasses pour autant — un jour a passé.
+      expect(store.repeats).toBe(0)
+      expect(wrapper.get('[data-progress]').text()).toContain('0 / 20')
+    })
+
+    it('sort les repasses de l’objectif au lieu de le faire enfler', async () => {
+      /*
+       * Le symptôme d'origine, vu par le bon bout : FSRS ramène chaque nouveauté
+       * dans les dix minutes. Si ces secondes vues comptaient, l'objectif
+       * passerait de 10 à 20 pendant qu'on le remplit — le décompte paraîtrait
+       * ne pas bouger, ce qui est précisément ce qu'on corrige.
+       */
+      await revise(10)
+      // Les repasses sont dues dix minutes plus tard : avant cela, l'accueil
+      // annonce qu'elles arrivent (`pending`) plutôt qu'une journée close.
+      expect(useOverviewStore().pending).toBe(0)
+      const justAfter = await home()
+      expect(justAfter.get('[data-finished]').text()).toContain('Séance du jour terminée')
+      expect(justAfter.text()).toContain('10 cartes reviendront tout à l’heure')
+
+      vi.setSystemTime(new Date(AT.getTime() + 11 * 60_000))
+      const wrapper = await home()
+      const store = useOverviewStore()
+
+      expect(store.done).toBe(10)
+      expect(store.goal).toBe(10)
+      expect(store.repeats).toBe(10)
+      expect(store.onlyRepeatsLeft).toBe(true)
+      expect(wrapper.get('[data-progress]').text()).toContain('10 / 10')
+      expect(wrapper.get('[data-repeats]').text()).toContain('Programme du jour fait')
+      expect(wrapper.get('[data-repeats]').text()).toContain('10 cartes à repasser')
+    })
+
+    it('explique la mécanique sans qu’on ait à la deviner', async () => {
+      // Un SRS fait des choses qu'on ne lui demande pas — ramener une carte le
+      // jour même, refuser d'en ouvrir une onzième. Non expliquées, elles se
+      // lisent comme des bugs, et c'est ce qui s'est produit.
+      const explainer = (await home()).get('[data-how]')
+
+      expect(explainer.text()).toContain('Comment fonctionne la séance ?')
+      expect(explainer.text()).toContain('repasse dans la journée')
+      expect(explainer.text()).toContain('ne compte pas')
+    })
   })
 
   it('dit que tout est à jour plutôt que de montrer un écran vide', async () => {
@@ -163,7 +281,7 @@ describe('écran d’accueil', () => {
     expect(store.plan!.backlog).toBe(due.length)
     expect(store.waiting).toBeLessThan(due.length)
     expect(store.remaining).toBe(due.length - store.waiting)
-    expect(wrapper.text()).toContain('Que des révisions')
+    expect(wrapper.text()).toContain('que des révisions')
     expect(wrapper.text()).toContain(`${store.remaining} autres cartes échues`)
   })
 

@@ -8,6 +8,7 @@ import { router } from '@/router'
 import { hidesItsInfinitive } from '@/exercises/identification'
 import { LEVELS, MASTERY_STABILITY_DAYS, cardId, parseCardId } from '@/srs/curriculum'
 import { newCardState } from '@/srs/scheduler'
+import { dayKey } from '@/srs/streak'
 import type { Exercise } from '@/exercises/session'
 import { useSessionStore } from '@/stores/session'
 import PracticeView from '@/views/PracticeView.vue'
@@ -271,6 +272,25 @@ describe('écran Pratique', () => {
 
     expect(useSessionStore().empty).toBe(true)
     expect(wrapper.text()).toContain('tout est à jour')
+  })
+
+  it('distingue la séance du jour faite d’un programme vide', async () => {
+    // Le budget appartient à la journée : relancer une session après l'avoir
+    // faite ne veut pas dire « tout est à jour », mais « c'est fait pour
+    // aujourd'hui ». Effacer la différence effacerait le travail accompli.
+    await db.days.put({
+      id: dayKey(AT),
+      cards: 48,
+      answers: 120,
+      planned: 48,
+      introduced: 10,
+    })
+
+    const wrapper = await practice()
+
+    expect(useSessionStore().empty).toBe(true)
+    expect(wrapper.get('[data-finished]').text()).toContain('séance du jour est terminée')
+    expect(wrapper.text()).not.toContain('tout est à jour')
   })
 })
 

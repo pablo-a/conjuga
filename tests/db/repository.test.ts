@@ -2,7 +2,7 @@ import Dexie from 'dexie'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { db } from '@/db'
-import { loadSnapshot, loadStudyDays, saveReview, weakPersons } from '@/db/repository'
+import { loadDay, loadSnapshot, loadStudyDays, saveReview, weakPersons } from '@/db/repository'
 import type { AnswerDraft } from '@/db/repository'
 import { cardId } from '@/srs/curriculum'
 import { dayKey } from '@/srs/streak'
@@ -182,7 +182,10 @@ describe('jours travaillés', () => {
       answers: [answer(), answer({ person: 'nosotros' })],
     })
 
-    expect(await loadStudyDays()).toEqual([{ id: DAY, cards: 1, answers: 2 }])
+    // La carte n'existait pas : elle est une découverte, donc du programme du jour.
+    expect(await loadStudyDays()).toEqual([
+      { id: DAY, cards: 1, answers: 2, planned: 1, introduced: 1 },
+    ])
   })
 
   it('cumule les cartes d’une même journée', async () => {
@@ -191,7 +194,67 @@ describe('jours travaillés', () => {
     await saveReview({ card: PENSAR, grade: 'good', at: AT, answers: [answer()] })
     await saveReview({ card: HABLAR, grade: 'good', at: AT, answers: [answer(), answer()] })
 
-    expect(await loadStudyDays()).toEqual([{ id: DAY, cards: 2, answers: 3 }])
+    expect(await loadStudyDays()).toEqual([
+      { id: DAY, cards: 2, answers: 3, planned: 2, introduced: 2 },
+    ])
+  })
+
+  /*
+   * Le budget du jour se dépense ici, et c'est le seul endroit qui sache dans
+   * quel état la carte était avant : découverte, due, ou révisée en avance.
+   */
+  it('ne compte comme découverte que la carte qui n’existait pas', async () => {
+    await saveReview({ card: PENSAR, grade: 'good', at: AT, answers: [answer()] })
+    await saveReview({ card: PENSAR, grade: 'good', at: NEXT, answers: [answer()] })
+
+    const day = (await loadStudyDays()).find((entry) => entry.id === dayKey(NEXT))!
+    expect(day).toMatchObject({ planned: 1, introduced: 0 })
+  })
+
+  it('ne compte pas deux fois une carte repassée dans la journée', async () => {
+    /*
+     * FSRS repose une carte neuve dix minutes après : cette seconde vue achève le
+     * travail au lieu de s'y ajouter. La compter ferait grossir l'objectif du
+     * jour à mesure qu'on le remplit, soit exactement le symptôme qu'on corrige.
+     */
+    await saveReview({ card: PENSAR, grade: 'good', at: AT, answers: [answer()] })
+    const back = (await db.cards.get(PENSAR))!.due
+    expect(dayKey(back), 'la repasse doit tomber le jour même').toBe(dayKey(AT))
+
+    await saveReview({ card: PENSAR, grade: 'good', at: back, answers: [answer()] })
+
+    const day = (await loadStudyDays()).find((entry) => entry.id === dayKey(AT))!
+    expect(day).toMatchObject({ cards: 2, planned: 1, introduced: 1 })
+  })
+
+  it('ne fait pas peser sur la journée une carte révisée en avance', async () => {
+    // C'est le drill lancé depuis une fiche : un supplément, qui ne fait avancer
+    // aucune échéance. Le compter laisserait croire la journée finie alors que
+    // les cartes dues attendent toujours.
+    await saveReview({ card: PENSAR, grade: 'good', at: AT, answers: [answer()] })
+    // Sortie des pas d'apprentissage : l'échéance passe à l'échelle du jour.
+    await saveReview({
+      card: PENSAR,
+      grade: 'good',
+      at: (await db.cards.get(PENSAR))!.due,
+      answers: [answer()],
+    })
+
+    const early = NEXT
+    expect((await db.cards.get(PENSAR))!.due.getTime()).toBeGreaterThan(early.getTime())
+    await saveReview({ card: PENSAR, grade: 'good', at: early, answers: [answer()] })
+
+    const day = (await loadStudyDays()).find((entry) => entry.id === dayKey(early))!
+    expect(day).toMatchObject({ cards: 1, planned: 0, introduced: 0 })
+  })
+
+  it('rend une journée vierge plutôt qu’une absence de réponse', async () => {
+    // Le sélecteur en soustrait les compteurs : un `undefined` n'y donnerait pas
+    // zéro mais `NaN`, et la séance du jour disparaîtrait.
+    expect(await loadDay(AT)).toEqual({ id: DAY, cards: 0, answers: 0, planned: 0, introduced: 0 })
+
+    await saveReview({ card: PENSAR, grade: 'good', at: AT, answers: [answer()] })
+    expect(await loadDay(AT)).toMatchObject({ planned: 1, introduced: 1 })
   })
 
   it('rend les journées dans l’ordre chronologique', async () => {
@@ -242,5 +305,81 @@ describe('passage à la version 3', () => {
     expect(stored[0]!.kind).toBe('drill')
     // Et la faiblesse qu'elle portait est toujours lue comme telle.
     expect((await weakPersons([PENSAR])).get(PENSAR)).toEqual(['yo'])
+  })
+})
+
+/**
+ * Les compteurs de la journée entrent dans des soustractions. Les laisser absents
+ * ne donnerait pas « zéro » mais `NaN` : une base d'avant la mise à jour n'aurait
+ * plus de séance du jour du tout, et l'accueil afficherait un objectif indéfini.
+ */
+describe('passage à la version 4', () => {
+  it('donne un programme aux journées déjà enregistrées', async () => {
+    await db.close()
+    await db.delete()
+
+    const before = new Dexie('conjuga')
+    before.version(1).stores({
+      cards: 'id, lemma, tense, due',
+      answers: '++id, cardId, answeredAt',
+      patternStats: 'id, model, tense',
+    })
+    before.version(2).stores({ days: 'id' })
+    await before.open()
+    await before.table('answers').bulkAdd([
+      {
+        cardId: PENSAR,
+        answeredAt: AT,
+        person: 'yo',
+        kind: 'drill',
+        expected: 'pienso',
+        given: 'pienso',
+        correct: true,
+        accentOnly: false,
+        elapsedMs: 5000,
+      },
+      {
+        cardId: HABLAR,
+        answeredAt: AT,
+        person: 'yo',
+        kind: 'drill',
+        expected: 'hablo',
+        given: 'hablo',
+        correct: true,
+        accentOnly: false,
+        elapsedMs: 5000,
+      },
+      // Une deuxième réponse sur une carte déjà vue : la découverte ne compte
+      // qu'une fois, le jour où elle a eu lieu.
+      {
+        cardId: PENSAR,
+        answeredAt: new Date(AT.getTime() + 86_400_000),
+        person: 'tu',
+        kind: 'drill',
+        expected: 'piensas',
+        given: 'piensas',
+        correct: true,
+        accentOnly: false,
+        elapsedMs: 5000,
+      },
+    ])
+    await before.table('days').bulkAdd([
+      { id: dayKey(AT), cards: 2, answers: 2 },
+      { id: dayKey(new Date(AT.getTime() + 86_400_000)), cards: 1, answers: 1 },
+    ])
+    before.close()
+
+    await db.open()
+
+    expect(await loadStudyDays()).toEqual([
+      { id: dayKey(AT), cards: 2, answers: 2, planned: 2, introduced: 2 },
+      {
+        id: dayKey(new Date(AT.getTime() + 86_400_000)),
+        cards: 1,
+        answers: 1,
+        planned: 1,
+        introduced: 0,
+      },
+    ])
   })
 })

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { computed, ref, shallowRef } from 'vue'
 
 import type { Tense } from '@/conjugation'
-import { loadSnapshot, saveReview, weakPersons } from '@/db/repository'
+import { loadDay, loadSnapshot, saveReview, weakPersons } from '@/db/repository'
 import { grade as correct, gradeIdentification, gradeSelection } from '@/exercises/grading'
 import { buildExercises, closesCard, reviewOf, tally } from '@/exercises/session'
 import type { Exercise, ExerciseAnswer } from '@/exercises/session'
@@ -99,9 +99,12 @@ export const useSessionStore = defineStore('session', () => {
     focus.value = options.focus ?? null
 
     try {
-      const { deck, progress } = await loadSnapshot()
+      // Le budget est celui de la journée : une deuxième session ne repart pas
+      // de vingt minutes neuves, elle reprend là où la première s'est arrêtée.
+      const [{ deck, progress }, day] = await Promise.all([loadSnapshot(), loadDay(now)])
       const session = planSession(deck, unlockedCards(progress), now, {
         random,
+        today: { planned: day.planned, introduced: day.introduced },
         ...(options.focus ? { focus: options.focus } : {}),
       })
       const weak = await weakPersons(session.cards)

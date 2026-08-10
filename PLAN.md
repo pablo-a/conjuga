@@ -231,13 +231,31 @@ durablement avec FSRS. À ce rythme, les **300 verbes les plus fréquents × 8 t
 soit la vraie cible utile) sont couverts en **~8 mois**. Les 700 verbes restants viennent ensuite,
 et beaucoup seront de toute façon réguliers donc rapides.
 
-Deux conséquences dans le code :
+Trois conséquences dans le code :
 
 - la session s'arrête sur un **budget temps**, pas sur un compte de cartes fixe — si tu es lent un
   jour, tu fais moins de cartes, pas 20 minutes de plus ;
+- ce budget est celui de la **journée**, pas d'une session. La table `days` compte ce que le jour a
+  déjà coûté (`planned`, `introduced`), `planSession` le retranche, et l'accueil peut donc annoncer
+  un objectif fixe et un avancement qui monte. Sans cela, revenir sur l'accueil après une séance en
+  recomposait une entière, dix nouveautés comprises, et le décompte affiché ne bougeait jamais quoi
+  qu'on révise — c'est le premier défaut qu'un usage réel a révélé ;
 - le ratio nouvelles/révisions s'adapte : si le retard de révisions dépasse ~60 cartes, l'introduction
   de nouvelles cartes se met en pause automatiquement. C'est ce qui évite la spirale d'abandon
   classique d'Anki.
+
+**Les pas d'apprentissage de FSRS sont gardés, et c'est une décision, pas un défaut.** Une carte
+neuve revient dix minutes après un `good`, une carte ratée dans la minute. Ils ont été coupés un
+temps (`enable_short_term: false`) au motif que le modèle lui-même leur accorde peu : le passage à
+dix minutes laisse la stabilité inchangée. Ils ont été **rétablis** parce que ce gain simulé ne
+compensait pas ce qu'on perdait — une carte ratée n'était plus reposée le jour même, donc la séance
+pouvait se terminer sur un échec sans qu'une seule récupération réussie ait eu lieu.
+
+La conséquence est assumée ailleurs plutôt que masquée : une carte **repasse dans la journée**, et
+`planSession` la sort du quota (`SessionPlan.repeats`) pour que l'objectif du jour ne gonfle pas à
+mesure qu'on le remplit. Les repasses encore à venir sont annoncées (`pending`), et l'accueil porte
+un mode d'emploi dépliable qui explique la mécanique — un SRS prend des décisions qu'on ne lui
+demande pas, et non expliquées elles se lisent comme des bugs.
 
 - **Curriculum** : les niveaux se débloquent à 80 % de maîtrise du précédent.
   1. 50 verbes les plus fréquents au présent → 2. + `ser/estar/ir/haber` tous temps →

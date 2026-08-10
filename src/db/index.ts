@@ -79,6 +79,25 @@ export interface StudyDay {
   cards: number
   /** Formes demandées ce jour-là. */
   answers: number
+  /**
+   * Cartes **distinctes** du programme du jour : celles qui étaient dues, plus
+   * les nouveautés. C'est ce compteur qui dépense le budget quotidien, et donc ce
+   * qui permet à une journée de se terminer.
+   *
+   * Deux sortes de révisions n'y comptent pas. La **repasse** — FSRS ramène une
+   * carte neuve dix minutes plus tard — parce qu'elle achève un travail déjà
+   * compté, et la compter deux fois ferait grossir l'objectif du jour à mesure
+   * qu'on le remplit. La révision **en avance**, le drill lancé depuis une fiche,
+   * parce qu'elle ne fait avancer aucune échéance : la faire peser sur le budget
+   * laisserait croire la journée finie alors que les cartes dues attendent.
+   */
+  planned: number
+  /**
+   * Nouveautés découvertes ce jour-là. Le plafond de dix cartes neuves est un
+   * plafond **journalier** : sans ce compteur, chaque session en rouvrirait dix
+   * de plus et le programme n'aurait pas de fin.
+   */
+  introduced: number
 }
 
 export const db = new Dexie('conjuga') as Dexie & {
@@ -113,9 +132,17 @@ db.version(2)
       days.set(key, day)
     }
 
-    await transaction
-      .table<StudyDay>('days')
-      .bulkAdd([...days].map(([id, day]) => ({ id, cards: day.cards.size, answers: day.answers })))
+    // Les compteurs du programme du jour restent à zéro : c'est la version 4 qui
+    // les renseigne, et elle passe juste après sur les lignes écrites ici.
+    await transaction.table<StudyDay>('days').bulkAdd(
+      [...days].map(([id, day]) => ({
+        id,
+        cards: day.cards.size,
+        answers: day.answers,
+        planned: 0,
+        introduced: 0,
+      })),
+    )
   })
 
 db.version(3).upgrade(async (transaction) => {
@@ -131,5 +158,43 @@ db.version(3).upgrade(async (transaction) => {
     .toCollection()
     .modify((answer) => {
       answer.kind = 'drill'
+    })
+})
+
+db.version(4).upgrade(async (transaction) => {
+  /*
+   * Les deux compteurs de la journée. Ils entrent dans des soustractions — budget
+   * restant, nouveautés restantes — donc les laisser absents ne donnerait pas
+   * « zéro » mais `NaN`, et une base d'avant la mise à jour n'aurait plus de
+   * séance du jour du tout.
+   *
+   * `introduced` se retrouve exactement : une carte est découverte le jour de sa
+   * première réponse. `planned` ne se retrouve pas — rien n'a jamais dit si une
+   * révision passée était due ou en avance — et on prend le total. C'est le choix
+   * conservateur : au pire, le jour de la migration, une séance déjà entamée
+   * paraît un peu plus avancée qu'elle ne l'est.
+   */
+  const answers = await transaction.table<Answer>('answers').toArray()
+
+  const discovered = new Map<string, Date>()
+  for (const answer of answers) {
+    const known = discovered.get(answer.cardId)
+    if (known === undefined || answer.answeredAt.getTime() < known.getTime()) {
+      discovered.set(answer.cardId, answer.answeredAt)
+    }
+  }
+
+  const perDay = new Map<string, number>()
+  for (const at of discovered.values()) {
+    const key = dayKey(at)
+    perDay.set(key, (perDay.get(key) ?? 0) + 1)
+  }
+
+  await transaction
+    .table<StudyDay>('days')
+    .toCollection()
+    .modify((day) => {
+      day.planned = day.cards
+      day.introduced = perDay.get(day.id) ?? 0
     })
 })

@@ -40,7 +40,24 @@ const todayLabel = computed(
   () => plural(store.today.cards, 'carte revue', 'cartes revues') + ' aujourd’hui.',
 )
 
+const repeatsLabel = computed(() => plural(store.repeats, 'carte à repasser', 'cartes à repasser'))
+
+const pendingLabel = computed(() =>
+  store.pending > 1 ? `${store.pending} cartes reviendront` : `${store.pending} carte reviendra`,
+)
+
 const percent = computed(() => Math.round(store.levelMastery * 100))
+
+/**
+ * L'avancement de la journée, en pour cent.
+ *
+ * Le compte exact (« 12 / 48 ») reste affiché à côté : c'est lui qui informe, la
+ * barre ne fait que le rendre saisissable sans lire. Un objectif nul n'arrive que
+ * lorsqu'il n'y a rien à faire, et la barre n'est alors pas montrée.
+ */
+const dayPercent = computed(() =>
+  store.goal > 0 ? Math.round((store.done / store.goal) * 100) : 0,
+)
 
 /**
  * Ce que l'accueil suggère de reprendre : un patron, sa fiche, et de quoi
@@ -101,26 +118,62 @@ const weakness = computed(() => {
       <div
         class="mt-4 rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
       >
+        <!-- La séance du jour est un travail borné, et l'écran doit le montrer
+             comme tel : un objectif fixe, un avancement qui monte, une fin. Le
+             décompte de ce qui reste ne suffisait pas — il ne disait pas de quoi
+             il était parti, donc rien ne prouvait qu'il baissait. -->
         <template v-if="store.waiting > 0">
-          <h2 class="text-lg font-semibold tracking-tight">{{ waitingLabel }}</h2>
+          <h2 class="text-lg font-semibold tracking-tight">Séance du jour</h2>
 
-          <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+          <p class="mt-2 text-2xl font-semibold tabular-nums" data-progress>
+            {{ store.done
+            }}<span class="text-slate-400 dark:text-slate-600"> / {{ store.goal }}</span>
+            <span class="ml-1 text-base font-normal text-slate-500 dark:text-slate-400">
+              cartes
+            </span>
+          </p>
+
+          <div
+            class="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800"
+            role="progressbar"
+            data-day-progress
+            :aria-valuenow="store.done"
+            :aria-valuemin="0"
+            :aria-valuemax="store.goal"
+            aria-label="Avancement de la séance du jour"
+          >
+            <div class="h-full bg-accent-500 transition-all" :style="{ width: `${dayPercent}%` }" />
+          </div>
+
+          <!-- Le programme peut être fait alors que la session propose encore
+               des cartes : ce sont les repasses. Sans ce mot, « 48 / 48 » et
+               « dix cartes t'attendent » se contrediraient à l'écran. -->
+          <p
+            v-if="store.onlyRepeatsLeft"
+            class="mt-3 text-sm text-slate-500 dark:text-slate-400"
+            data-repeats
+          >
+            Programme du jour fait. Il reste {{ repeatsLabel }} — la seconde vue d’une carte,
+            quelques minutes après la première, et c’est elle qui l’ancre.
+          </p>
+
+          <p v-else class="mt-3 text-sm text-slate-500 dark:text-slate-400">
+            {{ waitingLabel }} —
             <template v-if="store.introduced > 0">{{ introducedLabel }}</template>
             <template v-else-if="store.plan?.paused">
-              Aucune nouveauté pour l’instant : {{ store.plan.backlog }} cartes en retard passent
+              aucune nouveauté pour l’instant, {{ store.plan.backlog }} cartes en retard passent
               d’abord.
             </template>
-            <template v-else>Que des révisions.</template>
+            <template v-else>que des révisions.</template>
+            <template v-if="store.repeats > 0">
+              S’y ajoutent {{ repeatsLabel }}, hors objectif.
+            </template>
           </p>
 
           <!-- Le budget de vingt minutes est un plafond : le reste attend demain.
                Le taire laisserait croire qu'une session éponge tout un retard. -->
           <p v-if="store.remaining > 0" class="mt-1 text-sm text-slate-500 dark:text-slate-400">
             {{ remainingLabel }}
-          </p>
-
-          <p v-if="store.practicedToday" class="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            Déjà {{ todayLabel }}
           </p>
 
           <RouterLink
@@ -131,8 +184,42 @@ const weakness = computed(() => {
           </RouterLink>
         </template>
 
+        <!-- Le programme du jour est fait. C'est la seule chose que l'app
+             demande, et elle doit le dire franchement plutôt que de la laisser
+             deviner à un compteur tombé à zéro. -->
+        <template v-else-if="store.finishedToday">
+          <h2 class="text-lg font-semibold tracking-tight" data-finished>
+            Séance du jour terminée.
+          </h2>
+          <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ todayLabel }}</p>
+
+          <!-- « Terminée » serait faux si dix cartes devaient reparaître dans
+               dix minutes : on le dit avant que l'apprenant ne le découvre. -->
+          <p v-if="store.pending > 0" class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+            {{ pendingLabel }} tout à l’heure pour une seconde vue — reviens quand tu veux, elles
+            t’attendront.
+          </p>
+          <p
+            v-else-if="store.remaining > 0"
+            class="mt-1 text-sm text-slate-500 dark:text-slate-400"
+          >
+            {{ remainingLabel }}
+          </p>
+          <p v-else class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+            Les suivantes reviendront quand leur oubli deviendra probable.
+          </p>
+
+          <RouterLink
+            :to="{ name: 'conjugator' }"
+            class="mt-4 inline-block text-sm text-accent-600 hover:underline dark:text-accent-500"
+          >
+            En attendant, conjuguer un verbe
+          </RouterLink>
+        </template>
+
         <!-- Rien à réviser est l'état normal d'un apprenant à jour : c'est un
-             résultat, pas un écran vide. -->
+             résultat, pas un écran vide. À ne pas confondre avec le précédent —
+             ici la journée n'a jamais eu de programme. -->
         <template v-else>
           <h2 class="text-lg font-semibold tracking-tight">Tout est à jour.</h2>
           <p v-if="store.practicedToday" class="mt-1 text-sm text-slate-500 dark:text-slate-400">
@@ -189,6 +276,7 @@ const weakness = computed(() => {
         <div
           class="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800"
           role="progressbar"
+          data-mastery
           :aria-valuenow="percent"
           :aria-valuemin="0"
           :aria-valuemax="100"
@@ -200,6 +288,105 @@ const weakness = computed(() => {
           Le niveau suivant s’ouvre à 80 % de cartes acquises.
         </p>
       </div>
+
+      <!--
+        Le mode d'emploi de la mécanique, en toutes lettres.
+
+        Un système de répétition espacée fait des choses que l'apprenant ne
+        demande pas : il ramène une carte le jour même, il refuse d'en ouvrir une
+        onzième, il met les nouveautés en pause. Chacune de ces décisions est
+        bonne et incompréhensible de l'extérieur — non expliquées, elles se lisent
+        comme des bugs, et c'est exactement ce qui s'est passé.
+
+        Replié par défaut : il répond à une question, il ne s'impose pas à qui ne
+        se la pose pas. `<details>` plutôt qu'un composant, parce que le pliage
+        natif est déjà accessible au clavier et aux lecteurs d'écran.
+      -->
+      <details class="group mt-6" data-how>
+        <summary
+          class="cursor-pointer list-none text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+        >
+          <span class="underline decoration-dotted underline-offset-4">
+            Comment fonctionne la séance ?
+          </span>
+        </summary>
+
+        <dl class="mt-3 space-y-3 text-sm text-slate-500 dark:text-slate-400">
+          <div>
+            <dt class="font-medium text-slate-700 dark:text-slate-200">
+              Une carte, c’est un verbe à un temps.
+            </dt>
+            <dd>
+              <em>tener</em> au passé simple, par exemple. Elle est posée à deux ou trois personnes
+              tirées au sort : savoir un verbe à quatre personnes sur six, ce n’est pas le savoir.
+            </dd>
+          </div>
+
+          <div>
+            <dt class="font-medium text-slate-700 dark:text-slate-200">
+              Vingt minutes par jour, pas un nombre de cartes.
+            </dt>
+            <dd>
+              La séance s’arrête sur un budget de temps. Un jour où tu réfléchis plus, tu fais moins
+              de cartes — pas vingt minutes de plus. Le budget appartient à la journée : une seconde
+              séance reprend là où la première s’est arrêtée.
+            </dd>
+          </div>
+
+          <div>
+            <dt class="font-medium text-slate-700 dark:text-slate-200">
+              Dix nouvelles cartes par jour, pas plus.
+            </dt>
+            <dd>
+              C’est le débit que les révisions à venir peuvent absorber durablement. En ouvrir
+              davantage aujourd’hui, c’est se préparer une montagne dans trois semaines.
+            </dd>
+          </div>
+
+          <div>
+            <dt class="font-medium text-slate-700 dark:text-slate-200">
+              Une carte revient quand tu es sur le point de l’oublier.
+            </dt>
+            <dd>
+              C’est tout l’intérêt : réviser ce qu’on sait déjà n’apprend rien. À chaque réussite
+              l’écart s’allonge — trois jours, puis deux semaines, puis deux mois.
+            </dd>
+          </div>
+
+          <div>
+            <dt class="font-medium text-slate-700 dark:text-slate-200">
+              Une carte neuve ou ratée repasse dans la journée.
+            </dt>
+            <dd>
+              Quelques minutes après la première vue, le temps de l’ancrer. C’est normal de la
+              revoir, et ce passage <strong>ne compte pas</strong> dans l’objectif du jour : c’est
+              pour cela que le compteur peut afficher 48 / 48 alors qu’il reste des cartes à
+              repasser.
+            </dd>
+          </div>
+
+          <div>
+            <dt class="font-medium text-slate-700 dark:text-slate-200">
+              En retard n’est pas perdu.
+            </dt>
+            <dd>
+              Les cartes échues qui débordent des vingt minutes reviennent les jours suivants, les
+              plus anciennes d’abord. Au-delà de soixante en attente, l’ouverture de nouveautés se
+              met en pause le temps de rattraper.
+            </dd>
+          </div>
+
+          <div>
+            <dt class="font-medium text-slate-700 dark:text-slate-200">
+              La série compte les jours.
+            </dt>
+            <dd>
+              Un jour où tu as révisé au moins une carte. Ne pas avoir commencé aujourd’hui ne la
+              rompt pas — la journée n’est pas finie ; c’est un lendemain sans séance qui la rompt.
+            </dd>
+          </div>
+        </dl>
+      </details>
     </template>
   </section>
 </template>

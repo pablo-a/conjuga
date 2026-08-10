@@ -56,7 +56,13 @@ export interface Snapshot {
 export async function loadSnapshot(): Promise<Snapshot> {
   const cards = await db.cards.toArray()
   return {
-    deck: cards.map((card) => ({ id: card.id, due: card.due })),
+    // `lastReview` permet au sélecteur de reconnaître une repasse : sans elle, la
+    // seconde vue d'une nouveauté passerait pour une carte de plus à faire.
+    deck: cards.map((card) => ({
+      id: card.id,
+      due: card.due,
+      lastReview: card.fsrs.last_review ?? null,
+    })),
     // FSRS exprime la stabilité en jours, ce qu'attend `MASTERY_STABILITY_DAYS`.
     progress: new Map(cards.map((card) => [card.id, card.fsrs.stability])),
   }
@@ -183,10 +189,32 @@ export async function saveReview(review: ReviewToSave): Promise<void> {
      */
     const key = dayKey(review.at)
     const day = await db.days.get(key)
+
+    /*
+     * Ce que la carte coûte au programme du jour, et il y a deux façons de ne
+     * rien coûter du tout :
+     *
+     * - la **repasse** — FSRS ramène une carte neuve dix minutes après, et une
+     *   carte ratée dans la minute. Cette seconde vue achève un travail déjà
+     *   compté ; la compter deux fois ferait grossir l'objectif du jour à mesure
+     *   qu'on le remplit, ce qui est précisément l'effet qu'on veut éviter ;
+     * - la révision **en avance** — le drill lancé depuis une fiche, un
+     *   supplément qui ne doit pas manger le budget de la séance ordinaire, seule
+     *   à suivre l'ordre du programme.
+     *
+     * Reste ce qui fait avancer la journée : une découverte, ou une carte due.
+     */
+    const repeated = existing?.fsrs.last_review != null && dayKey(existing.fsrs.last_review) === key
+    const discovered = existing === undefined
+    const scheduled = existing !== undefined && existing.due.getTime() <= review.at.getTime()
+    const advances = !repeated && (discovered || scheduled)
+
     await db.days.put({
       id: key,
       cards: (day?.cards ?? 0) + 1,
       answers: (day?.answers ?? 0) + review.answers.length,
+      planned: (day?.planned ?? 0) + (advances ? 1 : 0),
+      introduced: (day?.introduced ?? 0) + (discovered ? 1 : 0),
     })
   })
 }
@@ -213,4 +241,16 @@ export async function loadPatternStats(): Promise<PatternCount[]> {
  */
 export async function loadStudyDays(): Promise<StudyDay[]> {
   return db.days.orderBy('id').toArray()
+}
+
+/**
+ * Ce que la journée en cours a déjà consommé.
+ *
+ * Rendu même quand rien n'a été fait, avec des zéros plutôt qu'un `undefined` :
+ * le sélecteur en soustrait les compteurs, et une journée jamais ouverte est une
+ * journée dont le budget est entier — pas une absence de réponse.
+ */
+export async function loadDay(now: Date): Promise<StudyDay> {
+  const key = dayKey(now)
+  return (await db.days.get(key)) ?? { id: key, cards: 0, answers: 0, planned: 0, introduced: 0 }
 }
